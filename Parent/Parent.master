@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Parent.master.cs" Inherits="Parent_Parent" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SIS | Application</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/imagehover.bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a id="home" href="Main.aspx" runat="server" class="navbar-brand">SIS</a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="Online Application/Application.aspx"><span>Online Application<span class="Online Application"></span></span></a></li>
+                    <li><a href="ViewStudent.aspx"><span>Announcements<span class="View Students"></span></span></a></li>
+                    <li><a href="ViewStudent.aspx"><span><span class="View Students"></span></span></a></li>
+                    <li><a href="ViewStudent.aspx"><span>Update Students <span class="View Students"></span></span></a></li>
+                    <li><a href="ViewStudent.aspx"><span>Log In<span class="View Students"></span></span></a></li>
+                    <li><a href="ViewStudent.aspx"><span><span class="View Students"></span></span></a></li>
+
+                </ul>
+            </div>
+          </div>
+     </div>
+    <div class="container">
+        <div class="clearfix">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            <asp:ContentPlaceHolder ID="title" runat="server" />
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/jquery-1.9.1.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/bootstrap.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/jasny-bootstrap.min.js") %>'></script>
+</body>
+</html>
