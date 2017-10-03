@@ -21,12 +21,10 @@
                </span>
            </div>
        </div>--%>
-<table class="table table-hover">
+    <table class="table table-hover">
                <thead>
                    <th>Section ID</th>
                    <th>Section Name</th>
-                   <th>Time Stamp</th>
-                   <th>User ID</th>
                    <th>Year Level</th>
                </thead>
     <tbody>
@@ -72,6 +70,11 @@
         </asp:ListView>
     </tbody>
     </table>
+
+        <a href="AddSection.aspx"
+            class="btn btn-submit" title="Add New Section">
+            <i class="fa fa-edit"></i>
+        </a>
    <%-- <div class=" col-lg-offset-5">
         <asp:DataPager ID="dpSection" runat="server"
              PagedControlID="lvSection"  PageSize="10">

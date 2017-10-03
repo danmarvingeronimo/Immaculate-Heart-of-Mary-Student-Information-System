@@ -18,15 +18,17 @@ public partial class Section_AddSection : System.Web.UI.Page
         using (SqlConnection sandwich = new SqlConnection(Util.GetConnection()))
         {
             sandwich.Open();
-            string cheese = @"INSERT INTO SECTION VALUES(@Section_Name,@Time_Stamp,@User_ID,@Year_Level) ";
+            string cheese = @"INSERT INTO SECTION(Section_Name, Year_level)
+                            VALUES(@Section_Name, @Year_level) ";
+
+
 
             using(SqlCommand bread = new SqlCommand(cheese,sandwich))
             {
                 //bread.Parameters.AddWithValue("@Section_ID",int.Parse(txtSectionID.Text));
                 bread.Parameters.AddWithValue("@Section_Name", txtSectionName.Text);
-                bread.Parameters.AddWithValue("@Time_Stamp", DateTime.Now);
-                bread.Parameters.AddWithValue("@User_ID", int.Parse(txtUserID.Text));
-                bread.Parameters.AddWithValue("@Year_Level", int.Parse(txtYL.Text));
+                //bread.Parameters.AddWithValue("@Time_Stamp", DateTime.Now);
+                bread.Parameters.AddWithValue("@Year_level", int.Parse(txtYL.Text));
                 bread.ExecuteNonQuery();
                 Response.Redirect("ViewSection.aspx");
             }

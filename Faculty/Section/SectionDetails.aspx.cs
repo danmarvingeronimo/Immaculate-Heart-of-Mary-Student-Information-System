@@ -51,7 +51,6 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
                         {
                             ltID.Text = dr["Section_ID"].ToString();
                             txtSName.Text = dr["Section_Name"].ToString();
-                            txtUID.Text = dr["User_ID"].ToString();
                             txtYL.Text = dr["Year_level"].ToString();
                         }
                     }
@@ -67,13 +66,12 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
     {
         using(SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE SECTION SET Section_Name=@SN,User_ID=@UID,Year_Level=@YL WHERE Section_ID = @SID";
+            string sql = @"UPDATE SECTION SET Section_Name=@SN,Year_Level=@YL WHERE Section_ID = @SID";
             con.Open();
 
             using(SqlCommand com = new SqlCommand(sql,con))
             {
                 com.Parameters.AddWithValue("@SN", txtSName.Text);
-                com.Parameters.AddWithValue("@UID", txtUID.Text);
                 com.Parameters.AddWithValue("@YL", txtYL.Text);
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();

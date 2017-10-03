@@ -31,7 +31,7 @@
 
                                 <td>
                                   <a href='AdminDetails.aspx?ID=<%#Eval("Admin_ID")%>'
-                                      class="btn btn-xs btn-info" title="View Payment Details">
+                                      class="btn btn-xs btn-info" title="View Admin Details">
                                          <i class="fa fa-edit"></i>
                                  </a>
 

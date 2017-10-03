@@ -16,13 +16,7 @@
                     class="form-control text-capitalize" required />
             </div>
             </div>
-            <div class=" form-group">
-            <label class="control-label col-lg-4">User ID</label>
-            <div class="col-lg-8">
-                <asp:TextBox ID="txtUID" runat="server"
-                    class="form-control text-capitalize" required />
-            </div>
-        </div>
+            
             <div class=" form-group">
             <label class="control-label col-lg-4">Year Level</label>
             <div class="col-lg-8">

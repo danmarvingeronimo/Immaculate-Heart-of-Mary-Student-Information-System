@@ -22,13 +22,7 @@
                             class="form-control" MaxLength="50" required />
                 </div>
             </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">UserID</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtUserID" runat="server"
-                        class="form-control" MaxLength="10" required />
-                </div>
-            </div>
+           
             <div class=" form-group">
                 <label class="control-label col-lg-4">Year Level</label>
                 <div class="col-lg-8">
