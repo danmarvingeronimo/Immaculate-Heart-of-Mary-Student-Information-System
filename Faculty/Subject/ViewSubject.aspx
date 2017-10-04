@@ -2,7 +2,7 @@
 
 <%--<Nathaniel Collins S. Ortiz>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    Student List
+    Subject List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     

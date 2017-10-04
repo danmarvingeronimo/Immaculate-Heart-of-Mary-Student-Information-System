@@ -24,7 +24,7 @@
             </div>
            
             <div class=" form-group">
-                <label class="control-label col-lg-4">Year Level</label>
+                <label class="control-label col-lg-4">Grade Level</label>
                 <div class="col-lg-8">
                     <asp:TextBox ID="txtYL" runat="server" class="form-control" MaxLength="20" required />
                 </div>
