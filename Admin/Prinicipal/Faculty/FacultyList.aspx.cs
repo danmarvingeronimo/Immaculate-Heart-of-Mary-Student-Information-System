@@ -24,8 +24,7 @@ public partial class Faculty : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-                String SQL = @"Select Teach.Teacher_ID, Teach.Teacher_FirstName + ', ' + Teach.Teacher_LastName + ' ' + Teach.Teacher_MiddleName AS 'Teacher Name', Teach.User_ID, Subj.Subject_Name from TEACHER_MAIN Teach
-                               INNER JOIN SUBJECT_MAIN Subj ON Subj.Teacher_ID=Teach.Teacher_ID";
+            String SQL = @"SELECT Teacher_ID, Teacher_FirstName + ', ' + Teacher_LastName + ' ' + Teacher_MiddleName AS 'Teacher Name', User_ID FROM TEACHER_MAIN";
 
                 using (SqlCommand cmd = new SqlCommand(SQL,con))
                 {

@@ -23,7 +23,6 @@
                    
                    
                    <th>Full Name</th>
-                   <th>Subject</th>
                    <th>User ID</th>
                    
                </thead>
@@ -35,7 +34,6 @@
                                   Text='<%# Eval("Teacher_ID") %>' Visible="false" />
                                
                                <td><%# Eval("Teacher Name") %></td>
-                               <td><%# Eval("Subject_Name") %></td>
                                
                                
                                <td><%# Eval("User_ID") %></td>

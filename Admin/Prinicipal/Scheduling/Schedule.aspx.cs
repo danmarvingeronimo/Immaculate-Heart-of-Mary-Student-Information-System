@@ -70,13 +70,12 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"Select S.ScheduleID, S.Day_Schedule, S.Timeslot, S.Year_level + ' - ' + Sec.Section_Name AS 'Grade Section', Subj.Subject_Name ,
+            string Takanashi = @"Select S.ScheduleID, S.Day_Schedule, S.Timeslot , S.Year_level + ' - ' + Sec.Section_Name AS 'Grade Section', Subj.Subject_Name ,
 	                            Teach.Teacher_FirstName + ', ' + Teach.Teacher_LastName + ' ' + Teach.Teacher_MiddleName AS 'Teacher'
 								from SCHEDULE S
                                 INNER JOIN SECTION Sec ON S.Section_ID = Sec.Section_ID
                                 INNER JOIN SUBJECT_MAIN Subj ON S.Subject_ID = Subj.Subject_ID
-								INNER JOIN TEACHER_MAIN Teach ON Subj.Teacher_ID = Teach.Teacher_ID 
-                                WHERE Sec.Section_ID = @SID";
+								INNER JOIN TEACHER_MAIN Teach ON Subj.Teacher_ID = Teach.Teacher_ID WHERE Sec.Section_ID = @SID";
 
 
             //@"Select ScheduleID, Day_Schedule, Timeslot from SCHEDULE";

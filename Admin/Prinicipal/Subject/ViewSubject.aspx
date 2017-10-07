@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Faculty/Faculty.master" AutoEventWireup="true" CodeFile="ViewSubject.aspx.cs" Inherits="Subject_ViewSubject" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="ViewSubject.aspx.cs" Inherits="Subject_ViewSubject" %>
 
 <%--<Nathaniel Collins S. Ortiz>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
@@ -31,7 +31,10 @@
                                 <td><%#Eval("Teacher Name") %></td>   
 
                                 <td>
-                                
+                                <a href='AssignFacSubj.aspx?ID=<%#Eval("Subject_ID")%>'
+                                     class="btn btn-xs btn-info" title="View Schedule">
+                                    <i class="fa fa-edit"></i>
+                        </a>
                                 </td>
                             </tr>
                         </ItemTemplate>
