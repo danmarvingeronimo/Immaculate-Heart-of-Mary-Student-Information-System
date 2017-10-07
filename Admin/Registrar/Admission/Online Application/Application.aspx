@@ -1,15 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Online Application/OnlineApplication.master" AutoEventWireup="true" CodeFile="Details.aspx.cs" Inherits="Online_Application_Details" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Admission/Online Application/OnlineApplication.master" AutoEventWireup="true" CodeFile="Application.aspx.cs" Inherits="Online_Application_Application" %>
 
-<%--Jionne Lizardo--%>
-
-
-<asp:Content ID="Content3" ContentPlaceHolderID="title" Runat="Server">
-    <i class="fa  fa-book"></i>
-     Admin ID #<asp:Literal ID="ltID" runat="server" />
-</asp:Content>
+<%--Dan Marvin Geronimo--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    Parent Info
+    Student Application
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <form runat="server" class="form-horizontal">
@@ -19,107 +13,120 @@
                 Email address already taken!
             </div>--%>
             <div class="form-group">
-                <label class="control-label col-lg-4">Mother's Full Name</label>
+                <label class="control-label col-lg-4">First Name</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherFN" runat="server"
+                    <asp:TextBox ID="txtFN" runat="server"
                         class="form-control" type="text" MaxLength="100"
                         required />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-lg-4">Age</label>
+                <label class="control-label col-lg-4">Middle Name</label>
+               <div class="col-lg-8">
+                    <asp:TextBox ID="txtMN" runat="server"
+                        class="form-control" type="text" MaxLength="100"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Last Name</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherAge" runat="server"
+                    <asp:TextBox ID="txtLN" runat="server"
                         class="form-control" type="text" MaxLength="50"
                         required />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-lg-4">Birthplace</label>
+                <label class="control-label col-lg-4">City</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherBP" runat="server"
+                    <asp:TextBox ID="txtCity" runat="server"
                         class="form-control" type="text" MaxLength="50"
                         required />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-lg-4">Nationality</label>
+                <label class="control-label col-lg-4">Barangay</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherNat" runat="server"
+                    <asp:TextBox ID="txtBrngy" runat="server"
                         class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Municipality</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMun" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Street</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtStreet" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Provincial Address</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtProvAdd" runat="server"
+                       class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Birth Date</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtBirthDate" runat="server"
+                        class="form-control" type="date" MaxLength="100"
+                        required />
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-lg-4">Place of Birth</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtBirthPlace" runat="server"
+                       class="form-control" type="text" MaxLength="50"
                         required />
                 </div>
             </div>
             <div class="form-group">
                 <label class="control-label col-lg-4">Religion</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherReligion" runat="server"
-                        class="form-control" type="text" MaxLength="50"
+                    <asp:TextBox ID="txtReligion" runat="server"
+                       class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-lg-4">Date of Baptism</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtBaptDate" runat="server"
+                       class="form-control" type="date" MaxLength="50"
+                        required />
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-lg-4">Place of Baptism</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtBaptPlace" runat="server"
+                       class="form-control" type="text" MaxLength="50"
                         required />
                 </div>
             </div>
             <div class="form-group">
-                <label class="control-label col-lg-4">Home Address</label>
+                <label class="control-label col-lg-4">Nationality</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherHomeAdd" runat="server"
-                        class="form-control" type="text" MaxLength="50"
-                        required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">Phone No.</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherPhoneNo" runat="server"
-                        class="form-control" type="text" MaxLength="50"
-                        required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">Educational Status</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherEduStat" runat="server"
-                        class="form-control" type="text" MaxLength="50"
-                        required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">School Graduated</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherSchoolGrad" runat="server"
-                        class="form-control" type="text" MaxLength="100"
-                        required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">Employment</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherEmployem" runat="server"
-                        class="form-control" type="text" MaxLength="50"
-                        required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">Office Address</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherOfficeAdd" runat="server"
-                        class="form-control" type="text" MaxLength="50"
-                        required />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label col-lg-4">Nature of Business</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMotherNatureBus" runat="server"
-                        class="form-control" type="text" MaxLength="50"
+                    <asp:TextBox ID="txtNat" runat="server"
+                       class="form-control" type="text" MaxLength="50"
                         required />
                 </div>
             </div>
 
-
-            <br />
-
             <div class="form-group">
-                <h1>Other Class Info</h1>
+                <h1>Other Info</h1>
             </div>
 
             <div class="form-group">
@@ -199,29 +206,11 @@
                 </div>
             </div>
 
-
-           <%--Time Stamp--%>
-            
-            <br />
-
-            <div class="form-group">
-                <div class="col-lg-offset-4 col-lg-8">
-                    <asp:Button ID="btnAdd" runat="server"
-                        class="btn btn-success" Text="Add"
-                        OnClick="btnAdd_Click" />
-                </div>
+             <div class="form-group">
+                <h1>Parent's Info</h1>
             </div>
 
-
-
-        </div>
-
-
-
-
-        <%--Father--%>
-
-        <div class="col-lg-6">
+            
             <div class="form-group">
                 <label class="control-label col-lg-4">Father's Full Name</label>
                 <div class="col-lg-8">
@@ -321,6 +310,7 @@
                 </div>
             </div>
 
+
             <div class="form-group">
                 <label class="control-label col-lg-4">Nature of Business</label>
                 <div class="col-lg-8">
@@ -329,7 +319,116 @@
                         required />
                 </div>
             </div>
-        </div>
 
+
+
+            <br />
+
+            <div class="form-group">
+                <label class="control-label col-lg-4">Mother's Full Name</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherFN" runat="server"
+                        class="form-control" type="text" MaxLength="100"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Age</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherAge" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Birthplace</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherBP" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Nationality</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherNat" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Religion</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherReligion" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Home Address</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherHomeAdd" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Phone No.</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherPhoneNo" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Educational Status</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherEduStat" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">School Graduated</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherSchoolGrad" runat="server"
+                        class="form-control" type="text" MaxLength="100"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Employment</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherEmployem" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Office Address</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherOfficeAdd" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-lg-4">Nature of Business</label>
+                <div class="col-lg-8">
+                    <asp:TextBox ID="txtMotherNatureBus" runat="server"
+                        class="form-control" type="text" MaxLength="50"
+                        required />
+                </div>
+            </div>
+            
+            
+            <div class="form-group">
+                <div class="col-lg-offset-4 col-lg-8">
+                    <asp:Button ID="btnApply" runat="server"
+                        CssClass="btn btn-success" Text="Submit"
+                        OnClick="btnApply_Click" />
+                </div>
+            </div>
+        </div>
     </form>
 </asp:Content>

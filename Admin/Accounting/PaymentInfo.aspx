@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admission/Admission.master" AutoEventWireup="true" CodeFile="PaymentInfo.aspx.cs" Inherits="Admin_Admission_PaymentInfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="PaymentInfo.aspx.cs" Inherits="Admin_Admission_PaymentInfo" %>
 
 <%--DAN MARVIN GERONIMO--%>
 

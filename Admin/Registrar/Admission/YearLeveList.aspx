@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admission/Admission.master" AutoEventWireup="true" CodeFile="YearLeveList.aspx.cs" Inherits="Admin_Admission_YearLeveList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="YearLeveList.aspx.cs" Inherits="Admin_Admission_YearLeveList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     Grade Level List

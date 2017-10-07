@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admission/Admission.master" AutoEventWireup="true" CodeFile="Add.aspx.cs" Inherits="TeacherPortal_Upload" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Add.aspx.cs" Inherits="TeacherPortal_Upload" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
     <i class="fa fa-plus"></i> Add Announcement
