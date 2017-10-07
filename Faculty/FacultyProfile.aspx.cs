@@ -26,7 +26,7 @@ public partial class Faculty_FacultyProfile : System.Web.UI.Page
             using (SqlCommand cheese = new SqlCommand(ham, burger))
             {
 
-                cheese.Parameters.AddWithValue("User_ID", Session["teacherid"].ToString());
+                cheese.Parameters.AddWithValue("@UID", Session["userid"].ToString());
 
 
 
