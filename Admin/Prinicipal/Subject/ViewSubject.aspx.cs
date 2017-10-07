@@ -24,7 +24,9 @@ public partial class Subject_ViewSubject : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"Select Subject_ID, Subject_Name, Subject_Desc from SUBJECT_MAIN";
+            string Takanashi = @"Select Subj.Subject_ID, Subj.Subject_Name, Subj.Subject_Desc, Teach.Teacher_FirstName + ', ' + Teach.Teacher_LastName + ' ' + Teach.Teacher_MiddleName AS 'Teacher Name' 
+                                 from  SUBJECT_MAIN Subj
+                                 INNER JOIN TEACHER_MAIN Teach ON Subj.Teacher_ID=Teach.Teacher_ID WHERE Subj.Subject_ID!='81'";
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
@@ -41,27 +43,43 @@ public partial class Subject_ViewSubject : System.Web.UI.Page
 
     protected void lvSubject_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        Literal ltSubjectID = (Literal)e.Item.FindControl("ltSubjectID");
 
-        if (e.CommandName == "delsub")
-        {
-            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
-            {
-                con.Open();
-                string DELETE = @"DELETE FROM SUBJECT_MAIN WHERE Subject_ID=@SubjID";
-                using (SqlCommand Nero = new SqlCommand(DELETE, con))
-                {
-                    Nero.Parameters.AddWithValue("@SubjID", ltSubjectID.Text);
-                    Nero.ExecuteNonQuery();
-                }
-            }
-        }
-        else if (e.CommandName == "updatesec")
-        {
-
-        }
+    }
+    protected void lvSubject_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    {
+        dpSubject.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
         ViewSubject();
     }
+    protected void lvSubject_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+
+    }
+
+    //protected void lvSubject_ItemCommand(object sender, ListViewCommandEventArgs e)
+    //{
+    //    Literal ltSubjectID = (Literal)e.Item.FindControl("ltSubjectID");
+
+    //    if (e.CommandName == "delsub")
+    //    {
+    //        using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+    //        {
+    //            con.Open();
+    //            string DELETE = @"DELETE FROM SUBJECT_MAIN WHERE Subject_ID=@SubjID";
+    //            using (SqlCommand Nero = new SqlCommand(DELETE, con))
+    //            {
+    //                Nero.Parameters.AddWithValue("@SubjID", ltSubjectID.Text);
+    //                Nero.ExecuteNonQuery();
+    //            }
+    //        }
+    //    }
+    //    else if (e.CommandName == "updatesec")
+    //    {
+
+    //    }
+    //    ViewSubject();
+    //}
+
+
     //protected void lvSubject_ItemCommand(object sender, ListViewCommandEventArgs e)
     //{
     //    Literal ltSubjectID = (Literal)e.Item.FindControl("ltSubjectID");

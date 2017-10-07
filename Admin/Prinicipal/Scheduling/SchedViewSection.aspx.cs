@@ -36,13 +36,19 @@ public partial class Section_ViewSection : System.Web.UI.Page
            }
        }
    }
-   //void GetSection(string keyword)
-   //{
-   //    using (SqlConnection con = new SqlConnection(Util.GetConnection()))
-   //    {
-   //        string SQL =
-   //    }
-   //}
-    
+    protected void lvSection_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+
+    }
+    protected void lvSection_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    {
+        dpSection.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+        ViewSection();
+    }
+    protected void lvSection_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+
+    }
+
 
 }

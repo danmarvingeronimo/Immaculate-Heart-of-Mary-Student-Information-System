@@ -21,8 +21,8 @@ public partial class Faculty_AddFaculty : System.Web.UI.Page
         {
             con.Open();
 
-            string SQL = @"INSERT INTO TEACHER_MAIN VALUES(@Teacher_ID,@Teacher_PW,@Teacher_FirstName,@Teacher_MiddleName,
-             @Teacher_LastName,,@User_ID)";
+            string SQL = @"INSERT INTO TEACHER_MAIN (Teacher_PW,Teacher_FirstName,Teacher_MiddleName, Teacher_LastName, User_ID)
+                VALUES (@Teacher_PW,@Teacher_FirstName,@Teacher_MiddleName, @Teacher_LastName,@User_ID)";
 
             using(SqlCommand com = new SqlCommand(SQL,con))
             {
@@ -32,7 +32,7 @@ public partial class Faculty_AddFaculty : System.Web.UI.Page
                 com.Parameters.AddWithValue("@Teacher_LastName", txtLname.Text);
                 com.Parameters.AddWithValue("@User_ID", txtTeacherID.Text);
                 com.ExecuteNonQuery();
-                Response.Redirect("Faculty.aspx");
+                Response.Redirect("FacultyList.aspx");
             }
         }
     }

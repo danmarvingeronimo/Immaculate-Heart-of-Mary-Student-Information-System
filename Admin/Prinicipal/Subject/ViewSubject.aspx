@@ -13,29 +13,25 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
-                    <th>Subject_ID</th>
-                    <th>Subject_Name</th>
-                    <th>Subject_Desc</th>
+                    
+                    <th>Subject Name</th>
+                    <th>Description</th>
+                    <th>Teacher</th>
                   
                     
                 </thead>
                 <tbody>
-                    <asp:ListView ID="lvSubject" runat="server"
-                        OnItemCommand="lvSubject_ItemCommand">
+                     <asp:ListView ID="lvSubject" runat="server" OnItemCommand="lvSubject_ItemCommand" OnPagePropertiesChanging="lvSubject_PagePropertiesChanging" OnItemDataBound="lvSubject_ItemDataBound">
                         <ItemTemplate>
                             <tr>
-                                 <td>
-                                 <asp:Literal ID="ltSubjectID" runat="server"
-                                  Text='<%# Eval("Subject_ID") %>' Visible="true" />               
-                                 </td>
+                                 
                        
                                 <td><%#Eval("Subject_Name") %></td>
                                 <td><%#Eval("Subject_Desc") %></td>   
+                                <td><%#Eval("Teacher Name") %></td>   
+
                                 <td>
-                                <asp:LinkButton ID="btnDelete" runat="server"
-                                 class="brn btn-xs btn-danger" CommandName="delsub">
-                                <i class="fa fa-remove"></i>
-                                </asp:LinkButton>
+                                
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -51,6 +47,20 @@
                     </asp:ListView>
                 </tbody>
             </table>
+             <div class="col-lg-offset-5">
+
+               <asp:DataPager ID="dpSubject" runat="server"
+                    PagedControlID="lvSubject" PageSize="10">
+                   <Fields>
+                       <asp:NumericPagerField
+                     ButtonType="Button"
+                     CurrentPageLabelCssClass="btn btn"
+                     NumericButtonCssClass="btn btn"
+                     NextPreviousButtonCssClass="btn btn-default"
+                     ButtonCount="5" />
+                   </Fields>
+               </asp:DataPager>
+           </div>
         </div>
     </form>
 

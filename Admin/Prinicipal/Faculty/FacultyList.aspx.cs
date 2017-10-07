@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 //Nathaniel Collins S. Ortiz
+//Dan Marvin Geronimo
 
 public partial class Faculty : System.Web.UI.Page
 {
@@ -23,7 +24,8 @@ public partial class Faculty : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-                String SQL = @"Select Teacher_ID, Teacher_PW, Teacher_FirstName,Teacher_MiddleName, Teacher_LastName, Time_Stamp, User_ID from TEACHER_MAIN";
+                String SQL = @"Select Teach.Teacher_ID, Teach.Teacher_FirstName + ', ' + Teach.Teacher_LastName + ' ' + Teach.Teacher_MiddleName AS 'Teacher Name', Teach.User_ID, Subj.Subject_Name from TEACHER_MAIN Teach
+                               INNER JOIN SUBJECT_MAIN Subj ON Subj.Teacher_ID=Teach.Teacher_ID";
 
                 using (SqlCommand cmd = new SqlCommand(SQL,con))
                 {
@@ -40,15 +42,37 @@ public partial class Faculty : System.Web.UI.Page
         }
      protected void lvFaculty_ItemCommand(object sender, ListViewCommandEventArgs e)
      {
+        Literal ltTeacherID = (Literal)e.Item.FindControl("ltTeacherID");
 
-     }
-     protected void lvFaculty_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+        if (e.CommandName == "delTeach")
+        {
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                con.Open();
+                string DELETE = @"DELETE FROM TEACHER_MAIN WHERE Teacher_ID=@TID";
+                using (SqlCommand Nero = new SqlCommand(DELETE, con))
+                {
+                    Nero.Parameters.AddWithValue("@TID", ltTeacherID.Text);
+                    Nero.ExecuteNonQuery();
+                }
+            }
+        }
+        else if (e.CommandName == "updateTeach")
+        {
+
+        }
+        GetFaculty();
+    }
+    protected void lvFaculty_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
      {
          dpFaculty.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
          GetFaculty();
      }
      protected void lvFaculty_ItemDataBound(object sender, ListViewItemEventArgs e)
      {
-         dpFaculty.Visible = dpFaculty.TotalRowCount < dpFaculty.PageSize;
-     }
+        GetFaculty();
+
+    }
+
+
 }

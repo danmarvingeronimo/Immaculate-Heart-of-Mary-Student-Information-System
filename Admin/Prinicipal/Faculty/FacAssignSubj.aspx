@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SchedDetails.aspx.cs" Inherits="Admin_IT_Admin_AdminDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="FacAssignSubj.aspx.cs" Inherits="Admin_IT_Admin_AdminDetails" %>
 
 
 <%--DAN MARVIN GERONIMO--%>
@@ -17,6 +17,10 @@
                         class="form-control" required />
                 </div>
             </div>
+
+
+
+
 
            <div class="form-group">
                <div class="col-lg-offset-4 col-lg-8">
