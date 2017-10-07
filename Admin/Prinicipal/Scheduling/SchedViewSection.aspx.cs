@@ -18,12 +18,12 @@ public partial class Section_ViewSection : System.Web.UI.Page
     }
    void ViewSection()
    {
-       using (SqlConnection please = new SqlConnection(Util.GetConnection()))
+       using (SqlConnection con = new SqlConnection(Util.GetConnection()))
        {
-           please.Open();
+            con.Open();
            String Send = @"Select Section_ID, Section_Name, Year_level from SECTION";
 
-            using (SqlCommand help= new SqlCommand(Send,please))
+            using (SqlCommand help= new SqlCommand(Send, con))
            {
                using (SqlDataAdapter da = new SqlDataAdapter(help))
                {

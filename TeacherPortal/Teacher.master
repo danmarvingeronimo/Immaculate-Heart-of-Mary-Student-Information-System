@@ -1,0 +1,73 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Teacher.master.cs" Inherits="TeacherPortal_Teacher" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Immaculate Heart of Mary College - Parañaque</title>
+    <!--<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/imagehover.bootstrap.min.css" rel="stylesheet" />-->
+   <%-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/css/imagehover.min.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css"/>--%>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/imagehover.bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-left">
+               <!-- <li><a class="navbar-brand" href="index.php"> <img class="img-responsive" src="Content/img/logo.png" alt="logo" width="90" height="90"/></a></li>-->
+                <li><a runat="server" href="Index.aspx"> Immaculate Heart of Mary College <span>-</span> Parañaque </a></li>
+           </ul>
+           <ul class="nav navbar-nav navbar-right">
+                <li><a runat="server" href="Profile.aspx">Profile</a></li>
+                <li><a runat="server" href="Class.aspx">Class List</a></li>
+                <li><a runat="server" href="ViewUpload.aspx">File List</a></li>
+            </ul>
+        </div>
+            </div>
+          </div>
+     </nav>
+    <div class="container">
+        <div class="clearfix">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            <asp:ContentPlaceHolder ID="title" runat="server" />
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Made by <a href="#">ByteJumper</a></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/jquery-1.9.1.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/bootstrap.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/jasny-bootstrap.min.js") %>'></script>
+</body>
+</html>

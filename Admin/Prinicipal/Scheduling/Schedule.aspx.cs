@@ -67,9 +67,9 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
 
     void ViewSchedule(int ID)
     {
-        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        using (SqlConnection con = new SqlConnection(Dekomori.GetConnection()))
         {
-            Rikka.Open();
+            con.Open();
             string Takanashi = @"Select S.ScheduleID, S.Day_Schedule, S.Timeslot, S.Year_level, Sec.Section_Name , Subj.Subject_Name from SCHEDULE S
                                 INNER JOIN SECTION Sec ON S.Section_ID = Sec.Section_ID
                                 INNER JOIN SUBJECT_MAIN Subj ON S.Subject_ID = Subj.Subject_ID WHERE Sec.Section_ID = @SID";
@@ -80,7 +80,7 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
             //@"Select S.ScheduleID, S.Day_Schedule, S.Timeslot, S.Year_level, Sec.Section_Name from SCHEDULE S
             //                     INNER JOIN SECTION Sec ON S.Section_ID = Sec.Section_ID"
 
-            using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
+            using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, con))
             {
                 Chuu2Koi.Parameters.AddWithValue("@SID", ID);
 

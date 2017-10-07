@@ -21,13 +21,13 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
 
     void GetStudents()
     {
-        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        using (SqlConnection con = new SqlConnection(Dekomori.GetConnection()))
         {
-            Rikka.Open();
+            con.Open();
             string Takanashi = @"SELECT Stud.Student_ID, Stud.First_Name, Stud.Middle_Name, Stud.Last_Name, Stat.Status_Desc FROM STUDENT_MAIN Stud 
                                  INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID WHERE Stud.Status_ID = 3";
 
-            using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
+            using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, con))
             {
                 using (SqlDataAdapter Nibutani = new SqlDataAdapter(Chuu2Koi))
                 {
