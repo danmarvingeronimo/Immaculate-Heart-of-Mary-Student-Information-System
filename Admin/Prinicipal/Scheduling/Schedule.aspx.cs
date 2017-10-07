@@ -69,10 +69,18 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Dekomori.GetConnection()))
         {
+<<<<<<< HEAD
             con.Open();
             string Takanashi = @"Select S.ScheduleID, S.Day_Schedule, S.Timeslot, S.Year_level, Sec.Section_Name , Subj.Subject_Name from SCHEDULE S
+=======
+            Rikka.Open();
+            string Takanashi = @"Select S.ScheduleID, S.Day_Schedule, S.Timeslot , S.Year_level + ' - ' + Sec.Section_Name AS 'Grade Section', Subj.Subject_Name ,
+	                            Teach.Teacher_FirstName + ', ' + Teach.Teacher_LastName + ' ' + Teach.Teacher_MiddleName AS 'Teacher'
+								from SCHEDULE S
+>>>>>>> 7357b7c73e5fa301f385d79e0cc1f0af2b5ab5cb
                                 INNER JOIN SECTION Sec ON S.Section_ID = Sec.Section_ID
-                                INNER JOIN SUBJECT_MAIN Subj ON S.Subject_ID = Subj.Subject_ID WHERE Sec.Section_ID = @SID";
+                                INNER JOIN SUBJECT_MAIN Subj ON S.Subject_ID = Subj.Subject_ID
+								INNER JOIN TEACHER_MAIN Teach ON Subj.Teacher_ID = Teach.Teacher_ID WHERE Sec.Section_ID = @SID";
 
 
             //@"Select ScheduleID, Day_Schedule, Timeslot from SCHEDULE";
@@ -105,7 +113,7 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
         if (e.CommandName == "delsched")
         {
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
-            {
+            {   
                 con.Open();
                 string DELETE = @"DELETE FROM SCHEDULE WHERE ScheduleID=@SchedID";
                 using (SqlCommand Nero = new SqlCommand(DELETE, con))

@@ -33,7 +33,7 @@ public partial class Faculty_Login : System.Web.UI.Page
                            Session["teacherid"] = dm["Teacher_ID"].ToString();
                            
                        }
-                       Response.Redirect("Dashboard.aspx");
+                       Response.Redirect("ChooseSubj.aspx");
                    }
                    else
                    {

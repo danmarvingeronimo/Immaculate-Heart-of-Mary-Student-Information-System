@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Faculty/Faculty.master" AutoEventWireup="true" CodeFile="SchedViewSection.aspx.cs" Inherits="Section_ViewSection" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="SchedViewSection.aspx.cs" Inherits="Section_ViewSection" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
@@ -21,16 +21,16 @@
        </div>--%>
     <table class="table table-hover">
                <thead>
-                   <th>Section ID</th>
+                   
                    <th>Section Name</th>
-                   <th>Year Level</th>
+                   <th>Grade</th>
                </thead>
     <tbody>
-        <asp:ListView ID="lvSection" runat="server">
+        <asp:ListView ID="lvSection" runat="server" OnItemCommand="lvSection_ItemCommand" OnPagePropertiesChanging="lvSection_PagePropertiesChanging" OnItemDataBound="lvSection_ItemDataBound">
             <ItemTemplate>
                 <tr>
 
-                    <td><%# Eval("Section_ID") %></td>
+                    
                     <td><%# Eval("Section_Name") %></td>
                     <td><%# Eval("Year_Level") %></td>
                     <td>
@@ -61,19 +61,19 @@
     </table>
 
        
-   <%-- <div class=" col-lg-offset-5">
+    <div class=" col-lg-offset-5">
         <asp:DataPager ID="dpSection" runat="server"
              PagedControlID="lvSection"  PageSize="10">
             <Fields>
                 <asp:NumericPagerField
                      ButtonType="Button"
-                     CurrentPageLabelCssClass="btn btn-success"
-                     NumericButtonCssClass="btn btn-default"
+                     CurrentPageLabelCssClass="btn btn"
+                     NumericButtonCssClass="btn btn"
                      NextPreviousButtonCssClass="btn btn-default"
                      ButtonCount="5" />
             </Fields>
         </asp:DataPager>
-    </div>--%>
+    </div>
     </form>
     
    

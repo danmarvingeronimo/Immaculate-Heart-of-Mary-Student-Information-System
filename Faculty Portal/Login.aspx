@@ -1,21 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student/Student.master" AutoEventWireup="true" CodeFile="LogIn.aspx.cs" Inherits="Student_LogIn" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Faculty_Login" %>
 
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    Student Login
+    Teacher Login
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class="form-horizontal">
         <div class="col-lg-6">
             <div id="error" runat="server" class="alert alert-danger"
                 visible="false">
-                Invalid User ID
+                Incorrect User ID or Password!
             </div>
             <div class="form-group">
                 <label class="control-label col-lg-4">
                     User ID
                 </label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtEmail" runat="server"
+                    <asp:TextBox ID="txtUserID" runat="server"
                         class="form-control" type="text"
                         MaxLength="100" required />
                 </div>
@@ -30,6 +32,8 @@
                         MaxLength="50" required />
                 </div>
             </div>
+
+
             <div class="form-group">
                 <div class="col-lg-offset-4 col-lg-8">
                     <asp:Button ID="btnLogin"
@@ -41,3 +45,5 @@
         </div>
     </form>
 </asp:Content>
+
+

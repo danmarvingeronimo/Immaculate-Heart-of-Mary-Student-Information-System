@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Faculty/Faculty.master" AutoEventWireup="true" CodeFile="Schedule.aspx.cs" Inherits="Faculty_Scheduling_Schedule" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="Schedule.aspx.cs" Inherits="Faculty_Scheduling_Schedule" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title"  Runat="Server">
    <i class="fa fa-user"></i>
@@ -13,12 +13,12 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
-                    <th>Schedule ID</th>
-                    <th>Day Schedule</th>
+                    
+                    <th>Daye</th>
                     <th>Time Slot</th>
-                    <th>Grade</th>
                     <th>Section</th>
                     <th>Subject Name</th>
+                    <th>Teacher</th>
                   
                     
                 </thead>
@@ -27,16 +27,14 @@
                         OnItemCommand="lvSched_ItemCommand">
                         <ItemTemplate>
                             <tr>
-                                 <td>
-                                 <asp:Literal ID="ltScheduleID" runat="server"
-                                  Text='<%# Eval("ScheduleID") %>' Visible="true" />               
-                                 </td>
+                                
                        
                                 <td><%#Eval("Day_Schedule") %></td>
                                 <td><%#Eval("Timeslot") %></td>
-                                <td><%#Eval("Year_level") %></td>
-                                <td><%#Eval("Section_Name") %></td>
+                                <td><%#Eval("Grade Section") %></td>
+                                
                                 <td><%#Eval("Subject_Name") %></td>
+                                <td><%#Eval("Teacher") %></td>
 
 <%--                                <td><%#Eval("Subject") %></td>--%>
                                 <td>
@@ -45,13 +43,8 @@
                                          <i class="fa fa-edit"></i>
                                  </a>
 
-                                </td>
-
-                                <td>
-                                <asp:LinkButton ID="btnDelete" runat="server"
-                                 class="brn btn-xs btn-danger" CommandName="delsched">
-                                <i class="fa fa-remove"></i>
-                                </asp:LinkButton>
+                                
+                                
                                 </td>
                             </tr>
                         </ItemTemplate>
