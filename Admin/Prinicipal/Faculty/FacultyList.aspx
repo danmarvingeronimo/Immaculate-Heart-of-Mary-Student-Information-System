@@ -37,17 +37,7 @@
                                
                                
                                <td><%# Eval("User_ID") %></td>
-                               <td>
-                                   <a href='FacAssignSubj.aspx?ID=<%#Eval("Teacher_ID")%>'
-                                      class="btn btn-xs btn-success" title="Add Subject">
-                                         <i class="fa fa-edit"></i>
-                                 </a>
-                               
-                                   <asp:LinkButton ID="btnDelete" runat="server"
-                                 class="btn btn-xs btn-danger" CommandName="delTeach">
-                                <i class="fa fa-remove"></i>
-                                </asp:LinkButton>
-                               </td>
+                              
                            </tr>
                        </ItemTemplate>
                        <EmptyDataTemplate>
