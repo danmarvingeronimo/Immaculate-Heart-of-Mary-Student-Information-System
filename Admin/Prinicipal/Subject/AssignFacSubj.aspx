@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    <i class="fa fa-plus">Add Subject</i>
+    
      <asp:Literal ID="ltSID" runat="server" /> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">

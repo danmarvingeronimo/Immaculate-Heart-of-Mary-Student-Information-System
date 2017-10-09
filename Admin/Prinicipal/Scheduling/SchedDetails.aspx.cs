@@ -64,7 +64,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                         Response.Redirect("Schedule.aspx");
                     }
                 }
-            }
+           }
         }
     }
 

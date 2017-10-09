@@ -41,7 +41,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            string Takanashi = @"SELECT Admin_ID, User_ID, First_Name, Middle_Name, Last_Name FROM ADMIN_MAIN WHERE Admin_ID=@Admin_ID";
+            string Takanashi = @"SELECT Admin_ID, User_ID, Admin_PW, First_Name + ', ' + Last_Name + ' ' + Middle_Name AS 'Admin Name' FROM ADMIN_MAIN WHERE Admin_ID=@Admin_ID";
             Rikka.Open();
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
@@ -53,16 +53,15 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                     {
                         while (Chuu2.Read())
                         {
-                            ltID.Text = Chuu2["Admin_ID"].ToString();
+                            ltID.Text = Chuu2["Admin Name"].ToString();
                             txtUID.Text = Chuu2["User_ID"].ToString();
-                            txtFN.Text = Chuu2["First_Name"].ToString();
-                            txtMN.Text = Chuu2["Middle_Name"].ToString();
-                            txtLN.Text = Chuu2["Last_Name"].ToString();
+                            txtPass.Text = Chuu2["Admin_PW"].ToString();
+                            
                         }
                     }
                     else
                     {
-                        Response.Redirect("ViewSection.aspx");
+                        Response.Redirect("ViewAdmin.aspx");
                     }
                 }
             }
@@ -100,23 +99,20 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"UPDATE ADMIN_MAIN SET First_Name=@First_Name, Middle_Name=@Middle_Name, Last_Name=@Last_Name,
-                               UserType_ID=@UserType_ID WHERE Admin_ID=@Admin_ID";
+            string Takanashi = @"UPDATE ADMIN_MAIN SET UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
 
             using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
 
-                //Admin Credentials (First Name, Last Name, etc.)
-
-                WickedEye.Parameters.AddWithValue("@First_Name", txtFN.Text);
-                WickedEye.Parameters.AddWithValue("@Middle_Name", txtMN.Text);
-                WickedEye.Parameters.AddWithValue("@Last_Name", txtLN.Text);
 
                 //Admin Access Level
                 WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
+                WickedEye.Parameters.AddWithValue("@PW", txtPass.Text);
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Request.QueryString["ID"].ToString());
                 WickedEye.ExecuteNonQuery();
                 Response.Redirect("ViewAdmin.aspx");
+
+
 
             }
         }

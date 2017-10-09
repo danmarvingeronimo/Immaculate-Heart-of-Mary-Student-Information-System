@@ -32,8 +32,8 @@
 
                                 <td>
                                 <a href='AssignFacSubj.aspx?ID=<%#Eval("Subject_ID")%>'
-                                     class="btn btn-xs btn-info" title="View Schedule">
-                                    <i class="fa fa-edit"></i>
+                                     class="btn btn-xs btn-info" title="Assign Subject">
+                                    <i class="fa fa-edit" ></i>
                         </a>
                                 </td>
                             </tr>

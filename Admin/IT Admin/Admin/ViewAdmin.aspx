@@ -4,18 +4,22 @@
     Admin List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    
+   
 
 <%--    DAN MARVIN GERONIMO--%>
 
    <form runat="server" class="form-horizontal">
         <div class="col-lg-12">
+            <div>
+            <a href='AddAdmin.aspx'
+             class="btn btn-xs btn-default" title="Add Admin">
+              <i class="fa fa-plus"></i>
+             </a>
+            </div>
             <table class ="table table-hover">
                 <thead>
                     <th>Admin User ID #</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>Full Name</th>
                     <th>Access Level</th>
                     
                 </thead>
@@ -24,9 +28,8 @@
                         <ItemTemplate>
                             <tr>
                                 <td><%#Eval("User_ID") %></td>
-                                <td><%#Eval("First_Name") %></td>
-                                <td><%#Eval("Middle_Name") %></td>
-                                <td><%#Eval("Last_Name") %></td>
+                                <td><%#Eval("Full Name") %></td>
+                                
                                 <td><%#Eval("UserType_Desc") %></td>
 
                                 <td>

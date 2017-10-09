@@ -1,6 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="StudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
-
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="AdmissionStudList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     Student List
@@ -33,7 +31,7 @@
 
                                 <td>
 
-                               <a href='UpdateStudents.aspx?ID=<%#Eval("Student_ID")%>'
+                               <a href='PaymentInfo.aspx?ID=<%#Eval("Student_ID")%>'
                                       class="btn btn-xs btn-info" title="View Payment Details">
                                          <i class="fa fa-edit"></i>
                                  </a>

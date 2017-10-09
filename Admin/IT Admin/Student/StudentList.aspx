@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="StudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     Student List
 </asp:Content>
@@ -13,9 +15,7 @@
             <table class ="table table-hover">
                 <thead>
                     <th>Student ID #</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>Full Name</th>
                     <th>Status</th>
                     
                 </thead>
@@ -23,15 +23,12 @@
                     <asp:ListView ID="lvStudents" runat="server">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Eval("Student_ID") %></td>
-                                <td><%#Eval("First_Name") %></td>
-                                <td><%#Eval("Middle_Name") %></td>
-                                <td><%#Eval("Last_Name") %></td>
+                                <td><%#Eval("User_ID") %></td>
+                                <td><%#Eval("Student Name") %></td>
                                 <td><%#Eval("Status_Desc") %></td>
-
                                 <td>
 
-                               <a href='PaymentInfo.aspx?ID=<%#Eval("Student_ID")%>'
+                               <a href='UpdateStudents.aspx?ID=<%#Eval("Student_ID")%>'
                                       class="btn btn-xs btn-info" title="View Payment Details">
                                          <i class="fa fa-edit"></i>
                                  </a>

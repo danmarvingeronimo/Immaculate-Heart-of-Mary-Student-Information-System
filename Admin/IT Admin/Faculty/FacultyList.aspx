@@ -10,18 +10,10 @@
     <form runat="server" class="form-horizontal">
           
        <div class ="col-lg-12">
-           
-           <div>
-            <a href='AddFaculty.aspx'
-             class="btn btn-xs btn-default" title="Add Subject">
-              <i class="fa fa-plus"></i>
-             </a>
-        </div>
-           
            <table class="table table-hover">
                <thead>
-                   <th>User ID</th>
                    <th>Full Name</th>
+                   <th>User ID</th>
                </thead>
                <tbody>
                    <asp:ListView ID="lvFaculty" runat="server" OnItemCommand="lvFaculty_ItemCommand" OnPagePropertiesChanging="lvFaculty_PagePropertiesChanging" OnItemDataBound="lvFaculty_ItemDataBound">
@@ -29,17 +21,15 @@
                            <tr>
                                <asp:Literal ID="ltTeacherID" runat="server"
                                   Text='<%# Eval("Teacher_ID") %>' Visible="false" />
-                               <td><%# Eval("User_ID") %></td>
+                               
                                <td><%# Eval("Teacher Name") %></td>
+                               <td><%# Eval("User_ID") %></td>
                                <td>
-                                   <a href='FacultyDetails.aspx?ID=<%#Eval("Teacher_ID")%>'
-                                     class="btn btn-xs btn-info" title="View Faculty Details">
+                                   <a href='EditFacultyUIDPW.aspx?ID=<%#Eval("Teacher_ID")%>'
+                                     class="btn btn-xs btn-info" title="Edit User ID/Password">
                                     <i class="fa fa-edit"></i>
                                    </a>
-                                    <asp:LinkButton ID="btnDelete" runat="server"
-                                         class="btn btn-xs btn-danger" CommandName="delTeach">
-                                         <i class="fa fa-remove"></i>
-                                    </asp:LinkButton>
+                                    
                                </td>
                            </tr>
                        </ItemTemplate>

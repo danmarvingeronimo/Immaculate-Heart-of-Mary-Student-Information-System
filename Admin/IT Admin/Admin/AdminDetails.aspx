@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     <i class="fa  fa-book"></i>
-     Admin ID #<asp:Literal ID="ltID" runat="server" />
+     <asp:Literal ID="ltID" runat="server" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class=" form-horizontal">
@@ -15,33 +15,11 @@
             <label class="control-label col-lg-4">User ID</label>
             <div class="col-lg-8">
                 <asp:TextBox ID="txtUID" runat="server"
-                    class="form-control text-capitalize" ReadOnly />
-            </div>
-        </div>
-
-            <div class=" form-group">
-            <label class="control-label col-lg-4">First Name</label>
-            <div class="col-lg-8">
-                <asp:TextBox ID="txtFN" runat="server"
                     class="form-control text-capitalize"  />
             </div>
         </div>
 
-            <div class=" form-group">
-            <label class="control-label col-lg-4">Middle Name</label>
-            <div class="col-lg-8">
-                <asp:TextBox ID="txtMN" runat="server"
-                    class="form-control text-capitalize"  />
-            </div>
-        </div>
-
-            <div class=" form-group">
-            <label class="control-label col-lg-4">Last Name</label>
-            <div class="col-lg-8">
-                <asp:TextBox ID="txtLN" runat="server"
-                    class="form-control text-capitalize"  />
-            </div>
-        </div>
+            
 
 
 
@@ -53,7 +31,13 @@
                 </div>
             </div>
 
-
+            <div class="form-group">
+                <label class="control-label col-lg-4">Password</label>
+                <div class="col-lg-8">
+                        <asp:TextBox ID="txtPass" runat="server"
+                            class="form-control" MaxLength="50" required />
+                </div>
+            </div>
 
 
 
