@@ -7,18 +7,18 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 
-public partial class TeacherPortal_Class : System.Web.UI.Page
+public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Request.QueryString["ID"] == null)
+        if (Request.QueryString["Announcement_ID"] == null)
         {
-            Response.Redirect("ViewFileUpload.aspx");
+            Response.Redirect("ViewAnnouncement.aspx");
         }
         else
         {
             int fileid = 0;
-            bool validfileid = int.TryParse(Request.QueryString["ID"].ToString(), out fileid);
+            bool validfileid = int.TryParse(Request.QueryString["Announcement_ID"].ToString(), out fileid);
 
             if (validfileid)
             {
@@ -29,20 +29,20 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("ViewFileUpload.aspx");
+                Response.Redirect("ViewAnnouncement.aspx");
             }
         }
     }
 
-    void GetData(int ID)
+    void GetData(int Announcement_ID)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT ID, Title, Description FROM TEACHER_PORTAL WHERE ID=@ID ";
+            string SQL = @"SELECT Announcement_ID, Title, Description FROM ANNOUNCEMENT WHERE Announcement_ID=@Announcement_ID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
-                com.Parameters.AddWithValue("@ID", ID);
+                com.Parameters.AddWithValue("Announcement_ID", Announcement_ID);
 
                 using (SqlDataReader dr = com.ExecuteReader())
                 {
@@ -50,14 +50,14 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltID.Text = dr["ID"].ToString();
+                            ltAnnouncement_ID.Text = dr["Announcement_ID"].ToString();
                             txtTitle.Text = dr["Title"].ToString();
                             txtDescription.Text = dr["Description"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("ViewFileUpload.aspx");
+                        Response.Redirect("ViewAnnouncement.aspx");
                     }
                 }
             }
@@ -67,17 +67,17 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE TEACHER_PORTAL SET Title=@Title, Description=@Description WHERE ID=@ID";
+            string sql = @"UPDATE ANNOUNCEMENT SET Title=@Title, Description=@Description WHERE Announcement_ID=@Announcement_ID";
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
                 com.Parameters.AddWithValue("@Title", txtTitle.Text);
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
-                com.Parameters.AddWithValue("@ID", Request.QueryString["ID"].ToString());
+                com.Parameters.AddWithValue("@Announcement_ID", Request.QueryString["Announcement_ID"].ToString());
                 com.ExecuteNonQuery();
 
-                Response.Redirect("ViewFileUpload.aspx");
+                Response.Redirect("ViewAnnouncement.aspx");
             }
         }
 

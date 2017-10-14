@@ -7,21 +7,21 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 
-public partial class TeacherPortal_Class : System.Web.UI.Page
+public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            ViewFile();
+            ViewAnnouncement();
         }
     }
-    void ViewFile()
+    void ViewAnnouncement()
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            String Send = @"Select ID, Title, Description, FileContent, Date, UploadedBy from TEACHER_PORTAL";
+            String Send = @"Select Announcement_ID, Title, Image, Description, DateAdded, DateModified, UploadedBy from ANNOUNCEMENT";
 
             using (SqlCommand help = new SqlCommand(Send, con))
             {
@@ -30,8 +30,8 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
                     DataSet ds = new DataSet();
                     da.Fill(ds, "File");
 
-                    lvFile.DataSource = ds;
-                    lvFile.DataBind();
+                    lvAnnouncement.DataSource = ds;
+                    lvAnnouncement.DataBind();
                 }
             }
         }
@@ -44,19 +44,19 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     //    }
     //}
 
-    protected void lvFile_ItemCommand(object sender, ListViewCommandEventArgs e)
+    protected void lvAnnouncement_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        Literal ltID = (Literal)e.Item.FindControl("ltID");
+        Literal ltAnnouncement_ID = (Literal)e.Item.FindControl("ltAnnouncement_ID");
 
         if (e.CommandName == "delfile")
         {
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-                string DELETE = @"DELETE FROM TEACHER_PORTAL WHERE ID=@ID";
+                string DELETE = @"DELETE FROM ANNOUNCEMENT WHERE Announcement_ID=@Announcement_ID";
                 using (SqlCommand Nero = new SqlCommand(DELETE, con))
                 {
-                    Nero.Parameters.AddWithValue("@ID", ltID.Text);
+                    Nero.Parameters.AddWithValue("@Announcement_ID", ltAnnouncement_ID.Text);
                     Nero.ExecuteNonQuery();
                 }
             }
@@ -65,19 +65,19 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
         {
 
         }
-        ViewFile();
+        ViewAnnouncement();
     }
-    protected void lvFile_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    protected void lvAnnouncement_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
     {
 
     }
-    protected void lvFile_ItemDataBound(object sender, ListViewItemEventArgs e)
+    protected void lvAnnouncement_ItemDataBound(object sender, ListViewItemEventArgs e)
     {
 
     }
     protected void btnRedirect_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Upload.aspx");
+        Response.Redirect("AddAnnouncement.aspx");
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
