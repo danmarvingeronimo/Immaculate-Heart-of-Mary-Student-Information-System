@@ -98,18 +98,23 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
-            string Takanashi = @"UPDATE ADMIN_MAIN SET UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
+            string Takanashi = @"UPDATE ADMIN_MAIN SET User_ID=@User_ID, UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
 
             using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
 
 
                 //Admin Access Level
+                WickedEye.Parameters.AddWithValue("@User_ID", txtUID.Text);
                 WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
                 WickedEye.Parameters.AddWithValue("@PW", txtPass.Text);
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Request.QueryString["ID"].ToString());
                 WickedEye.ExecuteNonQuery();
+                //Nathaniel Collins S. Ortiz V
+                audlog.AuditLog("Updating an Admin", int.Parse(Session["admin_id"].ToString()), "Updated by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewAdmin.aspx");
 
 
