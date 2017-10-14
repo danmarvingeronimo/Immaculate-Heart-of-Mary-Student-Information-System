@@ -9,29 +9,33 @@ using System.Web.UI.WebControls;
 
 //DAN MARVIN GERONIMO
 
-public partial class Admin_IT_Admin_ViewAdmin : System.Web.UI.Page
+public partial class Admin_Admission_StudentList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        GetAdmins();
+        if (!IsPostBack)
+        {
+            GetStudents();
+        }
     }
-    void GetAdmins()
+
+    void GetStudents()
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT A.Admin_ID, A.First_Name, A.Middle_Name, A.Last_Name, A.User_ID, U.UserType_Desc FROM ADMIN_MAIN A 
-                                INNER JOIN USER_TYPE U ON A.UserType_ID = U.UserType_ID";
+            string Takanashi = @"SELECT Stud.Student_ID, Stud.Last_Name + ', ' + Stud.First_Name + ' ' + Stud.Middle_Name AS 'Student Name', Stud.User_ID ,Stat.Status_Desc FROM STUDENT_MAIN Stud 
+                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID;"; 
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
                 using (SqlDataAdapter Nibutani = new SqlDataAdapter(Chuu2Koi))
                 {
                     DataSet Kumin = new DataSet();
-                    Nibutani.Fill(Kumin, "ADMIN_MAIN");
+                    Nibutani.Fill(Kumin, "STUDENT_MAIN");
 
-                    lvAdmins.DataSource = Kumin;
-                    lvAdmins.DataBind();
+                    lvStudents.DataSource = Kumin;
+                    lvStudents.DataBind();
 
 
                 }

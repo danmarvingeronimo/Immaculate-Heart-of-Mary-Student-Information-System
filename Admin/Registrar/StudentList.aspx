@@ -12,22 +12,26 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
-                    <th>Student ID #</th>
                     <th>First Name</th>
                     <th>Middle Name</th>
                     <th>Last Name</th>
                     
                 </thead>
+
                 <tbody>
-                    <asp:ListView ID="lvStudents" runat="server">
+                    <asp:ListView ID="lvStudents" runat="server" OnItemCommand="lvStudents_ItemCommand" OnPagePropertiesChanging="lvStudents_PagePropertiesChanging" OnItemDataBound="lvStudents_ItemDataBound">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Eval("Student_ID") %></td>
+                                <asp:Literal ID="ltStudentID" runat="server"
+                                  Text='<%# Eval("Student_ID") %>' Visible="false" />
                                 <td><%#Eval("First_Name") %></td>
                                 <td><%#Eval("Middle_Name") %></td>
                                 <td><%#Eval("Last_Name") %></td>
                                 <td>
-                                <asp:LinkButton runat="server" id="ViewPaymentInfo" href="PaymentInfo.aspx" CssClass="btn btn-info btn-xs">View Payment Info</asp:LinkButton>
+                               <asp:LinkButton ID="btnUpdate" runat="server"
+                                         class="btn btn-xs btn-success" CommandName="updatestat">
+                                         <i class="fa fa-plus"></i>
+                                    </asp:LinkButton>
 
                                 </td>
                                 <%--<td>
@@ -49,6 +53,19 @@
                     </asp:ListView>
                 </tbody>
             </table>
+            <div class="col-lg-offset-5">
+               <asp:DataPager ID="dpStudents" runat="server"
+                    PagedControlID="lvStudents" PageSize="10">
+                   <Fields>
+                       <asp:NumericPagerField
+                     ButtonType="Button"
+                     CurrentPageLabelCssClass="btn btn"
+                     NumericButtonCssClass="btn btn"
+                     NextPreviousButtonCssClass="btn btn-default"
+                     ButtonCount="5" />
+                   </Fields>
+               </asp:DataPager>
+           </div>
         </div>
     </form>
 

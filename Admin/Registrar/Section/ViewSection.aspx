@@ -3,12 +3,14 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-book">Sections</i>
-</asp:Content>
+<i class="fa fa-book"> Sections</i>
+</asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class="form-horizontal">
+        <div>
         <asp:Button ID="btnRedirect" runat="server"
          PostBackUrl="AddSection.aspx" Text="Add" OnClick="btnRedirect_Click" />
+        </div>
       <%-- <div class="col-lg-offset-6">
            <div class="input-group">
                <asp:TextBox ID="txtkeyword" runat="server"
@@ -23,9 +25,9 @@
        </div>--%>
     <table class="table table-hover">
                <thead>
-                   <th>Section ID</th>
+                   
                    <th>Section Name</th>
-                   <th>Year Level</th>
+                   <th>Grade Level</th>
                </thead>
     <tbody>
         <asp:ListView ID="lvSection" runat="server"
@@ -33,23 +35,17 @@
              OnItemDataBound="lvSection_ItemDataBound">
             <ItemTemplate>
                 <tr>
-                    <td>
-                        <asp:Literal ID="ltSectionID" runat="server"
-                            Text='<%# Eval("Section_ID") %>' Visible="true" />               
-                    </td>
+                    
                     <td><%# Eval("Section_Name") %></td>
                     <td><%# Eval("Year_Level") %></td>
                     <td>
-                        <%--<asp:LinkButton ID="btnUpdate" runat="server"
-                            class="btn btn-xs btn-info" CommandName="updatesec">
-                            <i class="fa fa-refresh"></i>
-                        </asp:LinkButton>--%>
+                        
                         <a href='SectionDetails.aspx?ID=<%#Eval("Section_ID")%>'
                             class="btn btn-xs btn-info" title="View Section Details">
                             <i class="fa fa-edit"></i>
                         </a>
                         <asp:LinkButton ID="btnDelete" runat="server"
-                            class="brn btn-xs btn-danger" CommandName="delsec">
+                            class="btn btn-xs btn-danger" CommandName="delsec">
                             <i class="fa fa-remove"></i>
                         </asp:LinkButton>
                     </td>

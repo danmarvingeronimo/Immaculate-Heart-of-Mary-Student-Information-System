@@ -41,4 +41,38 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
         }
     }
+
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        Literal ltStudentID = (Literal)e.Item.FindControl("ltStudentID");
+
+        if (e.CommandName == "updatestat")
+        {
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                con.Open();
+                string DELETE = @"UPDATE STUDENT_MAIN SET Status_ID='1' WHERE Student_ID=@SID";
+                using (SqlCommand Nero = new SqlCommand(DELETE, con))
+                {
+                    Nero.Parameters.AddWithValue("@SID", ltStudentID.Text);
+                    Nero.ExecuteNonQuery();
+                }
+            }
+        }
+        else if (e.CommandName == "updateTeach")
+        {
+
+        }
+        GetStudents();
+    }
+    protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    {
+        dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+        GetStudents();
+    }
+    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        GetStudents();
+
+    }
 }

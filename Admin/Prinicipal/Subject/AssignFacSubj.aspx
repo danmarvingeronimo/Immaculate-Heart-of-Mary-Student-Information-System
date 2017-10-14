@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    <i class="fa fa-plus">Add Subject</i>
+    
      <asp:Literal ID="ltSID" runat="server" /> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
@@ -30,7 +30,7 @@
                <div class="col-lg-offset-4 col-lg-8">
                    <asp:Button ID="btnUpdate" runat="server"
                        class="btn btn-success" Text="Update" OnClick="btnUpdate_Click" />
-                   <a href="Schedule.aspx" class ="btn btn-submit">
+                   <a href="ViewSubject.aspx" class ="btn btn-submit">
                        Back to View
                    </a>
                </div>
