@@ -1,20 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="ViewUpload.aspx.cs" Inherits="TeacherPortal_Class" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="ViewFileUpload.aspx.cs" Inherits="TeacherPortal_Class" %>
 
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-book">Uploaded Files</i>
+<i class="fa fa-book">List of Files</i>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class="form-horizontal">
         <asp:Button ID="btnRedirect" runat="server"
-         PostBackUrl="Upload.aspx" Text="Add" OnClick="btnRedirect_Click" />
+         PostBackUrl="FileUpload.aspx" Text="Add" OnClick="btnRedirect_Click" />
     <table class="table table-hover">
                <thead>
                    <th>ID</th>
                    <th>Title</th>
-                   <th>Description</th>
                    <th>Description</th>
                    <th>File Uploaded</th>
                    <th>Date</th>

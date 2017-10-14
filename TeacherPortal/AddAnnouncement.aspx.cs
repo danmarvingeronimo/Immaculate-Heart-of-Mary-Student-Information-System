@@ -9,37 +9,37 @@ using System.Web.UI.WebControls;
 using System.Configuration;
 using System.Data;
 
-public partial class TeacherPortal_Upload : System.Web.UI.Page
+
+public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
     }
-
     protected void btnUpload_Click(object sender, EventArgs e)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            string SQL = @"INSERT INTO TEACHER_PORTAL(Title, Description, FileContent, Date, UploadedBy) 
-                            VALUES (@Title, @Description, @FileContent, @Date, @UploadedBy)";
+            string SQL = @"INSERT INTO ANNOUNCEMENT(Title, Image, Description, DateAdded, UploadedBy) 
+                            VALUES (@Title, @Image, @Description, @DateAdded, @UploadedBy)";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
                 cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
                 cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
 
-                string fileExt = Path.GetExtension(FileContent.FileName);
+                string fileExt = Path.GetExtension(fuImage.FileName);
                 string id = Guid.NewGuid().ToString();
-                cmd.Parameters.AddWithValue("@FileContent", id + fileExt);
-                FileContent.SaveAs(Server.MapPath("~/img/files/" + id + fileExt));
+                cmd.Parameters.AddWithValue("@Image", id + fileExt);
+                fuImage.SaveAs(Server.MapPath("~/img/announcements/" + id + fileExt));
 
-                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
 
                 cmd.Parameters.AddWithValue("@UploadedBy", txtUploadedBy.Text);
 
                 cmd.ExecuteNonQuery();
-                Response.Redirect("ViewUpload.aspx");
+                Response.Redirect("ViewAnnouncement.aspx");
 
             }
         }
