@@ -98,6 +98,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
             string Takanashi = @"UPDATE SCHEDULE SET Subject_ID=@Subject_ID WHERE
                                 ScheduleID=@ScheduleID";
@@ -111,6 +112,9 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
 
 
                 WickedEye.ExecuteNonQuery();
+                //Nathaniel Collins S. Ortiz V
+                audlog.AuditLog("Edit Schedule", int.Parse(Session["admin_id"].ToString()), "Schedule has been Edited by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("Schedule.aspx");
 
             }

@@ -22,6 +22,7 @@ public class Dekomori
     {
         return ConfigurationManager.ConnectionStrings["Rikka"].ConnectionString;
     }
+    //Nathaniel Collins S. Ortiz V
     public void AuditLog(string Title, int AdminID, string Description)
     {
         SqlConnection con = new SqlConnection(GetConnection());

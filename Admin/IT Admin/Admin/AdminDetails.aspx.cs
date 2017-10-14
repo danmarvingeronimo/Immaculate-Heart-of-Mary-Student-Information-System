@@ -98,7 +98,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            Util audlog = new Util();
+            Dekomori audlog = new Dekomori();
             Rikka.Open();
             string Takanashi = @"UPDATE ADMIN_MAIN SET User_ID=@User_ID, UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
 

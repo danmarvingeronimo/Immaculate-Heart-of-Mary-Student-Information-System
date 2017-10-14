@@ -24,7 +24,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            Util audlog = new Util();
+           
             Rikka.Open();
 
 
@@ -83,8 +83,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
                 
                 WickedEye.ExecuteNonQuery();
-                audlog.AuditLog("Adding a Section", int.Parse(Session["admin_id"].ToString()), "Added by "
-                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+
                 Rikka.Close();
 
                 Response.Write("<script>alert('Application successfully sent!');</script>");
