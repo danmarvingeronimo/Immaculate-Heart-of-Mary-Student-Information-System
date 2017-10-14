@@ -22,6 +22,7 @@ public class Util
     {
         return ConfigurationManager.ConnectionStrings["con"].ConnectionString;
     }
+    //Nathaniel Collins S. Ortiz
     public void AuditLog(string Title, int AdminID, string Description)
     {
         SqlConnection con = new SqlConnection(GetConnection());

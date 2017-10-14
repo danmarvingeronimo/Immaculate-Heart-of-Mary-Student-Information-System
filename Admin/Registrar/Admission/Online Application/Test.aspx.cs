@@ -24,6 +24,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
 
 
@@ -153,7 +154,8 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Father_NatBus", txtFatheNatBus.Text);
 
                 WickedEye.ExecuteNonQuery();
-
+                audlog.AuditLog("Input Complete", int.Parse(Session["admin_id"].ToString()), "Application filled by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Rikka.Close();
 
                 Response.Write("<script>alert('Application successfully sent!');</script>");
