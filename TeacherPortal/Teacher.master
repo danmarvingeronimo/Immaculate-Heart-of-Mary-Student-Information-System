@@ -38,7 +38,7 @@
                 <li><a runat="server" href="Profile.aspx">Profile</a></li>
                 <li><a runat="server" href="Class.aspx">Class List</a></li>
                 <li><a runat="server" href="ViewUpload.aspx">File Uploaded List</a></li>
-                <li><a runat="server" href="AddAnnouncement.aspx">Announcement List</a></li>
+                <li><a runat="server" href="~/TeacherPortal/Announcement/ViewAnnouncement.aspx">Announcement List</a></li>
             </ul>
         </div>
             </div>

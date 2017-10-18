@@ -6,7 +6,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <form runat="server" class="form form-horizontal">
          <div class="col-lg-6">
-
+              <div class="col-lg-6">
+                <div id="error" runat="server" class="alert alert-danger"
+                    visible="false">
+                    Incorrect User ID or Password!
+                </div>
                   <div class="form-group">
                 <label class="control-label col-lg-4">Title</label>
                 <div class="col-lg-8">
@@ -28,12 +32,7 @@
                 </div>
             </div>
 
-             <div class="form-group">
-                <label class="control-label col-lg-4">UploadedBy</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtUploadedBy" runat="server" class="form-control" type="text" required />
-                </div>
-            </div>
+            
 
             <div class="form-group">
                 <div class="col-lg-offset-4 col-lg-8">

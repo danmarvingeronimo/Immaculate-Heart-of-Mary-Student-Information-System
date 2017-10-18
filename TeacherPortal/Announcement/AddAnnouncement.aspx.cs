@@ -21,8 +21,8 @@ public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            string SQL = @"INSERT INTO ANNOUNCEMENT(Title, Image, Description, DateAdded, UploadedBy) 
-                            VALUES (@Title, @Image, @Description, @DateAdded, @UploadedBy)";
+            string SQL = @"INSERT INTO ANNOUNCEMENT(Title, Image, Description, DateAdded, Teacher_ID) 
+                            VALUES (@Title, @Image, @Description, @DateAdded, @TeacherID)";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
@@ -36,7 +36,8 @@ public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
 
                 cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
 
-                cmd.Parameters.AddWithValue("@UploadedBy", txtUploadedBy.Text);
+                //cmd.Parameters.AddWithValue("@UploadedBy", txtUploadedBy.Text);
+                cmd.Parameters.AddWithValue("@TeacherID", Session["Teacher_ID"].ToString());
 
                 cmd.ExecuteNonQuery();
                 Response.Redirect("ViewAnnouncement.aspx");

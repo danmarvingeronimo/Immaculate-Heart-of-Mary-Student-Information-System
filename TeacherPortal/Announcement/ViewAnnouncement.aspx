@@ -4,6 +4,7 @@
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
 <i class="fa fa-book">List of Announcements</i>
+    <asp:Literal ID="ltSID" runat="server"  Visible="false"/> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
 
@@ -13,12 +14,10 @@
 
     <table class="table table-hover">
                <thead>
-                   <th>ID</th>
                    <th>Title</th>
                    <th>Image</th>
                    <th>Description</th>
                    <th>DateAdded</th>
-                   <th>DateModified</th>
                    <th>Uploaded By</th> 
                </thead>
     <tbody>
@@ -27,10 +26,10 @@
              OnItemDataBound="lvAnnouncement_ItemDataBound">
             <ItemTemplate>
                 <tr>
-                    <td>
+                    
                         <asp:Literal ID="ltAnnouncement_ID" runat="server"
-                            Text='<%# Eval("Announcement_ID") %>' Visible="true" />               
-                    </td>
+                            Text='<%# Eval("Announcement_ID") %>' Visible="false" />               
+                    
                     <td><%# Eval("Title") %></td>
                      <td>
                         <%# string.Concat("~/img/announcements/", Eval("Image")) %> />
@@ -38,8 +37,7 @@
                     <td><%# Eval("Description") %></td>
                     
                     <td><%# Eval("DateAdded", "{0: MMMM dd, yyyy}") %></td>
-                     <td><%# Eval("DateModified", "{0: MMMM dd, yyyy}") %></td>
-                    <td><%# Eval("UploadedBy") %></td>
+                    <td><%# Eval("Teacher") %></td>
                     <td>
                        
                           <a href='AnnouncementDetails.aspx?ID=<%#Eval("Announcement_ID")%>'
@@ -47,7 +45,7 @@
                             <i class="fa fa-edit"></i>
                         </a>
                         <asp:LinkButton ID="btnDelete" runat="server"
-                            class="brn btn-xs btn-danger" CommandName="delfile">
+                            class="btn btn-xs btn-danger" CommandName="delfile">
                             <i class="fa fa-remove"></i>
                         </asp:LinkButton>
                     </td>

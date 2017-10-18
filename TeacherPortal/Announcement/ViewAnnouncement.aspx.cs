@@ -21,10 +21,15 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            String Send = @"Select Announcement_ID, Title, Image, Description, DateAdded, DateModified, UploadedBy from ANNOUNCEMENT";
+            String Send = @"Select A.Announcement_ID, A.Title, A.Image, A.Description, A.DateAdded, 
+                            T.Teacher_LastName + ', ' + T.Teacher_FirstName + ' ' + T.Teacher_MiddleName AS 'Teacher'
+                            FROM ANNOUNCEMENT A INNER JOIN
+                            TEACHER_MAIN T ON A.Teacher_ID = T.Teacher_ID
+                            WHERE T.Teacher_ID = @SID";
 
             using (SqlCommand help = new SqlCommand(Send, con))
             {
+                help.Parameters.AddWithValue("@SID", Session["Teacher_ID"].ToString());
                 using (SqlDataAdapter da = new SqlDataAdapter(help))
                 {
                     DataSet ds = new DataSet();
