@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="FileDetails.aspx.cs" Inherits="TeacherPortal_Class" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="HWDetails.aspx.cs" Inherits="TeacherPortal_Class" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     <i class="fa  fa-book"></i>
-     File #<asp:Literal ID="ltID" runat="server" />
+     Upload Edit<asp:Literal ID="ltID" runat="server" visible="false"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class=" form-horizontal">
@@ -33,7 +33,7 @@
                    </a>
                </div>
            </div>
-        </div>
+       
     </form>
 </asp:Content>
 

@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="FileUpload.aspx.cs" Inherits="TeacherPortal_Upload" %>
+﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="AddLectures.aspx.cs" Inherits="TeacherPortal_Upload" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    <i class="fa fa-plus"></i> Upload File
+    <i class="fa fa-plus"></i> Upload Lecture
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <form runat="server" class="form form-horizontal">
@@ -28,12 +28,7 @@
                   </div>
              </div>
 
-             <div class="form-group">
-                <label class="control-label col-lg-4">UploadedBy</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtUploadedBy" runat="server" class="form-control" type="text" required />
-                </div>
-            </div>
+             
 
             <div class="form-group">
                 <div class="col-lg-offset-4 col-lg-8">

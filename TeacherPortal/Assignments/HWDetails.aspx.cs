@@ -7,13 +7,13 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 
-public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
+public partial class TeacherPortal_Class : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("ViewAnnouncement.aspx");
+            Response.Redirect("ViewHW.aspx");
         }
         else
         {
@@ -29,7 +29,7 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("ViewAnnouncement.aspx");
+                Response.Redirect("ViewHW.aspx");
             }
         }
     }
@@ -38,7 +38,7 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Announcement_ID, Title, Description FROM ANNOUNCEMENT WHERE Announcement_ID=@ID ";
+            string SQL = @"SELECT UploadHW_ID, Title, Description FROM UPLOAD_LECTURE WHERE UploadHW_ID=@ID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -50,14 +50,14 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltAnnouncement_ID.Text = dr["Announcement_ID"].ToString();
+                            ltID.Text = dr["UploadHW_ID"].ToString();
                             txtTitle.Text = dr["Title"].ToString();
                             txtDescription.Text = dr["Description"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("ViewAnnouncement.aspx");
+                        Response.Redirect("ViewHW.aspx");
                     }
                 }
             }
@@ -67,17 +67,17 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE ANNOUNCEMENT SET Title=@Title, Description=@Description WHERE Announcement_ID=@Announcement_ID";
+            string sql = @"UPDATE UPLOAD_HW SET Title=@Title, Description=@Description WHERE UploadHW_ID=@ID";
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
                 com.Parameters.AddWithValue("@Title", txtTitle.Text);
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
-                com.Parameters.AddWithValue("@Announcement_ID", Request.QueryString["ID"].ToString());
+                com.Parameters.AddWithValue("@ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
 
-                Response.Redirect("ViewAnnouncement.aspx");
+                Response.Redirect("ViewHW.aspx");
             }
         }
 

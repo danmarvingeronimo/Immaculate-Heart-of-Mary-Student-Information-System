@@ -21,11 +21,13 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            string SQL = @"INSERT INTO TEACHER_PORTAL(Title, Description, FileContent, Date, UploadedBy) 
-                            VALUES (@Title, @Description, @FileContent, @Date, @UploadedBy)";
+            string SQL = @"INSERT INTO UPLOAD_LECTURE(Title, Description, FileContent, DateAdded, Teacher_ID) 
+                            VALUES (@Title, @Description, @FileContent, @DateAdded, @TeacherID)";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
+                cmd.Parameters.AddWithValue("@TeacherID", Session["Teacher_ID"].ToString());
+
                 cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
                 cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
 
@@ -34,12 +36,11 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@FileContent", id + fileExt);
                 FileContent.SaveAs(Server.MapPath("~/img/files/" + id + fileExt));
 
-                cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+                cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
 
-                cmd.Parameters.AddWithValue("@UploadedBy", txtUploadedBy.Text);
 
                 cmd.ExecuteNonQuery();
-                Response.Redirect("ViewFileUpload.aspx");
+                Response.Redirect("ViewLectures.aspx");
 
             }
         }

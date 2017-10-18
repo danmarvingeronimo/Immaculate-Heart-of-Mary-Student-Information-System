@@ -1,49 +1,51 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="ViewFileUpload.aspx.cs" Inherits="TeacherPortal_Class" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="ViewLectures.aspx.cs" Inherits="TeacherPortal_ViewAnnouncement" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-book">List of Files</i>
+<i class="fa fa-book">List of Announcements</i>
+    <asp:Literal ID="ltSID" runat="server"  Visible="false"/> 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
+
     <form runat="server" class="form-horizontal">
         <asp:Button ID="btnRedirect" runat="server"
-         PostBackUrl="FileUpload.aspx" Text="Add" OnClick="btnRedirect_Click" />
+         PostBackUrl="AddLectures.aspx" Text="Add" OnClick="btnRedirect_Click" />
+
     <table class="table table-hover">
                <thead>
-                   <th>ID</th>
                    <th>Title</th>
+                   <th>File</th>
                    <th>Description</th>
-                   <th>File Uploaded</th>
-                   <th>Date</th>
+                   <th>DateAdded</th>
                    <th>Uploaded By</th> 
                </thead>
     <tbody>
-        <asp:ListView ID="lvFile" runat="server"
-             OnItemCommand="lvFile_ItemCommand" OnPagePropertiesChanging="lvFile_PagePropertiesChanging"
-             OnItemDataBound="lvFile_ItemDataBound">
+       <asp:ListView ID="lvLectures" runat="server"
+             OnItemCommand="lvLectures_ItemCommand" OnPagePropertiesChanging="lvLectures_PagePropertiesChanging"
+             OnItemDataBound="lvLectures_ItemDataBound">
             <ItemTemplate>
                 <tr>
-                    <td>
-                        <asp:Literal ID="ltID" runat="server"
-                            Text='<%# Eval("ID") %>' Visible="true" />               
-                    </td>
+                    
+                        <asp:Literal ID="ltUploadLecture_ID" runat="server"
+                            Text='<%# Eval("UploadLecture_ID") %>' Visible="false" />               
+                    
                     <td><%# Eval("Title") %></td>
-                    <td><%# Eval("Description") %></td>
-                    <td>
+                     <td>
                         <%# string.Concat("~/img/files/", Eval("FileContent")) %> />
                     </td>
-                    <td><%# Eval("Date", "{0: MMMM dd, yyyy}") %></td>
-                    <td><%# Eval("UploadedBy") %></td>
+                    <td><%# Eval("Description") %></td>
+                    
+                    <td><%# Eval("DateAdded", "{0: MMMM dd, yyyy}") %></td>
+                    <td><%# Eval("Teacher") %></td>
                     <td>
                        
-                        <a href='FileDetails.aspx?ID=<%#Eval("ID")%>'
+                          <a href='LectureDetails.aspx?ID=<%#Eval("UploadLecture_ID")%>'
                             class="btn btn-xs btn-info" title="View File Details">
                             <i class="fa fa-edit"></i>
                         </a>
                         <asp:LinkButton ID="btnDelete" runat="server"
-                            class="brn btn-xs btn-danger" CommandName="delfile">
+                            class="btn btn-xs btn-danger" CommandName="delfile">
                             <i class="fa fa-remove"></i>
                         </asp:LinkButton>
                     </td>
@@ -54,7 +56,7 @@
                 <tr>
                     <td colspan="10">
                         <h2 class="text-center">
-                            no records found
+                            No records found
                         </h2>
                     </td>
                 </tr>
@@ -62,13 +64,7 @@
         </asp:ListView>
     </tbody>
     </table>
-
- 
     </form>
-    
-   
 </asp:Content>
-
-
 
 

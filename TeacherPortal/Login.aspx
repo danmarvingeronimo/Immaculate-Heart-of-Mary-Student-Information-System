@@ -3,7 +3,7 @@
 <%@ Register Assembly="Recaptcha" Namespace="Recaptcha" TagPrefix="recaptcha" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    Login
+   Faculty Login
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">

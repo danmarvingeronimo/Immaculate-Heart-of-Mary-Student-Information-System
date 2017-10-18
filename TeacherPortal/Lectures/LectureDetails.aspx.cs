@@ -13,7 +13,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("ViewFileUpload.aspx");
+            Response.Redirect("ViewLectures.aspx");
         }
         else
         {
@@ -29,7 +29,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("ViewFileUpload.aspx");
+                Response.Redirect("ViewLectures.aspx");
             }
         }
     }
@@ -38,7 +38,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT ID, Title, Description FROM TEACHER_PORTAL WHERE ID=@ID ";
+            string SQL = @"SELECT UploadLecture_ID, Title, Description FROM UPLOAD_LECTURE WHERE UploadLecture_ID=@ID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -50,14 +50,14 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltID.Text = dr["ID"].ToString();
+                            ltID.Text = dr["UploadLecture_ID"].ToString();
                             txtTitle.Text = dr["Title"].ToString();
                             txtDescription.Text = dr["Description"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("ViewFileUpload.aspx");
+                        Response.Redirect("ViewLectures.aspx");
                     }
                 }
             }
@@ -67,7 +67,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE TEACHER_PORTAL SET Title=@Title, Description=@Description WHERE ID=@ID";
+            string sql = @"UPDATE UPLOAD_LECTURE SET Title=@Title, Description=@Description WHERE UploadLecture_ID=@ID";
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
@@ -77,7 +77,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
                 com.Parameters.AddWithValue("@ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
 
-                Response.Redirect("ViewFileUpload.aspx");
+                Response.Redirect("ViewLectures.aspx");
             }
         }
 
