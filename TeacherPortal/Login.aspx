@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Teachers Portal Login" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="TeacherPortal_Login" %>
+﻿<%@ Page Title="Teachers Portal Login" Language="C#"  MasterPageFile="~/Main.master" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="TeacherPortal_Login" %>
 
 <%@ Register Assembly="Recaptcha" Namespace="Recaptcha" TagPrefix="recaptcha" %>
 

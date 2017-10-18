@@ -48,8 +48,9 @@ public partial class Admin_LogIn : System.Web.UI.Page
         
             using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
             {
+                Util audlog = new Util();
                 Rikka.Open();
-                string Takanashi = @"SELECT Admin_ID FROM ADMIN_MAIN 
+                string Takanashi = @"SELECT Admin_ID,First_Name,Middle_Name,Last_Name FROM ADMIN_MAIN 
                 WHERE User_ID=@User_ID AND Admin_PW=@Admin_PW AND UserType_ID=@UserType_ID";
 
                 using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
@@ -65,7 +66,13 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         while (Chuu2.Read())
                         {
                             Session["admin_id"] = Chuu2["Admin_ID"].ToString();
+                            Session["first_name"] = Chuu2["First_Name"].ToString();
+                            Session["middle_name"] = Chuu2["Middle_Name"].ToString();
+                            Session["last_name"] = Chuu2["Last_Name"].ToString();
                         }
+                        //Nathaniel Collins S. Ortiz V
+                        audlog.AuditLog("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                             Response.Redirect("Dashboard.aspx");
                         }
 
@@ -76,6 +83,9 @@ public partial class Admin_LogIn : System.Web.UI.Page
                 }
 
                 }
+               
             }
+          
+
         }
 }

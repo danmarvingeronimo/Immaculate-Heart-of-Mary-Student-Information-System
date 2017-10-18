@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="Upload.aspx.cs" Inherits="TeacherPortal_Upload" %>
+﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="FileUpload.aspx.cs" Inherits="TeacherPortal_Upload" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
     <i class="fa fa-plus"></i> Upload File
@@ -22,8 +22,8 @@
             </div>
    
               <div class="form-group">
-                <label class="control-label col-lg-3">File</label>
-                <div class="col-lg-6">
+                <label class="control-label col-lg-4">File</label>
+                <div class="col-lg-8">
                     <asp:FileUpload ID="FileContent" runat="server" class="form-control" required />
                   </div>
              </div>

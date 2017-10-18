@@ -17,6 +17,7 @@ public partial class Section_AddSection : System.Web.UI.Page
     {
         using (SqlConnection sandwich = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             sandwich.Open();
             string cheese = @"INSERT INTO SECTION(Section_Name, Year_level)
                             VALUES(@Section_Name, @Year_level) ";
@@ -30,6 +31,8 @@ public partial class Section_AddSection : System.Web.UI.Page
                 //bread.Parameters.AddWithValue("@Time_Stamp", DateTime.Now);
                 bread.Parameters.AddWithValue("@Year_level", int.Parse(txtYL.Text));
                 bread.ExecuteNonQuery();
+                audlog.AuditLog("Adding a Section", int.Parse(Session["admin_id"].ToString()), "Added by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewSection.aspx");
             }
         }

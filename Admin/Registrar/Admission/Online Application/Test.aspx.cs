@@ -24,6 +24,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Dekomori audlog = new Dekomori();
             Rikka.Open();
 
 
@@ -153,7 +154,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Father_NatBus", txtFatheNatBus.Text);
 
                 WickedEye.ExecuteNonQuery();
-
+                
                 Rikka.Close();
 
                 Response.Write("<script>alert('Application successfully sent!');</script>");

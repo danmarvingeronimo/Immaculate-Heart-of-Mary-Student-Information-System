@@ -24,6 +24,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+           
             Rikka.Open();
 
             string Takanashi = @"SELECT Student_ID FROM STUDENT_MAIN WHERE Year_level=@Year_level AND First_Name=@FN AND Middle_Name=@MN AND

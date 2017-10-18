@@ -43,6 +43,7 @@ public partial class Section_AddSection : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
             string Takanashi = @"INSERT INTO ADMIN_MAIN(Admin_PW, First_Name, Last_Name, Middle_Name, User_ID, UserType_ID)
                             VALUES(@Admin_PW, @First_Name, @Last_Name, @Middle_Name, @User_ID, @UserType_ID) ";
@@ -57,9 +58,10 @@ public partial class Section_AddSection : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@User_ID", txtUID.Text);
                 WickedEye.Parameters.AddWithValue("@Admin_PW", txtPass.Text);
                 WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
-
-
                 WickedEye.ExecuteNonQuery();
+                //Nathaniel Collins S. Ortiz V
+                audlog.AuditLog("Adding an Admin", int.Parse(Session["admin_id"].ToString()), "Added by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewAdmin.aspx");
             }
         }
