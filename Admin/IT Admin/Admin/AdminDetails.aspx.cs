@@ -99,13 +99,14 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"UPDATE ADMIN_MAIN SET UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
+            string Takanashi = @"UPDATE ADMIN_MAIN SET User_ID=@User_ID, UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
 
             using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
 
 
                 //Admin Access Level
+                WickedEye.Parameters.AddWithValue("@User_ID", txtUID.Text);
                 WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
                 WickedEye.Parameters.AddWithValue("@PW", txtPass.Text);
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Request.QueryString["ID"].ToString());

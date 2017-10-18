@@ -24,7 +24,7 @@ public partial class Faculty : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-            String SQL = @"SELECT Teacher_ID, Teacher_LastName + ', ' + Teacher_FirstName + ' ' + Teacher_MiddleName AS 'Teacher Name', User_ID FROM TEACHER_MAIN WHERE Teacher_ID!='7'";
+            String SQL = @"SELECT Teacher_ID, Teacher_LastName , Teacher_FirstName , Teacher_MiddleName, User_ID FROM TEACHER_MAIN WHERE Teacher_ID!='7'";
 
                 using (SqlCommand cmd = new SqlCommand(SQL,con))
                 {

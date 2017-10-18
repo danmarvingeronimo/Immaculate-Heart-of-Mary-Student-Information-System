@@ -19,7 +19,9 @@
             <table class ="table table-hover">
                 <thead>
                     <th>Admin User ID #</th>
-                    <th>Full Name</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
                     <th>Access Level</th>
                     
                 </thead>
@@ -28,7 +30,9 @@
                         <ItemTemplate>
                             <tr>
                                 <td><%#Eval("User_ID") %></td>
-                                <td><%#Eval("Full Name") %></td>
+                                <td><%#Eval("Last_Name") %></td>
+                                <td><%#Eval("First_Name") %></td>
+                                <td><%#Eval("Middle_Name") %></td>
                                 
                                 <td><%#Eval("UserType_Desc") %></td>
 

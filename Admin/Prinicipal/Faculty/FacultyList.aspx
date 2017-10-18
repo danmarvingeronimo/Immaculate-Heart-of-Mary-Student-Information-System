@@ -21,7 +21,9 @@
            <table class="table table-hover">
                <thead>
                    <th>User ID</th>
-                   <th>Full Name</th>
+                   <th>Last Name</th>
+                   <th>First Name</th>
+                   <th>Middle Name</th>
                </thead>
                <tbody>
                    <asp:ListView ID="lvFaculty" runat="server" OnItemCommand="lvFaculty_ItemCommand" OnPagePropertiesChanging="lvFaculty_PagePropertiesChanging" OnItemDataBound="lvFaculty_ItemDataBound">
@@ -30,7 +32,9 @@
                                <asp:Literal ID="ltTeacherID" runat="server"
                                   Text='<%# Eval("Teacher_ID") %>' Visible="false" />
                                <td><%# Eval("User_ID") %></td>
-                               <td><%# Eval("Teacher Name") %></td>
+                               <td><%# Eval("Teacher_LastName") %></td>
+                               <td><%# Eval("Teacher_FirstName") %></td>
+                               <td><%# Eval("Teacher_MiddleName") %></td>
                                <td>
                                    <a href='FacultyDetails.aspx?ID=<%#Eval("Teacher_ID")%>'
                                      class="btn btn-xs btn-info" title="View Faculty Details">

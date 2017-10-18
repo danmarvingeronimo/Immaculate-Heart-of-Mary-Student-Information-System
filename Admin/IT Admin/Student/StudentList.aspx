@@ -15,7 +15,9 @@
             <table class ="table table-hover">
                 <thead>
                     <th>Student ID #</th>
-                    <th>Full Name</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
                     <th>Status</th>
                     
                 </thead>
@@ -24,7 +26,9 @@
                         <ItemTemplate>
                             <tr>
                                 <td><%#Eval("User_ID") %></td>
-                                <td><%#Eval("Student Name") %></td>
+                                <td><%#Eval("Last_Name") %></td>
+                                <td><%#Eval("First_Name") %></td>
+                                <td><%#Eval("Middle_Name") %></td>
                                 <td><%#Eval("Status_Desc") %></td>
                                 <td>
 

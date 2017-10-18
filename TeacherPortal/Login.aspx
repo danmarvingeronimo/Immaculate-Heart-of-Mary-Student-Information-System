@@ -3,7 +3,7 @@
 <%@ Register Assembly="Recaptcha" Namespace="Recaptcha" TagPrefix="recaptcha" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-  Login
+    Login
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
@@ -20,8 +20,8 @@
                         class="form-control" type="text" MaxLength="100" required />
                 </div>
             </div>
+            <label class="control-label col-lg-4">Password</label>
             <div class="form-group">
-                <label class="control-label col-lg-4">Password</label>
                 <div class="col-lg-8">
                     <asp:TextBox ID="txtPassword" runat="server"
                         class="form-control" type="password" MaxLength="20" required />
@@ -40,8 +40,8 @@
                     <asp:LinkButton ID="LinkButton3" runat="server" href="ForgotPassword.aspx" CssClass="Button">FORGOT PASSWORD?</asp:LinkButton>
                     <br />
                     <asp:Button ID="btnLogin" runat="server"
-                        CssClass="btn btn-success" Text="Login" 
-                        OnClick="btnLogin_Click"/>
+                        CssClass="btn btn-success" Text="Login"
+                        OnClick="btnLogin_Click" />
                 </div>
             </div>
         </div>

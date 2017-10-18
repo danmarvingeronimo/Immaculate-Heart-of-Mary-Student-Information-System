@@ -12,7 +12,9 @@
        <div class ="col-lg-12">
            <table class="table table-hover">
                <thead>
-                   <th>Full Name</th>
+                   <th>Last Name</th>
+                   <th>First Name</th>
+                   <th>Middle Name</th>
                    <th>User ID</th>
                </thead>
                <tbody>
@@ -21,8 +23,10 @@
                            <tr>
                                <asp:Literal ID="ltTeacherID" runat="server"
                                   Text='<%# Eval("Teacher_ID") %>' Visible="false" />
-                               
-                               <td><%# Eval("Teacher Name") %></td>
+
+                               <td><%# Eval("Teacher_LastName") %></td>
+                               <td><%# Eval("Teacher_FirstName") %></td>
+                               <td><%# Eval("Teacher_MiddleName") %></td>
                                <td><%# Eval("User_ID") %></td>
                                <td>
                                    <a href='EditFacultyUIDPW.aspx?ID=<%#Eval("Teacher_ID")%>'

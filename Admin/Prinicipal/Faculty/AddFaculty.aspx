@@ -3,7 +3,7 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-paperclip"></i>Section adding
+<i class="fa fa-paperclip"></i> Add Faculty
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class="form form-horizontal">
@@ -27,7 +27,7 @@
                 <label class="control-label col-lg-4">Middle Name</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtMN" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" MaxLength="50" />
                 </div>
             </div>
 

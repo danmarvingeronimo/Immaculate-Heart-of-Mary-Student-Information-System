@@ -27,7 +27,7 @@
                 <label class="control-label col-lg-4">Middle Name</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtMN" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" MaxLength="50" />
                 </div>
             </div>
 
