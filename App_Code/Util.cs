@@ -23,10 +23,10 @@ public class Util
         return ConfigurationManager.ConnectionStrings["con"].ConnectionString;
     }
     //Nathaniel Collins S. Ortiz
-    public void AuditLog(string Title, int AdminID, string Description)
+    public void AuditLogAdmin(string Title, int AdminID, string Description)
     {
         SqlConnection con = new SqlConnection(GetConnection());
-        string SQL = @"INSERT INTO AUDIT_LOG VALUES(@AdminID,@TimeStamp,@Title,@Description)";
+        string SQL = @"INSERT INTO AUDIT_LOG_ADMIN VALUES(@AdminID,@TimeStamp,@Title,@Description)";
         con.Open();
 
         using (SqlCommand com = new SqlCommand(SQL, con))
@@ -41,4 +41,43 @@ public class Util
         }
         con.Close();
     }
+    //Nathaniel Collins S. Ortiz
+    public void AuditLogTeacher(string Title, int TeacherID, string Description)
+    {
+        SqlConnection con = new SqlConnection(GetConnection());
+        string SQL = @"INSERT INTO AUDIT_LOG_TEACHER VALUES(@TeacherID,@TimeStamp,@Title,@Description)";
+        con.Open();
+
+        using (SqlCommand com = new SqlCommand(SQL, con))
+        {
+            com.Parameters.AddWithValue("@TeacherID", TeacherID);
+            com.Parameters.AddWithValue("@TimeStamp", DateTime.Now);
+            com.Parameters.AddWithValue("@Title", Title);
+            com.Parameters.AddWithValue("@Description", Description);
+            com.ExecuteNonQuery();
+
+
+        }
+        con.Close();
+    }
+    //Nathaniel Collins S. Ortiz
+    public void AuditLogStudent(string Title, int StudentID, string Description)
+    {
+        SqlConnection con = new SqlConnection(GetConnection());
+        string SQL = @"INSERT INTO AUDIT_LOG_STUDENT VALUES(@StudentID,@TimeStamp,@Title,@Description)";
+        con.Open();
+
+        using (SqlCommand com = new SqlCommand(SQL, con))
+        {
+            com.Parameters.AddWithValue("@StudentID", StudentID);
+            com.Parameters.AddWithValue("@TimeStamp", DateTime.Now);
+            com.Parameters.AddWithValue("@Title", Title);
+            com.Parameters.AddWithValue("@Description", Description);
+            com.ExecuteNonQuery();
+
+
+        }
+        con.Close();
+    }
+
 }

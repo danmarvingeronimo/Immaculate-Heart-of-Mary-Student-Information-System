@@ -20,12 +20,16 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             con.Open();
             string SQL = @"INSERT INTO UPLOAD_HW(Title, Description, FileContent, DateAdded, Teacher_ID) 
                             VALUES (@Title, @Description, @FileContent, @DateAdded, @TeacherID)";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
+                //audit
+                cmd.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+                //
                 cmd.Parameters.AddWithValue("@TeacherID", Session["Teacher_ID"].ToString());
 
                 cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
@@ -40,6 +44,8 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
 
                 cmd.ExecuteNonQuery();
+                audlog.AuditLogTeacher("Add Homework", int.Parse(Session["teacher_id"].ToString()), "Added Homework by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
                 Response.Redirect("ViewHW.aspx");
 
             }

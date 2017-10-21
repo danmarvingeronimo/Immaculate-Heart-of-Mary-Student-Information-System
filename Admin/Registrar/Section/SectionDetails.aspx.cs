@@ -72,11 +72,14 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
 
             using(SqlCommand com = new SqlCommand(sql,con))
             {
+                //Audit Session
+                com.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
+                //
                 com.Parameters.AddWithValue("@SN", txtSName.Text);
                 com.Parameters.AddWithValue("@YL", txtYL.Text);
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLog("Editing Details for Section", int.Parse(Session["admin_id"].ToString()), "Edited Section by "
+                audlog.AuditLogAdmin("Editing Details for Section", int.Parse(Session["admin_id"].ToString()), "Edited Section by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewSection.aspx");
             }

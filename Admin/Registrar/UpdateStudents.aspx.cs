@@ -70,20 +70,24 @@ public partial class Admin_IT_Admin_UpdateStudents : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             con.Open();
             string SQL = @"UPDATE STUDENT_MAIN SET User_ID=@User_ID, Status_ID=@Status_ID WHERE Student_ID=@Student_ID";
 
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
-
+                //Audit Session
+                cmd.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
+                //
 
                 cmd.Parameters.AddWithValue("@User_ID", txtID.Text);
 
                 cmd.Parameters.AddWithValue("@Status_ID", txtStatus.Text);
                 cmd.Parameters.AddWithValue("@Student_ID", Request.QueryString["ID"].ToString());
                 cmd.ExecuteNonQuery();
-
+                audlog.AuditLogAdmin("Update Students", int.Parse(Session["admin_id"].ToString()), "Edited Section by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("StudentList.aspx");
 
 

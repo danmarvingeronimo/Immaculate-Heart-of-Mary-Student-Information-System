@@ -71,7 +71,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             Session["last_name"] = Chuu2["Last_Name"].ToString();
                         }
                         //Nathaniel Collins S. Ortiz V
-                        audlog.AuditLog("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
+                        audlog.AuditLogAdmin("Log-In", int.Parse(Session["admin_id"].ToString()),"Logged-In by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                             Response.Redirect("Dashboard.aspx");
                         }

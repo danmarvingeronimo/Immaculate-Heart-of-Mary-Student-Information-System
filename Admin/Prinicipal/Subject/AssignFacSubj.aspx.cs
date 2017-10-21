@@ -93,6 +93,7 @@ public partial class Faculty : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
             string Takanashi = @"UPDATE SUBJECT_MAIN SET Teacher_ID=@Teacher_ID WHERE
                                 Subject_ID=@Subject_ID";
@@ -100,12 +101,16 @@ public partial class Faculty : System.Web.UI.Page
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
+                WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
                 //Subject
                 WickedEye.Parameters.AddWithValue("@Teacher_ID", ddlTeacher.Text);
                 WickedEye.Parameters.AddWithValue("@Subject_ID", Request.QueryString["ID"].ToString());
 
 
                 WickedEye.ExecuteNonQuery();
+                //Nathaniel Collins S. Ortiz
+                audlog.AuditLogAdmin("Assigning Faculty with Subject", int.Parse(Session["admin_id"].ToString()), "Faculty assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewSubject.aspx");
 
             }

@@ -67,16 +67,21 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             string sql = @"UPDATE UPLOAD_LECTURE SET Title=@Title, Description=@Description WHERE UploadLecture_ID=@ID";
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
+                //audit
+                com.Parameters.AddWithValue("@TeacherID", Session["Teacher_ID"].ToString());
+                //
                 com.Parameters.AddWithValue("@Title", txtTitle.Text);
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
                 com.Parameters.AddWithValue("@ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-
+                audlog.AuditLogTeacher("Edited Lectures", int.Parse(Session["teacher_id"].ToString()), "Edited Lectures by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
                 Response.Redirect("ViewLectures.aspx");
             }
         }

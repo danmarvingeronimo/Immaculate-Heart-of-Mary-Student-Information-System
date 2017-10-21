@@ -105,7 +105,9 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                                
 
             using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
-            {
+            {   //Nathaniel Collins S. Ortiz
+                WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
+
                 //Subject
                 WickedEye.Parameters.AddWithValue("@Subject_ID", ddlSubject.Text);
                 WickedEye.Parameters.AddWithValue("@ScheduleID", Request.QueryString["ID"].ToString());
@@ -113,7 +115,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
 
                 WickedEye.ExecuteNonQuery();
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLog("Edit Schedule", int.Parse(Session["admin_id"].ToString()), "Schedule has been Edited by "
+                audlog.AuditLogAdmin("Edit Schedule", int.Parse(Session["admin_id"].ToString()), "Schedule has been Edited by "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("Schedule.aspx");
 

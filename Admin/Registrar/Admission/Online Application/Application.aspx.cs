@@ -23,6 +23,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
 
             string Takanashi = @"INSERT INTO STUDENT_MAIN (Year_level, First_Name, Middle_Name, Last_Name, Gender, Status_ID,
@@ -64,6 +65,10 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
+                //Audit Session
+                WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
+                //
+
                 WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
 
 
@@ -95,7 +100,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Prev_SchoolAdd", txtStudPrevSchoolAdd.Text);
 
                 WickedEye.Parameters.AddWithValue("@Significant_Awards", txtStudSigAward.Text);
-                WickedEye.Parameters.AddWithValue("@Extra_CurrricularAct", txtStudExtraCurAct.Text);
+                WickedEye.Parameters.AddWithValue("@Extra_CurrAct", txtStudExtraCurAct.Text);
                 WickedEye.Parameters.AddWithValue("@Hobbies", txtStudHobbies.Text);
 
                 WickedEye.Parameters.AddWithValue("@Places_Traveled", txtPlaceTravel.Text);
@@ -140,6 +145,9 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
                 WickedEye.ExecuteNonQuery();
                 Rikka.Close();
+                //Nathaniel Collins S. Ortiz Application Audit
+                audlog.AuditLogAdmin("Admission Input", int.Parse(Session["admin_id"].ToString()), "Input assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("Confirmation.aspx");
             }
         }

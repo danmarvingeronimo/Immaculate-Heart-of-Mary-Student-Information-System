@@ -104,7 +104,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
 
             using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
-
+                WickedEye.Parameters.AddWithValue("@AID", Session["Admin_ID"].ToString());
 
                 //Admin Access Level
                 WickedEye.Parameters.AddWithValue("@User_ID", txtUID.Text);
@@ -113,7 +113,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Request.QueryString["ID"].ToString());
                 WickedEye.ExecuteNonQuery();
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLog("Updating an Admin", int.Parse(Session["admin_id"].ToString()), "Updated by "
+                audlog.AuditLogAdmin("Updating an Admin", int.Parse(Session["admin_id"].ToString()), "Updated by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewAdmin.aspx");
 

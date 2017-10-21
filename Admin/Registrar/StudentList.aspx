@@ -28,9 +28,13 @@
                                 <td><%#Eval("Middle_Name") %></td>
                                 <td><%#Eval("Last_Name") %></td>
                                 <td>
+                                    <a href='UpdateStudents.aspx?ID=<%#Eval ("Student_ID") %>'
+                                        class="btn btn-xs btn-info" title="Student Details">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
                                <asp:LinkButton ID="btnUpdate" runat="server"
                                          class="btn btn-xs btn-success" CommandName="updatestat">
-                                         <i class="fa fa-plus"></i>
+                                         <i class="fa fa-remove"></i>
                                     </asp:LinkButton>
 
                                 </td>

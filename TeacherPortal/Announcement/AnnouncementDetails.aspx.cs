@@ -72,10 +72,16 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
+                Util audlog = new Util();
+                //audit
+                com.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+                //
                 com.Parameters.AddWithValue("@Title", txtTitle.Text);
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
                 com.Parameters.AddWithValue("@Announcement_ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
+                audlog.AuditLogTeacher("Announcement Details", int.Parse(Session["teacher_id"].ToString()), "Edited by "
+                          + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
 
                 Response.Redirect("ViewAnnouncement.aspx");
             }
