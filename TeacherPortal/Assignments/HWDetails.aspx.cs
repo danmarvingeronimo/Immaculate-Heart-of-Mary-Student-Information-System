@@ -38,7 +38,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT UploadHW_ID, Title, Description FROM UPLOAD_LECTURE WHERE UploadHW_ID=@ID ";
+            string SQL = @"SELECT UploadHW_ID, Title, Description FROM UPLOAD_HW WHERE UploadHW_ID=@ID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {

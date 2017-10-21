@@ -21,11 +21,11 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
         using (SqlConnection burger = new SqlConnection(Util.GetConnection()))
         {
             burger.Open();
-            string ham = @"SELECT User_ID, Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName FROM TEACHER_MAIN WHERE User_ID=@UID";
+            string ham = @"SELECT User_ID, Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
 
             using (SqlCommand cheese = new SqlCommand(ham, burger))
             {
-                cheese.Parameters.AddWithValue("@UID", Session["userid"].ToString());
+                cheese.Parameters.AddWithValue("@UID", Session["Teacher_ID"].ToString());
 
                 using (SqlDataReader dr = cheese.ExecuteReader())
                 {
@@ -58,7 +58,7 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
             //}
             using (SqlCommand best = new SqlCommand(wai, fu))
             {
-                best.Parameters.AddWithValue("@UID", Session["userid"].ToString());
+                best.Parameters.AddWithValue("@UID", Session["Teacher_ID"].ToString());
                 best.Parameters.AddWithValue("@TID", txtTeacherID.Text);
                 best.Parameters.AddWithValue("@TPW", txtPassword.Text);
                 best.Parameters.AddWithValue("@TFN", txtFN.Text);

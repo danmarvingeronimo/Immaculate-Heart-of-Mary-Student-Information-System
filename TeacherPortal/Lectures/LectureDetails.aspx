@@ -3,7 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     <i class="fa  fa-book"></i>
-     Upload Edit<asp:Literal ID="ltID" runat="server" visible="false"/>
+     Edit Upload<asp:Literal ID="ltID" runat="server" visible="false"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class=" form-horizontal">
@@ -11,7 +11,7 @@
       <div class="form-group">
                 <label class="control-label col-lg-4">Title</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtTitle" runat="server" class="form-control" type="text" required />
+                    <asp:TextBox ID="txtTitle" runat="server" class="form-control" type="text"  />
                 </div>
             </div>
 
@@ -19,7 +19,7 @@
      <div class="form-group">
                 <label class="control-label col-lg-4">Description</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtDescription" runat="server" class="form-control" type="text" MaxLength="500" TextMode="MultiLine" required />
+                    <asp:TextBox ID="txtDescription" runat="server" class="form-control" type="text" MaxLength="500" TextMode="MultiLine"  />
                 </div>
             </div>
    

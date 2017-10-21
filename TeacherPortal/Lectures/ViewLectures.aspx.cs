@@ -59,7 +59,7 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-                string DELETE = @"DELETE FROM UPLOADLECTURE_ID WHERE UploadLecture_ID=@UploadLecture_ID";
+                string DELETE = @"DELETE FROM UPLOAD_LECTURE WHERE UploadLecture_ID=@UploadLecture_ID";
                 using (SqlCommand Nero = new SqlCommand(DELETE, con))
                 {
                     Nero.Parameters.AddWithValue("@UploadLecture_ID", ltUploadLecture_ID.Text);

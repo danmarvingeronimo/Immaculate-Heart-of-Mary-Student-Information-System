@@ -35,7 +35,7 @@
                 <li><a runat="server" href="Index.aspx"> Immaculate Heart of Mary College <span>-</span> Parañaque </a></li>
            </ul>
            <ul class="nav navbar-nav navbar-right">
-                <li><a runat="server" href="Profile.aspx">Profile</a></li>
+                <li><a runat="server" href="~/TeacherPortal/Profile/Profile.aspx">Profile</a></li>
                 <li><a runat="server" href="Class.aspx">Class List</a></li>
                 <li><a runat="server" href="~/TeacherPortal/Lectures/ViewLectures.aspx">Lectures</a></li>
                 <li><a runat="server" href="~/TeacherPortal/Assignments/ViewHW.aspx">Assignments</a></li>
