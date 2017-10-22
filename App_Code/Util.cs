@@ -25,6 +25,8 @@ public class Util
     //Nathaniel Collins S. Ortiz
     public void AuditLogAdmin(string Title, int AdminID, string Description)
     {
+        Cryptic cs = new Cryptic();
+        
         SqlConnection con = new SqlConnection(GetConnection());
         string SQL = @"INSERT INTO AUDIT_LOG_ADMIN VALUES(@AdminID,@TimeStamp,@Title,@Description)";
         con.Open();
