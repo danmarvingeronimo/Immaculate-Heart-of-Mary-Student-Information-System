@@ -21,7 +21,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="ViewStudent.aspx"><span>View Students <span class="View Students"></span></span></a></li>
+                    <li><a href="IT Admin/Admin/AddAdmin.aspx"><span>Add Admin <span class="View Students"></span></span></a></li>
                     <li><a href="YearLevelList.aspx"><span>View Grade List <span class="View Grade List"></span></span></a></li>
                 </ul>
             </div>

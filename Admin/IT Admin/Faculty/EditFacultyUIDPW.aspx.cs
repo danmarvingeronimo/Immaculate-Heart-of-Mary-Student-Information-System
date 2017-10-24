@@ -67,16 +67,22 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
     {
         using(SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             string sql = @"UPDATE TEACHER_MAIN SET User_ID=@UID, Teacher_PW=@PW WHERE Teacher_ID = @SID";
             con.Open();
 
             using(SqlCommand com = new SqlCommand(sql,con))
-            {
+            {   //Nathaniel Collins S. Ortiz
+                com.Parameters.AddWithValue("@AID", Session["Admin_ID"].ToString());
+
                 com.Parameters.AddWithValue("@UID", txtUID.Text);
                 com.Parameters.AddWithValue("@PW", txtPass.Text);
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
 
+                //Nathaniel Collins S. Ortiz
+                audlog.AuditLogAdmin("Edit Faculty Password", int.Parse(Session["admin_id"].ToString()), "Edited by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("FacultyList.aspx");
             }
         }

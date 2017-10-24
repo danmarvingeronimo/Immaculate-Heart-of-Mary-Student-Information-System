@@ -23,6 +23,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
             Rikka.Open();
 
             string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, 
@@ -68,6 +69,10 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
+                //Audit Session
+                WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
+                //
+
                 WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
                 WickedEye.Parameters.AddWithValue("@Section_ID", 21);
 
@@ -99,7 +104,11 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Prev_SchoolAdd", txtStudPrevSchoolAdd.Text);
 
                 WickedEye.Parameters.AddWithValue("@Significant_Awards", txtStudSigAward.Text);
+<<<<<<< HEAD
                 WickedEye.Parameters.AddWithValue("@Extra_CurricularAct", txtStudExtraCurAct.Text);
+=======
+                WickedEye.Parameters.AddWithValue("@Extra_CurrAct", txtStudExtraCurAct.Text);
+>>>>>>> 03f515eb72cf49ead7d62e14be3383ec8d6db615
                 WickedEye.Parameters.AddWithValue("@Hobbies", txtStudHobbies.Text);
 
                 WickedEye.Parameters.AddWithValue("@Places_Traveled", txtPlaceTravel.Text);
@@ -144,6 +153,9 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
                 WickedEye.ExecuteNonQuery();
                 Rikka.Close();
+                //Nathaniel Collins S. Ortiz Application Audit
+                audlog.AuditLogAdmin("Admission Input", int.Parse(Session["admin_id"].ToString()), "Input assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("Confirmation.aspx");
             }
         }

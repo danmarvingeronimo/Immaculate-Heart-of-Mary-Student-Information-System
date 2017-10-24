@@ -48,13 +48,16 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             con.Open();
             string SQL = @"INSERT INTO UPLOAD_LECTURE(Title, Description, FileContent, DateAdded, Teacher_ID, Subject_ID) 
                             VALUES (@Title, @Description, @FileContent, @DateAdded, @TeacherID, @Subject)";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
+                //audit
                 cmd.Parameters.AddWithValue("@TeacherID", Session["Teacher_ID"].ToString());
+                //
 
                 cmd.Parameters.AddWithValue("@Subject", ddlSubject.Text);
 
@@ -70,6 +73,8 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
 
                 cmd.ExecuteNonQuery();
+                audlog.AuditLogTeacher("Add Lectures", int.Parse(Session["teacher_id"].ToString()), "Added Lectures by "
+                            + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
                 Response.Redirect("ViewLectures.aspx");
 
             }

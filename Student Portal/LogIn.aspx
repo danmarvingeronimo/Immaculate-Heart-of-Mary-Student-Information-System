@@ -15,7 +15,7 @@
                     User ID
                 </label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtEmail" runat="server"
+                    <asp:TextBox ID="txtUID" runat="server"
                         class="form-control" type="text"
                         MaxLength="100" required />
                 </div>
@@ -25,7 +25,7 @@
                     Password
                 </label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtPassword" runat="server"
+                    <asp:TextBox ID="txtPWD" runat="server"
                         class="form-control" type="password"
                         MaxLength="50" required />
                 </div>

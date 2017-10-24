@@ -17,8 +17,9 @@ public partial class TeacherPortal_Login : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
             con.Open();
-            string SQL = @"Select Teacher_ID FROM TEACHER_MAIN
+            string SQL = @"Select Teacher_ID,Teacher_FirstName,Teacher_MiddleName,Teacher_LastName FROM TEACHER_MAIN
                   WHERE User_ID=@User_ID AND Teacher_PW=@Teacher_PW";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
@@ -32,7 +33,13 @@ public partial class TeacherPortal_Login : System.Web.UI.Page
                         while (data.Read())
                         {
                             Session["teacher_id"] = data["Teacher_ID"].ToString();
+                            Session["teacher_firstname"] = data["Teacher_FirstName"].ToString();
+                            Session["teacher_middlename"] = data["Teacher_MiddleName"].ToString();
+                            Session["teacher_lastname"] = data["Teacher_LastName"].ToString();
+                            
                         }
+                        audlog.AuditLogTeacher("Log-In", int.Parse(Session["teacher_id"].ToString()), "Logged-In by "
+                            + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
                         Response.Redirect("Welcome.aspx");
                     }
                     else

@@ -29,10 +29,21 @@
                                 <td><%#Eval("Middle_Name") %></td>
                                 <td><%#Eval("Last_Name") %></td>
                                 <td>
+<<<<<<< HEAD:TeacherPortal/Grade/StudentList.aspx
                                     <a href='AddGrade.aspx?ID=<%#Eval("Student_ID")%>'
                                         class="btn btn-xs btn-info" title="View Schedule">
                                         <i class="fa fa-edit"></i>
                                     </a>
+=======
+                                    <a href='UpdateStudents.aspx?ID=<%#Eval ("Student_ID") %>'
+                                        class="btn btn-xs btn-info" title="Student Details">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                               <asp:LinkButton ID="btnUpdate" runat="server"
+                                         class="btn btn-xs btn-success" CommandName="updatestat">
+                                         <i class="fa fa-remove"></i>
+                                    </asp:LinkButton>
+>>>>>>> 03f515eb72cf49ead7d62e14be3383ec8d6db615:Admin/Registrar/StudentList.aspx
 
                                 </td>
                                 <%--<td>

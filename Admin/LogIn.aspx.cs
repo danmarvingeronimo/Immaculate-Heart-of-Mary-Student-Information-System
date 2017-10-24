@@ -75,7 +75,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
                         //Audit Log of Session ID
                         //Nathaniel Collins S. Ortiz V
-                        audlog.AuditLog("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
+                        audlog.AuditLogAdmin("Log-In", int.Parse(Session["admin_id"].ToString()),"Logged-In by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
 
 

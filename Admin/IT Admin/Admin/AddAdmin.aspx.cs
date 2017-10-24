@@ -52,6 +52,8 @@ public partial class Section_AddSection : System.Web.UI.Page
 
             using(SqlCommand WickedEye = new SqlCommand(Takanashi,Rikka))
             {
+                WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
+
                 WickedEye.Parameters.AddWithValue("@First_Name", txtFN.Text);
                 WickedEye.Parameters.AddWithValue("@Last_Name", txtLN.Text);
                 WickedEye.Parameters.AddWithValue("@Middle_Name", txtMN.Text);
@@ -60,7 +62,7 @@ public partial class Section_AddSection : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
                 WickedEye.ExecuteNonQuery();
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLog("Adding an Admin", int.Parse(Session["admin_id"].ToString()), "Added by "
+                audlog.AuditLogAdmin("Adding an Admin", int.Parse(Session["admin_id"].ToString()), "Added by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewAdmin.aspx");
             }
