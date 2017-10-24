@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="AdmissionStudList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="StudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     Student List
@@ -12,32 +14,30 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
-
+                    <th>Student ID #</th>
+                    <th>Year Level</th>
+                    <th>Last Name</th>
                     <th>First Name</th>
                     <th>Middle Name</th>
-                    <th>Last Name</th>
                     <th>Status</th>
                     
                 </thead>
                 <tbody>
-                    <asp:ListView ID="lvStudents" runat="server" OnItemCommand="lvStudents_ItemCommand">
+                    <asp:ListView ID="lvStudents" runat="server" OnPagePropertiesChanging="lvStudents_PagePropertiesChanging">
                         <ItemTemplate>
                             <tr>
-                                
-                        <asp:Literal ID="ltStudent_ID" runat="server"
-                            Text='<%# Eval("Student_ID") %>' Visible="false" />  
-                                
+                                <td><%#Eval("User_ID") %></td>
+                                <td><%#Eval("Year_level") %></td>
+                                <td><%#Eval("Last_Name") %></td>
                                 <td><%#Eval("First_Name") %></td>
                                 <td><%#Eval("Middle_Name") %></td>
-                                <td><%#Eval("Last_Name") %></td>
                                 <td><%#Eval("Status_Desc") %></td>
-
                                 <td>
 
-                                    <asp:LinkButton ID="btnDelete" runat="server"
-                                        class="btn btn-xs btn-green" CommandName="update">
-                            <i class="fa fa-edit"></i>
-                                    </asp:LinkButton>
+                               <a href='AssignStudentSection.aspx?ID=<%#Eval("Student_ID")%>'
+                                      class="btn btn-xs btn-info" title="View Payment Details">
+                                         <i class="fa fa-edit"></i>
+                                 </a>
 
                                 </td>
                                 <%--<td>
@@ -59,6 +59,19 @@
                     </asp:ListView>
                 </tbody>
             </table>
+            <div class="col-lg-offset-5">
+               <asp:DataPager ID="dpStudents" runat="server"
+                    PagedControlID="lvStudents" PageSize="10">
+                   <Fields>
+                       <asp:NumericPagerField
+                     ButtonType="Button"
+                     CurrentPageLabelCssClass="btn btn"
+                     NumericButtonCssClass="btn btn"
+                     NextPreviousButtonCssClass="btn btn-default"
+                     ButtonCount="5" />
+                   </Fields>
+               </asp:DataPager>
+           </div>
         </div>
     </form>
 

@@ -36,10 +36,11 @@
            </ul>
            <ul class="nav navbar-nav navbar-right">
                 <li><a runat="server" href="~/TeacherPortal/Profile/Profile.aspx">Profile</a></li>
-                <li><a runat="server" href="Class.aspx">Class List</a></li>
-                <li><a runat="server" href="~/TeacherPortal/Lectures/ViewLectures.aspx">Lectures</a></li>
-                <li><a runat="server" href="~/TeacherPortal/Assignments/ViewHW.aspx">Assignments</a></li>
-                <li><a runat="server" href="~/TeacherPortal/Announcement/ViewAnnouncement.aspx">Announcement List</a></li>
+               <li><a runat="server" href="~/TeacherPortal/Grade/GradeViewSection.aspx">Grades</a></li>
+               <li><a runat="server" href="Class.aspx">Class List</a></li>
+                <li><a runat="server" href="~/TeacherPortal/Lectures/ViewSubject.aspx">Lectures</a></li>
+                <li><a runat="server" href="~/TeacherPortal/Assignments/ViewSubject.aspx">Assignments</a></li>
+                <li><a runat="server" href="~/TeacherPortal/Announcement/ViewSubject.aspx">Announcement List</a></li>
             </ul>
         </div>
             </div>

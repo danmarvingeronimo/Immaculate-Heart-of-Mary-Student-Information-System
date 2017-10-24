@@ -176,7 +176,7 @@
                 <label class="control-label col-lg-4">Significant Awards</label>
                 <div class="col-lg-8">
                     <asp:TextBox ID="txtStudSigAward" runat="server"
-                        class="form-control" type="text" MaxLength="50"
+                        class="form-control" type="text" MaxLength="500" TextMode="MultiLine"
                         required />
                 </div>
             </div>
@@ -185,7 +185,7 @@
                 <label class="control-label col-lg-4">Extra Curricular Activities</label>
                 <div class="col-lg-8">
                     <asp:TextBox ID="txtStudExtraCurAct" runat="server"
-                        class="form-control" type="text" MaxLength="50"
+                        class="form-control" type="text" MaxLength="500" TextMode="MultiLine"
                         required />
                 </div>
             </div>
@@ -197,7 +197,7 @@
                 <label class="control-label col-lg-4">Hobbies</label>
                 <div class="col-lg-8">
                     <asp:TextBox ID="txtStudHobbies" runat="server"
-                        class="form-control" type="text" MaxLength="50"
+                        class="form-control" type="text" MaxLength="500" TextMode="MultiLine"
                         required />
                     
 
@@ -217,7 +217,7 @@
                 <label class="control-label col-lg-4">Places Traveled</label>
                 <div class="col-lg-8">
                     <asp:TextBox ID="txtPlaceTravel" runat="server"
-                        class="form-control" type="text" MaxLength="50"
+                        class="form-control" type="text" MaxLength="500" TextMode="MultiLine"
                         required />
                 </div>
             </div>

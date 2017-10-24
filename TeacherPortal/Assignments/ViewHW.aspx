@@ -3,8 +3,9 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-book">Assignments</i>
-    <asp:Literal ID="ltSID" runat="server"  Visible="false"/> 
+<i class="fa fa-book"></i>
+    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> Assignments
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
 
@@ -17,7 +18,7 @@
                    <th>Title</th>
                    <th>File</th>
                    <th>Description</th>
-                   <th>DateAdded</th>
+                   <th>Date Added</th>
                    <th>Uploaded By</th> 
                </thead>
     <tbody>

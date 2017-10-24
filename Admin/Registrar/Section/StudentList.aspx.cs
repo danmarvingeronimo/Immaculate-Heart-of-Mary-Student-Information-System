@@ -24,7 +24,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Student_ID, First_Name, Middle_Name, Last_Name FROM STUDENT_MAIN WHERE STATUS_ID = '3'";
+            string Takanashi = @"SELECT Stud.Student_ID, Stud.Last_Name , Stud.Section_ID,Stud.First_Name , Stud.Middle_Name, Stud.Year_level, Stud.User_ID ,Stat.Status_Desc FROM STUDENT_MAIN Stud 
+                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID WHERE SECTION_ID = 21 ORDER BY Stud.Year_level;"; 
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
@@ -41,38 +42,10 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
         }
     }
-
-    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
-    {
-        Literal ltStudentID = (Literal)e.Item.FindControl("ltStudentID");
-
-        if (e.CommandName == "updatestat")
-        {
-            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
-            {
-                con.Open();
-                string DELETE = @"UPDATE STUDENT_MAIN SET Status_ID='1' WHERE Student_ID=@SID";
-                using (SqlCommand Nero = new SqlCommand(DELETE, con))
-                {
-                    Nero.Parameters.AddWithValue("@SID", ltStudentID.Text);
-                    Nero.ExecuteNonQuery();
-                }
-            }
-        }
-        else if (e.CommandName == "updateTeach")
-        {
-
-        }
-        GetStudents();
-    }
     protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
     {
         dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
         GetStudents();
     }
-    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
-    {
-        GetStudents();
 
-    }
 }

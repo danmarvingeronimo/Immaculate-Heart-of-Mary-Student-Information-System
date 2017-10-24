@@ -25,47 +25,51 @@ public partial class Online_Application_Application : System.Web.UI.Page
         {
             Rikka.Open();
 
-            string Takanashi = @"INSERT INTO STUDENT_MAIN (Year_level, First_Name, Middle_Name, Last_Name, Gender, Status_ID,
+            string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, 
+                                                          Last_Name, Gender, Status_ID,
                                                           City, Brngy, Municipality, 
                                                           Street, Prov_Add, Birth_Date,
                                                           Birth_Place, Religion, Bapt_Date, 
-                                                          Bapt_Place, Nationality, Prev_School, Prev_SY, Prev_SchoolAdd, Significant_Awards,
-                                                          Extra_CurricularAct, Hobbies, Places_Traveled, Mother_FullName, 
+                                                          Bapt_Place, Nationality, Prev_School, 
+                                                          Prev_SY, Prev_SchoolAdd, Significant_Awards,
+                                                          Extra_CurricularAct, Hobbies, Places_Traveled, 
 
-                                                          Mother_Age, Mother_BirthPlace, Mother_Natl, Mother_Religion,
-                                                          Mother_HomeAdd, Mother_PhoneNo, Mother_EduStat,
-                                                          Mother_SchoolGrad, Mother_Employm, Mother_OffAdd,
-                                                          Mother_NatBus,
+                                                          Mother_FullName, Mother_Age, Mother_BirthPlace, 
+                                                          Mother_Natl, Mother_Religion, Mother_HomeAdd, 
+                                                          Mother_PhoneNo, Mother_EduStat, Mother_SchoolGrad, 
+                                                          Mother_Employm, Mother_OffAdd, Mother_NatBus,
 
 
-                                                          Father_FullName, Father_Age, Father_BirthPlace, Father_Natl, Father_Religion,
-                                                          Father_HomeAdd, Father_PhoneNo, Father_EduStat,
-                                                          Father_SchoolGrad, Father_Employm, Father_OffAdd,
-                                                          Father_NatBus)
+                                                          Father_FullName, Father_Age, Father_BirthPlace, 
+                                                          Father_Natl, Father_Religion, Father_HomeAdd, 
+                                                          Father_PhoneNo, Father_EduStat, Father_SchoolGrad, 
+                                                          Father_Employm, Father_OffAdd, Father_NatBus)
 
-                                VALUES (@Year_level, @First_Name, @Middle_Name, @Last_Name, @Gender, @Status_ID,
-                                       @City, @Brngy, @Municipality, 
-                                       @Street, @Prov_Add, @Birth_Date, 
-                                       @Birth_Place, @Religion, @Bapt_Date, 
-                                       @Bapt_Place, @Nationality, @Prev_SY, @Prev_SchoolAdd, @Significant_Awards,
-                                       @Extra_CurrAct, @Hobbies, @Places_Traveled, 
+                                                  VALUES (@Section_ID, @Year_level, @First_Name, @Middle_Name, 
+                                                          @Last_Name, @Gender, @Status_ID,
+                                                          @City, @Brngy, @Municipality, 
+                                                          @Street, @Prov_Add, @Birth_Date, 
+                                                          @Birth_Place, @Religion, @Bapt_Date,
+                                                          @Bapt_Place, @Nationality, @Prev_School,
+                                                          @Prev_SY, @Prev_SchoolAdd, @Significant_Awards, 
+                                                          @Extra_CurricularAct, @Hobbies, @Places_Traveled, 
                                        
-                                       @Mother_FullName, @Mother_Age, @Mother_BirthPlace, @Mother_Natl, @Mother_Religion,
-                                       @Mother_HomeAdd, @Mother_PhoneNo, @Mother_EduStat,
-                                       @Mother_SchoolGrad, @Mother_Employm, @Mother_OffAdd,
-                                       @Mother_NatBus,
+                                                          @Mother_FullName, @Mother_Age, @Mother_BirthPlace, 
+                                                          @Mother_Natl, @Mother_Religion, @Mother_HomeAdd, 
+                                                          @Mother_PhoneNo, @Mother_EduStat, @Mother_SchoolGrad, 
+                                                          @Mother_Employm, @Mother_OffAdd, @Mother_NatBus,
 
 
-                                       @Father_FullName, @Father_Age, @Father_BirthPlace, @Father_Natl, @Father_Religion,
-                                       @Father_HomeAdd, @Father_PhoneNo, @Father_EduStat,
-                                       @Father_SchoolGrad, @Father_Employm, @Father_OffAdd,
-                                       @Father_NatBus)";
+                                                          @Father_FullName, @Father_Age, @Father_BirthPlace, 
+                                                          @Father_Natl, @Father_Religion, @Father_HomeAdd, 
+                                                          @Father_PhoneNo, @Father_EduStat, @Father_SchoolGrad, 
+                                                          @Father_Employm, @Father_OffAdd, @Father_NatBus)";
 
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
                 WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
-
+                WickedEye.Parameters.AddWithValue("@Section_ID", 21);
 
                 WickedEye.Parameters.AddWithValue("@First_Name", txtFN.Text);
                 WickedEye.Parameters.AddWithValue("@Middle_Name", txtMN.Text);
@@ -95,7 +99,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Prev_SchoolAdd", txtStudPrevSchoolAdd.Text);
 
                 WickedEye.Parameters.AddWithValue("@Significant_Awards", txtStudSigAward.Text);
-                WickedEye.Parameters.AddWithValue("@Extra_CurrricularAct", txtStudExtraCurAct.Text);
+                WickedEye.Parameters.AddWithValue("@Extra_CurricularAct", txtStudExtraCurAct.Text);
                 WickedEye.Parameters.AddWithValue("@Hobbies", txtStudHobbies.Text);
 
                 WickedEye.Parameters.AddWithValue("@Places_Traveled", txtPlaceTravel.Text);

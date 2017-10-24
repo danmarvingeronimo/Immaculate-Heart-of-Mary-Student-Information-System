@@ -59,6 +59,8 @@ public partial class Admin_LogIn : System.Web.UI.Page
                     WickedEye.Parameters.AddWithValue("@Admin_PW", txtPassword.Text);
                     WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
 
+                
+
                 using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
                     {
                         if (Chuu2.HasRows)
@@ -70,11 +72,34 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             Session["middle_name"] = Chuu2["Middle_Name"].ToString();
                             Session["last_name"] = Chuu2["Last_Name"].ToString();
                         }
+
+                        //Audit Log of Session ID
                         //Nathaniel Collins S. Ortiz V
                         audlog.AuditLog("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
-                            Response.Redirect("Dashboard.aspx");
+
+
+                        // Verification of Access Level
+                        //Dan Marvin Geronimo
+                        if (ddlUsers.Text == "1")
+                        {
+                            Response.Redirect("Please put the master page for IT ADMIN here.aspx");
                         }
+                        else if (ddlUsers.Text == "2")
+                        {
+                            Response.Redirect("Please put the master page for REGISTRAR here.aspx");
+                        }
+                        else if (ddlUsers.Text == "3")
+                        {
+                            Response.Redirect("Please put the master page for ACCOUNTING here.aspx");
+                        }
+                        else if (ddlUsers.Text == "4")
+                        {
+                            Response.Redirect("Please put the master page for PRINCIPAL here.aspx");
+                        }
+
+
+                    }
 
                     else
                     {

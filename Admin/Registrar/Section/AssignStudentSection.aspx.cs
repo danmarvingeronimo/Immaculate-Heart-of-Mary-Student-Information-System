@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Data;
+//Nathaniel Collins S. Ortiz
+//Dan Marvin Geronimo
 
-
-//DAN MARVIN GERONIMO
-
-public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
+public partial class Faculty : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("Schedule.aspx");
+            Response.Redirect("StudentList.aspx");
         }
         else
         {
@@ -27,27 +27,25 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     GetID(secid);
-                    GetSubj();
+                    GetSection();
 
                 }
             }
             else
             {
-                Response.Redirect("Schedule.aspx");
+                Response.Redirect("StudentList.aspx");
             }
         }
 
     }
 
- 
-        
 
     void GetID(int ID)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Sec.Year_level + ' - ' + Sec.Section_Name + ' /' + S.Day_Schedule + ' - '  + S.Timeslot AS 'Section' FROM SECTION Sec 
-                           JOIN SCHEDULE S ON Sec.Section_ID=S.Section_ID WHERE S.ScheduleID=@SID ";
+            string SQL = @"SELECT Student_ID, Last_Name + ', ' + First_Name + ' ' + Middle_Name AS 'Student' FROM STUDENT_MAIN  
+                            WHERE Student_ID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -59,25 +57,25 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltSID.Text = dr["Section"].ToString();
+                            ltSID.Text = dr["Student"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("Schedule.aspx");
+                        Response.Redirect("ViewSubject.aspx");
                     }
                 }
             }
         }
-    }
 
+    }
 
     public static int Yearlevel(int ID)
     {
         int Yearlevel = 0;
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            string Takanashi = @" SELECT Year_level FROM SCHEDULE WHERE ScheduleID=@SID";
+            string Takanashi = @"SELECT Year_level FROM STUDENT_MAIN WHERE Student_ID=@SID";
             Rikka.Open();
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
@@ -91,65 +89,56 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                             Yearlevel = int.Parse(dr["Year_level"].ToString());
                         }
                     }
-                    
+
                 }
             }
-
+            return Yearlevel;
         }
 
-        return Yearlevel;
     }
 
-
-    //To get subjects
-    void GetSubj()
+    void GetSection()
     {
         int yearlvl = Yearlevel(int.Parse(Request.QueryString["ID"].ToString()));
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Subject_ID, Subject_Name FROM SUBJECT_MAIN WHERE Year_Level=@YL";
+            string Takanashi = @"SELECT Section_ID, Year_level + ' - ' + Section_Name AS 'Section' FROM SECTION WHERE Year_level=@YL";
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
                 WickedEye.Parameters.AddWithValue("@YL", yearlvl);
+
                 using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
                 {
-                    ddlSubject.DataSource = Chuu2;
-                    ddlSubject.DataTextField = "Subject_Name";      
-                    ddlSubject.DataValueField = "Subject_ID";
-                    ddlSubject.DataBind();
+                    ddlSection.DataSource = Chuu2;
+                    ddlSection.DataTextField = "Section";
+                    ddlSection.DataValueField = "Section_ID";
+                    ddlSection.DataBind();
 
-                    ddlSubject.Items.Insert(0, new ListItem("Select a subject.", ""));
+                    ddlSection.Items.Insert(0, new ListItem("Select a Section.", ""));
 
                 }
             }
         }
     }
-
-
-
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            Util audlog = new Util();
             Rikka.Open();
-            string Takanashi = @"UPDATE SCHEDULE SET Subject_ID=@Subject_ID WHERE
-                                ScheduleID=@ScheduleID";
-                               
+            string Takanashi = @"UPDATE STUDENT_MAIN SET Section_ID=@Section_ID WHERE
+                                Student_ID=@Student_ID";
 
-            using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
                 //Subject
-                WickedEye.Parameters.AddWithValue("@Subject_ID", ddlSubject.Text);
-                WickedEye.Parameters.AddWithValue("@ScheduleID", Request.QueryString["ID"].ToString());
+                WickedEye.Parameters.AddWithValue("@Section_ID", ddlSection.Text);
+                WickedEye.Parameters.AddWithValue("@Student_ID", Request.QueryString["ID"].ToString());
 
 
                 WickedEye.ExecuteNonQuery();
-                //Nathaniel Collins S. Ortiz V
-                audlog.AuditLog("Edit Schedule", int.Parse(Session["admin_id"].ToString()), "Schedule has been Edited by "
-                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
-                Response.Redirect("Schedule.aspx");
+                Response.Redirect("StudentList.aspx");
 
             }
         }

@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="StudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="CompleteStudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    Student List
+    <i class="fa fa-user"></i>
+    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> Student List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     
@@ -12,26 +13,30 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
+                    <th>Student ID #</th>
+                    <th>Last Name</th>
                     <th>First Name</th>
                     <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>Status</th>
                     
                 </thead>
 
                 <tbody>
-                    <asp:ListView ID="lvStudents" runat="server" OnItemCommand="lvStudents_ItemCommand" OnPagePropertiesChanging="lvStudents_PagePropertiesChanging" OnItemDataBound="lvStudents_ItemDataBound">
+                    <asp:ListView ID="lvStudents" runat="server" OnPagePropertiesChanging="lvStudents_PagePropertiesChanging" OnItemDataBound="lvStudents_ItemDataBound">
                         <ItemTemplate>
                             <tr>
                                 <asp:Literal ID="ltStudentID" runat="server"
                                   Text='<%# Eval("Student_ID") %>' Visible="false" />
+                                <td><%#Eval("User_ID") %></td>
+                                <td><%#Eval("Last_Name") %></td>
                                 <td><%#Eval("First_Name") %></td>
                                 <td><%#Eval("Middle_Name") %></td>
-                                <td><%#Eval("Last_Name") %></td>
+                                <td><%#Eval("Status_Desc") %></td>
                                 <td>
-                               <asp:LinkButton ID="btnUpdate" runat="server"
-                                         class="btn btn-xs btn-success" CommandName="updatestat">
-                                         <i class="fa fa-plus"></i>
-                                    </asp:LinkButton>
+                                    <a href='EditUIDPWStudent.aspx?ID=<%#Eval("Student_ID")%>'
+                                        class="btn btn-xs btn-info" title="View Schedule">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
 
                                 </td>
                                 <%--<td>

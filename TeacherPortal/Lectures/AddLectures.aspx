@@ -28,6 +28,14 @@
                   </div>
              </div>
 
+              <div class="form-group">
+                <label class="control-label col-lg-4">Subject</label>
+                <div class="col-lg-8">
+                    <asp:DropDownList ID="ddlSubject" runat="server"
+                        class="form-control" required />
+                </div>
+            </div>
+
              
 
             <div class="form-group">

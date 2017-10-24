@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Data;
-using System.Configuration;
 
 //DAN MARVIN GERONIMO
 
-public partial class Admin_Admission_PaymentInfo : System.Web.UI.Page
+public partial class Admin_Admission_StudentList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("StudentList.aspx");
+            Response.Redirect("GradeViewSection.aspx");
         }
         else
         {
@@ -28,20 +27,27 @@ public partial class Admin_Admission_PaymentInfo : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     GetID(secid);
-                    GetPaymentInfo(secid);
+                    GetStudents(secid);
+
                 }
             }
             else
             {
-                Response.Redirect("StudentList.aspx");
+                Response.Redirect("GradeViewSection.aspx");
             }
         }
+
     }
+
+
+
+
     void GetID(int ID)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Last_Name + ', ' + First_Name + ' ' + Middle_Name AS FullName FROM STUDENT_MAIN WHERE Student_ID=@SID ";
+            string SQL = @"SELECT Year_Level + ' - ' + Section_Name AS 'Section' FROM SECTION 
+                           WHERE Section_ID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -53,33 +59,33 @@ public partial class Admin_Admission_PaymentInfo : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltSID.Text = dr["FullName"].ToString();
+                            ltSID.Text = dr["Section"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("StudentList.aspx");
+                        Response.Redirect("GradeViewSection.aspx");
                     }
                 }
             }
         }
     }
 
-    void GetPaymentInfo(int ID)
+    void GetStudents(int ID)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Paymentinfo_ID, Payment_Status, DateOfPayment, SY, Quarter FROM PAYMENTS_INFO WHERE Student_ID=@SID ORDER BY DateOfPayment ASC";
+            string Takanashi = @"SELECT Stud.Student_ID, Stud.Last_Name , Stud.First_Name , Stud.Middle_Name, Stud.User_ID ,Stat.Status_Desc FROM STUDENT_MAIN Stud 
+                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID WHERE Section_ID=@SID";
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
                 Chuu2Koi.Parameters.AddWithValue("@SID", ID);
-
                 using (SqlDataAdapter Nibutani = new SqlDataAdapter(Chuu2Koi))
                 {
                     DataSet Kumin = new DataSet();
-                    Nibutani.Fill(Kumin, "PAYMENTS_INFO");
+                    Nibutani.Fill(Kumin, "STUDENT_MAIN");
 
                     lvStudents.DataSource = Kumin;
                     lvStudents.DataBind();
@@ -88,5 +94,21 @@ public partial class Admin_Admission_PaymentInfo : System.Web.UI.Page
                 }
             }
         }
+    }
+
+
+    protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    {
+        dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
+        GetStudents(int.Parse(Request.QueryString["ID"].ToString()));
+    }
+
+
+
+    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        GetStudents(int.Parse(Request.QueryString["ID"].ToString()));
+
+
     }
 }

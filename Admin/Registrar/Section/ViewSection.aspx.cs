@@ -21,7 +21,7 @@ public partial class Section_ViewSection : System.Web.UI.Page
        using (SqlConnection please = new SqlConnection(Util.GetConnection()))
        {
            please.Open();
-           String Send = @"Select Section_ID, Section_Name, Year_level from SECTION";
+           String Send = @"Select Section_ID, Section_Name, Year_level from SECTION WHERE Section_ID!=21";
 
            using(SqlCommand help= new SqlCommand(Send,please))
            {

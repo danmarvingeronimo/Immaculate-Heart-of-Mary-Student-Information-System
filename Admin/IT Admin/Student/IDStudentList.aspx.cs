@@ -25,7 +25,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         {
             Rikka.Open();
             string Takanashi = @"SELECT Stud.Student_ID, Stud.Last_Name , Stud.First_Name , Stud.Middle_Name, Stud.User_ID ,Stat.Status_Desc FROM STUDENT_MAIN Stud 
-                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID;"; 
+                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID WHERE Stud.User_ID IS NULL AND Stud.Student_PW IS NULL;"; 
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {

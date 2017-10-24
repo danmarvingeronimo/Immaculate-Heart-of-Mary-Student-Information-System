@@ -42,4 +42,24 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
         }
     }
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        Literal ltStudent_ID = (Literal)e.Item.FindControl("ltStudent_ID");
+
+        if (e.CommandName == "update")
+        {
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                con.Open();
+                string UDPATE = @"UPDATE STUDENT_MAIN SET Status_ID=1 WHERE Student_ID=@SID ";
+                using (SqlCommand Nero = new SqlCommand(UDPATE, con))
+                {
+                    Nero.Parameters.AddWithValue("@SID", ltStudent_ID.Text);
+                    Nero.ExecuteNonQuery();
+                    Response.Redirect("AdmissionStudList.aspx");
+                }
+            }
+        }
+
+    }
 }

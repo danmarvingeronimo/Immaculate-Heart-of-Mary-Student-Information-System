@@ -12,24 +12,22 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
-                    <th>#</th>
-                    <th>Amount</th>
-                    <th>Payment Method</th>
                     <th>Date of Payment</th>
-                    
-                    
+                    <th>SY</th>
+                    <th>Quarter</th>
+                    <th>Payment Status</th>           
                 </thead>
                 <tbody>
                     <asp:ListView ID="lvStudents" runat="server">
                         <ItemTemplate>
                             <tr>
-                                <td><%#Eval("Paymentinfo_ID") %></td>
-                                <td><%#Eval("Amount") %></td>
-                                <td><%#Eval("Payment_Method") %></td>
                                 <td><%#Eval("DateOfPayment") %></td>
+                                <td><%#Eval("SY") %></td>
+                                <td><%#Eval("Quarter") %></td>
+                                <td><%#Eval("Payment_Status") %></td>
+
 
                             </tr>
-                            <asp:LinkButton runat="server" id="ViewStudentList" href="StudentList.aspx" CssClass="btn btn-info btn-xs">Previous Records</asp:LinkButton>
                         </ItemTemplate>
 
                         <EmptyDataTemplate>

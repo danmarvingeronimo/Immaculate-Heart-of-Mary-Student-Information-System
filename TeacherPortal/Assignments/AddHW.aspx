@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="AddHW.aspx.cs" Inherits="TeacherPortal_Upload" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    <i class="fa fa-plus"></i> Upload Assignment
+<i class="fa fa-book"></i>
+    Upload an <asp:Literal ID="ltSID" runat="server"  Visible="true"/> Assignment
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <form runat="server" class="form form-horizontal">
@@ -27,6 +28,13 @@
                     <asp:FileUpload ID="FileContent" runat="server" class="form-control" required />
                   </div>
              </div>
+             <div class="form-group">
+                <label class="control-label col-lg-4">Subject</label>
+                <div class="col-lg-8">
+                    <asp:DropDownList ID="ddlSubject" runat="server"
+                        class="form-control" required />
+                </div>
+            </div>
 
              
 

@@ -11,6 +11,9 @@
 
    <form runat="server" class="form-horizontal">
         <div class="col-lg-12">
+            <a href="SchedViewSection.aspx" class ="btn btn-default">
+                       Back to Section List
+                   </a>
             <table class ="table table-hover">
                 <thead>
                     
@@ -60,6 +63,7 @@
                     </asp:ListView>
                 </tbody>
             </table>
+            
         </div>
     </form>
 
