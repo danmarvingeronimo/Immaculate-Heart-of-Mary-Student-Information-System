@@ -1,28 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="CompleteStudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master" AutoEventWireup="true" CodeFile="CompleteStudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
     <i class="fa fa-user"></i>
-    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> Student List
+    <asp:literal id="ltSID" runat="server" visible="true" />
+    Student List
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
 
-<%--    DAN MARVIN GERONIMO--%>
 
-   <form runat="server" class="form-horizontal">
-        <div class="col-lg-12">
-            <table class ="table table-hover">
-                <thead>
-                    <th>Student ID #</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Status</th>
-                    
-                </thead>
+    <%--    JIONNE LIZARDO --%>
+    <div class="container-fluid" style="padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <form runat="server" class="form-horizontal">
 
-                <tbody>
-                    <asp:ListView ID="lvStudents" runat="server" OnPagePropertiesChanging="lvStudents_PagePropertiesChanging" OnItemDataBound="lvStudents_ItemDataBound">
+                            <table id="table" class="table table-hover">
+                                <thead>
+                                    <th>Student ID #</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </thead>
+
+                                <tbody>
+                                    <asp:listview id="lvStudents" runat="server">
                         <ItemTemplate>
                             <tr>
                                 <asp:Literal ID="ltStudentID" runat="server"
@@ -55,24 +60,17 @@
                                 </td>
                             </tr>
                         </EmptyDataTemplate>
-                    </asp:ListView>
-                </tbody>
-            </table>
-            <div class="col-lg-offset-5">
-               <asp:DataPager ID="dpStudents" runat="server"
-                    PagedControlID="lvStudents" PageSize="10">
-                   <Fields>
-                       <asp:NumericPagerField
-                     ButtonType="Button"
-                     CurrentPageLabelCssClass="btn btn"
-                     NumericButtonCssClass="btn btn"
-                     NextPreviousButtonCssClass="btn btn-default"
-                     ButtonCount="5" />
-                   </Fields>
-               </asp:DataPager>
-           </div>
+                    </asp:listview>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
+
+
 
 </asp:Content>
 

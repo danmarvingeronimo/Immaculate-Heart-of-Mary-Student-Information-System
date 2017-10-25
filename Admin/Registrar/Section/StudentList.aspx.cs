@@ -42,10 +42,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
         }
     }
-    protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-        GetStudents();
-    }
 
+    }
 }

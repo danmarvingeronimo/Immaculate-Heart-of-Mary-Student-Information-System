@@ -1,86 +1,69 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="ViewSection.aspx.cs" Inherits="Section_ViewSection" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master"AutoEventWireup="true" CodeFile="ViewSection.aspx.cs" Inherits="Section_ViewSection" %>
 
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>--%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-book"> Sections</i>
 </asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    <form runat="server" class="form-horizontal">
-        <div>
-        <asp:Button ID="btnRedirect" runat="server"
-         PostBackUrl="AddSection.aspx" Text="Add" OnClick="btnRedirect_Click" />
-        </div>
-      <%-- <div class="col-lg-offset-6">
-           <div class="input-group">
-               <asp:TextBox ID="txtkeyword" runat="server"
-                   class=" form-control" placeholder="......" />
-               <span class="input-group-btn">
-                   <asp:LinkButton ID="btnSearch" runat="server"
-                       class="btn btn-info" OnClick="btnSearch_Click">
-                       <i class="fa fa-search"></i>
-                   </asp:LinkButton>
-               </span>
-           </div>
-       </div>--%>
-    <table class="table table-hover">
-               <thead>
-                   
-                   <th>Section Name</th>
-                   <th>Grade Level</th>
-               </thead>
-    <tbody>
-        <asp:ListView ID="lvSection" runat="server"
-             OnItemCommand="lvSection_ItemCommand" OnPagePropertiesChanging="lvSection_PagePropertiesChanging"
-             OnItemDataBound="lvSection_ItemDataBound">
-            <ItemTemplate>
-                <tr>
-                    
-                    <td><%# Eval("Section_Name") %></td>
-                    <td><%# Eval("Year_Level") %></td>
-                    <td>
-                        
-                        <a href='SectionDetails.aspx?ID=<%#Eval("Section_ID")%>'
-                            class="btn btn-xs btn-info" title="View Section Details">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <asp:LinkButton ID="btnDelete" runat="server"
-                            class="btn btn-xs btn-danger" CommandName="delsec">
-                            <i class="fa fa-remove"></i>
-                        </asp:LinkButton>
-                    </td>
-                
-                </tr>
-            </ItemTemplate>
-            <EmptyDataTemplate>
-                <tr>
-                    <td colspan="10">
-                        <h2 class="text-center">
-                            no records found
-                        </h2>
-                    </td>
-                </tr>
-            </EmptyDataTemplate>
-        </asp:ListView>
-    </tbody>
-    </table>
+  <div class="container-fluid" style="padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <form runat="server" class="form-horizontal">
+                            <h1><i class="fa fa-child" style="margin-bottom: 20px;"></i>Sections</h1>
+                            <div>
+                                <a href='AddSection.aspx'
+                                    class="btn btn-xs btn-default" style="margin-bottom: 20px;" title="Add Subject">
+                                    <i class="fa fa-plus"></i>
+                                </a>
+                            </div>
+                            <table id="table" class="table table-hover">
+                                <thead>
 
-       
-   <%-- <div class=" col-lg-offset-5">
-        <asp:DataPager ID="dpSection" runat="server"
-             PagedControlID="lvSection"  PageSize="10">
-            <Fields>
-                <asp:NumericPagerField
-                     ButtonType="Button"
-                     CurrentPageLabelCssClass="btn btn-success"
-                     NumericButtonCssClass="btn btn-default"
-                     NextPreviousButtonCssClass="btn btn-default"
-                     ButtonCount="5" />
-            </Fields>
-        </asp:DataPager>
-    </div>--%>
-    </form>
-    
-   
+                                    <th>Section Name</th>
+                                    <th>Grade Level</th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <asp:ListView ID="lvSection" runat="server"
+                                        OnItemCommand="lvSection_ItemCommand">
+                                        <ItemTemplate>
+                                            <tr>
+
+                                                <td><%# Eval("Section_Name") %></td>
+                                                <td><%# Eval("Year_Level") %></td>
+                                                <td>
+
+                                                    <a href='SectionDetails.aspx?ID=<%#Eval("Section_ID")%>'
+                                                        class="btn btn-xs btn-info" title="View Section Details">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+                                                    <asp:LinkButton ID="btnDelete" runat="server"
+                                                        class="btn btn-xs btn-danger" CommandName="delsec">
+                            <i class="fa fa-remove"></i>
+                                                    </asp:LinkButton>
+                                                </td>
+
+                                            </tr>
+                                        </ItemTemplate>
+                                        <EmptyDataTemplate>
+                                            <tr>
+                                                <td colspan="10">
+                                                    <h2 class="text-center">no records found
+                                                    </h2>
+                                                </td>
+                                            </tr>
+                                        </EmptyDataTemplate>
+                                    </asp:ListView>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
+
+
 

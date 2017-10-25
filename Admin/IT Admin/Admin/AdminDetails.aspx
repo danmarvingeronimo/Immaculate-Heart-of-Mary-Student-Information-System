@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="AdminDetails.aspx.cs" Inherits="Admin_IT_Admin_AdminDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master" AutoEventWireup="true" CodeFile="AdminDetails.aspx.cs" Inherits="Admin_IT_Admin_AdminDetails" %>
 
 
 <%--DAN MARVIN GERONIMO--%>
@@ -19,9 +19,6 @@
             </div>
         </div>
 
-            
-
-
 
             <div class="form-group">
                 <label class="control-label col-lg-4">Access Level</label>
@@ -35,7 +32,7 @@
                 <label class="control-label col-lg-4">Password</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtPass" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" MaxLength="50" type="password" required />
                 </div>
             </div>
 
@@ -45,7 +42,7 @@
                <div class="col-lg-offset-4 col-lg-8">
                    <asp:Button ID="btnUpdate" runat="server"
                        class="btn btn-success" Text="Update" OnClick="btnUpdate_Click" />
-                   <a href="ViewAdmin.aspx" class ="btn btn-submit">
+                   <a href="ViewAdmin.aspx" class ="btn btn-default">
                        Back to View
                    </a>
                </div>

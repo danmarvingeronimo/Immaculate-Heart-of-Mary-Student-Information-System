@@ -42,4 +42,9 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
         }
     }
+
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+
+    }
 }

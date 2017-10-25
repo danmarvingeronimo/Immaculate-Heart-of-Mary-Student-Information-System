@@ -96,19 +96,4 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         }
     }
 
-
-    protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
-    {
-        dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-        GetStudents(int.Parse(Request.QueryString["ID"].ToString()));
-    }
-
-
-
-    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
-    {
-        GetStudents(int.Parse(Request.QueryString["ID"].ToString()));
-
-
-    }
 }

@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="AddAdmin.aspx.cs" Inherits="Section_AddSection" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master" AutoEventWireup="true" CodeFile="AddAdmin.aspx.cs" Inherits="Section_AddSection" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-paperclip"></i> Add Admin
+<i class="fa fa-user-plus"></i> Add Admin
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class="form form-horizontal">
@@ -51,7 +51,7 @@
                 <label class="control-label col-lg-4">Password</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtPass" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" type="password" MaxLength="50" required />
                 </div>
             </div>
 

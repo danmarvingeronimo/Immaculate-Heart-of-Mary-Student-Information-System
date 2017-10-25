@@ -62,16 +62,5 @@ public partial class Faculty : System.Web.UI.Page
         }
         GetFaculty();
     }
-    protected void lvFaculty_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
-     {
-         dpFaculty.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-         GetFaculty();
-     }
-     protected void lvFaculty_ItemDataBound(object sender, ListViewItemEventArgs e)
-     {
-        GetFaculty();
-
-    }
-
 
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Admission/Online Application/OnlineApplication.master" AutoEventWireup="true" CodeFile="Application.aspx.cs" Inherits="Online_Application_Application" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Admission/Online Application/Online.master" AutoEventWireup="true" CodeFile="Application.aspx.cs" Inherits="Online_Application_Application" %>
 
 <%--Dan Marvin Geronimo--%>
 

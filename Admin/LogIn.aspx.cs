@@ -83,19 +83,19 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         //Dan Marvin Geronimo
                         if (ddlUsers.Text == "1")
                         {
-                            Response.Redirect("Please put the master page for IT ADMIN here.aspx");
+                            Response.Redirect("~/Admin/IT Admin/ITAdmin_index.aspx");
                         }
                         else if (ddlUsers.Text == "2")
                         {
-                            Response.Redirect("Please put the master page for REGISTRAR here.aspx");
+                            Response.Redirect("~/Admin/Registrar/Registrar_index.aspx");
                         }
                         else if (ddlUsers.Text == "3")
                         {
-                            Response.Redirect("Please put the master page for ACCOUNTING here.aspx");
+                            Response.Redirect("~/Admin/Accounting/Accounting_index.aspx");
                         }
                         else if (ddlUsers.Text == "4")
                         {
-                            Response.Redirect("Please put the master page for PRINCIPAL here.aspx");
+                            Response.Redirect("~/Admin/Principal/Principal_index.aspx");
                         }
 
 

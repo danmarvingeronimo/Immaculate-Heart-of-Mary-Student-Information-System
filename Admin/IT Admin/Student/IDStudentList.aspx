@@ -1,60 +1,73 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="IDStudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master" AutoEventWireup="true" CodeFile="IDStudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    Student List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
 
 
-    <%--    DAN MARVIN GERONIMO--%>
+    <%--  JIONNE LIZARDO  --%>
+    <div class="container-fluid" style="padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <form runat="server" class="form-horizontal">
 
-    <form runat="server" class="form-horizontal">
-        <div class="col-lg-12">
-            <table class="table table-hover">
-                <thead>
-                    <th>Student ID #</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Middle Name</th>
-                    <th>Status</th>
+                            <h1><i class="fa fa-users" style="margin-bottom: 20px;"></i>Student List</h1>
+                            <table id="table" class="table table-hover">
+                                <thead>
+                                    <th>Student ID #</th>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Middle Name</th>
+                                    <th>Status</th>
+                                    <th></th>
 
-                </thead>
-                <tbody>
-                    <asp:ListView ID="lvStudents" runat="server">
-                        <ItemTemplate>
-                            <tr>
-                                <td><%#Eval("User_ID") %></td>
-                                <td><%#Eval("Last_Name") %></td>
-                                <td><%#Eval("First_Name") %></td>
-                                <td><%#Eval("Middle_Name") %></td>
-                                <td><%#Eval("Status_Desc") %></td>
-                                <td>
+                                </thead>
+                                <tbody>
+                                    <asp:ListView ID="lvStudents" runat="server" OnItemCommand="lvStudents_ItemCommand">
+                                        <ItemTemplate>
+                                            <tr>
+                                                <td><%#Eval("User_ID") %></td>
+                                                <td><%#Eval("Last_Name") %></td>
+                                                <td><%#Eval("First_Name") %></td>
+                                                <td><%#Eval("Middle_Name") %></td>
+                                                <td><%#Eval("Status_Desc") %></td>
+                                                <td>
 
-                                    <a href='AddUIDStudent.aspx?ID=<%#Eval("Student_ID")%>'
-                                        class="btn btn-xs btn-info" title="View Payment Details">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
+                                                    <a href='AddUIDPWStudent.aspx?ID=<%#Eval("Student_ID")%>'
+                                                        class="btn btn-xs btn-info" title="View Payment Details">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
 
-                                </td>
-
-
-                            </tr>
-                        </ItemTemplate>
-                        <EmptyDataTemplate>
-                            <tr>
-                                <td colspan="10">
-                                    <h2 class="text-center">No records found!
-                                    </h2>
-                                </td>
-                            </tr>
-                        </EmptyDataTemplate>
-                    </asp:ListView>
-                </tbody>
-            </table>
+                                                </td>
+                                                <%--<td>
+                                    <img src='../../content/img/products/<%#Eval("Image") %>'
+                                        width="150" />
+                                </td>--%>
+                                            </tr>
+                                        </ItemTemplate>
+                                        <EmptyDataTemplate>
+                                            <tr>
+                                                <td colspan="10">
+                                                    <h2 class="text-center">No records found!
+                                                    </h2>
+                                                </td>
+                                            </tr>
+                                        </EmptyDataTemplate>
+                                    </asp:ListView>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
+
+
 
 </asp:Content>
 

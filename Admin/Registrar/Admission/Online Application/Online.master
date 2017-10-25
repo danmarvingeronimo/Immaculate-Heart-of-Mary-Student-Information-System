@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Online.master.cs" Inherits="Admin_Registrar_Admission_Online_Application_Online" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SIS | Admin Login</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/imagehover.bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a id="home" href="~/Main.aspx" runat="server" class="navbar-brand">SIS</a>
+                <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar-main">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+          </div>
+     </div>
+    <div class="container">
+        <div class="clearfix">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>
+                            <asp:ContentPlaceHolder ID="title" runat="server" />
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+        </div>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/jquery-1.9.1.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/bootstrap.min.js") %>'></script>
+    <script type="text/javascript" src='<%= Page.ResolveUrl("~/scripts/jasny-bootstrap.min.js") %>'></script>
+</body>
+</html>

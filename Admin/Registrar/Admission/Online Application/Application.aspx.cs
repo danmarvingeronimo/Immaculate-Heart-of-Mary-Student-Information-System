@@ -104,11 +104,11 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Prev_SchoolAdd", txtStudPrevSchoolAdd.Text);
 
                 WickedEye.Parameters.AddWithValue("@Significant_Awards", txtStudSigAward.Text);
-<<<<<<< HEAD
+
                 WickedEye.Parameters.AddWithValue("@Extra_CurricularAct", txtStudExtraCurAct.Text);
-=======
+
                 WickedEye.Parameters.AddWithValue("@Extra_CurrAct", txtStudExtraCurAct.Text);
->>>>>>> 03f515eb72cf49ead7d62e14be3383ec8d6db615
+
                 WickedEye.Parameters.AddWithValue("@Hobbies", txtStudHobbies.Text);
 
                 WickedEye.Parameters.AddWithValue("@Places_Traveled", txtPlaceTravel.Text);

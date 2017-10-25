@@ -1,0 +1,213 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Registrar.master.cs" Inherits="Admin_Registrar_Registar" %>
+
+<!DOCTYPE html>
+
+<!-- JIONNE LIZARDO -->
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>SIS | Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
+    <link href="~/Content/_all-skins.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="Registrar_index.aspx" runat="server" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>SIS</b></span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>SIS Admin</b></span> </a>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span> </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="hidden-xs">Welcome! Insert Admin here</span> </a>
+                            <ul class="dropdown-menu">
+
+                                <!-- User image -->
+                                <!-- Menu Body 
+                                <li class="user-body">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Followers</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Sales</a>
+                                        </div>
+                                        <div class="col-xs-4 text-center">
+                                            <a href="#">Friends</a>
+                                        </div>
+                                    </div>
+                                    <!-- /.row
+                                </li> -->
+
+
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- Control Sidebar Toggle Button -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-edit"></i><span>Forms</span> <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span></a>
+
+                        <!-- ACCOUNTING ADMIN FORM START -->
+                        <ul class="treeview-menu">
+
+                            <!-- ACCOUNTING ADMIN FORM END -->
+
+
+                            <!-- REGISTAR FORM START -->
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-circle-o"></i>Registrar <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li class="treeview">
+                                        <a href="#"><i class="fa fa-circle-o"></i>Admissions <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span></a>
+                                        <ul class="treeview-menu">
+                                            <li class="treeview">
+                                                <a href="#"><i class="fa fa-circle-o"></i>Online Application <span class="pull-right-container">
+                                                    <i class="fa fa-angle-left pull-right"></i>
+                                                </span></a>
+                                                <ul class="treeview-menu">
+                                                    <li>
+                                                        <a href="~/Admin/Registrar/Admission/Online Application/Application.aspx" runat="server"><i class="fa fa-circle-o"></i>Application</a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+
+                                        <a href="#"><i class="fa fa-circle-o"></i>Section <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span></a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="~/Admin/Registrar/Section/AddSection.aspx" runat="server"><i class="fa fa-circle-o"></i>Add Section </a>
+                                            </li>
+                                            <li>
+                                                <a href="~/Admin/Registrar/Section/ViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section </a>
+                                            </li>
+                                        </ul>
+
+                                        <a href="#"><i class="fa fa-circle-o"></i>Student <span class="pull-right-container">
+                                            <i class="fa fa-angle-left pull-right"></i>
+                                        </span></a>
+                                        <ul class="treeview-menu">
+                                            <li>
+                                                <a href="~/Admin/Registrar/Student/RegViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section </a>
+                                            </li>
+                                        </ul>
+
+                                    </li>
+                                </ul>
+                            </li>
+                    </li>
+                </ul>
+                <!-- REGISTAR FORM END -->
+
+
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+
+        <div class="content-wrapper">
+            <div class="clearfix container">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="text-center">
+                                <asp:ContentPlaceHolder ID="title" runat="server" />
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+        </div>
+
+        <!-- /.content-wrapper -->
+        <footer class="main-footer"><strong>Copyright © 2017 Immaculate Heart of Mary College - Paranaque.</strong> All rights reserved. reserved. </footer>
+
+        <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+
+    </div>
+
+    <!-- ./wrapper -->
+
+    <!-- jQuery 3 -->
+    <script src=' <%= ResolveUrl("~/js/jquery.min.js") %>'></script>
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src='<%= ResolveUrl("~/js/jquery-ui.min.js")%>'></script>
+
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    <!-- Bootstrap 3.3.7 -->
+    <script src=' <%=ResolveUrl("~/js/bootstrap.min.js") %>'></script>
+
+
+    <!-- DataTables -->
+    <script src=' <%=ResolveUrl("~/js/jquery.dataTables.min.js")%>'></script>
+    <script src=' <%=ResolveUrl("~/js/dataTables.bootstrap.min.js")%>'></script>
+
+
+    <!-- AdminLTE App -->
+    <script src='<%=ResolveUrl("~/js/adminlte.min.js") %>'></script>
+
+
+    <!--Script for Datatable functions -->
+    <script>
+        $(document).ready(function () {
+            $('table').DataTable();
+        });
+    </script>
+
+
+</body>
+</html>

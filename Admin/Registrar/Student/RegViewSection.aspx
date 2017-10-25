@@ -1,34 +1,34 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="RegViewSection.aspx.cs" Inherits="Section_ViewSection" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="RegViewSection.aspx.cs" Inherits="Section_ViewSection" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-<i class="fa fa-book">Sections</i>
+
+<%-- JIONNE LIZARDO --%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    <form runat="server" class="form-horizontal">
-      <%-- <div class="col-lg-offset-6">
-           <div class="input-group">
-               <asp:TextBox ID="txtkeyword" runat="server"
-                   class=" form-control" placeholder="......" />
-               <span class="input-group-btn">
-                   <asp:LinkButton ID="btnSearch" runat="server"
-                       class="btn btn-info" OnClick="btnSearch_Click">
-                       <i class="fa fa-search"></i>
-                   </asp:LinkButton>
-               </span>
-           </div>
-       </div>--%>
-    <table class="table table-hover">
-               <thead>
-                   
-                   <th>Section Name</th>
-                   <th>Grade</th>
-               </thead>
-    <tbody>
-        <asp:ListView ID="lvSection" runat="server" OnItemCommand="lvSection_ItemCommand" OnPagePropertiesChanging="lvSection_PagePropertiesChanging" OnItemDataBound="lvSection_ItemDataBound">
-            <ItemTemplate>
-                <tr>
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
+
+    <div class="container-fluid" style="padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <form runat="server" class="form-horizontal">
+                            <h1><i class="fa fa-child" style="margin-bottom: 20px;"></i> Sections</h1>
+
+
+                            <table id="table" class="table table-hover">
+                                <thead>
+
+                                    <th>Section Name</th>
+                                    <th>Grade</th>
+                                    <th></th>
+                                </thead>
+                                <tbody>
+                                    <asp:listview id="lvSection" runat="server" onitemcommand="lvSection_ItemCommand">
+                               <ItemTemplate>
+                                    <tr>
 
                     
                     <td><%# Eval("Section_Name") %></td>
@@ -56,26 +56,15 @@
                     </td>
                 </tr>
             </EmptyDataTemplate>
-        </asp:ListView>
-    </tbody>
-    </table>
-
-       
-    <div class=" col-lg-offset-5">
-        <asp:DataPager ID="dpSection" runat="server"
-             PagedControlID="lvSection"  PageSize="10">
-            <Fields>
-                <asp:NumericPagerField
-                     ButtonType="Button"
-                     CurrentPageLabelCssClass="btn btn"
-                     NumericButtonCssClass="btn btn"
-                     NextPreviousButtonCssClass="btn btn-default"
-                     ButtonCount="5" />
-            </Fields>
-        </asp:DataPager>
+        </asp:listview>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </form>
-    
-   
+
 </asp:Content>
 

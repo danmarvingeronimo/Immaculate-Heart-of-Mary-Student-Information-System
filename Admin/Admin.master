@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>SIS | Admission Module</title>
+    <title>SIS | Admin Login</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
@@ -20,10 +20,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="IT Admin/Admin/AddAdmin.aspx"><span>Add Admin <span class="View Students"></span></span></a></li>
-                    <li><a href="YearLevelList.aspx"><span>View Grade List <span class="View Grade List"></span></span></a></li>
-                </ul>
             </div>
           </div>
      </div>

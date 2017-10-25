@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="EditUIDPWStudent.aspx.cs" Inherits="TeacherPortal_Class" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master"AutoEventWireup="true" CodeFile="EditUIDPWStudent.aspx.cs" Inherits="TeacherPortal_Class" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     <i class="fa  fa-book"></i>
      <asp:Literal ID="ltSID" runat="server" visible="true"/>

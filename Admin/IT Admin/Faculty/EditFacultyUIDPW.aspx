@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="EditFacultyUIDPW.aspx.cs" Inherits="Faculty_Section_SectionDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master" AutoEventWireup="true" CodeFile="EditFacultyUIDPW.aspx.cs" Inherits="Faculty_Section_SectionDetails" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
@@ -33,7 +33,7 @@
                <div class="col-lg-offset-4 col-lg-8">
                    <asp:Button ID="btnUpdate" runat="server"
                        class="btn btn-success" Text="Update" OnClick="btnUpdate_Click" />
-                   <a href="ViewSection.aspx" class="btn btn-default">
+                   <a href="FacultyList.aspx" class="btn btn-default">
                        Back to View
                    </a>
                </div>

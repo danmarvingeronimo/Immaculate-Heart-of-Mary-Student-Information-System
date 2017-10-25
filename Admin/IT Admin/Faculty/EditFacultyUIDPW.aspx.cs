@@ -12,7 +12,7 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
     {
         if(Request.QueryString["ID"]==null)
         {
-            Response.Redirect("FacultyList.aspx");
+            Response.Redirect("EditFacultyListUIDPW.aspx");
         }
         else
         {
@@ -28,7 +28,7 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("FacultyList.aspx");
+                Response.Redirect("EditFacultyListUIDPW.aspx");
             }
         }
     }

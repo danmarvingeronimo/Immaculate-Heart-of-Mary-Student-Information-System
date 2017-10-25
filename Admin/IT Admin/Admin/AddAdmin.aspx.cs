@@ -61,6 +61,7 @@ public partial class Section_AddSection : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Admin_PW", txtPass.Text);
                 WickedEye.Parameters.AddWithValue("@UserType_ID", ddlUsers.Text);
                 WickedEye.ExecuteNonQuery();
+
                 //Nathaniel Collins S. Ortiz V
                 audlog.AuditLogAdmin("Adding an Admin", int.Parse(Session["admin_id"].ToString()), "Added by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());

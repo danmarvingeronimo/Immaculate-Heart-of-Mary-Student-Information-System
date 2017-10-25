@@ -40,15 +40,5 @@ public partial class Section_ViewSection : System.Web.UI.Page
     {
 
     }
-    protected void lvSection_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
-    {
-        dpSection.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-        ViewSection();
-    }
-    protected void lvSection_ItemDataBound(object sender, ListViewItemEventArgs e)
-    {
-
-    }
-
-
+  
 }

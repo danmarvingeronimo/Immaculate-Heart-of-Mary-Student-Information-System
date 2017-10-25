@@ -15,7 +15,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("GradeViewSection.aspx");
+            Response.Redirect("AccViewSection.aspx");
         }
         else
         {
@@ -33,7 +33,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("GradeViewSection.aspx");
+                Response.Redirect("AccViewSection.aspx");
             }
         }
 
@@ -96,18 +96,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     }
 
 
-    protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-        GetStudents(int.Parse(Request.QueryString["ID"].ToString()));
-    }
-
-
-
-    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
-    {
-        GetStudents(int.Parse(Request.QueryString["ID"].ToString()));
-
 
     }
 }
