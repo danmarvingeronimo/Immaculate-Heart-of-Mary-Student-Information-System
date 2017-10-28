@@ -1,9 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Parent/Parent.master" AutoEventWireup="true" CodeFile="LogIn.aspx.cs" Inherits="Parent_LogIn" %>
-
-<%--DAN MARVIN GERONIMO--%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="LogIn.aspx.cs" Inherits="Student_LogIn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    Admin Login
+    Student Login
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <form runat="server" class="form-horizontal">
@@ -17,7 +15,7 @@
                     User ID
                 </label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtUserID" runat="server"
+                    <asp:TextBox ID="txtUID" runat="server"
                         class="form-control" type="text"
                         MaxLength="100" required />
                 </div>
@@ -27,7 +25,7 @@
                     Password
                 </label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtPassword" runat="server"
+                    <asp:TextBox ID="txtPWD" runat="server"
                         class="form-control" type="password"
                         MaxLength="50" required />
                 </div>

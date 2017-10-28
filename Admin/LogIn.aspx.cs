@@ -15,8 +15,10 @@ public partial class Admin_LogIn : System.Web.UI.Page
         if(!IsPostBack)
         {
             GetUsers();
+            
         }
     }
+
 
 
     void GetUsers()
@@ -71,6 +73,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             Session["first_name"] = Chuu2["First_Name"].ToString();
                             Session["middle_name"] = Chuu2["Middle_Name"].ToString();
                             Session["last_name"] = Chuu2["Last_Name"].ToString();
+                            
                         }
 
                         //Audit Log of Session ID
@@ -79,8 +82,13 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
 
 
-                        // Verification of Access Level
+                        
+
+                        //Verification of Access Level
                         //Dan Marvin Geronimo
+
+                        
+
                         if (ddlUsers.Text == "1")
                         {
                             Response.Redirect("~/Admin/IT Admin/ITAdmin_index.aspx");
@@ -98,6 +106,16 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             Response.Redirect("~/Admin/Principal/Principal_index.aspx");
                         }
 
+                        if(Request.QueryString == Session["admin_id"])
+                        {
+                            audlog.AuditLogAdmin("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                        }
+                        if(Request.QueryString == Session["student_id"])
+                        {
+                            audlog.AuditLogStudent("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                        }
 
                     }
 

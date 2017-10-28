@@ -23,7 +23,7 @@
 
                                     <th>Section Name</th>
                                     <th>Grade</th>
-                                    <th></th>
+                                    
                                 </thead>
                                 <tbody>
                                     <asp:listview id="lvSection" runat="server" onitemcommand="lvSection_ItemCommand">

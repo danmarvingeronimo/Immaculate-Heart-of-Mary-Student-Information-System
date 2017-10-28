@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student Portal/Student.master" AutoEventWireup="true" CodeFile="StudentProfile.aspx.cs" Inherits="Student_Portal_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student Portal/Student.master" AutoEventWireup="true" CodeFile="StudentProfile.aspx.cs" Inherits="StudentProfile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     <i class="fa fa-user"></i>Welcome to your Student Profile
@@ -6,11 +6,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <h1>
         <asp:Label runat="server" ID="First_Name"><%#Eval("su.First_Name") %></asp:Label><br />
-        <asp:Label runat="server" ID="Middle_Name"><%#Eval("su.Middle_Name")%> /asp:Label><br />
+        <asp:Label runat="server" ID="Middle_Name"><%#Eval("su.Middle_Name")%> </asp:Label><br />
         <asp:Label runat="server" ID="Last_Name"> <%#Eval("su.Last_Name") %></asp:Label><br />
     </h1>
     <body>
         <asp:Label runat="server" ID="Gender">Gender:<%#Eval("su.Gender") %></asp:Label><br />
+
         <asp:Label runat="server" ID="Year_Level">Year Level:<%#Eval("su.Year_Level") %></asp:Label><br />
         <asp:Label runat="server" ID="Status">Status:<%#Eval("ST.Status_Desc") %></asp:Label><br />
         <asp:Label runat="server" ID="City">City:<%#Eval("su.City") %></asp:Label><br />

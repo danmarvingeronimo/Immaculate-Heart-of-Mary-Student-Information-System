@@ -15,7 +15,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("RegViewSection.aspx");
+            Response.Redirect("StudentList.aspx");
         }
         else
         {
@@ -27,13 +27,13 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     GetID(secid);
-                    GetStudents(secid);
+                    GetGrade(secid);
 
                 }
             }
             else
             {
-                Response.Redirect("RegViewSection.aspx");
+                Response.Redirect("StudentList.aspx");
             }
         }
 
@@ -46,8 +46,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Year_Level + ' - ' + Section_Name AS 'Section' FROM SECTION 
-                           WHERE Section_ID=@SID ";
+            string SQL = @"SELECT Student_ID FROM STUDENT_MAIN 
+                           WHERE Student_ID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -59,33 +59,35 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltSID.Text = dr["Section"].ToString();
+                            ltSID.Text = dr["Student_ID"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("GradeViewSection.aspx");
+                        Response.Redirect("StudentList.aspx");
                     }
                 }
             }
         }
     }
 
-    void GetStudents(int ID)
+    void GetGrade(int ID)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Stud.Student_ID, Stud.Last_Name , Stud.First_Name , Stud.Middle_Name, Stud.User_ID ,Stat.Status_Desc FROM STUDENT_MAIN Stud 
-                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID WHERE Section_ID=@SID";
+            string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, G.Quarter, S.Subject_Name FROM GRADE_INFO G INNER JOIN
+                                SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Teacher_ID=@TID";
+                
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
                 Chuu2Koi.Parameters.AddWithValue("@SID", ID);
+                Chuu2Koi.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
                 using (SqlDataAdapter Nibutani = new SqlDataAdapter(Chuu2Koi))
                 {
                     DataSet Kumin = new DataSet();
-                    Nibutani.Fill(Kumin, "STUDENT_MAIN");
+                    Nibutani.Fill(Kumin, "GRADE_INFO");
 
                     lvStudents.DataSource = Kumin;
                     lvStudents.DataBind();
@@ -95,5 +97,30 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
         }
     }
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
+    {
+        Literal ltGradeID = (Literal)e.Item.FindControl("ltGradeID");
+
+        if (e.CommandName == "delfile")
+        {
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                con.Open();
+                string DELETE = @"DELETE FROM GRADE_INFO WHERE Grade_ID=@Grade_ID";
+                using (SqlCommand Nero = new SqlCommand(DELETE, con))
+                {
+                    Nero.Parameters.AddWithValue("@Grade_ID", ltGradeID.Text);
+                    Nero.ExecuteNonQuery();
+                    Response.Redirect("StudentList.aspx");
+                }
+            }
+        }
+
+    }
+        protected void btnRedirect_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("StudentList.aspx");
+    }
+
 
 }

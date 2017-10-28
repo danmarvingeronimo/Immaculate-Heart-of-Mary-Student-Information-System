@@ -25,7 +25,7 @@
             <div class="form-group">
                  <label class="control-label col-lg-4">Grade</label>
                  <div class="col-lg-8">
-                     <asp:textbox id="txtGrade" runat="server" class="form-control" type="number" required />
+                     <asp:textbox id="txtGrade" runat="server" class="form-control" type="  " required />
                  </div>
              </div>
              <div class="form-group">

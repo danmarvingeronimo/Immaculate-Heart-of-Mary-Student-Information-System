@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.master" AutoEventWireup="true" CodeFile="ViewSubject.aspx.cs" Inherits="Subject_ViewSubject" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="Q1Grade.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
-<%--<Nathaniel Collins S. Ortiz>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    Subject List
+    <i class="fa fa-user"></i>
+    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> - 1st Quarter
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     
@@ -13,27 +13,30 @@
         <div class="col-lg-12">
             <table class ="table table-hover">
                 <thead>
+                    <th>Subject</th>
+                    <th>Grade</th>
                     
-                    <th>Subject Name</th>
-                    <th>Description</th>
-                  
+
                     
                 </thead>
+
                 <tbody>
-                     <asp:ListView ID="lvSubject" runat="server" OnItemCommand="lvSubject_ItemCommand" OnItemDataBound="lvSubject_ItemDataBound">
+                    <asp:ListView ID="lvStudents" runat="server" >
                         <ItemTemplate>
                             <tr>
-                                 
-                       
+                                <asp:Literal ID="ltGradeID" runat="server"
+                                  Text='<%# Eval("Grade_ID") %>' Visible="false" />
+                                
                                 <td><%#Eval("Subject_Name") %></td>
-                                <td><%#Eval("Subject_Desc") %></td>   
-
+                                <td><%#Eval("Grade_Value") %></td>
                                 <td>
-                                <a href='ViewHW.aspx?ID=<%#Eval("Subject_ID")%>'
-                                     class="btn btn-xs btn-info" title="Assign Subject">
-                                    <i class="fa fa-edit" ></i>
-                        </a>
+                                    
+                                    
+                               
+
                                 </td>
+                                
+                                
                             </tr>
                         </ItemTemplate>
                         <EmptyDataTemplate>
@@ -48,7 +51,7 @@
                     </asp:ListView>
                 </tbody>
             </table>
-             
+            
         </div>
     </form>
 
