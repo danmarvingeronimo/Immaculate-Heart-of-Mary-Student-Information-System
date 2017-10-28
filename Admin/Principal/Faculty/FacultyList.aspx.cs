@@ -24,7 +24,10 @@ public partial class Faculty : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-            String SQL = @"SELECT Teacher_ID, Teacher_FirstName , Teacher_LastName , Teacher_MiddleName , User_ID FROM TEACHER_MAIN WHERE Teacher_ID!='7'";
+            String SQL = @"SELECT teach.Teacher_ID, teach.Teacher_FirstName , teach.Teacher_LastName , teach.Teacher_MiddleName, SEC.Year_level + ' - ' + Section_Name AS 'Section', H.Description FROM TEACHER_MAIN teach
+                          INNER JOIN SECTION SEC ON teach.Section_ID = SEC.Section_ID
+						  INNER JOIN HOMEROOM_STAT H ON H.HomeroomStat_ID = teach.HomeroomStat_ID ";
+                          
 
                 using (SqlCommand cmd = new SqlCommand(SQL,con))
                 {

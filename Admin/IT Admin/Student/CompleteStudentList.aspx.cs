@@ -15,7 +15,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("GradeViewSection.aspx");
+            Response.Redirect("ITAdminViewSection.aspx");
         }
         else
         {
@@ -33,7 +33,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("GradeViewSection.aspx");
+                Response.Redirect("ITAdminViewSection.aspx");
             }
         }
 
@@ -64,7 +64,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                     }
                     else
                     {
-                        Response.Redirect("GradeViewSection.aspx");
+                        Response.Redirect("ITAdminViewSection.aspx");
                     }
                 }
             }
