@@ -65,8 +65,7 @@
                                         </EmptyDataTemplate>
                                     </asp:ListView>
                                 </tbody>
-                            </table>
-                        </form>
+                            </table>    
                     </div>
                 </div>
             </div>
