@@ -35,35 +35,20 @@
                         <!-- Tasks: style can be found in dropdown.less -->
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="hidden-xs">Welcome! Insert Admin here</span> </a>
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                                <asp:Label ID="lblogin" runat="server" Text="User"></asp:Label><span class="hidden-xs"></span></a>
+
                             <ul class="dropdown-menu">
-
-                                <!-- User image -->
-                                <!-- Menu Body 
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row
-                                </li> -->
-
-
-                                <!-- Menu Footer-->
                                 <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
+                                    <form runat="server">
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="~/LogOut.aspx" runat="server" class="btn btn-default btn-flat">Log Out</a>
+                                        </div>
+                                    </form>
                                 </li>
                             </ul>
                         </li>
@@ -93,7 +78,7 @@
                                 </span></a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="AccViewSection.aspx" ><i class="fa fa-circle-o"></i>View Section</a>
+                                        <a href="AccViewSection.aspx"><i class="fa fa-circle-o"></i>View Section</a>
                                     </li>
                                 </ul>
                             </li>

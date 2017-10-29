@@ -32,7 +32,7 @@
                     
                     <td><%# Eval("Title") %></td>
                      <td>
-                        <%# string.Concat("~/img/files/", Eval("FileContent")) %> />
+                        <%# string.Concat("~/img/files/",  Eval("FileContent")) %> />
                     </td>
                     <td><%# Eval("Description") %></td>
                     

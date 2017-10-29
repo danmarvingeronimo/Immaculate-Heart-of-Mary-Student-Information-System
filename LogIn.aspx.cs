@@ -200,7 +200,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "3")
                         {
-                            Response.Redirect("~/Admin/Registrar/Registrar_index.aspx");
+                            Response.Redirect("~/Admin/Accounting/Accounting_index.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "4")
                         {
