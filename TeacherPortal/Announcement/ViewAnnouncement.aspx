@@ -9,7 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
 
     <form runat="server" class="form-horizontal">
-        <asp:Button ID="btnRedirect" runat="server"
+        <asp:Button ID="btnRedirect" runat="server" class="btn btn-block btn-primary"
          PostBackUrl="AddAnnouncement.aspx" Text="Add" OnClick="btnRedirect_Click" />
 
     <table class="table table-hover">
@@ -31,9 +31,9 @@
                             Text='<%# Eval("Announcement_ID") %>' Visible="false" />               
                     
                     <td><%# Eval("Title") %></td>
-                     <td>
-                        <%# string.Concat("~/img/announcements/", Eval("Image")) %> />
-                    </td>
+                        <td>
+                        <img id="Img1" runat="server" src='<%# string.Concat("~/img/announcements/", Eval("Image")) %>' class="img-responsive" width="100" />
+                      </td>
                     <td><%# Eval("Description") %></td>
                     
                     <td><%# Eval("DateAdded", "{0: MMMM dd, yyyy}") %></td>

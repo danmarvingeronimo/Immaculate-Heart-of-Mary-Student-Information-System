@@ -1,0 +1,108 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="Home" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Immaculate Heart of Mary College - Parañaque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <link href="Content/css/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <header id="header">
+		<div class="container">
+			<a href="Home.aspx" id="logo" title="ImmaculateHeartofMaryCollege-Parañaque">Immaculate Heart of Mary College - <strong>Parañaque</strong></a>
+			<div class="menu-trigger"></div>
+			<nav id="menu">
+				<ul>
+					<li><a href="About.aspx">About Us</a></li>
+                    <li><a href="Gallery.aspx">Gallery</a></li>
+                    <li><a href="Contact.aspx">Contact</a></li>
+                </ul>
+                <ul>
+                    <li><a href="LoginTeacher.aspx">Teachers</a></li>
+                    <li><a href="LoginStudent.aspx">Student</a></li>
+                    <li><a href="LoginParent.aspx">Parent</a></li>
+   				</ul>
+			</nav>
+			<!-- / navigation -->
+		</div>
+		<!-- / container -->
+   
+	 <div class="container">
+        <div class="clearfix">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>
+                        <asp:ContentPlaceHolder ID="title" runat="server" />
+                    </h1>
+                </div>
+            </div>
+            <div class="row">
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+        </div>
+    </div>
+	</header>
+	<!-- / header -->
+
+    <footer id="footer">
+		<div class="container">
+			<section>
+				<article class="col-1">
+					<h3>Contact</h3>
+					<ul>
+						<li class="address"><a href="#">Saint Dominic Savio Street, Better Living Subdivision, 1700 <br/>Paranaque City, Metro Manila, Philippines</a></li>
+						<li class="mail"><a href="#">contact@ihmc-p.com</a></li>
+						<li class="phone last"><a href="#">(02) 823 4109</a></li>
+					</ul>
+				</article>
+				<article class="col-2">
+					<h3>Forum topics</h3>
+					<ul>
+						<li><a href="#">Scholarship</a></li>
+						<li><a href="#">Courses offered</a></li>
+						<li><a href="#">Getting ready for the entrance examination </a></li>
+						<li><a href="#">Getting ready for the first day of school </a></li>
+						<li class="last"><a href="#">Join different organizations </a></li>
+					</ul>
+				</article>
+				<article class="col-3">
+					<h3>Social media</h3>
+					<p>Visit us our social media accounts for updates.</p>
+					<ul>
+						<li class="facebook"><a href="https://www.facebook.com/Immaculate-Heart-of-Mary-College-Para%C3%B1aque-254395840950/">Facebook</a></li>
+						<li class="google-plus"><a href="#">Google+</a></li>
+						<li class="twitter"><a href="https://twitter.com/ihmcp?lang=en">Twitter</a></li>
+						<li class="pinterest"><a href="#">Pinterest</a></li>
+					</ul>
+				</article>
+				<article class="col-4">
+					<h3>Subscribe</h3>
+					<p>Be updated to the latest news and events.</p>
+					<form action="#">
+						<input placeholder="Email address" type="text"/>
+						<button type="submit">Subscribe</button>
+					</form>
+					<ul>
+						<li><a href="#"></a></li>
+					</ul>
+				</article>
+                </section>
+			<p class="copy"> Immaculate Heart of Mary College - <strong>Parañaque</strong> </p>
+		</div>
+		<!-- / container -->
+	</footer>
+	<!-- / footer -->
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script>window.jQuery || document.write("<script src='Content/js/jquery-1.11.1.min.js'>\x3C/script>")</script>
+	<script src="Content/js/plugins.js"></script>
+	<script src="Content/js/main.js"></script>
+</body>
+</html>

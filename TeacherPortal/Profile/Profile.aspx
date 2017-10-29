@@ -1,59 +1,85 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="TeacherPortal_Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Profile/Profile.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="TeacherPortal_Profile_Profile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    <i class="fa fa-user"></i> Welcome to your Profile
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    <form runat="server" class="form form-horizontal">
 
-        <div class="col-lg-6">
-            <div id="success" runat="server" 
-                class="alert alert-success" visible="false">
-                Update Success
+<asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">     
+    <section class="content-header">
+      <h1> User Profile </h1>
+    </section>
+    <section class="content">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" runat="server" alt="User profile picture"/>
+              <h3 class="profile-username text-center">Nina Mcintire</h3>
+              <p class="text-muted text-center">Software Engineer</p>
             </div>
+          </div>
 
-            <div class="form-group">
-                <label class="control-label col-lg-4">Teacher ID</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtTeacherID" runat="server" class="form-control" type="Id" MaxLength="10" required />
-                </div>
+          <div class="box box-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">About Me</h3>
             </div>
-
-            <div class="form-group">
-                <label class="control-label col-lg-4">Teacher's Password</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" type="password" MaxLength="20" required />
-                </div>
+            <div class="box-body">
+              <strong><i class="fa fa-book margin-r-5"></i>Subjects</strong>
+              <p>
+                <span class="label label-danger">UI Design</span>
+                <span class="label label-success">Coding</span>
+               </p>
+              <hr />
+              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
+              <p class="text-muted">Malibu, California</p>
+              <hr />
+                <strong><i class="fa fa-pencil margin-r-5"></i>Department</strong>
+                <p>English</p>       
             </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="nav-tabs-custom"><br />
 
-            <div class="form-group">
-                <label class="control-label col-lg-4">Teacher's First Name</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtFN" runat="server" class="form-control text-capitalize" MaxLength="80" required /> 
-                </div>
-            </div>
+             <a href="Profile.aspx" style="margin-left:20px;" type="submit" class="btn btn-info" runat="server">Profile</a>
+             <a href="EditProfile.aspx" type="submit" class="btn btn-danger" runat="server">Edit Profile</a>
+             <h1 style="margin-left:20px;">
+            Personal Info
+      </h1>
+              <div class="tab-pane" id="settings">
+                <form class="form-horizontal"><br />
+                 <div class="form-group">
+                    <label style="color: #367fa9;" class="col-sm-2 control-label">First Name</label>
 
-            <div class="form-group">
-                <label class="control-label col-lg-4">Teacher's Middle Name</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtMN" runat="server" class="form-control text-capitalize" MaxLength="10" required />
-                </div>
-            </div>
+                    <div class="col-sm-10">
+                        <asp:Label runat="server" ID="Teacher_FirstName"><%#Eval("Teacher_FirstName") %></asp:Label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label style="color: #367fa9;" class="col-sm-2 control-label">Middle Name</label>
 
-            <div class="form-group">
-                <label class="control-label col-lg-4">Teacher's Last Name</label>
-                <div class="col-lg-8">
-                    <asp:TextBox ID="txtLN" runat="server" class=" form-control" MaxLength="50" required />
-                </div>
-            </div>
+                    <div class="col-sm-10">
+                        <asp:Label runat="server" ID="Teacher_MiddleName"><%#Eval("Teacher_MiddleName") %></asp:Label>
+                    </div>
+                  </div>
+                        <div class="form-group">
+                    <label style="color: #367fa9;" class="col-sm-2 control-label">Last Name</label>
 
-            <div class="col-lg-12">
-                <span class="pull-right">
-                    <asp:Button ID="btnUpdate" runat="server" class="btn btn-success" Text="Update" onclick="btnUpdate_Click" />
-                </span>
+                    <div class="col-sm-10">
+                       <asp:Label runat="server" ID="Teacher_LastName"><%#Eval("Teacher_LastName") %></asp:Label>
+                    </div>
+                  </div>
+                       <div class="form-group">
+                    <label style="color: #367fa9;" class="col-sm-2 control-label">Department</label>
+
+                    <div class="col-sm-10">
+                     <asp:Label runat="server" ID="Department"><%#Eval("Department") %></asp:Label>
+                    </div>
+                  </div>
+    
+                </form><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              </div>
             </div>
         </div>
-    </form>
+      </div>
+        </section>
 </asp:Content>
-
-
