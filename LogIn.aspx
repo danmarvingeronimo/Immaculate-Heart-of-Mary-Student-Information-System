@@ -35,7 +35,6 @@
                     </div>
                 </div>
 
-                 <a href="
 
                 <div class="form-group">
                     <div class="col-lg-offset-4 col-lg-8">

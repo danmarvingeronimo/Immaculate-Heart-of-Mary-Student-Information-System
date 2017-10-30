@@ -21,7 +21,7 @@
                 </thead>
 
                 <tbody>
-                    <asp:ListView ID="lvStudents" runat="server" >
+                    <asp:ListView ID="lvStudents" runat="server" OnItemDataBound="lvStudents_ItemDataBound">
                         <ItemTemplate>
                             <tr>
                                 <asp:Literal ID="ltGradeID" runat="server"
@@ -30,9 +30,7 @@
                                 <td><%#Eval("Subject_Name") %></td>
                                 <td><%#Eval("Grade_Value") %></td>
                                 <td>
-                                    
-                                    
-                               
+                              									<asp:Label id="GradeVal" runat="server" Text='<%#Eval("Grade_Value") %>' Visible="false"/>
 
                                 </td>
                                 
@@ -49,6 +47,12 @@
                             </tr>
                         </EmptyDataTemplate>
                     </asp:ListView>
+                    <tr>
+                        <td><b>Average:</b></td>
+                        <td>
+                            <asp:Label ID="lblave" runat="server" />
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             
