@@ -1,27 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="Q4Grade.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
     <i class="fa fa-user"></i>
-    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> - 4th Quarter
+    <asp:literal id="ltSID" runat="server" visible="true" />
+    - 4th Quarter
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
 
-<%--    DAN MARVIN GERONIMO--%>
 
-   <form runat="server" class="form-horizontal">
-        <div class="col-lg-12">
-            <table class ="table table-hover">
-                <thead>
-                    <th>Subject</th>
-                    <th>Grade</th>
-                    
+    <%--    DAN MARVIN GERONIMO--%>
 
-                    
-                </thead>
+    <div class="container-fluid" style="padding-bottom: 20px;">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <form runat="server" class="form-horizontal">
 
-                <tbody>
-                    <asp:ListView ID="lvStudents" runat="server" >
+
+                            <div>
+                                <br />
+                                <a href='CompleteStudentList.aspx'
+                                   class="btn btn-xs btn-success">Back to View </a>
+                            </div>
+
+
+                            <table class="table table-hover">
+                                <thead>
+                                    <th>Subject</th>
+                                    <th>Grade</th>
+
+
+
+                                </thead>
+
+                                <tbody>
+                                    <asp:listview id="lvStudents" runat="server">
                         <ItemTemplate>
                             <tr>
                                 <asp:Literal ID="ltGradeID" runat="server"
@@ -48,12 +62,16 @@
                                 </td>
                             </tr>
                         </EmptyDataTemplate>
-                    </asp:ListView>
-                </tbody>
-            </table>
-            
+                    </asp:listview>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+    </div>
+
 
 </asp:Content>
 

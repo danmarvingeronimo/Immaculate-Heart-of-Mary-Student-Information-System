@@ -15,6 +15,13 @@
                 <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
+
+                            <div>
+                                <br />
+                                <a href='RegViewSection.aspx'
+                                    class="btn btn-xs btn-success" style="margin-bottom: 20px;">Back to View </a>
+                            </div>
+
                             <table id="id" class="table table-hover">
                                 <thead>
                                     <th>Student ID #</th>
@@ -38,24 +45,19 @@
                                                 <td><%#Eval("Status_Desc") %></td>
                                                 <td>
                                                     <a href='Q1Grade.aspx?ID=<%#Eval("Student_ID")%>'
-                                                        class="btn btn-xs btn-info" title="View Grade">
-                                                        Q1 Grade
+                                                        class="btn btn-xs btn-info" title="View Grade">Q1 Grade
                                                     </a>
                                                     <a href='Q2Grade.aspx?ID=<%#Eval ("Student_ID") %>'
-                                                        class="btn btn-xs btn-info" title="View Grade">
-                                                        Q2 Grade
+                                                        class="btn btn-xs btn-info" title="View Grade">Q2 Grade
                                                     </a>
                                                     <a href='Q3Grade.aspx?ID=<%#Eval("Student_ID")%>'
-                                                        class="btn btn-xs btn-info" title="View Grade">
-                                                        Q3 Grade
+                                                        class="btn btn-xs btn-info" title="View Grade">Q3 Grade
                                                     </a>
                                                     <a href='Q4Grade.aspx?ID=<%#Eval ("Student_ID") %>'
-                                                        class="btn btn-xs btn-info" title="View Grade">
-                                                        Q4 Grade
+                                                        class="btn btn-xs btn-info" title="View Grade">Q4 Grade
                                                     </a>
                                                     <a href='FinalGrade.aspx?ID=<%#Eval ("Student_ID") %>'
-                                                        class="btn btn-xs btn-sucess" title="View Grade">
-                                                        Final Grade
+                                                        class="btn btn-xs btn-primary" title="View Grade">Final Grade
                                                     </a>
                                                 </td>
                                                 <%--<td>
