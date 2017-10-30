@@ -19,7 +19,7 @@
                             <div>
                                 <br />
                                 <a href='AccViewSection.aspx'
-                                    class="btn btn-success" style="margin-bottom: 20px;">Back to View </a>
+                                     class="btn btn-xs btn-success" style="margin-bottom: 20px;">Back to View </a>
                             </div>
 
 

@@ -16,6 +16,9 @@
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
 
+                             <a href='ITAdminViewSection.aspx'
+                                   class="btn btn-xs btn-success" style="margin-bottom: 20px">Back to View </a>
+
                             <table id="table" class="table table-hover">
                                 <thead>
                                     <th>Student ID #</th>

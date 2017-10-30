@@ -15,7 +15,7 @@
                 <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
-                            <h1><i class="fa fa-child" style="margin-bottom: 20px;"></i> Sections</h1>
+                            <h1><i class="fa fa-child" style="margin-bottom: 20px;"></i>Sections</h1>
 
 
                             <table id="table" class="table table-hover">
@@ -23,7 +23,8 @@
 
                                     <th>Section Name</th>
                                     <th>Grade</th>
-                                    
+                                    <th></th>
+
                                 </thead>
                                 <tbody>
                                     <asp:listview id="lvSection" runat="server" onitemcommand="lvSection_ItemCommand">

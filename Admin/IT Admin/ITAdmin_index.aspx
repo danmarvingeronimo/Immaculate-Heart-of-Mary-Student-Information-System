@@ -6,9 +6,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
 
-    <div class="form-group">
-        <div class="col-lg-12">
-            <h2>Welcome to SIS Admin - IT Admin </h2>
+     <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <div class="box-header with-border">
+                            <h2>Welcome to SIS Admin - IT Admin </h2>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

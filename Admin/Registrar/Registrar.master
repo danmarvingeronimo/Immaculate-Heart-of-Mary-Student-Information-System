@@ -30,45 +30,16 @@
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span> </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="hidden-xs">Welcome! Insert Admin here</span> </a>
-                            <ul class="dropdown-menu">
+                 
+                    <li class="dropdown">
 
-                                <!-- User image -->
-                                <!-- Menu Body 
-                                <li class="user-body">
-                                    <div class="row">
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Followers</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Sales</a>
-                                        </div>
-                                        <div class="col-xs-4 text-center">
-                                            <a href="#">Friends</a>
-                                        </div>
-                                    </div>
-                                    <!-- /.row
-                                </li> -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                                <asp:Label ID="lblogin" runat="server" Text="User"></asp:Label><span class="hidden-xs"></span></a>
 
-
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
+                            <ul class="dropdown-menu role=menu">
+                                <li><a href="~/LogOut.aspx" runat="server" class="btn btn-default btn-flat">Log Out</a></li>
                             </ul>
                         </li>
-
-                        <!-- Control Sidebar Toggle Button -->
                     </ul>
                 </div>
             </nav>
@@ -204,7 +175,9 @@
     <!--Script for Datatable functions -->
     <script>
         $(document).ready(function () {
-            $('table').DataTable();
+            $('table').DataTable( {
+                "order": [[1, "asc" ]]
+            } );
         });
     </script>
 

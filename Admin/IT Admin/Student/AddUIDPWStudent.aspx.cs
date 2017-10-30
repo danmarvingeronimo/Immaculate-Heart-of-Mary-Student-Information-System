@@ -71,7 +71,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Studnet_PW=@PW WHERE Student_ID=@SID";
+            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW WHERE Student_ID=@SID";
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
