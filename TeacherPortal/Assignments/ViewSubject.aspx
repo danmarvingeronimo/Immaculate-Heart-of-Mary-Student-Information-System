@@ -48,10 +48,7 @@
                     </asp:ListView>
                 </tbody>
             </table>
-             <div class="col-lg-offset-5">
-
-               
-           </div>
+             
         </div>
     </form>
 

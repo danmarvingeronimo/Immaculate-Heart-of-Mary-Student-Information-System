@@ -73,19 +73,47 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
     }
 
 
+    public static int Yearlevel(int ID)
+    {
+        int Yearlevel = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT Year_level FROM STUDENT_MAIN WHERE Student_ID=@SID";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+                WickedEye.Parameters.AddWithValue("@SID", ID);
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            Yearlevel = int.Parse(dr["Year_level"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return Yearlevel;
+    }
 
 
 
     void GetSubj()
     {
-        
+        int yearlvl = Yearlevel(int.Parse(Request.QueryString["ID"].ToString()));
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Subject_ID, Subject_Name FROM SUBJECT_MAIN WHERE Teacher_ID=@TID";
+            string Takanashi = @"SELECT Subject_ID, Subject_Name FROM SUBJECT_MAIN WHERE Teacher_ID=@TID AND Year_level = @YL";
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
                 WickedEye.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+                WickedEye.Parameters.AddWithValue("@YL", yearlvl);
 
                 using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
                 {

@@ -39,7 +39,7 @@
         </div>
         <div class="col-md-9">
           <div class="nav-tabs-custom"><br />
-             <a href="Profile.aspx" style="margin-left:20px;" type="submit" class="btn btn-info" runat="server">Profile</a>
+             <a href="Profile.aspx" style="margin-left:20px;" type="submit" class="btn btn-blue" runat="server">Profile</a>
              <a href="EditProfile.aspx" type="submit" class="btn btn-danger" runat="server">Edit Profile</a>
              <h1 style="margin-left:20px;">
             Edit Info
@@ -47,10 +47,13 @@
          <div class="tab-pane" id="settings">
                 <form runat="server" class="form-horizontal"><br />
 
+              
+
+
                  <div class="form-group">
                     <label class="control-label col-sm-2">First Name</label>
                     <div class="col-sm-6">
-                      <asp:TextBox ID="txtTeacherID" runat="server" class="form-control" type="Id" MaxLength="10" required />
+                      <asp:TextBox ID="txtFN" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
 
@@ -58,7 +61,7 @@
                  <div class="form-group">
                     <label class="control-label col-sm-2">Middle Name</label>
                     <div class="col-sm-6">
-                      <asp:TextBox ID="TextBox1" runat="server" class="form-control" type="Id" MaxLength="10" required />
+                      <asp:TextBox ID="txtMN" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
 
@@ -66,7 +69,7 @@
                  <div class="form-group">
                     <label class="control-label col-sm-2">Last Name</label>
                     <div class="col-sm-6">
-                      <asp:TextBox ID="TextBox2" runat="server" class="form-control" type="Id" MaxLength="10" required />
+                      <asp:TextBox ID="txtLN" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
 
@@ -74,15 +77,22 @@
                  <div class="form-group">
                     <label class="control-label col-sm-2">Department</label>
                     <div class="col-sm-6">
-                      <asp:TextBox ID="TextBox3" runat="server" class="form-control" type="Id" MaxLength="10" required />
+                      <asp:TextBox ID="txtDept" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
 
+                      <div class="form-group">
+                    <label class="control-label col-sm-2">Password</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtPassword" runat="server" class="form-control" type="Password" MaxLength="10" required />
+                    </div>
+                  </div>
 
                  <div class="form-group">
                     <div class="col-sm-8">
                        <span class="pull-right">
                     <asp:Button ID="btnUpdate" runat="server" class="btn btn-success" Text="Update" onclick="btnUpdate_Click" />
+                           <%-- <asp:Button ID="btnCancel" runat="server" class="btn btn-warning" Text="Cancel" onclick="btnCancel_Click" />--%>
                 </span>
                     </div>
                   </div>

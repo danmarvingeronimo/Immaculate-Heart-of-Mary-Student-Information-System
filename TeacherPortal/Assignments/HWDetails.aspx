@@ -9,7 +9,7 @@
       <div class="form-group">
                 <label class="control-label col-lg-4">Title</label>
                 <div class="col-lg-8">
-                    <asp:TextBox ID="txtTitle" runat="server" class="form-control" type="text"  />
+                    <asp:TextBox ID="txtTitle" runat="server" class="form-control" type="text" />
                 </div>
             </div>
 

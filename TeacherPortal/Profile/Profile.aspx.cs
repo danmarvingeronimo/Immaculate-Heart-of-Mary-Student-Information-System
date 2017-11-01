@@ -13,33 +13,32 @@ public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            GetProfile();
+            GetData();
         }
 
     }
-    void GetProfile()
+    void GetData()
     {
-        using (SqlConnection cake = new SqlConnection(Util.GetConnection()))
+        using (SqlConnection burger = new SqlConnection(Util.GetConnection()))
         {
-            cake.Open();
-            string cheese = @"SELECT User_ID, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName, Department FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
-            using (SqlCommand com = new SqlCommand(cheese, cake))
+            burger.Open();
+            string ham = @"SELECT User_ID, Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName, Department FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
+
+            using (SqlCommand cheese = new SqlCommand(ham, burger))
             {
-                com.Parameters.AddWithValue("@UID", Session["teacher_id"].ToString());
-                using (SqlDataReader dr = com.ExecuteReader())
+                cheese.Parameters.AddWithValue("@UID", Session["Teacher_ID"].ToString());
+
+                using (SqlDataReader dr = cheese.ExecuteReader())
                 {
                     while (dr.Read())
                     {
-                        Teacher_FirstName.text = dr["Teacher_FirstName"].ToString();
-                        Middle_Name.text = dr["Middle_Name"].ToString();
-                        Last_Name.text = dr["Last_Name"].ToString();
-                        Gender.text = dr["Gender"].ToString();
-                      
-
+                        Teacher_FirstName.Text = dr["Teacher_FirstName"].ToString();
+                        Teacher_MiddleName.Text = dr["Teacher_MiddleName"].ToString();
+                        Teacher_LastName.Text = dr["Teacher_LastName"].ToString();
+                        Department.Text = dr["Department"].ToString();
                     }
                 }
             }
-
         }
     }
 }

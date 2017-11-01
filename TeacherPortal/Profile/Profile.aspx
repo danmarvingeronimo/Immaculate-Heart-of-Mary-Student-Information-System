@@ -13,7 +13,7 @@
           <div class="box box-primary">
             <div class="box-body box-profile">
               <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" runat="server" alt="User profile picture"/>
-              <h3 class="profile-username text-center">Nina Mcintire</h3>
+                <h3><asp:Literal ID="ltUID" runat="server" Visible="true" /></h3>
               <p class="text-muted text-center">Software Engineer</p>
             </div>
           </div>
@@ -47,39 +47,40 @@
       </h1>
               <div class="tab-pane" id="settings">
                 <form class="form-horizontal"><br />
+                
                  <div class="form-group">
                     <label style="color: #367fa9;" class="col-sm-2 control-label">First Name</label>
 
-                    <div class="col-sm-10">
-                        <asp:Label runat="server" ID="Teacher_FirstName"><%#Eval("Teacher_FirstName") %></asp:Label>
+                    <div class="col-sm-4">
+                        <asp:Label runat="server" class="col-sm-2 control-label" ID="Teacher_FirstName"><%#Eval("Teacher_FirstName") %></asp:Label>
                     </div>
                   </div>
                   <div class="form-group">
                     <label style="color: #367fa9;" class="col-sm-2 control-label">Middle Name</label>
 
-                    <div class="col-sm-10">
-                        <asp:Label runat="server" ID="Teacher_MiddleName"><%#Eval("Teacher_MiddleName") %></asp:Label>
+                    <div class="col-sm-4">
+                        <asp:Label runat="server" class="col-sm-2 control-label" ID="Teacher_MiddleName"><%#Eval("Teacher_MiddleName") %></asp:Label>
                     </div>
                   </div>
                         <div class="form-group">
                     <label style="color: #367fa9;" class="col-sm-2 control-label">Last Name</label>
 
-                    <div class="col-sm-10">
-                       <asp:Label runat="server" ID="Teacher_LastName"><%#Eval("Teacher_LastName") %></asp:Label>
+                    <div class="col-sm-4">
+                       <asp:Label runat="server" class="col-sm-2 control-label" ID="Teacher_LastName"><%#Eval("Teacher_LastName") %></asp:Label>
                     </div>
                   </div>
                        <div class="form-group">
                     <label style="color: #367fa9;" class="col-sm-2 control-label">Department</label>
 
-                    <div class="col-sm-10">
-                     <asp:Label runat="server" ID="Department"><%#Eval("Department") %></asp:Label>
+                    <div class="col-sm-4">
+                     <asp:Label runat="server" class="col-sm-2 control-label" ID="Department"><%#Eval("Department") %></asp:Label>
                     </div>
                   </div>
     
-                </form><br /><br /><br /><br /><br /><br /><br /><br /><br />
+                </form><br /><br /><br /><br /><br /><br /><br />
               </div>
             </div>
         </div>
-      </div>
-        </section>
+          </div>
+            </section>
 </asp:Content>
