@@ -26,6 +26,7 @@ public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
+                Cryptic DE = new Cryptic();
                 Util audlog = new Util();
                 //audit
                 cmd.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
@@ -43,8 +44,10 @@ public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@TeacherID", Session["Teacher_ID"].ToString());
 
                 cmd.ExecuteNonQuery();
-                audlog.AuditLogTeacher("Adding Announcements", int.Parse(Session["teacher_id"].ToString()), "Added by "
-                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
+                audlog.AuditLogTeacher(DE.Encrypt("Add Announcements"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Added by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                //audlog.AuditLogTeacher("Adding Announcements", int.Parse(Session["teacher_id"].ToString()), "Added by "
+                //           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
 
                 Response.Redirect("ViewAnnouncement.aspx");
 

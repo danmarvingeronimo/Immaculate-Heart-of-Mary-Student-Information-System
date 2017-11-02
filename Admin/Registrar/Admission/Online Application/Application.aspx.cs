@@ -24,6 +24,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             Rikka.Open();
 
             string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, 
@@ -154,8 +155,8 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.ExecuteNonQuery();
                 Rikka.Close();
                 //Nathaniel Collins S. Ortiz Application Audit
-                audlog.AuditLogAdmin("Admission Input", int.Parse(Session["admin_id"].ToString()), "Input assigned by "
-                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                audlog.AuditLogAdmin(DE.Encrypt("Admission Input"), int.Parse(Session["admin_id"].ToString()),DE.Encrypt ("Input assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("Confirmation.aspx");
             }
         }

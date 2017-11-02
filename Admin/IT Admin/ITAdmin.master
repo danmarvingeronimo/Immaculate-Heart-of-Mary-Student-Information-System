@@ -63,50 +63,45 @@
                             <!-- ACCOUNTING ADMIN FORM END -->
 
                             <!-- ADMIN FORM START -->
-                                    <li class="treeview">
-                                        <a href="#"><i class="fa fa-lock"></i>Admin <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="Admin/AddAdmin.aspx" runat="server"><i class="fa fa-user-plus"></i>Add Admin</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Admin/ViewAdmin.aspx" runat="server"><i class="fa fa-users"></i>View Admin </a>
-                                                    </li>
-                                                </ul>
-
-                                                <!-- FACULTY -->
-                                                <a href="#"><i class="fa fa-street-view"></i>Faculty <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="Faculty/FacultyList.aspx" runat="server"><i class="fa fa-users"></i>Faculty List </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="treeview">
-                                                <a href="#"><i class="fa fa-child"></i>Student <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="Student/IDStudentList.aspx" runat="server"><i class="fa fa-users"></i>Student List</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Student/ITAdminViewSection.aspx" runat="server"><i class="fa fa-users"></i>View Section</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-lock"></i>Admin <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="Admin/AddAdmin.aspx" runat="server"><i class="fa fa-user-plus"></i>Add Admin</a>
+                                    </li>
+                                    <li>
+                                        <a href="Admin/ViewAdmin.aspx" runat="server"><i class="fa fa-users"></i>View Admin </a>
                                     </li>
                                 </ul>
-                            <!-- ADMIN FORM END -->
 
+                                <!-- FACULTY -->
+                                <a href="#"><i class="fa fa-street-view"></i>Faculty <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="Faculty/FacultyList.aspx" runat="server"><i class="fa fa-users"></i>Faculty List </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-child"></i>Student <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="Student/IDStudentList.aspx" runat="server"><i class="fa fa-users"></i>Student List</a>
+                                    </li>
+                                    <li>
+                                        <a href="Student/ITAdminViewSection.aspx" runat="server"><i class="fa fa-users"></i>View Section</a>
+                                    </li>
+                                </ul>
+                            </li>
 
                         </ul>
-                    </li>
+                        <!-- ADMIN FORM END -->
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -169,7 +164,7 @@
     <script>
         $(document).ready(function () {
             $('table').DataTable({
-                "order": [[1,  "asc"]]
+                "order": [[1, "asc"]]
             });
         });
     </script>

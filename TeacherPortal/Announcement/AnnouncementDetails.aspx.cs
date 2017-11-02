@@ -72,6 +72,7 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
+                Cryptic DE = new Cryptic();
                 Util audlog = new Util();
                 //audit
                 com.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
@@ -80,8 +81,10 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
                 com.Parameters.AddWithValue("@Announcement_ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogTeacher("Announcement Details", int.Parse(Session["teacher_id"].ToString()), "Edited by "
-                          + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
+                audlog.AuditLogTeacher(DE.Encrypt("Announcements Details"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                //audlog.AuditLogTeacher("Announcement Details", int.Parse(Session["teacher_id"].ToString()), "Edited by "
+                //          + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
 
                 Response.Redirect("ViewAnnouncement.aspx");
             }

@@ -123,6 +123,8 @@ public partial class Faculty : System.Web.UI.Page
     }
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
@@ -138,6 +140,8 @@ public partial class Faculty : System.Web.UI.Page
 
 
                 WickedEye.ExecuteNonQuery();
+                audlog.AuditLogAdmin(DE.Encrypt("Assigned Student Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Input assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("StudentList.aspx");
 
             }

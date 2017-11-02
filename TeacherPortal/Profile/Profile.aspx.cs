@@ -44,6 +44,8 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
     }
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         using (SqlConnection fu = new SqlConnection(Util.GetConnection()))
         {
             fu.Open();
@@ -54,20 +56,24 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
             //}
             //else
             //{
-            string wai = @"UPDATE TEACHER_MAIN SET Teacher_ID=@TID, Teacher_PW=@TPW, Teacher_FirstName=@TFN, Teacher_MiddleName=@TMN, Teacher_LastName=@TLN WHERE User_ID = @UID";
+            string wai = @"UPDATE TEACHER_MAIN SET Teacher_PW=@TPW, Teacher_FirstName=@TFN, Teacher_MiddleName=@TMN, Teacher_LastName=@TLN WHERE User_ID = @UID";
             //}
             using (SqlCommand best = new SqlCommand(wai, fu))
             {
-                best.Parameters.AddWithValue("@UID", Session["Teacher_ID"].ToString());
-                best.Parameters.AddWithValue("@TID", txtTeacherID.Text);
+                best.Parameters.AddWithValue("@UID", txtTeacherID.Text);
+                
                 best.Parameters.AddWithValue("@TPW", txtPassword.Text);
                 best.Parameters.AddWithValue("@TFN", txtFN.Text);
                 best.Parameters.AddWithValue("@TMN", txtMN.Text);
                 best.Parameters.AddWithValue("@TLN", txtLN.Text);
                 best.ExecuteNonQuery();
-                Response.Redirect(Request.Url.AbsoluteUri
-                    );
+                audlog.AuditLogTeacher(DE.Encrypt("Edit Faculty Profile"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited by "
+                        + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                //audlog.AuditLogTeacher("Edit Faculty Profile", int.Parse(Session["teacher_id"].ToString()), "Edited by "
+                //            + Session["teacher_FirstName"].ToString() + " " + Session["teacher_MiddleName"].ToString() + " " + Session["teacher_LastName"].ToString());
+                Response.Redirect("Profile.aspx");
                 success.Visible = true;
+                
             }
 
         }

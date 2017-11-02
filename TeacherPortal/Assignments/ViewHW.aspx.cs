@@ -106,6 +106,8 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
 
     protected void lvHW_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         Literal ltUploadHW_ID = (Literal)e.Item.FindControl("ltUploadHW_ID");
 
         if (e.CommandName == "delfile")
@@ -116,8 +118,12 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
                 string DELETE = @"DELETE FROM UPLOAD_HW WHERE UploadHW_ID=@UploadHW_ID";
                 using (SqlCommand Nero = new SqlCommand(DELETE, con))
                 {
+
                     Nero.Parameters.AddWithValue("@UploadHW_ID", ltUploadHW_ID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogTeacher(DE.Encrypt("Deleted Homework"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Deleted by "
+                        + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                    Response.Redirect("ViewHW.aspx");
                 }
             }
         }

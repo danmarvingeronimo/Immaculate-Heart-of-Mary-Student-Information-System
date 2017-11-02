@@ -68,6 +68,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             string sql = @"UPDATE UPLOAD_LECTURE SET Title=@Title, Description=@Description WHERE UploadLecture_ID=@ID";
             con.Open();
 
@@ -80,8 +81,10 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
                 com.Parameters.AddWithValue("@ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogTeacher("Edited Lectures", int.Parse(Session["teacher_id"].ToString()), "Edited Lectures by "
-                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
+                audlog.AuditLogTeacher(DE.Encrypt("Edited Lectures"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited Lectures by "
+                        + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                //audlog.AuditLogTeacher("Edited Lectures", int.Parse(Session["teacher_id"].ToString()), "Edited Lectures by "
+                //           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
                 Response.Redirect("ViewLectures.aspx");
             }
         }

@@ -99,6 +99,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     }
     protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         Literal ltGradeID = (Literal)e.Item.FindControl("ltGradeID");
 
         if (e.CommandName == "delfile")
@@ -111,6 +113,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@Grade_ID", ltGradeID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogTeacher(DE.Encrypt("Deleted Grade"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Deleted by "
+                        + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                     Response.Redirect("StudentList.aspx");
                 }
             }
