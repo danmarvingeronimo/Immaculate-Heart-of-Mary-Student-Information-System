@@ -27,7 +27,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
             Cryptic DE = new Cryptic();
             Rikka.Open();
 
-            string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, 
+            string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, UserType_ID 
                                                           Last_Name, Gender, Status_ID,
                                                           City, Brngy, Municipality, 
                                                           Street, Prov_Add, Birth_Date,
@@ -47,7 +47,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
                                                           Father_PhoneNo, Father_EduStat, Father_SchoolGrad, 
                                                           Father_Employm, Father_OffAdd, Father_NatBus)
 
-                                                  VALUES (@Section_ID, @Year_level, @First_Name, @Middle_Name, 
+                                                  VALUES (@Section_ID, @Year_level, @First_Name, @Middle_Name, @UserType_ID
                                                           @Last_Name, @Gender, @Status_ID,
                                                           @City, @Brngy, @Municipality, 
                                                           @Street, @Prov_Add, @Birth_Date, 
@@ -72,7 +72,9 @@ public partial class Online_Application_Application : System.Web.UI.Page
             {
                 //Audit Session
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
-                //
+
+                WickedEye.Parameters.AddWithValue("@UserType_ID", 6);
+             
 
                 WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
                 WickedEye.Parameters.AddWithValue("@Section_ID", 21);

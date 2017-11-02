@@ -2,8 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
     <i class="fa fa-user"></i>
+<<<<<<< HEAD
+    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> - 1st Quarter
+=======
     <asp:literal id="ltSID" runat="server" visible="true" />
     - 4th Quarter
+>>>>>>> bbfa7b82eb5969c6660e7cbdc60a986c87987dd4
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
 
@@ -17,6 +21,10 @@
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
 
+<<<<<<< HEAD
+                <tbody>
+                    <asp:ListView ID="lvStudents" runat="server" OnItemDataBound="lvStudents_ItemDataBound">
+=======
 
                             <div>
                                 <br />
@@ -36,6 +44,7 @@
 
                                 <tbody>
                                     <asp:listview id="lvStudents" runat="server">
+>>>>>>> bbfa7b82eb5969c6660e7cbdc60a986c87987dd4
                         <ItemTemplate>
                             <tr>
                                 <asp:Literal ID="ltGradeID" runat="server"
@@ -44,9 +53,7 @@
                                 <td><%#Eval("Subject_Name") %></td>
                                 <td><%#Eval("Grade_Value") %></td>
                                 <td>
-                                    
-                                    
-                               
+                              									<asp:Label id="GradeVal" runat="server" Text='<%#Eval("Grade_Value") %>' Visible="false"/>
 
                                 </td>
                                 
@@ -62,6 +69,18 @@
                                 </td>
                             </tr>
                         </EmptyDataTemplate>
+<<<<<<< HEAD
+                    </asp:ListView>
+                    <tr>
+                        <td><b>Average:</b></td>
+                        <td>
+                            <asp:Label ID="lblave" runat="server" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+=======
                     </asp:listview>
                                 </tbody>
                             </table>
@@ -69,6 +88,7 @@
                     </div>
                 </div>
             </div>
+>>>>>>> bbfa7b82eb5969c6660e7cbdc60a986c87987dd4
         </div>
     </div>
 
