@@ -18,7 +18,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-          <a href="~/TeacherPortal/Homepage.aspx" runat="server" class="navbar-brand"><b>STUDENT </b>Portal</a>
+      <a href="Homepage.aspx" runat="server" class="navbar-brand"><b>Immaculate Heart of Mary College - Parañaque  </b>Student Information System</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -29,7 +29,7 @@
           <ul class="nav navbar-nav">
             <li><a href="ViewHW(Student).aspx">View Homeworks</a></li>
                <li><a href="ViewLecture(Student).aspx">View Lectures</a></li>
-                   <li><a href="#">View Grades</a></li>
+              
           </ul>
         </div>
 
@@ -39,7 +39,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a runat="server" href="Profile/Profile.aspx">View Profile</a></li>
-                <li><a runat="server" href="Signout.aspx">Sign out</a></li>
+             <li><a runat="server" href="../LogOut.aspx">Sign out</a></li>
               </ul>
             </li>
           </ul>

@@ -12,7 +12,7 @@
         <div class="col-md-3">
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" runat="server" alt="User profile picture"/>
+              <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" height="400" width="400" runat="server" alt="User profile picture"/>
                 <h3><asp:Literal ID="ltUID" runat="server" Visible="true" /></h3>
               <p class="text-muted text-center">Software Engineer</p>
             </div>
@@ -20,65 +20,77 @@
 
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">About Me</h3>
+              <h3 class="box-title">PERSONAL INFO</h3>
             </div>
             <div class="box-body">
-              <strong><i class="fa fa-book margin-r-5"></i>Subjects</strong>
+              <strong>FULL NAME</strong>
               <p>
-                <span class="label label-danger">UI Design</span>
-                <span class="label label-success">Coding</span>
+                <asp:Label runat="server"  ID="lblFN"><%#Eval("Teacher_FirstName") %></asp:Label>
+                <asp:Label runat="server"  ID="lblMN"><%#Eval("Teacher_MiddleName") %></asp:Label>
+                <asp:Label runat="server"  ID="lblLN"><%#Eval("Teacher_LastName") %></asp:Label>
                </p>
               <hr />
-              <strong><i class="fa fa-map-marker margin-r-5"></i> Location</strong>
-              <p class="text-muted">Malibu, California</p>
-              <hr />
-                <strong><i class="fa fa-pencil margin-r-5"></i>Department</strong>
-                <p>English</p>       
+               <strong>DEPARTMENT</strong>
+                <p><asp:Label runat="server" class="col-sm-2 control-label" ID="lblDept"><%#Eval("Department") %></asp:Label></p><br /><br /><br /><br />
+                <br /><br /><br /><br /><br />
             </div>
           </div>
         </div>
         <div class="col-md-9">
           <div class="nav-tabs-custom"><br />
-
-             <a href="Profile.aspx" style="margin-left:20px;" type="submit" class="btn btn-info" runat="server">Profile</a>
-             <a href="EditProfile.aspx" type="submit" class="btn btn-danger" runat="server">Edit Profile</a>
+  
              <h1 style="margin-left:20px;">
-            Personal Info
+           Update Personal Info
       </h1>
-              <div class="tab-pane" id="settings">
-                <form class="form-horizontal"><br />
-                
+               <form runat="server" class="form-horizontal"><br /><br /><br />
+
                  <div class="form-group">
-                    <label style="color: #367fa9;" class="col-sm-2 control-label">First Name</label>
-
-                    <div class="col-sm-4">
-                        <asp:Label runat="server" class="col-sm-2 control-label" ID="Teacher_FirstName"><%#Eval("Teacher_FirstName") %></asp:Label>
+                    <label class="control-label col-sm-2">First Name</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtFN" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label style="color: #367fa9;" class="col-sm-2 control-label">Middle Name</label>
 
-                    <div class="col-sm-4">
-                        <asp:Label runat="server" class="col-sm-2 control-label" ID="Teacher_MiddleName"><%#Eval("Teacher_MiddleName") %></asp:Label>
+                    
+                 <div class="form-group">
+                    <label class="control-label col-sm-2">Middle Name</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtMN" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
-                        <div class="form-group">
-                    <label style="color: #367fa9;" class="col-sm-2 control-label">Last Name</label>
 
-                    <div class="col-sm-4">
-                       <asp:Label runat="server" class="col-sm-2 control-label" ID="Teacher_LastName"><%#Eval("Teacher_LastName") %></asp:Label>
+                    
+                 <div class="form-group">
+                    <label class="control-label col-sm-2">Last Name</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtLN" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
-                       <div class="form-group">
-                    <label style="color: #367fa9;" class="col-sm-2 control-label">Department</label>
 
-                    <div class="col-sm-4">
-                     <asp:Label runat="server" class="col-sm-2 control-label" ID="Department"><%#Eval("Department") %></asp:Label>
+                    
+                 <div class="form-group">
+                    <label class="control-label col-sm-2">Department</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtDept" runat="server" class="form-control" type="Id" MaxLength="10" required />
                     </div>
                   </div>
-    
-                </form><br /><br /><br /><br /><br /><br /><br />
-              </div>
+
+                      <div class="form-group">
+                    <label class="control-label col-sm-2">Password</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtPassword" runat="server" class="form-control" type="Password" MaxLength="10" required />
+                    </div>
+                  </div>
+
+                 <div class="form-group">
+                    <div class="col-sm-8">
+                       <span class="pull-right">
+                    <asp:Button ID="btnUpdate" runat="server" class="btn btn-success" Text="Update" onclick="btnUpdate_Click" />
+                           <%-- <asp:Button ID="btnCancel" runat="server" class="btn btn-warning" Text="Cancel" onclick="btnCancel_Click" />--%>
+                </span>
+                    </div>
+                  </div>
+               </form><br /><br /><br /><br /><br />
             </div>
         </div>
           </div>

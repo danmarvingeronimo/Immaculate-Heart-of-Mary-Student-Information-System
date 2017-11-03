@@ -41,7 +41,7 @@ public partial class Student_LogIn : System.Web.UI.Page
                         }
                         audlog.AuditLogStudent("Log-In", int.Parse(Session["student_id"].ToString()), "Logged-In by " + Session["first_name"].ToString()
                             + " " + Session["middle_name"].ToString() + Session["last_name"].ToString());
-                        Response.Redirect("StudentProfile.aspx");
+                        Response.Redirect("CompleteStudentList.aspx");
                     }
                     else
                     {

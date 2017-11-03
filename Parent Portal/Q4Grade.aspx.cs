@@ -11,11 +11,20 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_Admission_StudentList : System.Web.UI.Page
 {
+    //Paki note kung tama tong nasa baba kasi sa php ganian mag
+    //instanciate ng double kasi minsan may 0.0d pa akong nakikita
+    //so pa double check nalang
+    double gradeAve = 0.0;
+    double grade = 0.0;
+    double ave = 0.0;
+    int count = 0;
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("StudentList.aspx");
+            Response.Redirect("CompleteStudentList.aspx");
         }
         else
         {
@@ -29,11 +38,16 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                     GetID(secid);
                     GetGrade(secid);
 
+                    ave = gradeAve / count;
+                    //This Should Work <3
+                    lblave.Text = ave.ToString();
+
+
                 }
             }
             else
             {
-                Response.Redirect("StudentList.aspx");
+                Response.Redirect("CompleteStudentList.aspx");
             }
         }
 
@@ -46,7 +60,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Student_ID FROM STUDENT_MAIN 
+            string SQL = @"SELECT Last_Name + ', ' + First_Name + ' ' + Middle_Name AS 'Student' FROM STUDENT_MAIN
                            WHERE Student_ID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
@@ -59,25 +73,27 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltSID.Text = dr["Student_ID"].ToString();
+                            ltSID.Text = dr["Student"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("StudentList.aspx");
+                        Response.Redirect("CompleteStudentList.aspx");
                     }
                 }
             }
         }
     }
 
+    
+
     void GetGrade(int ID)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
-                                SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 4";
+                string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
+                                    SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 4";
                 
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
@@ -97,6 +113,26 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         }
     }
 
+    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
 
-    
+
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            // Display the e-mail address in italics.
+
+            Label GradeVal = (Label)e.Item.FindControl("GradeVal");
+            count++;
+            grade = double.Parse(GradeVal.Text);
+            gradeAve = gradeAve + grade;
+
+        }
+
+
+
+    }
+
+
+
+
 }

@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Teacher.master.cs" Inherits="TeacherPortal_Teacher" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Profile.master.cs" Inherits="Parent_Parent" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,7 @@
     <nav class="navbar navbar-static-top">
       <div class="container">
         <div class="navbar-header">
-   <a href="Homepage.aspx" runat="server" class="navbar-brand"><b>Immaculate Heart of Mary College - Parañaque  </b>SIS</a>
+          <a href="~/TeacherPortal/Homepage.aspx" runat="server" class="navbar-brand"><b>PARENT </b>Portal</a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -28,34 +28,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="dropdown" runat="server">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Announcement <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu" runat="server">
-                <li><a runat="server" href="Announcement/AddAnnouncement.aspx">Add Announcement</a></li>
-                <li><a runat="server" href="Announcement/ViewAnnouncement.aspx">View Announcement</a></li>       
-              </ul>
-            </li>
-                   <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lectures <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a runat="server" href="Lectures/AddLectures.aspx">Add Lectures</a></li>
-                <li><a runat="server" href="Lectures/ViewLectures.aspx">View Lectures</a></li>
-              </ul>
-            </li>
-                   <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assignments <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a runat="server" href="Assignments/AddHW.aspx">Add Assignments</a></li>
-                <li><a runat="server" href="Assignments/ViewHW.aspx">View Assignments</a></li>
-              </ul>
-            </li>
-                   <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Grades <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a runat="server" href="Grade/StudentList.aspx">View Student List</a></li>
-                <li><a runat="server" href="Grade/GradeViewSection.aspx">View Grade Section</a></li>
-              </ul>
-            </li>
+               <li><a href="../Q1Grade.aspx" runat="server">First Quarter</a></li>
+               <li><a href="../Q2Grade.aspx.aspx" runat="server">Second Quarter</a></li>
+               <li><a href="../Q3Grade.aspx.aspx" runat="server">Third Quarter</a></li>
+               <li><a href="../Q4Grade.aspx.aspx" runat="server">Fourth Quarter</a></li>
+
           </ul>
         </div>
          <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
@@ -64,7 +41,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a runat="server" href="Profile/Profile.aspx">View profile</a></li>
-                <li><a runat="server" href="../LogOut.aspx">Sign out</a></li>
+                <li><a runat="server" href="Signout.aspx">Sign out</a></li>
               </ul>
             </li>
           </ul>

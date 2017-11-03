@@ -21,13 +21,13 @@
 			<nav id="menu">
 				<ul>
 					<li><a href="About.aspx">About Us</a></li>
-                    <li><a href="Gallery.aspx">Gallery</a></li>
                     <li><a href="Contact.aspx">Contact</a></li>
+                    <li><a href=""></a></li>
                 </ul>
                 <ul>
                     <li><a href="LogIn.aspx">Log In</a></li>
-                    <li><a href="LoginStudent.aspx">Student</a></li>
-                    <li><a href="LoginParent.aspx">Parent</a></li>
+                    <li><a href="Parent Portal/LogIn.aspx">Parent</a></li>
+                    <li><a href="LogIn.aspx"></a></li>
    				</ul>
 			</nav>
 			<!-- / navigation -->
