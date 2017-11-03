@@ -79,7 +79,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
-                            Response.Redirect("~/Student Portal/StudentProfile.aspx");
+                            Response.Redirect("~/Student Portal/ViewSubject.aspx");
                         }
                     }
 

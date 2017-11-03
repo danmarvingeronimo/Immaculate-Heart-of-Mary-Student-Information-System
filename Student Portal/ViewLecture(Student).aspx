@@ -28,7 +28,9 @@
                         <td><%# Eval("Description") %></td>
                         <td><%# Eval("DateAdded", "{0: MMMM dd, yyyy}") %></td>
                         <td><%# Eval("Teacher") %></td>
-                        
+                        <td>
+                            
+                        </td>
                     </tr>
                 </ItemTemplate>
                    <EmptyDataTemplate>
