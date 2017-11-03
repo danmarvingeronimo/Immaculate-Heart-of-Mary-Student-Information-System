@@ -97,6 +97,8 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
 
     protected void lvAnnouncement_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         Literal ltAnnouncement_ID = (Literal)e.Item.FindControl("ltAnnouncement_ID");
 
         if (e.CommandName == "delfile")
@@ -109,6 +111,8 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@Announcement_ID", ltAnnouncement_ID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogTeacher(DE.Encrypt("Delete Announcements"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Delete by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 }
             }
         }

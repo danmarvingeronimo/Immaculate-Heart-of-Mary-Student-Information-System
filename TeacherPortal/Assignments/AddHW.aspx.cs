@@ -52,6 +52,7 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             con.Open();
             string SQL = @"INSERT INTO UPLOAD_HW(Title, Description, FileContent, DateAdded, Teacher_ID, Subject_ID) 
                             VALUES (@Title, @Description, @FileContent, @DateAdded, @TeacherID, @Subject)";
@@ -76,8 +77,8 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
 
                 cmd.ExecuteNonQuery();
-                audlog.AuditLogTeacher("Add Homework", int.Parse(Session["teacher_id"].ToString()), "Added Homework by "
-                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
+                audlog.AuditLogTeacher(DE.Encrypt("Add Homework"), int.Parse(Session["teacher_id"].ToString()),DE.Encrypt("Added Homework by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 Response.Redirect("ViewHW.aspx");
 
             }

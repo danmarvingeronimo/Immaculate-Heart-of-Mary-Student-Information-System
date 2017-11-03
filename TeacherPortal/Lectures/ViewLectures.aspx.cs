@@ -102,7 +102,8 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
     protected void lvLectures_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         Literal ltUploadLecture_ID = (Literal)e.Item.FindControl("ltUploadLecture_ID");
-
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         if (e.CommandName == "delfile")
         {
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
@@ -113,6 +114,9 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@UploadLecture_ID", ltUploadLecture_ID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogTeacher(DE.Encrypt("Deleted Lectures"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Deleted by "
+                        + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                    Response.Redirect("ViewLectures.aspx");
                 }
             }
         }

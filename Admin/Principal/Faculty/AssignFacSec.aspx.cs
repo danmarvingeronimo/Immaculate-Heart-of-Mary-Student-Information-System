@@ -47,6 +47,7 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             Rikka.Open();
             string Takanashi = @"UPDATE TEACHER_MAIN SET Section_ID=@Section_ID, HomeroomStat_ID=@HID WHERE
                                 Teacher_ID=@Teacher_ID";
@@ -64,8 +65,8 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
                 WickedEye.ExecuteNonQuery();
 
                 //Nathaniel Collins S. Ortiz
-                audlog.AuditLogAdmin("Assigning Faculty with Homeroom Adviser", int.Parse(Session["admin_id"].ToString()), "Faculty assigned by "
-                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                audlog.AuditLogAdmin(DE.Encrypt("Assigning Faculty with Homeroom Adviser"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Faculty assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("FacultyList.aspx");
 
             }

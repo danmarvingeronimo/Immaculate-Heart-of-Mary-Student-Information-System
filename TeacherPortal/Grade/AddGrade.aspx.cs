@@ -135,6 +135,8 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             con.Open();
             string SQL = @"INSERT INTO GRADE_INFO(Student_ID, Teacher_ID, Grade_Value, SY, Quarter, Subject_ID) 
                             VALUES (@SID, @TID, @Grade_Value, @SY, @Quarter, @Subject_ID)";
@@ -155,6 +157,8 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
 
                 cmd.ExecuteNonQuery();
+                audlog.AuditLogTeacher(DE.Encrypt("Add Grade"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Added by "
+                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 Response.Redirect("StudentList.aspx");
 
             }

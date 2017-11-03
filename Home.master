@@ -26,6 +26,8 @@
                 </ul>
                 <ul>
                     <li><a href="LogIn.aspx">Log In</a></li>
+                    <li><a href="LoginStudent.aspx">Student</a></li>
+                    <li><a href="LoginParent.aspx">Parent</a></li>
    				</ul>
 			</nav>
 			<!-- / navigation -->
