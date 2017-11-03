@@ -16,7 +16,7 @@
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
 
-                            <a href="SchedViewSection.aspx" style="margin-bottom: 20px;"  class="btn btn-xs btn-success">Back to Section List
+                            <a href="SchedViewSection.aspx" style="margin-bottom: 20px;" class="btn btn-success">Back to Section List
                             </a>
                             <table class="table table-hover">
                                 <thead>

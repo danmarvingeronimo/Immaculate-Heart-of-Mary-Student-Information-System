@@ -28,9 +28,20 @@
                         <td><%# Eval("Description") %></td>
                         <td><%# Eval("DateAdded", "{0: MMMM dd, yyyy}") %></td>
                         <td><%# Eval("Teacher") %></td>
+<<<<<<< HEAD
                         <td>
                             
                         </td>
+=======
+                       <td>
+                       <a href='Details.aspx?ID=<%#Eval("UploadLecture_ID")%>'
+                                                        class="btn btn-xs btn-info" title="View Comments">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+
+                                                </td>
+                        
+>>>>>>> c93b19258759c37df52e46f8870dbd64e11907ff
                     </tr>
                 </ItemTemplate>
                    <EmptyDataTemplate>

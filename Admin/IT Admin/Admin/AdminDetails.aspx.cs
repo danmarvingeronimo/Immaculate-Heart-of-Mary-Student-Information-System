@@ -99,7 +99,6 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Dekomori audlog = new Dekomori();
-            Cryptic DE = new Cryptic();
             Rikka.Open();
             string Takanashi = @"UPDATE ADMIN_MAIN SET User_ID=@User_ID, UserType_ID=@UserType_ID, Admin_PW=@PW WHERE Admin_ID=@Admin_ID";
 
@@ -113,12 +112,9 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@PW", txtPass.Text);
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Request.QueryString["ID"].ToString());
                 WickedEye.ExecuteNonQuery();
-
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLogAdmin(DE.Encrypt("Editing an Admin"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Edited by "
-                           + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
-                //audlog.AuditLogAdmin("Updating an Admin", int.Parse(Session["admin_id"].ToString()), "Updated by "
-                //            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                audlog.AuditLogAdmin("Updating an Admin", int.Parse(Session["admin_id"].ToString()), "Updated by "
+                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("ViewAdmin.aspx");
 
 

@@ -11,7 +11,7 @@
     <div class="container-fluid" style="padding-bottom: 20px;">
         <div class="row">
             <div class="col-lg-12">
-                <div class="box box-primary">
+                <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
                             <h1><i class="fa fa-users" style="margin-bottom: 20px;"></i>Faculty </h1>

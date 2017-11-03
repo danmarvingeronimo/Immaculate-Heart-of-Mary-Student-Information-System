@@ -75,11 +75,15 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "5")
                         {
-                            Response.Redirect("~/Teacher Portal/Welcome.aspx");
+                            Response.Redirect("~/TeacherPortal/Homepage.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
+<<<<<<< HEAD
                             Response.Redirect("~/Student Portal/ViewSubject.aspx");
+=======
+                            Response.Redirect("~/Student Portal/Homepage.aspx");
+>>>>>>> c93b19258759c37df52e46f8870dbd64e11907ff
                         }
                     }
 
@@ -145,7 +149,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "5")
                         {
-                            Response.Redirect("~/TeacherPortal/Welcome.aspx");
+                            Response.Redirect("~/TeacherPortal/Homepage.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {

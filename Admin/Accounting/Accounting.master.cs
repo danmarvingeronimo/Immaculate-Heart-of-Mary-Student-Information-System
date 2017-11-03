@@ -9,11 +9,14 @@ public partial class Admin_Accounting_Accounting : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Session["admin_id"] != null && Session["UserType_ID"].ToString() == "3")
+        if (Session["admin_id"] != null)
             lblogin.Text = "Welcome,  " + Session["first_name"].ToString() + " " + Session["last_name"].ToString();
         else
-            Response.Redirect("~/Login.aspx"); 
-      
+            Response.Redirect("~/Login.aspx");
     }
 
+    protected void btnLogout_Click(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using System.Data.SqlClient;
 
-public partial class TeacherPortal_Profile : System.Web.UI.Page
+public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,7 +22,7 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
         using (SqlConnection burger = new SqlConnection(Util.GetConnection()))
         {
             burger.Open();
-            string ham = @"SELECT User_ID, Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
+            string ham = @"SELECT User_ID, Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName, Department FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
 
             using (SqlCommand cheese = new SqlCommand(ham, burger))
             {
@@ -31,17 +32,17 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
                 {
                     while (dr.Read())
                     {
-                        txtTeacherID.Text = dr["User_ID"].ToString();
-                        txtPassword.Text = dr["Teacher_PW"].ToString();
-                        txtFN.Text = dr["Teacher_FirstName"].ToString();
-                        txtMN.Text = dr["Teacher_MiddleName"].ToString();
-                        txtLN.Text = dr["Teacher_LastName"].ToString();
-
+                        Teacher_FirstName.Text = dr["Teacher_FirstName"].ToString();
+                        Teacher_MiddleName.Text = dr["Teacher_MiddleName"].ToString();
+                        Teacher_LastName.Text = dr["Teacher_LastName"].ToString();
+                        Department.Text = dr["Department"].ToString();
                     }
                 }
             }
         }
     }
+<<<<<<< HEAD
+=======
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         Util audlog = new Util();
@@ -79,4 +80,5 @@ public partial class TeacherPortal_Profile : System.Web.UI.Page
         }
 
     }
+>>>>>>> a8c28468911ed528b4fb12bc1bfc0eda25150e2d
 }

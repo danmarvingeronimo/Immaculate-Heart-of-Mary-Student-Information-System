@@ -24,10 +24,9 @@ public partial class Online_Application_Application : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Util audlog = new Util();
-            Cryptic DE = new Cryptic();
             Rikka.Open();
 
-            string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, UserType_ID 
+            string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, 
                                                           Last_Name, Gender, Status_ID,
                                                           City, Brngy, Municipality, 
                                                           Street, Prov_Add, Birth_Date,
@@ -47,7 +46,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
                                                           Father_PhoneNo, Father_EduStat, Father_SchoolGrad, 
                                                           Father_Employm, Father_OffAdd, Father_NatBus)
 
-                                                  VALUES (@Section_ID, @Year_level, @First_Name, @Middle_Name, @UserType_ID
+                                                  VALUES (@Section_ID, @Year_level, @First_Name, @Middle_Name, 
                                                           @Last_Name, @Gender, @Status_ID,
                                                           @City, @Brngy, @Municipality, 
                                                           @Street, @Prov_Add, @Birth_Date, 
@@ -72,9 +71,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
             {
                 //Audit Session
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
-
-                WickedEye.Parameters.AddWithValue("@UserType_ID", 6);
-             
+                //
 
                 WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
                 WickedEye.Parameters.AddWithValue("@Section_ID", 21);
@@ -157,8 +154,8 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.ExecuteNonQuery();
                 Rikka.Close();
                 //Nathaniel Collins S. Ortiz Application Audit
-                audlog.AuditLogAdmin(DE.Encrypt("Admission Input"), int.Parse(Session["admin_id"].ToString()),DE.Encrypt ("Input assigned by "
-                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
+                audlog.AuditLogAdmin("Admission Input", int.Parse(Session["admin_id"].ToString()), "Input assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("Confirmation.aspx");
             }
         }
