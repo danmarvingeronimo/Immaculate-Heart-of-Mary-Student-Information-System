@@ -3234,6 +3234,10 @@ fieldset[disabled] .btn-success.focus {
 .btn-success .badge {
   color: #5cb85c;
   background-color: #fff;
+ 
+}
+.btn-blue {
+    color: #337ab7;
 }
 .btn-info {
   color: #fff;

@@ -15,7 +15,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         if (Request.QueryString["ID"] == null)
         {
-            Response.Redirect("RegViewSection.aspx");
+            Response.Redirect("StudentList.aspx");
         }
         else
         {
@@ -27,13 +27,13 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     GetID(secid);
-                    GetStudents(secid);
+                    GetGrade(secid);
 
                 }
             }
             else
             {
-                Response.Redirect("RegViewSection.aspx");
+                Response.Redirect("StudentList.aspx");
             }
         }
 
@@ -46,8 +46,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Year_Level + ' - ' + Section_Name AS 'Section' FROM SECTION 
-                           WHERE Section_ID=@SID ";
+            string SQL = @"SELECT SELECT Last_Name + ',' + First_Name + ' ' + Middle_Name AS 'Student' FROM STUDENT_MAIN 
+                           WHERE Student_ID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -59,25 +59,26 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltSID.Text = dr["Section"].ToString();
+                            ltSID.Text = dr["Student"].ToString();
                         }
                     }
                     else
                     {
-                        Response.Redirect("GradeViewSection.aspx");
+                        Response.Redirect("StudentList.aspx");
                     }
                 }
             }
         }
     }
 
-    void GetStudents(int ID)
+    void GetGrade(int ID)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Stud.Student_ID, Stud.Last_Name , Stud.First_Name , Stud.Middle_Name, Stud.User_ID ,Stat.Status_Desc FROM STUDENT_MAIN Stud 
-                                 INNER JOIN STUDENT_STATUS Stat ON Stud.Status_ID = Stat.Status_ID WHERE Section_ID=@SID";
+            string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
+                                SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 1";
+                
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
@@ -85,7 +86,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                 using (SqlDataAdapter Nibutani = new SqlDataAdapter(Chuu2Koi))
                 {
                     DataSet Kumin = new DataSet();
-                    Nibutani.Fill(Kumin, "STUDENT_MAIN");
+                    Nibutani.Fill(Kumin, "GRADE_INFO");
 
                     lvStudents.DataSource = Kumin;
                     lvStudents.DataBind();
@@ -96,4 +97,6 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         }
     }
 
+
+    
 }

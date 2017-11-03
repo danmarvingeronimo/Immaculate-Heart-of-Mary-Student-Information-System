@@ -26,8 +26,8 @@ public partial class Student_LogIn : System.Web.UI.Page
 
             using(SqlCommand com = new SqlCommand(SQL, con))
             {
-                com.Parameters.AddWithValue("@User_ID", txtUID.text);
-                com.Parameters.AddWithValue("@PWD", txtPWD.text);
+                com.Parameters.AddWithValue("@User_ID", txtUID.Text);
+                com.Parameters.AddWithValue("@PWD", txtPWD.Text);
                 using (SqlDataReader data = com.ExecuteReader())
                 {
                     if(data.HasRows)

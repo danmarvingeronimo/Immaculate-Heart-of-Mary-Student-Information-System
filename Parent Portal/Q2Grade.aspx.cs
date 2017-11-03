@@ -7,7 +7,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Parent_PaymentInfo : System.Web.UI.Page
+//DAN MARVIN GERONIMO
+
+public partial class Admin_Admission_StudentList : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -25,6 +27,8 @@ public partial class Parent_PaymentInfo : System.Web.UI.Page
                 if (!IsPostBack)
                 {
                     GetID(secid);
+                    GetGrade(secid);
+
                 }
             }
             else
@@ -32,12 +36,18 @@ public partial class Parent_PaymentInfo : System.Web.UI.Page
                 Response.Redirect("StudentList.aspx");
             }
         }
+
     }
+
+
+
+
     void GetID(int ID)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Last_Name + ', ' + First_Name + ' ' + Middle_Name AS FullName FROM STUDENT_MAIN WHERE Student_ID=@SID ";
+            string SQL = @"SELECT Student_ID FROM STUDENT_MAIN 
+                           WHERE Student_ID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
             {
@@ -49,7 +59,7 @@ public partial class Parent_PaymentInfo : System.Web.UI.Page
                     {
                         while (dr.Read())
                         {
-                            ltSID.Text = dr["FullName"].ToString();
+                            ltSID.Text = dr["Student_ID"].ToString();
                         }
                     }
                     else
@@ -61,19 +71,22 @@ public partial class Parent_PaymentInfo : System.Web.UI.Page
         }
     }
 
-    void GetPaymentInfo()
+    void GetGrade(int ID)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Paymentinfo_ID, Amount, Payment_Method, DateOfPayment FROM PAYMENTS_INFO";
+            string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
+                                SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 2";
+                
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {
+                Chuu2Koi.Parameters.AddWithValue("@SID", ID);
                 using (SqlDataAdapter Nibutani = new SqlDataAdapter(Chuu2Koi))
                 {
                     DataSet Kumin = new DataSet();
-                    Nibutani.Fill(Kumin, "PAYMENTS_INFO");
+                    Nibutani.Fill(Kumin, "GRADE_INFO");
 
                     lvStudents.DataSource = Kumin;
                     lvStudents.DataBind();
@@ -83,4 +96,7 @@ public partial class Parent_PaymentInfo : System.Web.UI.Page
             }
         }
     }
+
+
+    
 }

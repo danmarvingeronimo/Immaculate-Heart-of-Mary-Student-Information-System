@@ -25,9 +25,7 @@
                     <li><a href="Contact.aspx">Contact</a></li>
                 </ul>
                 <ul>
-                    <li><a href="LoginTeacher.aspx">Teachers</a></li>
-                    <li><a href="LoginStudent.aspx">Student</a></li>
-                    <li><a href="LoginParent.aspx">Parent</a></li>
+                    <li><a href="LogIn.aspx">Log In</a></li>
    				</ul>
 			</nav>
 			<!-- / navigation -->

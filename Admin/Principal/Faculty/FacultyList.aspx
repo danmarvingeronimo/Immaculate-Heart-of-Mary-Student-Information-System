@@ -23,10 +23,11 @@
 
                             <table id="table" class="table table-hover">
                                 <thead>
-                                    <th>User ID</th>
                                     <th>Last Name</th>
                                     <th>First Name</th>
                                     <th>Middle Name</th>
+                                    <th>Section Name</th>
+                                    <th>Adviser</th>
                                     <th></th>
                                 </thead>
                                 <tbody>
@@ -35,12 +36,14 @@
                                             <tr>
                                                 <asp:Literal ID="ltTeacherID" runat="server"
                                                     Text='<%# Eval("Teacher_ID") %>' Visible="false" />
-                                                <td><%# Eval("User_ID") %></td>
+
                                                 <td><%# Eval("Teacher_LastName") %></td>
                                                 <td><%# Eval("Teacher_FirstName") %></td>
                                                 <td><%# Eval("Teacher_MiddleName") %></td>
+                                                <td><%# Eval("Section") %></td>
+                                                <td><%# Eval("Description") %></td>
                                                 <td>
-                                                    <a href='FacultyDetails.aspx?ID=<%#Eval("Teacher_ID")%>'
+                                                    <a href='AssignFacSec.aspx?ID=<%#Eval("Teacher_ID")%>'
                                                         class="btn btn-xs btn-info" title="View Faculty Details">
                                                         <i class="fa fa-edit"></i>
                                                     </a>

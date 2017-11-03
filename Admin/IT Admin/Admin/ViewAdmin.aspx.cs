@@ -21,7 +21,7 @@ public partial class Admin_IT_Admin_ViewAdmin : System.Web.UI.Page
         {
             Rikka.Open();
             string Takanashi = @"SELECT A.Admin_ID, A.Last_Name, A.First_Name, A.Middle_Name, A.User_ID, U.UserType_Desc FROM ADMIN_MAIN A 
-                                INNER JOIN USER_TYPE U ON A.UserType_ID = U.UserType_ID";
+                                INNER JOIN USER_TYPE U ON A.UserType_ID = U.UserType_ID WHERE A.UserType_ID !=4";
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {

@@ -19,8 +19,8 @@ public partial class Section_AddSection : System.Web.UI.Page
         {
             Util audlog = new Util();
             Rikka.Open();
-            string Takanashi = @"INSERT INTO TEACHER_MAIN(Teacher_PW, Teacher_FirstName, Teacher_LastName, Teacher_MiddleName, User_ID)
-                            VALUES(@Teacher_PW, @Teacher_FirstName, @Teacher_LastName, @Teacher_MiddleName, @User_ID) ";
+            string Takanashi = @"INSERT INTO TEACHER_MAIN(Teacher_PW, Teacher_FirstName, Teacher_LastName, Teacher_MiddleName, User_ID, HomeroomStat_ID, Section_ID)
+                            VALUES(@Teacher_PW, @Teacher_FirstName, @Teacher_LastName, @Teacher_MiddleName, @User_ID, @HID, @SecID) ";
 
 
 
@@ -29,6 +29,9 @@ public partial class Section_AddSection : System.Web.UI.Page
                 //Audit Session
                 WickedEye.Parameters.AddWithValue("@AID", Session["Admin_ID"].ToString());
                 //
+                WickedEye.Eye.Parameters.AddWithValue("@HID", 2);
+                WickedEye.Eye.Parameters.AddWithValue("@SecID", 21);
+
                 WickedEye.Parameters.AddWithValue("@Teacher_FirstName", txtFN.Text);
                 WickedEye.Parameters.AddWithValue("@Teacher_LastName", txtLN.Text);
                 WickedEye.Parameters.AddWithValue("@Teacher_MiddleName", txtMN.Text);

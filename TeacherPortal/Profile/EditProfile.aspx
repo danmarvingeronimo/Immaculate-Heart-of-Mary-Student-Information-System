@@ -47,7 +47,12 @@
          <div class="tab-pane" id="settings">
                 <form runat="server" class="form-horizontal"><br />
 
-              
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Teacher ID</label>
+                    <div class="col-sm-6">
+                      <asp:TextBox ID="txtID" runat="server" class="form-control" type="Id" MaxLength="10" required />
+                    </div>
+                  </div>
 
 
                  <div class="form-group">

@@ -155,8 +155,7 @@
                 <strong><i class="fa fa-pencil margin-r-5"></i>Father's Nationality</strong>
                 <p><asp:Label runat="server" ID="Father_Natl"><%#Eval("su.Father_Natl") %></asp:Label></p>  
                 <hr />
-                 <strong><i class="fa fa-pencil margin-r-5"></i>Father's Religion</strong>
-                <hr />
+                <strong><i class="fa fa-pencil margin-r-5"></i>Father's Religion</strong>
                 <p><asp:Label runat="server" ID="Father_Religion"><%#Eval("su.Father_Religion") %></asp:Label></p>  
                 <hr />
                 <strong><i class="fa fa-pencil margin-r-5"></i>Father's Home Address</strong>

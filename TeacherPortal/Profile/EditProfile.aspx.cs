@@ -28,6 +28,7 @@ public partial class TeacherPortal_Profile_EditProfile : System.Web.UI.Page
                 {
                     while (dr.Read())
                     {
+                        txtID.Text = dr["User_ID"].ToString();
                         txtFN.Text = dr["Teacher_FirstName"].ToString();
                         txtMN.Text = dr["Teacher_MiddleName"].ToString();
                         txtLN.Text = dr["Teacher_LastName"].ToString();
@@ -50,7 +51,7 @@ public partial class TeacherPortal_Profile_EditProfile : System.Web.UI.Page
             //}
             //else
             //{
-            string wai = @"UPDATE TEACHER_MAIN SET Teacher_PW=@TPW, Teacher_FirstName=@TFN, Teacher_MiddleName=@TMN, Teacher_LastName=@TLN, Department=@Department WHERE User_ID = @User_ID";
+            string wai = @"UPDATE TEACHER_MAIN SET Teacher_PW=@TPW, Teacher_FirstName=@TFN, Teacher_MiddleName=@TMN, Teacher_LastName=@TLN, Department=@Department WHERE Teacher_ID = @Teacher_ID";
             //}
             using (SqlCommand best = new SqlCommand(wai, fu))
             {
@@ -61,7 +62,7 @@ public partial class TeacherPortal_Profile_EditProfile : System.Web.UI.Page
                 best.Parameters.AddWithValue("@TMN", txtMN.Text);
                 best.Parameters.AddWithValue("@TLN", txtLN.Text);
                 best.Parameters.AddWithValue("@Department", txtDept.Text);
-                com.Parameters.AddWithValue("@User_ID", Request.QueryString["User_ID"].ToString());
+                
                 best.ExecuteNonQuery();
                 Response.Redirect("Profile.aspx");
  
