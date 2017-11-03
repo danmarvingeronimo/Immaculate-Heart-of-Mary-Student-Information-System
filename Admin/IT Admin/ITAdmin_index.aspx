@@ -2,14 +2,10 @@
 
 <%-- JIONNE LIZARDO  --%>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">Welcome to SIS Admin - IT Admin 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
+            
 
-    <div class="form-group">
-        <div class="col-lg-12">
-            <h2>Welcome to SIS Admin - IT Admin </h2>
-        </div>
-    </div>
 
 </asp:Content>

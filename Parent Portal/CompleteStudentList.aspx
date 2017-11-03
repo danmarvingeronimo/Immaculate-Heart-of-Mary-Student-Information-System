@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Parent Portal/Parent.master" AutoEventWireup="true" CodeFile="CompleteStudentList.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    <i class="fa fa-user"></i>
     <asp:Literal ID="ltSID" runat="server" Visible="true" />
     Student List
 </asp:Content>
