@@ -29,8 +29,8 @@ public partial class Section_AddSection : System.Web.UI.Page
                 //Audit Session
                 WickedEye.Parameters.AddWithValue("@AID", Session["Admin_ID"].ToString());
                 //
-                WickedEye.Eye.Parameters.AddWithValue("@HID", 2);
-                WickedEye.Eye.Parameters.AddWithValue("@SecID", 21);
+                WickedEye.Parameters.AddWithValue("@HID", 2);
+                WickedEye.Parameters.AddWithValue("@SecID", 21);
 
                 WickedEye.Parameters.AddWithValue("@Teacher_FirstName", txtFN.Text);
                 WickedEye.Parameters.AddWithValue("@Teacher_LastName", txtLN.Text);

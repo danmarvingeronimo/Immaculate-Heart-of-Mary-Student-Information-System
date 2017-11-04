@@ -6,7 +6,12 @@
 <head runat="server">
     <title>Immaculate Heart of Mary College - Parañaque</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
-    <link href="Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/css/style.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+
+
+
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <!--[if lt IE 9]>
@@ -52,56 +57,74 @@
 	<!-- / header -->
 
     <footer id="footer">
-		<div class="container">
-			<section>
-				<article class="col-1">
-					<h3>Contact</h3>
-					<ul>
-						<li class="address"><a href="#">Saint Dominic Savio Street, Better Living Subdivision, 1700 <br/>Paranaque City, Metro Manila, Philippines</a></li>
-						<li class="mail"><a href="#">contact@ihmc-p.com</a></li>
-						<li class="phone last"><a href="#">(02) 823 4109</a></li>
-					</ul>
-				</article>
-				<article class="col-2">
-					<h3>Forum topics</h3>
-					<ul>
-						<li><a href="#">Scholarship</a></li>
-						<li><a href="#">Courses offered</a></li>
-						<li><a href="#">Getting ready for the entrance examination </a></li>
-						<li><a href="#">Getting ready for the first day of school </a></li>
-						<li class="last"><a href="#">Join different organizations </a></li>
-					</ul>
-				</article>
-				<article class="col-3">
-					<h3>Social media</h3>
-					<p>Visit us our social media accounts for updates.</p>
-					<ul>
-						<li class="facebook"><a href="https://www.facebook.com/Immaculate-Heart-of-Mary-College-Para%C3%B1aque-254395840950/">Facebook</a></li>
-						<li class="google-plus"><a href="#">Google+</a></li>
-						<li class="twitter"><a href="https://twitter.com/ihmcp?lang=en">Twitter</a></li>
-						<li class="pinterest"><a href="#">Pinterest</a></li>
-					</ul>
-				</article>
-				<article class="col-4">
-					<h3>Subscribe</h3>
-					<p>Be updated to the latest news and events.</p>
-					<form action="#">
-						<input placeholder="Email address" type="text"/>
-						<button type="submit">Subscribe</button>
-					</form>
-					<ul>
-						<li><a href="#"></a></li>
-					</ul>
-				</article>
-                </section>
-			<p class="copy"> Immaculate Heart of Mary College - <strong>Parañaque</strong> </p>
-		</div>
+		<section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4>CONTACT US</h4>
+                        <table class="table table-borderless table-condensed">
+                            <tr>
+                                <th class="col-sm-1">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                </th>
+                                <td class="col-sm-11">Saint Dominic Savio Street, Better Living Subdivision, 1700<br />
+                                    Paranaque City, Metro Manila, Philippines<br />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-1">
+                                    <i class="glyphicon glyphicon-phone-alt"></i>
+                                </th>
+                                <td class="col-sm-11">(02) 823 4109
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th class="col-sm-1">
+                                    <i class="glyphicon glyphicon-envelope"></i>
+                                </th>
+                                <td class="col-sm-11">contact@ihmc-p.com</td>
+                            </tr>
+
+                            <tr>
+                                <th></th>
+                                <td>
+                                <a class="text-white" href="https://www.facebook.com/Immaculate-Heart-of-Mary-College-Para%C3%B1aque-254395840950/" target="_blank">
+                                    <i class="fa fa-facebook fa-2x" aria-hidden="true" style="margin-top: 20px;"></i>
+                                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                   
+                                 <a class="text-white" href="https://twitter.com/ihmcp?lang=en" target="_blank">
+                                    <i class="fa fa-twitter fa-2x" aria-hidden="true"></i>
+                                </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    
+                                  </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <h4>ABOUT IMMACULATE HEART OF MARY COLLEGE - PARAÑAQUE</h4>
+                        <p class="text-justify">
+                           Immaculate Heart of Mary College-Parañaque (IHMC-P, formerly known as Immaculate Heart of Mary School-Parañaque; colloquially, "Imma") is a Private, Roman Catholic, 
+                           educational institution run by the Franciscan Sisters of the Sacred Hearts.
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 		<!-- / container -->
 	</footer>
 	<!-- / footer -->
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script>window.jQuery || document.write("<script src='Content/js/jquery-1.11.1.min.js'>\x3C/script>")</script>
+     <script src=' <%=ResolveUrl("~/js/bootstrap.min.js") %>'></script>
+    <script src=' <%= ResolveUrl("~/js/jquery.min.js") %>'></script>
+    <script src='<%= ResolveUrl("~/js/jquery-ui.min.js")%>'></script>
 	<script src="Content/js/plugins.js"></script>
 	<script src="Content/js/main.js"></script>
 </body>

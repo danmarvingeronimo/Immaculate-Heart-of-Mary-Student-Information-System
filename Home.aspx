@@ -11,7 +11,7 @@
 				<div class="container">
 					<div class="info">
 						<h2>It’s Time to <br/><span>Get back to school</span></h2>
-						<a href="#">Apply Online</a>
+						<a href="~/Admin/Registrar/Admission/Online Application/Application.aspx" runat="server">Apply Online</a>
 					</div>
 				</div>
 				<!-- / content -->
@@ -20,7 +20,7 @@
 				<div class="container">
 					<div class="info">
 						<h2>It’s Time to <br/><span>Get back to school</span></h2>
-						<a href="#">Apply Online</a>
+						<a href="~/Admin/Registrar/Admission/Online Application/Application.aspx" runat="server">Apply Online</a>
 					</div>
 				</div>
 				<!-- / content -->
@@ -29,7 +29,7 @@
 				<div class="container">
 					<div class="info">
 						<h2>It’s Time to <br/><span>Get back to school</span></h2>
-						<a href="#">Apply Online</a>
+						<a href="~/Admin/Registrar/Admission/Online Application/Application.aspx" runat="server">Apply Online</a>
 					</div>
 				</div>
 				<!-- / content -->

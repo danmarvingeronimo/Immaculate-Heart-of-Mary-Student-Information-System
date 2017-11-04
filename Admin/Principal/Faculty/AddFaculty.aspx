@@ -19,7 +19,7 @@
                 <label class="control-label col-lg-4">First Name</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtFN" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" MaxLength="40" required />
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 <label class="control-label col-lg-4">Middle Name</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtMN" runat="server"
-                            class="form-control" MaxLength="50" />
+                            class="form-control" MaxLength="40" />
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
                 <label class="control-label col-lg-4">Last Name</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtLN" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" MaxLength="40" required />
                 </div>
             </div>
 
@@ -43,7 +43,7 @@
                 <label class="control-label col-lg-4">User ID</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtUID" runat="server"
-                            class="form-control" MaxLength="50" required />
+                            class="form-control" MaxLength="10" required />
                 </div>
             </div>
            
@@ -51,7 +51,23 @@
                 <label class="control-label col-lg-4">Password</label>
                 <div class="col-lg-8">
                         <asp:TextBox ID="txtPass" runat="server"
-                            class="form-control" type="password" MaxLength="50" required />
+                            class="form-control" type="password" MaxLength="20" minlength="8" required />
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+                <label class="control-label col-lg-4">Repeat Password</label>
+                <div class="col-lg-8">
+                    <asp:textbox id="TxtRepPass" runat="server"
+                        class="form-control" type="password" minlength="8" maxlength="20" required />
+                    <asp:comparevalidator id="comparePasswords"
+                        runat="server"
+                        controltocompare="txtPass"
+                        controltovalidate="txtRepPass"
+                        errormessage="Incorrect Password!"
+                        forecolor="red" />
+
                 </div>
             </div>
             

@@ -13,6 +13,5 @@ public partial class Admin_Prinicipal_Principal : System.Web.UI.MasterPage
             lblogin.Text = "Welcome,  " + Session["first_name"].ToString() + " " + Session["last_name"].ToString();
         else
             Response.Redirect("~/Login.aspx");
-
     }
 }
