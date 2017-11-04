@@ -112,6 +112,15 @@
                                                     <li>
                                                         <a href="Admin/ViewAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>View Admin </a>
                                                     </li>
+                                                    <li>
+                                                        <a href="Admin/Audit Log/AuditAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Admin</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="Admin/Audit Log/AuditFaculty.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Faculty</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="Admin/Audit Log/AuditStudent.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Student</a>
+                                                    </li>
                                                 </ul>
 
                                                 <!-- FACULTY -->

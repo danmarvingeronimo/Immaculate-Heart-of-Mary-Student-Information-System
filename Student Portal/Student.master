@@ -29,6 +29,7 @@
           <ul class="nav navbar-nav">
             <li><a href="ViewHW(Student).aspx">View Homeworks</a></li>
                <li><a href="ViewLecture(Student).aspx">View Lectures</a></li>
+              <li><a href="ViewAnnouncement.aspx">View Announcement</a></li>
               
           </ul>
         </div>

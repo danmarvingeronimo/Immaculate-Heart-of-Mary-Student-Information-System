@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="ViewAnnouncement(Student).aspx.cs" Inherits="TeacherPortal_ViewAnnouncement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student Portal/Student.master" AutoEventWireup="true" CodeFile="ViewAnnouncement.aspx.cs" Inherits="TeacherPortal_ViewAnnouncement" %>
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
@@ -9,8 +9,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
 
     <form runat="server" class="form-horizontal">
-        <asp:Button ID="btnRedirect" runat="server"
-         PostBackUrl="AddAnnouncement.aspx" Text="Add" OnClick="btnRedirect_Click" />
+<%--        <asp:Button ID="btnRedirect" runat="server"
+         PostBackUrl="AddAnnouncement.aspx" Text="Add" OnClick="btnRedirect_Click" />--%>
 
     <table class="table table-hover">
                <thead>
@@ -32,7 +32,8 @@
                     
                     <td><%# Eval("Title") %></td>
                      <td>
-                        <%# string.Concat("~/img/announcements/", Eval("Image")) %> />
+                         <img id="Img1" runat="server" src='<%# string.Concat("../img/announcements/", Eval("Image")) %>' class="img-responsive" width="100" />
+                        
                     </td>
                     <td><%# Eval("Description") %></td>
                     
@@ -40,7 +41,7 @@
                     <td><%# Eval("Teacher") %></td>
                     <td>
                        
-                          <a href='AnnouncementDetails.aspx?ID=<%#Eval("Announcement_ID")%>'
+                          <a href='AnnouncementDetails(Student).aspx?ID=<%#Eval("Announcement_ID")%>'
                             class="btn btn-xs btn-info" title="View File Details">
                             <i class="fa fa-edit"></i>
                         </a>
