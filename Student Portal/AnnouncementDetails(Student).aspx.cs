@@ -63,32 +63,8 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
             }
         }
     }
-    protected void btnUpdate_Click(object sender, EventArgs e)
+    protected void btnRedirect_Click(object sender, EventArgs e)
     {
-        using (SqlConnection con = new SqlConnection(Util.GetConnection()))
-        {
-            string sql = @"UPDATE ANNOUNCEMENT SET Title=@Title, Description=@Description WHERE Announcement_ID=@Announcement_ID";
-            con.Open();
-
-            using (SqlCommand com = new SqlCommand(sql, con))
-            {
-                Cryptic DE = new Cryptic();
-                Util audlog = new Util();
-                //audit
-                com.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
-                //
-                com.Parameters.AddWithValue("@Title", txtTitle.Text);
-                com.Parameters.AddWithValue("@Description", txtDescription.Text);
-                com.Parameters.AddWithValue("@Announcement_ID", Request.QueryString["ID"].ToString());
-                com.ExecuteNonQuery();
-                audlog.AuditLogTeacher(DE.Encrypt("Announcements Details"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited by "
-                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
-                //audlog.AuditLogTeacher("Announcement Details", int.Parse(Session["teacher_id"].ToString()), "Edited by "
-                //          + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());
-
-                Response.Redirect("ViewAnnouncement.aspx");
-            }
-        }
-
+        Response.Redirect("ViewSubject.aspx");
     }
 }

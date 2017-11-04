@@ -153,9 +153,6 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
                 WickedEye.ExecuteNonQuery();
                 Rikka.Close();
-                //Nathaniel Collins S. Ortiz Application Audit
-                audlog.AuditLogAdmin("Admission Input", int.Parse(Session["admin_id"].ToString()), "Input assigned by "
-                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 Response.Redirect("Confirmation.aspx");
             }
         }

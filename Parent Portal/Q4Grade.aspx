@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="Q4Grade.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    <i class="fa fa-user"></i>
-
-    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> - 1st Quarter
-
     <asp:literal id="ltSID" runat="server" visible="true" />
     - 4th Quarter
 </asp:Content>

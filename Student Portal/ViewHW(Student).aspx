@@ -19,22 +19,21 @@
                  OnPagePropertiesChanging="lvHW_PagePropertiesChanging"
                  OnItemDataBound="lvHW_ItemDataBound">
                 <ItemTemplate>
-                    <asp:Literal ID="ltUploadHW_ID" runat="server"
+                    <tr>
+                         <asp:Literal ID="ltUploadHW_ID" runat="server"
                             Text='<%# Eval("UploadHW_ID") %>' Visible="false" />               
                     
                     <td><%# Eval("Title") %></td>
                      <td>
-                        <a href="<%# string.Concat("../img/files/", Eval("FileContent"))%>" download > 
+                        <img id="Img1" runat="server" src='<%#string.Concat("../img/files/", Eval("FileContent")) %>' class="img-responsive" width="100" />
+                        <a href="<%# string.Concat("../img/files/", Eval("FileContent"))%>" download >HW </a>
                     </td>
                     <td><%# Eval("Description") %></td>
                     
                     <td><%# Eval("DateAdded", "{0: MMMM dd, yyyy}") %></td>
                     <td><%# Eval("Teacher") %></td>
-
-                    <td>
-                    
-
-                    </td>
+                    </tr>
+                   
                 </ItemTemplate>
                   <EmptyDataTemplate>
                 <tr>
