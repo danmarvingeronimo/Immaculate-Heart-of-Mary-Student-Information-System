@@ -53,6 +53,7 @@ public partial class TeacherPortal_AnnouncementDetails : System.Web.UI.Page
                             ltAnnouncement_ID.Text = dr["Announcement_ID"].ToString();
                             txtTitle.Text = dr["Title"].ToString();
                             txtDescription.Text = dr["Description"].ToString();
+                            
                         }
                     }
                     else

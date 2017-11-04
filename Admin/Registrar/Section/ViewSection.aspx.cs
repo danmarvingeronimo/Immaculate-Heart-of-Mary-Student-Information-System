@@ -46,6 +46,8 @@ public partial class Section_ViewSection : System.Web.UI.Page
     
     protected void lvSection_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         Literal ltSectionID = (Literal)e.Item.FindControl("ltSectionID");
 
         if(e.CommandName=="delsec")
@@ -58,6 +60,8 @@ public partial class Section_ViewSection : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@SecID", ltSectionID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogAdmin(DE.Encrypt("Delete Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by "
+                      + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 }
             }
         }

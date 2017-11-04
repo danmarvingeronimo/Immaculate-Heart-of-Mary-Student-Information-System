@@ -107,7 +107,8 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
     protected void lvSched_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         Literal ltSchedID = (Literal)e.Item.FindControl("ltSchedID");
-
+        Util audlog = new Util();
+        Cryptic DE = new Cryptic();
         if (e.CommandName == "delsched")
         {
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
@@ -118,6 +119,8 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@SchedID", ltSchedID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogAdmin("Delete Schedule", int.Parse(Session["admin_id"].ToString()), "Schedule has been Deleted by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 }
             }
         }

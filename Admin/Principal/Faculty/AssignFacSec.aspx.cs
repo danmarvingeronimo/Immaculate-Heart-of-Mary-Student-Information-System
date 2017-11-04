@@ -24,6 +24,7 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
+            Cryptic DE = new Cryptic();
             string Takanashi = @"SELECT Section_ID, Section_Name + ' - ' + Year_Level AS 'Section Name' FROM SECTION";
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {

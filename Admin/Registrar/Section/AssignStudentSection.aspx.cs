@@ -125,6 +125,8 @@ public partial class Faculty : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
+            Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             Rikka.Open();
             string Takanashi = @"UPDATE STUDENT_MAIN SET Section_ID=@Section_ID WHERE
                                 Student_ID=@Student_ID";
@@ -136,7 +138,8 @@ public partial class Faculty : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Section_ID", ddlSection.Text);
                 WickedEye.Parameters.AddWithValue("@Student_ID", Request.QueryString["ID"].ToString());
 
-
+                audlog.AuditLogAdmin(DE.Encrypt("Assigned Student Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Input assigned by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 WickedEye.ExecuteNonQuery();
                 Response.Redirect("StudentList.aspx");
 

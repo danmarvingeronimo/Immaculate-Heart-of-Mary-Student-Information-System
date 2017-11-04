@@ -67,6 +67,7 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
         using(SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             string sql = @"UPDATE SECTION SET Section_Name=@SN,Year_Level=@YL WHERE Section_ID = @SID";
             con.Open();
 
@@ -79,8 +80,8 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
                 com.Parameters.AddWithValue("@YL", txtYL.Text);
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogAdmin("Editing Details for Section", int.Parse(Session["admin_id"].ToString()), "Edited Section by "
-                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                audlog.AuditLogAdmin(DE.Encrypt("Editing Details for Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Edited Section by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("ViewSection.aspx");
             }
         }

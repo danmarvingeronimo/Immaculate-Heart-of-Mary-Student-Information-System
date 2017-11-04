@@ -67,6 +67,7 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
     {
         using(SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
+            Cryptic DE = new Cryptic();
             Util audlog = new Util();
             string sql = @"UPDATE TEACHER_MAIN SET User_ID=@UID, Teacher_PW=@PW WHERE Teacher_ID = @SID";
             con.Open();
@@ -81,8 +82,8 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
                 com.ExecuteNonQuery();
 
                 //Nathaniel Collins S. Ortiz
-                audlog.AuditLogAdmin("Edit Faculty Password", int.Parse(Session["admin_id"].ToString()), "Edited by "
-                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                audlog.AuditLogAdmin(DE.Encrypt("Editing a Faculty's Password"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Added by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("FacultyList.aspx");
             }
         }
