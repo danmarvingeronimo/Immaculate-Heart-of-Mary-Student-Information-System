@@ -47,7 +47,7 @@ public class Util
     public void AuditLogTeacher(string Title, int TeacherID, string Description)
     {
         SqlConnection con = new SqlConnection(GetConnection());
-        string SQL = @"INSERT INTO AUDIT_LOG_TEACHER VALUES(@TeacherID,@TimeStamp,@Title,@Description)";
+        string SQL = @"INSERT INTO AUDIT_LOG_TEACHER VALUES(@TeacherID, @TimeStamp, @Title,@Description)";
         con.Open();
 
         using (SqlCommand com = new SqlCommand(SQL, con))

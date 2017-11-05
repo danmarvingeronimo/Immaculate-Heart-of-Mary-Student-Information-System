@@ -9,8 +9,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
 
     <form runat="server" class="form-horizontal">
-        <asp:Button ID="btnRedirect" runat="server" class="btn btn-block btn-primary"
-         PostBackUrl="AddAnnouncement.aspx" Text="Add" OnClick="btnRedirect_Click" />
+        
 
     <table class="table table-hover">
                <thead>

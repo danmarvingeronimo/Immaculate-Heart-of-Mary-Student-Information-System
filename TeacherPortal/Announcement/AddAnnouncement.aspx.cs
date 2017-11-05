@@ -14,15 +14,50 @@ public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+      
 
+        
+            {
+                if (!IsPostBack)
+                {
+                    GetSubj();
+                }
+            
+        }
     }
+
+    void GetSubj()
+    {
+
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            Rikka.Open();
+            string Takanashi = @"SELECT Subject_ID, Subject_Name FROM SUBJECT_MAIN WHERE Teacher_ID=@TID";
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+                WickedEye.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+
+                using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
+                {
+                    ddlSubject.DataSource = Chuu2;
+                    ddlSubject.DataTextField = "Subject_Name";
+                    ddlSubject.DataValueField = "Subject_ID";
+                    ddlSubject.DataBind();
+
+                    ddlSubject.Items.Insert(0, new ListItem("Select a subject.", ""));
+
+                }
+            }
+        }
+    }
+
     protected void btnUpload_Click(object sender, EventArgs e)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            string SQL = @"INSERT INTO ANNOUNCEMENT(Title, Image, Description, DateAdded, Teacher_ID) 
-                            VALUES (@Title, @Image, @Description, @DateAdded, @TeacherID)";
+            string SQL = @"INSERT INTO ANNOUNCEMENT(Title, Image, Description, DateAdded, Teacher_ID, Subject_ID) 
+                            VALUES (@Title, @Image, @Description, @DateAdded, @TeacherID, @Subject)";
 
             using (SqlCommand cmd = new SqlCommand(SQL, con))
             {
@@ -33,6 +68,7 @@ public partial class TeacherPortal_AddAnnouncement : System.Web.UI.Page
                 //
                 cmd.Parameters.AddWithValue("@Title", txtTitle.Text);
                 cmd.Parameters.AddWithValue("@Description", txtDescription.Text);
+                cmd.Parameters.AddWithValue("@Subject", ddlSubject.Text);
 
                 string fileExt = Path.GetExtension(fuImage.FileName);
                 string id = Guid.NewGuid().ToString();

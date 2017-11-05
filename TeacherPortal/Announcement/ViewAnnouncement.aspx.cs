@@ -76,7 +76,7 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
                             T.Teacher_LastName + ', ' + T.Teacher_FirstName + ' ' + T.Teacher_MiddleName AS 'Teacher'
                             FROM ANNOUNCEMENT A INNER JOIN
                             TEACHER_MAIN T ON A.Teacher_ID = T.Teacher_ID
-                            WHERE T.Teacher_ID = @SID AND A.Subject_ID = @SID"; 
+                            WHERE A.Teacher_ID = @TID AND A.Subject_ID = @SID"; 
 
             using (SqlCommand help = new SqlCommand(Send, con))
             {
