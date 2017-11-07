@@ -42,7 +42,8 @@ public partial class Faculty : System.Web.UI.Page
      protected void lvFaculty_ItemCommand(object sender, ListViewCommandEventArgs e)
      {
         Literal ltTeacherID = (Literal)e.Item.FindControl("ltTeacherID");
-
+        Cryptic DE = new Cryptic();
+        Util audlog = new Util();
         if (e.CommandName == "delTeach")
         {
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
@@ -53,6 +54,8 @@ public partial class Faculty : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@TID", ltTeacherID.Text);
                     Nero.ExecuteNonQuery();
+                    audlog.AuditLogAdmin(DE.Encrypt("Deleting a Faculty"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by "
+                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 }
             }
         }
