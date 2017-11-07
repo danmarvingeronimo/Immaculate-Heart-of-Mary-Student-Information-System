@@ -125,7 +125,7 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
     }
     protected void btnRedirect_Click(object sender, EventArgs e)
     {
-        Response.Redirect("AddAnnouncement.aspx");
+        
     }
     protected void btnSearch_Click(object sender, EventArgs e)
     {

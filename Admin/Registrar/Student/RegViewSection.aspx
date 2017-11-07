@@ -1,8 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="RegViewSection.aspx.cs" Inherits="Section_ViewSection" %>
 
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>--%>
-
 <%-- JIONNE LIZARDO --%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">

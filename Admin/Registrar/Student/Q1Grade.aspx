@@ -30,10 +30,7 @@
                                 <td><%#Eval("Subject_Name") %></td>
                                 <td><%#Eval("Grade_Value") %></td>
                                 <td>
-                                    
-                                    
-                               
-
+  
                                 </td>
                                 
                                 

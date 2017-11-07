@@ -57,10 +57,7 @@
                                                         Payment Info
                                                     </a>
                                                 </td>
-                                                <%--<td>
-                                    <img src='../../content/img/products/<%#Eval("Image") %>'
-                                        width="150" />
-                                </td>--%>
+                                               
                                             </tr>
                                         </ItemTemplate>
                                         <EmptyDataTemplate>
