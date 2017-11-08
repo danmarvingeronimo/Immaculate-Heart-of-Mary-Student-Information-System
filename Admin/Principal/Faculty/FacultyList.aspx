@@ -23,6 +23,7 @@
 
                             <table id="table" class="table table-hover">
                                 <thead>
+                                    <th>Image</th>
                                     <th>Last Name</th>
                                     <th>First Name</th>
                                     <th>Middle Name</th>
@@ -36,6 +37,8 @@
                                             <tr>
                                                 <asp:Literal ID="ltTeacherID" runat="server"
                                                     Text='<%# Eval("Teacher_ID") %>' Visible="false" />
+
+                                                <td><img id="Img1" runat="server" src='<%# string.Concat("~/img/faculty/", Eval("Image")) %>' class="img-responsive" width="100" /></td>
 
                                                 <td><%# Eval("Teacher_LastName") %></td>
                                                 <td><%# Eval("Teacher_FirstName") %></td>
