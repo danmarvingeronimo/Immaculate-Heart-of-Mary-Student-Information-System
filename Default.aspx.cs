@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             con.Open();
-            String Send = @"Select Student_ID, First_Name, Middle_Name, Last_Name, Section from STUDENT";
+            String Send = @"Select Student_ID, First_Name, Middle_Name, Last_Name from STUDENT_MAIN";
 
             using (SqlCommand help = new SqlCommand(Send, con))
             {

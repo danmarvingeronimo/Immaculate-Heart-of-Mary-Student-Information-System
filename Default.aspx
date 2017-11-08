@@ -32,7 +32,7 @@
                     <td><%# Eval("First_Name") %></td>
                     <td><%# Eval("Middle_Name") %></td>
                     <td><%# Eval("Last_Name") %></td>
-                    <td><%# Eval("Section") %></td>
+                    <%--<td><%# Eval("Section") %></td>--%>
                     <td>
                        
                          <%-- <a href='AnnouncementDetails.aspx?ID=<%#Eval("Announcement_ID")%>'
