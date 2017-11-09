@@ -1,7 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="Q3Grade.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Parent Portal/Parent.master" AutoEventWireup="true" CodeFile="Q3Grade.aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
-    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> - 1st Quarter
+    <i class="fa fa-user"></i>
+    <asp:literal id="ltSID" runat="server" visible="true" />
+    - 1st Quarter
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     
@@ -55,7 +57,7 @@
                 </tbody>
             </table>
             
-
-    <asp:literal id="ltSID" runat="server" visible="true" />
-    - 3rd Quarter
+        </div>
+    </form>
 </asp:Content>
+
