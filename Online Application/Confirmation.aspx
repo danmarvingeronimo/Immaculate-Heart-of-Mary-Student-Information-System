@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Admission/Online Application/Online.master" AutoEventWireup="true" CodeFile="Confirmation.aspx.cs" Inherits="Admin_Registrar_Admission_Online_Application_Confirmation" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Online Application/Online.master" AutoEventWireup="true" CodeFile="Confirmation.aspx.cs" Inherits="Admin_Registrar_Admission_Online_Application_Confirmation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
     Application Sent!
