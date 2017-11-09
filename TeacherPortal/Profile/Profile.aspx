@@ -13,6 +13,7 @@
                 <div class="box box-primary">
                     <div class="box-body box-profile">
                         <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" height="400" width="400" runat="server" alt="User profile picture" />
+
                         <h3>
                             <asp:Literal ID="ltUID" runat="server" Visible="true" /></h3>
                         <p class="text-muted text-center">Software Engineer</p>

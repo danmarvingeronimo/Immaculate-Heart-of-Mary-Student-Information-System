@@ -15,6 +15,13 @@
                         class="form-control" MaxLength="8" required />
                 </div>
                </div>--%> 
+             <div class="form-group">
+                <label class="control-label col-lg-4">Image</label>
+                <div class="col-lg-8">
+                    <asp:FileUpload ID="fuImage" runat="server" class="form-control" required />
+                  </div>
+             </div>
+
             <div class="form-group">
                 <label class="control-label col-lg-4">First Name</label>
                 <div class="col-lg-8">

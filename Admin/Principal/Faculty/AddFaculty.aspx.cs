@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.IO;
 
 public partial class Section_AddSection : System.Web.UI.Page
 {
@@ -20,8 +21,8 @@ public partial class Section_AddSection : System.Web.UI.Page
             Util audlog = new Util();
             Cryptic DE = new Cryptic();
             Rikka.Open();
-            string Takanashi = @"INSERT INTO TEACHER_MAIN(Teacher_PW, Teacher_FirstName, Teacher_LastName, Teacher_MiddleName, User_ID, HomeroomStat_ID, Section_ID)
-                            VALUES(@Teacher_PW, @Teacher_FirstName, @Teacher_LastName, @Teacher_MiddleName, @User_ID, @HID, @SecID) ";
+            string Takanashi = @"INSERT INTO TEACHER_MAIN(Teacher_PW, Teacher_FirstName, Teacher_LastName, Teacher_MiddleName, User_ID, HomeroomStat_ID, Section_ID, Image)
+                            VALUES(@Teacher_PW, @Teacher_FirstName, @Teacher_LastName, @Teacher_MiddleName, @User_ID, @HID, @SecID, @Image) ";
 
 
 
@@ -32,6 +33,11 @@ public partial class Section_AddSection : System.Web.UI.Page
                 //
                 WickedEye.Parameters.AddWithValue("@HID", 2);
                 WickedEye.Parameters.AddWithValue("@SecID", 21);
+        
+                string fileExt = Path.GetExtension(fuImage.FileName);
+                string id = Guid.NewGuid().ToString();
+                WickedEye.Parameters.AddWithValue("@Image", id + fileExt);
+                fuImage.SaveAs(Server.MapPath("~/img/faculty/" + id + fileExt));
 
                 WickedEye.Parameters.AddWithValue("@Teacher_FirstName", txtFN.Text);
                 WickedEye.Parameters.AddWithValue("@Teacher_LastName", txtLN.Text);
