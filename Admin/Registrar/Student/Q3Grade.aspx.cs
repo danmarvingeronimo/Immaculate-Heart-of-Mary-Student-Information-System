@@ -11,6 +11,15 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_Admission_StudentList : System.Web.UI.Page
 {
+    //Paki note kung tama tong nasa baba kasi sa php ganian mag
+    //instanciate ng double kasi minsan may 0.0d pa akong nakikita
+    //so pa double check nalang
+    double gradeAve = 0.0;
+    double grade = 0.0;
+    double ave = 0.0;
+    int count = 0;
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["ID"] == null)
@@ -28,6 +37,11 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                 {
                     GetID(secid);
                     GetGrade(secid);
+
+                    ave = gradeAve / count;
+                    //This Should Work <3
+                    lblave.Text = ave.ToString();
+
 
                 }
             }
@@ -71,13 +85,15 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         }
     }
 
+    
+
     void GetGrade(int ID)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
-                                SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 3";
+                string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
+                                    SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 1";
                 
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
@@ -97,6 +113,26 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         }
     }
 
+    protected void lvStudents_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
 
-    
+
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            // Display the e-mail address in italics.
+
+            Label GradeVal = (Label)e.Item.FindControl("GradeVal");
+            count++;
+            grade = double.Parse(GradeVal.Text);
+            gradeAve = gradeAve + grade;
+
+        }
+
+
+
+    }
+
+
+
+
 }

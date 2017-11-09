@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Registrar/Registrar.master" AutoEventWireup="true" CodeFile="Q2Grade.aspx.cs" Inherits="Admin_Admission_StudentList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Parent Portal/Parent.master" AutoEventWireup="true" CodeFile="Q1Grade - Copy (2).aspx.cs" Inherits="Admin_Admission_StudentList" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
     <i class="fa fa-user"></i>
-    <asp:Literal ID="ltSID" runat="server"  Visible="true"/> - 2nd Quarter
+    <asp:literal id="ltSID" runat="server" visible="true" />
+    - 1st Quarter
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     
@@ -21,7 +22,7 @@
                 </thead>
 
                 <tbody>
-                    <asp:ListView ID="lvStudents" runat="server" >
+                    <asp:ListView ID="lvStudents" runat="server" OnItemDataBound="lvStudents_ItemDataBound">
                         <ItemTemplate>
                             <tr>
                                 <asp:Literal ID="ltGradeID" runat="server"
@@ -30,9 +31,7 @@
                                 <td><%#Eval("Subject_Name") %></td>
                                 <td><%#Eval("Grade_Value") %></td>
                                 <td>
-                                    
-                                    
-                               
+                              									<asp:Label id="GradeVal" runat="server" Text='<%#Eval("Grade_Value") %>' Visible="false"/>
 
                                 </td>
                                 
@@ -49,11 +48,16 @@
                             </tr>
                         </EmptyDataTemplate>
                     </asp:ListView>
+                    <tr>
+                        <td><b>Average:</b></td>
+                        <td>
+                            <asp:Label ID="lblave" runat="server" />
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             
         </div>
     </form>
-
 </asp:Content>
 
