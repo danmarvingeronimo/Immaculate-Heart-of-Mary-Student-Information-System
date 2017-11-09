@@ -23,7 +23,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            Util audlog = new Util();
+         
             Rikka.Open();
 
             string Takanashi = @"INSERT INTO STUDENT_MAIN (Section_ID, Year_level, First_Name, Middle_Name, 
@@ -69,9 +69,6 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
-                //Audit Session
-                WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
-                //
 
                 WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
                 WickedEye.Parameters.AddWithValue("@Section_ID", 21);
@@ -150,10 +147,11 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Father_NatBus", txtFatheNatBus.Text);
 
 
-
+          
                 WickedEye.ExecuteNonQuery();
                 Rikka.Close();
                 Response.Redirect("Confirmation.aspx");
+                
             }
         }
     }

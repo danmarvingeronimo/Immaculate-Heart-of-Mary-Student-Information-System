@@ -1,117 +1,63 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student Portal/Student.master" AutoEventWireup="true" CodeFile="Homepage.aspx.cs" Inherits="Student_Portal_Homepage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">Welcome to Student Portal
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-      <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Announcements
-      </h1><br />
-    </section>
+   <div class="container">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
+    </ol>
 
-    <!-- Main content -->
-  
-        <div class="col-md-14">
-          <div class="nav-tabs-custom">
-            <div class="tab-content">
-              <div class="active tab-pane" id="activity">
-     
-
-                <!-- Post -->
-                <div class="post clearfix">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    <span class="description">Sent you a message - 3 days ago</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <p style="margin-left:40px;" class="col-md-10"> 
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans. <a class="more" href="#">Read more</a>
-                  </p>
-
-                <br /><br /><br />
-                <!-- /.post -->
-
-
-                       <!-- Post -->
-                <div class="post clearfix">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    <span class="description">Sent you a message - 3 days ago</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <p style="margin-left:40px;" class="col-md-10"> 
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans. <a class="more" href="#">Read more</a>
-                  </p>
-
-                <br /><br /><br />
-                <!-- /.post -->
-
-                       <!-- Post -->
-                <div class="post clearfix">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    <span class="description">Sent you a message - 3 days ago</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <p style="margin-left:40px;" class="col-md-10"> 
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans. <a class="more" href="#">Read more</a>
-                  </p>
-
-                <br /><br /><br />
-                <!-- /.post -->
-               
-
-
-             
-              <!-- /.tab-pane -->
-            </div>
-            <!-- /.tab-content -->
-          </div>
-          <!-- /.nav-tabs-custom -->
- </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-     
-      <!-- /.row -->
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper --><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />    <br />
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="../Content/images/portal/slider20161.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+      <div class="item">
+        <img src="../Content/images/portal/slider20162jpg.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+      <div class="item">
+        <img src="../Content/images/portal/slider20163.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+        <div class="item">
+        <img src="../Content/images/portal/slider20164.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+        <div class="item">
+        <img src="../Content/images/portal/slider20165.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+        <div class="item">
+        <img src="../Content/images/portal/slider20166.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+        <div class="item">
+        <img src="../Content/images/portal/slider20167.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
+        <div class="item">
+        <img src="../Content/images/portal/slider20168.jpg" alt="IHMC-P" style="width:100%;"/>
+      </div>
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-  </footer>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+    <br /><br />
+
 </asp:Content>
 
  

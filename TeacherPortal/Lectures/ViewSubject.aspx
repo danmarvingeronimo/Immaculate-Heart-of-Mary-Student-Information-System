@@ -5,6 +5,12 @@
     Subject List
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
+
+
+       <ol class="breadcrumb">
+        <li><a href="../Homepage.aspx"><i class="fa fa-dashboard"></i> Homepage</a></li>
+        <li class="active">Subject List</li>
+      </ol>
     
 
 <%--    DAN MARVIN GERONIMO--%>
@@ -54,6 +60,6 @@
            </div>
         </div>
     </form>
-
+    <br />
 </asp:Content>
 

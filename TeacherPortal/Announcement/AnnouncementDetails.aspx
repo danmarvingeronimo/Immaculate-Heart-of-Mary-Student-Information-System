@@ -5,8 +5,18 @@
        Edit Upload<asp:Literal ID="ltAnnouncement_ID" runat="server" visible="false"/>
   </asp:Content>
   <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-      <form runat="server" class=" form-horizontal">
 
+
+      <ol class="breadcrumb">
+        <li><a href="../Homepage.aspx"><i class="fa fa-dashboard"></i> Homepage</a></li>
+        <li><a href="ViewSUbject.aspx"><i class="fa fa-dashboard"></i> Subject List</a></li>
+        <li><a href="ViewAnnouncement.aspx"><i class="fa fa-dashboard"></i> Announcement List</a></li>
+        <li class="active">Announcement Details</li>
+      </ol>
+
+
+      <form runat="server" class=" form-horizontal">
+                   <div class="col-lg-6">
             <div class="form-group">
                 <label class="control-label col-lg-4">Title</label>
                 <div class="col-lg-8">
@@ -33,8 +43,9 @@
                      </a>
                  </div>
              </div>
-         
+         </div>
       </form>
+      <br />
   </asp:Content>
 
 

@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href=""></a></li>
                     <li><a href="LogIn.aspx">Log In</a></li>
-                    <li><a href="LogIn.aspx">Parent</a></li>
+                    <li><a href="Parent%20Portal/PLogIn.aspx">Parent</a></li>
    				</ul>
 			</nav>
 			<!-- / navigation -->
