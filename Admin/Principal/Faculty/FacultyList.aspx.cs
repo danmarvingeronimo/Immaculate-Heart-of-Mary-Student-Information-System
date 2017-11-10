@@ -26,7 +26,7 @@ public partial class Faculty : System.Web.UI.Page
                 con.Open();
             String SQL = @"SELECT teach.Teacher_ID, teach.Teacher_FirstName , teach.Teacher_LastName , teach.Teacher_MiddleName, SEC.Year_level + ' - ' + Section_Name AS 'Section', H.Description, teach.Image FROM TEACHER_MAIN teach
                           INNER JOIN SECTION SEC ON teach.Section_ID = SEC.Section_ID
-						  INNER JOIN HOMEROOM_STAT H ON H.HomeroomStat_ID = teach.HomeroomStat_ID ";
+						  INNER JOIN HOMEROOM_STAT H ON H.HomeroomStat_ID = teach.HomeroomStat_ID WHERE Teacher_ID !=7 ";
                           
 
                 using (SqlCommand cmd = new SqlCommand(SQL,con))

@@ -7,12 +7,16 @@
    <%--    JIONNE LIZARDO  --%>
 
     <div class="container-fluid" style="padding-bottom: 20px;">
+          <ol class="breadcrumb">
+            <li><a href="~/Admin/IT Admin/ITAdmin_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+            <li class="active">View Admin</li>
+        </ol>
         <div class="row">
             <div class="col-lg-12">
                 <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
-                            <h1><i class="fa fa-users" style="margin-bottom: 5px;"></i>Admin List</h1>
+                            <h1><i class="fa fa-users" style="margin-bottom: 5px;"></i> Admin List</h1>
                             <div>
                                 <br />
                                 <a href='AddAdmin.aspx'

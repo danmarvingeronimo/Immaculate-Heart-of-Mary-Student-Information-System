@@ -12,7 +12,7 @@
                 <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
-                            <h1><i class="fa fa-child" style="margin-bottom: 20px;"></i> Sections</h1>
+                            <h1><i class="fa fa-child" style="margin-bottom: 20px;"></i> Grade View Sections</h1>
 
 
                             <table id="table" class="table table-hover">

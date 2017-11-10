@@ -5,24 +5,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
-      <div class="row">
-        <div class="col-lg-10 col-lg-offset-1">
-            <div class="box">
-                <div class="box-body">
-                    <h1><i class="fa fa-book"></i>Sections</h1>
-                    <form runat="server">
+    <div class="container-fluid" style="padding-bottom: 20px;">
+
+         <ol class="breadcrumb">
+            <li><a href="~/Admin/Principal/Principal_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Section Scheduling</li>
+        </ol>
 
 
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                <th>Section Name</th>
-                                <th>Grade</th>
-                                 <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <asp:ListView ID="lvSection" runat="server">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="box">
+                    <div class="box-body">
+                        <h1><i class="fa fa-book"></i> Section Scheduling</h1>
+                        <form runat="server">
+
+
+                            <table id="table" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Section Name</th>
+                                        <th>Grade</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <asp:listview id="lvSection" runat="server">
                                     <ItemTemplate>
                                         <tr>
 
@@ -51,11 +59,12 @@
                                             </td>
                                         </tr>
                                     </EmptyDataTemplate>
-                                </asp:ListView>
-                            </tbody>
-                        </table>
+                                </asp:listview>
+                                </tbody>
+                            </table>
 
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

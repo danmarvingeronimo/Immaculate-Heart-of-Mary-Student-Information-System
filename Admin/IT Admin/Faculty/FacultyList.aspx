@@ -2,19 +2,25 @@
 
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>--%>
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-   
- <%-- JIONNE LIZARDO  --%>
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
+
+    <%-- JIONNE LIZARDO  --%>
 
     <div class="container-fluid" style="padding-bottom: 20px;">
+
+        <ol class="breadcrumb">
+            <li><a href="~/Admin/IT Admin/ITAdmin_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+            <li class="active">View Faculty</li>
+        </ol>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
-                            <h1><i class="fa fa-users" style="margin-bottom: 20px;"></i>Faculty </h1>
+                            <h1><i class="fa fa-users" style="margin-bottom: 20px;"></i> Faculty </h1>
                             <table id="table" class="table table-hover">
                                 <thead>
                                     <th>Last Name</th>

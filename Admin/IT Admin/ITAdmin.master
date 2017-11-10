@@ -12,10 +12,11 @@
     <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
     <link href="~/Content/_all-skins.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
     <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue fixed sidebar-mini">
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -26,20 +27,13 @@
                 <span class="logo-lg"><b>SIS Admin</b></span> </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span> </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class="hidden-xs">Welcome! Insert Admin here</span> </a>
-                            <ul class="dropdown-menu">
 
-              
-                           <li class="dropdown">
+
+
+                        <li class="dropdown">
 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
                                 <asp:Label ID="lblogin" runat="server" Text="User"></asp:Label><span class="hidden-xs"></span></a>
@@ -49,14 +43,8 @@
                             </ul>
 
                         </li>
-                                </ul>
- 
-                        <!-- Control Sidebar Toggle Button -->
-                   
-                            </li>   
-                         </ul>
-                         
-                      
+                    </ul>
+
                 </div>
             </nav>
         </header>
@@ -68,14 +56,12 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-edit"></i><span>Forms</span> <span class="pull-right-container">
+                        <a href="#"><i class="fa fa-edit"></i><span>IT ADMIN</span> <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span></a>
 
-                        <!-- ACCOUNTING ADMIN FORM START -->
+
                         <ul class="treeview-menu">
-                          
-                            <!-- ACCOUNTING ADMIN FORM END -->
 
                             <!-- ADMIN FORM START -->
                             <li class="treeview">
@@ -83,65 +69,65 @@
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span></a>
                                 <ul class="treeview-menu">
-                                    <li class="treeview">
-                                        <a href="#"><i class="fa fa-circle-o"></i>IT Admin <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span></a>
-                                        <ul class="treeview-menu">
-                                            <li class="treeview">
-                                                <a href="#"><i class="fa fa-circle-o"></i>Admin <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="Admin/AddAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>Add Admin</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Admin/ViewAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>View Admin </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Admin/Audit Log/AuditAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Admin</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Admin/Audit Log/AuditFaculty.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Faculty</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Admin/Audit Log/AuditStudent.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Student</a>
-                                                    </li>
-                                                </ul>
-
-                                                <!-- FACULTY -->
-                                                <a href="#"><i class="fa fa-circle-o"></i>Faculty <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="Faculty/FacultyList.aspx" runat="server"><i class="fa fa-circle-o"></i>Faculty List </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li class="treeview">
-                                                <a href="#"><i class="fa fa-circle-o"></i>Student <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="Student/IDStudentList.aspx" runat="server"><i class="fa fa-circle-o"></i>Student List</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="Student/ITAdminViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                                    <li>
+                                        <a href="Admin/AddAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>Add Admin</a>
+                                    </li>
+                                    <li>
+                                        <a href="Admin/ViewAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>View Admin </a>
                                     </li>
                                 </ul>
                             </li>
-                            <!-- ADMIN FORM END -->
 
+                            <!-- FACULTY -->
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-circle-o"></i>Faculty <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="Faculty/FacultyList.aspx" runat="server"><i class="fa fa-circle-o"></i>Faculty List </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- STUDENT -->
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-circle-o"></i>Student <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="Student/IDStudentList.aspx" runat="server"><i class="fa fa-circle-o"></i>Student List</a>
+                                    </li>
+                                    <li>
+                                        <a href="Student/ITAdminViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section</a>
+                                    </li>
+                                </ul>
+                            </li>
+                      
 
-                        </ul>
-                    </li>
+                        <!-- Audit  -->
+                        <li class="treeview">
+                            <a href="#"><i class="fa fa-circle-o"></i>Audit Log <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i></span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li>
+                                    <a href="Admin/Audit Log/AuditAdmin.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Admin</a>
+                                </li>
+                                <li>
+                                    <a href="Admin/Audit Log/AuditFaculty.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Faculty</a>
+                                </li>
+                                <li>
+                                    <a href="Admin/Audit Log/AuditStudent.aspx" runat="server"><i class="fa fa-circle-o"></i>Audit Student</a>
+                                </li>
+                            </ul>
+                            </li>
+                        
+                          
+                </ul>
+                        
+
+                </li>
                 </ul>
             </section>
             <!-- /.sidebar -->
