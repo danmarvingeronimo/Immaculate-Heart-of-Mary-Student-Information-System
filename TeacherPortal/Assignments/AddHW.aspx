@@ -43,8 +43,12 @@
                     <asp:Button ID="btnUpload" runat="server"
                         class="btn btn-success" Text="Upload"
                         onClick="btnUpload_Click" />
+                    <a href="ViewHW.aspx" class="btn btn-default">
+                         Cancel
+                     </a>
                 </div>
             </div>
         </div>
     </form>
+    <br />
 </asp:Content>

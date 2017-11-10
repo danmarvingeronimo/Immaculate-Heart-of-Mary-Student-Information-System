@@ -18,7 +18,7 @@
     </div>
     <div class="container">
             <div class="col-lg-6">  
-                <div class="contact-area" style="margin-left:130px;">
+                <div class="contact-area" style="margin-left:450px;">
                     <h4> <strong>Address:</strong></h4><p>Saint Dominic Savio Street, Better Living Subdivision, 1700 Paranaque City, Metro Manila, Philippines<br/></p>
                     <h4> <strong>Telephone:</strong></h4><p>(02) 823 4109<br/></p>
                     <h4> <strong>Fax:</strong></h4><p>123 456 789</p>

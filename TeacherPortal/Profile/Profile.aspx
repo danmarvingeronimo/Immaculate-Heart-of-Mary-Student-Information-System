@@ -1,22 +1,23 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Profile/Profile.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="TeacherPortal_Profile_Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TeacherPortal/Teacher.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="TeacherPortal_Profile_Profile" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
+    Teacher Profile
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <section class="content-header">
-        <h1>User Profile </h1>
     </section>
     <section class="content">
         <div class="row">
             <div class="col-md-3">
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" height="400" width="400" runat="server" alt="User profile picture" />
-
-                        <h3>
+                      <img id="Img1" class="profile-user-img img-responsive img-circle" src='<%#Eval("Image") %>' height="400" width="400" runat="server" alt="User profile picture" />
+                        <%-- <img id="Img2" runat="server" src='<%# string.Concat("../../img/faculty/", Eval("Image")) %>' class="img-responsive" width="100" height="200" />--%>
+                     <%--   <asp:Image ID="Img2" runat="server" src='<%# string.Concat("../../img/faculty/", Eval("Image")) %>'/>--%>
+                        <br /><br /> <h3>
                             <asp:Literal ID="ltUID" runat="server" Visible="true" /></h3>
-                        <p class="text-muted text-center">Software Engineer</p>
+                      
                     </div>
                 </div>
 
@@ -27,14 +28,15 @@
                     <div class="box-body">
                         <strong>FULL NAME</strong>
                         <p>
-                            <asp:Label runat="server" ID="lblFN"><%#Eval("Teacher_FirstName") %></asp:Label>
-                            <asp:Label runat="server" ID="lblMN"><%#Eval("Teacher_MiddleName") %></asp:Label>
-                            <asp:Label runat="server" ID="lblLN"><%#Eval("Teacher_LastName") %></asp:Label>
+                            <asp:Label class="col-sm-2 control-label" runat="server" ID="lblFN"><%#Eval("Teacher_FirstName") %></asp:Label>
+                            <asp:Label class="col-sm-2 control-label" runat="server" ID="lblMN"><%#Eval("Teacher_MiddleName") %></asp:Label>
+                            <asp:Label class="col-sm-2 control-label" runat="server" ID="lblLN"><%#Eval("Teacher_LastName") %></asp:Label>
                         </p>
-                        <hr />
+                        <br /><hr />
                         <strong>DEPARTMENT</strong>
                         <p>
                             <asp:Label runat="server" class="col-sm-2 control-label" ID="lblDept"><%#Eval("Department") %></asp:Label></p>
+                        <br />
                         <br />
                         <br />
                         <br />

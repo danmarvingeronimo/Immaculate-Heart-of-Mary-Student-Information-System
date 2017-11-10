@@ -30,6 +30,7 @@ public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
             using (SqlCommand cheese = new SqlCommand(ham, burger))
             {
                 cheese.Parameters.AddWithValue("@UID", Session["Teacher_ID"].ToString());
+               
 
                 using (SqlDataReader dr = cheese.ExecuteReader())
                 {
@@ -45,8 +46,8 @@ public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
                         txtLN.Text = dr["Teacher_LastName"].ToString();
                         txtDept.Text = dr["Department"].ToString();
                         txtPassword.Text = dr["Teacher_PW"].ToString();
+                        Image.Img1 = dr["Image"].ToString();
 
-                    
                     }
                 }
             }

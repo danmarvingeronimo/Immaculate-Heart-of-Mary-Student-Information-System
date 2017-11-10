@@ -4,8 +4,17 @@
      Edit Upload<asp:Literal ID="ltID" runat="server" visible="false"/>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
-    <form runat="server" class=" form-horizontal">
 
+
+        <ol class="breadcrumb">
+        <li><a href="../Homepage.aspx"><i class="fa fa-dashboard"></i> Homepage</a></li>
+        <li><a href="ViewSubject.aspx"><i class="fa fa-dashboard"></i> Subject List</a></li>
+        <li><a href="HWDetals.aspx"><i class="fa fa-dashboard"></i> Homework List</a></li>
+        <li class="active">Homework Details</li>
+      </ol>
+
+    <form runat="server" class=" form-horizontal">
+        <div class="col-lg-6">
       <div class="form-group">
                 <label class="control-label col-lg-4">Title</label>
                 <div class="col-lg-8">
@@ -26,13 +35,14 @@
                <div class="col-lg-offset-4 col-lg-8">
                    <asp:Button ID="btnUpdate" runat="server"
                        class="btn btn-success" Text="Update" OnClick="btnUpdate_Click" />
-                   <a href="ViewFileUpload.aspx" class="btn btn-default">
+                   <a href="ViewHW.aspx" class="btn btn-default">
                        Back to View
                    </a>
                </div>
            </div>
-       
+       </div>
     </form>
+    <br />
 </asp:Content>
 
 

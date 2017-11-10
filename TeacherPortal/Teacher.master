@@ -41,7 +41,11 @@
                                 <asp:Label ID="lblogin" runat="server" Text="User"></asp:Label><span class="hidden-xs"></span></a>
                              <ul class="dropdown-menu role=menu">
                                 <li><a href="Profile/Profile.aspx" runat="server" >Profile</a></li>
+<<<<<<< HEAD
                                 <li><a href="~..LogOut.aspx" runat="server" >Log Out</a></li>
+=======
+                                <li><a href="../LogOut.aspx" runat="server" >Log Out</a></li>
+>>>>>>> cbc325ba9072e97cd7096e235ba87f6abb02d8c5
                             </ul>
                </li>
           </ul>

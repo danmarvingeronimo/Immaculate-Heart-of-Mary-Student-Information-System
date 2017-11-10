@@ -11,8 +11,8 @@
                         <br/>
                         <center>
                                 <img src="Content/images/portfolio/1.jpg" class="img-responsive" alt=""  height="600" width="1000"/>
-                       c
-                        <br/>
+                       
+                        <br/><br />
                         <p class="solid">
                             Immaculate Heart of Mary College-Parañaque (IHMC-P, formerly known as Immaculate Heart of Mary School-Parañaque; colloquially, "Imma") is a Private, Roman Catholic, educational institution run by the Franciscan Sisters of the Sacred Hearts. It is located on a 2.5 Hectare Lot on both sides of St. Dominic Savio Street in Better Living Subdivision, Parañaque City. The college was established in 1979 offering elementary education, then in 1983 it opened its doors to its first batch of high school students. The College Department was established in 2002. Admission is open to students of different religion and nationality.
                         </p>

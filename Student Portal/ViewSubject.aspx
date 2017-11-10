@@ -14,8 +14,8 @@
             <table class ="table table-hover">
                 <thead>
                     
-                    <th>Subject</th>
-                    
+                    <th>Subject Name</th>
+                  
                   
                     
                 </thead>
@@ -40,8 +40,7 @@
                                     <a href='ViewHW(Student).aspx?ID=<%#Eval("Subject_ID")%>'
                                      class="btn btn-xs btn-info" title="View Homework">
                                     View HW
-                        </a>
-
+                          </a>
                                 </td>
                             </tr>
                         </ItemTemplate>
@@ -58,11 +57,10 @@
                 </tbody>
             </table>
              <div class="col-lg-offset-5">
-
                
            </div>
         </div>
     </form>
-
+    <br />
 </asp:Content>
 

@@ -79,13 +79,15 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
-                            Response.Redirect("~/Student Portal/ViewSubject.aspx");
-                         
+                            Response.Redirect("~/Student Portal/Homepage.aspx");
+
                         }
                     }
 
                     else
+
                         error.Visible = true;
+
                 }
             }
         }
@@ -150,13 +152,15 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
-                            Response.Redirect("~/Student Portal/StudentProfile.aspx");
+                            Response.Redirect("~/Student Portal/Homepage.aspx");
                         }
 
                     }
 
                     else
+
                         error.Visible = true;
+
                 }
             }
         }
@@ -197,7 +201,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
                         //Audit Log of Session ID
                         //Nathaniel Collins S. Ortiz V
-                        audlog.AuditLogAdmin(DE.Encrypt("Log-In"), int.Parse(Session["admin_id"].ToString()),DE.Encrypt("Logged-In by "
+                        audlog.AuditLogAdmin(DE.Encrypt("Log-In"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Logged-In by "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                         //audlog.AuditLogAdmin("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
                         //    + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
@@ -221,11 +225,11 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "5")
                         {
-                            Response.Redirect("~/TeacherPortal/Welcome.aspx");
+                            Response.Redirect("~/TeacherPortal/Homepage.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
-                            Response.Redirect("~/Student Portal/StudentProfile.aspx");
+                            Response.Redirect("~/Student Portal/Homepage.aspx");
                         }
 
 
@@ -234,9 +238,6 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
                     else
                         error.Visible = true;
-
-
-
                 }
             }
         }
@@ -245,9 +246,25 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        LogInFaculty();
-        LogInAdmin();
-        LogInStudent();
 
-    }
+        //if (ctrlGoogleReCaptcha.Validate())
+        //{
+            LogInFaculty();
+            LogInAdmin();
+            LogInStudent();
+
+        }
+        //else
+        //{
+        //    captcha.Visible = true;
+        //    error.Visible = false;
+        //    txtUserID.Text = string.Empty;
+        //    txtPassword.Text = string.Empty;
+
+
+
+        //}
+        
+    
+
 }
