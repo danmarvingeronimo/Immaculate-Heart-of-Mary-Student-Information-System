@@ -10,7 +10,7 @@ public partial class Admin_Prinicipal_Principal : System.Web.UI.MasterPage
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Session["admin_id"] != null && Session["UserType_ID"].ToString() == "4")
-            lblogin.Text = "Welcome,  " + Session["first_name"].ToString() + " " + Session["last_name"].ToString();
+            lblogin.Text = "PRINCIPAL ,  " + Session["first_name"].ToString() + " " + Session["last_name"].ToString();
         else
             Response.Redirect("~/Login.aspx");
     }

@@ -12,6 +12,7 @@
     <link href="~/Content/AdminLTE.min.css" rel="stylesheet" />
     <link href="~/Content/_all-skins.min.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
     <link href="~/Content/dataTables.bootstrap.min.css" rel="stylesheet" />
 </head>
 
@@ -53,7 +54,7 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="treeview">
-                        <a href="#"><i class="fa fa-edit"></i><span>Forms</span> <span class="pull-right-container">
+                        <a href="#"><i class="fa fa-edit"></i><span>REGISTRAR</span> <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span></a>
 
@@ -65,52 +66,35 @@
 
                             <!-- REGISTAR FORM START -->
                             <li class="treeview">
-                                <a href="#"><i class="fa fa-circle-o"></i>Registrar <span class="pull-right-container">
+                                <a href="#"><i class="fa fa-circle-o"></i>Section <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span></a>
                                 <ul class="treeview-menu">
-                                    <li class="treeview">
-                                        <a href="#"><i class="fa fa-circle-o"></i>Admissions <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span></a>
-                                        <ul class="treeview-menu">
-                                            <li class="treeview">
-                                                <a href="#"><i class="fa fa-circle-o"></i>Online Application <span class="pull-right-container">
-                                                    <i class="fa fa-angle-left pull-right"></i>
-                                                </span></a>
-                                                <ul class="treeview-menu">
-                                                    <li>
-                                                        <a href="~/Admin/Registrar/Admission/Online Application/Application.aspx" runat="server"><i class="fa fa-circle-o"></i>Application</a>
-                                                    </li>
-
-                                                </ul>
-                                            </li>
-                                        </ul>
-
-                                        <a href="#"><i class="fa fa-circle-o"></i>Section <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span></a>
-                                        <ul class="treeview-menu">
-                                            <li>
-                                                <a href="~/Admin/Registrar/Section/AddSection.aspx" runat="server"><i class="fa fa-circle-o"></i>Add Section </a>
-                                            </li>
-                                            <li>
-                                                <a href="~/Admin/Registrar/Section/ViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section </a>
-                                            </li>
-                                        </ul>
-
-                                        <a href="#"><i class="fa fa-circle-o"></i>Student <span class="pull-right-container">
-                                            <i class="fa fa-angle-left pull-right"></i>
-                                        </span></a>
-                                        <ul class="treeview-menu">
-                                            <li>
-                                                <a href="~/Admin/Registrar/Student/RegViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section </a>
-                                            </li>
-                                        </ul>
-
+                                    <li>
+                                        <a href="~/Admin/Registrar/Section/AddSection.aspx" runat="server"><i class="fa fa-circle-o"></i>Add Section </a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Registrar/Section/StudentList.aspx" runat="server"><i class="fa fa-circle-o"></i>Student List</a>
+                                    </li>
+                                    <li>
+                                        <a href="~/Admin/Registrar/Section/ViewSection.aspx" runat="server"><i class="fa fa-circle-o"></i>View Section </a>
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="treeview">
+                                <a href="#"><i class="fa fa-circle-o"></i>Student <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="~/Admin/Registrar/Student/CompleteStudentList.aspx" runat="server"><i class="fa fa-circle-o"></i>Grade Section List </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                        </ul>
                     </li>
                 </ul>
                 <!-- REGISTAR FORM END -->

@@ -5,6 +5,14 @@
 </asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
   <div class="container-fluid" style="padding-bottom: 20px;">
+
+
+      
+    <ol class="breadcrumb">
+        <li><a href="~/Admin/Registrar/Registrar_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Sections</li>
+    </ol>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="box">
