@@ -6,6 +6,12 @@
 <i class="fa fa-user-plus"></i> Add Faculty
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
+
+     <ol class="breadcrumb">
+            <li><a href="~/Admin/Principal/Principal_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Add Admin</li>
+        </ol>
+
     <form runat="server" class="form form-horizontal">
         <div class="col-lg-6">
         <%--    <div class="form-group">

@@ -1,0 +1,111 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Profile.master.cs" Inherits="Student_Student" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Immaculate Heart of Mary College - Parañaque</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../../Content/_all-skins.min.css" rel="stylesheet" />
+    <link href="../../Content/AdminLTEF.min.css" rel="stylesheet" />
+    <link href="../../Content/bootstrapF.css" rel="stylesheet" />
+    <link href="../../Content/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="../../Content/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue layout-top-nav">
+<div class="wrapper">
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+            <a href="../Homepage.aspx" runat="server" class="navbar-brand"><img class="img-responsive" src="/Content/img/logo.png" alt="logo" width="90" height="90"/></a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+          
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../ViewSubject.aspx">View Subjects</a></li>
+
+              
+          </ul>
+        </div>
+
+           <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+           <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+               <asp:Label ID="lblogin" runat="server" Text="User"></asp:Label><span class="hidden-xs"></span></a>
+              <ul class="dropdown-menu" role="menu">
+             
+                 <li><a runat="server" href="../../LogOut.aspx">Sign out</a></li>
+              </ul>
+               
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-custom-menu -->
+      </div>
+      <!-- /.container-fluid -->
+        </nav>
+   
+  </header>
+  
+         <div class="content-wrapper">
+            <div class="clearfix container">
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="text-center">
+                                <asp:ContentPlaceHolder ID="title" runat="server" />
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <asp:ContentPlaceHolder ID="content" runat="server" />
+            </div>
+        </div>
+
+
+   
+ <footer class="main-footer"><strong>Copyright © 2017 Immaculate Heart of Mary College - Paranaque.</strong> All rights reserved. reserved. </footer>
+</div>
+    <!-- jQuery 3 -->
+    <script src=' <%= ResolveUrl("../../Scripts/jquery.min.js") %>'></script>
+
+    <!-- jQuery UI 1.11.4 -->
+    <script src='<%= ResolveUrl("../../js/jquery-ui.min.js")%>'></script>
+
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+
+    <!-- Bootstrap 3.3.7 -->
+    <script src=' <%=ResolveUrl("../../js/bootstrap.min.js") %>'></script>
+
+
+    <!-- DataTables -->
+    <script src=' <%=ResolveUrl("../../js/jquery.dataTables.min.js")%>'></script>
+    <script src=' <%=ResolveUrl("../../js/dataTables.bootstrap.min.js")%>'></script>
+
+
+    <!-- AdminLTE App -->
+    <script src='<%=ResolveUrl("../../js/adminlte.min.js") %>'></script>
+
+
+    <!--Script for Datatable functions -->
+    <script>
+        $(document).ready(function () {
+            $('table').DataTable();
+        });
+    </script>
+
+
+</body>
+</html>

@@ -7,12 +7,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
 
     <div class="container-fluid" style="padding-bottom: 20px;">
+
+        
+        <ol class="breadcrumb">
+            <li><a href="~/Admin/IT Admin/ITAdmin_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+            <li class="active">Section Student List</li>
+        </ol>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="box">
                     <div class="box-body">
                         <form runat="server" class="form-horizontal">
-                                 <h1><i class="fa fa-users" style="margin-bottom: 20px;"></i> Sections</h1>
+                                 <h1><i class="fa fa-users" style="margin-bottom: 20px;"></i> Section Student List</h1>
                             <table id="table" class="table table-hover">
                                 <thead>
 

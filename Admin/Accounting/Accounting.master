@@ -25,36 +25,29 @@
                 <!-- logo for regular state and mobile devices -->
                 <span class="logo-lg"><b>SIS Admin</b></span> </a>
             <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
+         <nav class="navbar navbar-static-top">
                 <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"><span class="sr-only">Toggle navigation</span> </a>
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
-                        <!-- Messages: style can be found in dropdown.less-->
-                        <!-- Notifications: style can be found in dropdown.less -->
-                        <!-- Tasks: style can be found in dropdown.less -->
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
+
+
+
+                        <li class="dropdown">
 
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
                                 <asp:Label ID="lblogin" runat="server" Text="User"></asp:Label><span class="hidden-xs"></span></a>
 
-                            <ul class="dropdown-menu">
-                                <li class="user-footer">
-                                    <form runat="server">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="~/LogOut.aspx" runat="server" class="btn btn-default btn-flat">Log Out</a>
-                                        </div>
-                                    </form>
-                                </li>
+                            <ul class="dropdown-menu role=menu">
+                                <li><a href="~/LogOut.aspx" runat="server" class="btn btn-default btn-flat">Log Out</a></li>
                             </ul>
-                        </li>
 
-                        <!-- Control Sidebar Toggle Button -->
+                        </li>
                     </ul>
+
+                    <!-- Control Sidebar Toggle Button -->
+
+
+
                 </div>
             </nav>
         </header>

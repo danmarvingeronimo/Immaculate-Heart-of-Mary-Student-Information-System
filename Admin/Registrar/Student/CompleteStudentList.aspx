@@ -54,7 +54,7 @@
                                                         Q4 Grade
                                                     </a>
                                                     <a href='FinalGrade.aspx?ID=<%#Eval ("Student_ID") %>'
-                                                        class="btn btn-xs btn-sucess" title="View Grade">
+                                                        class="btn btn-xs btn-success" title="View Grade">
                                                         Final Grade
                                                     </a>
                                                 </td>

@@ -920,13 +920,17 @@ a.btn.blue,
 }
 
 .events article {
-	width: 25%;
+	width: 33%;
 	float: left;
 	padding: 0 15px;
 	font-size: 14px;
 	line-height: 20px;
 }
-
+.pica {
+    width: 500px;
+    height: 300px;
+    align-content: center;
+}
 .current-date {
 	width: 70px;
 	float: left;
@@ -1556,7 +1560,7 @@ a.btn.blue,
 	
 	.posts .pic {
 		margin-right: 15px;
-		width: 90px;
+		width: 100px;
 	}
 	
 	.posts .pic img {
@@ -1610,7 +1614,7 @@ a.btn.blue,
 	}
 	
 	.events article {
-		width: 50%;
+		width: 70%;
 		padding-bottom: 30px;
 	}
 		
