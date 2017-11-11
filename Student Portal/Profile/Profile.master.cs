@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Parent_Parent : System.Web.UI.MasterPage
+public partial class Student_Student : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

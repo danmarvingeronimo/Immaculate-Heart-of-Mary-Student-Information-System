@@ -25,7 +25,7 @@ public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
         using (SqlConnection burger = new SqlConnection(Util.GetConnection()))
         {
             burger.Open();
-            string ham = @"SELECT Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName, Department, Image FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
+            string ham = @"SELECT Teacher_PW, Teacher_FirstName,Teacher_MiddleName,Teacher_LastName, Department FROM TEACHER_MAIN WHERE Teacher_ID=@UID";
 
             using (SqlCommand cheese = new SqlCommand(ham, burger))
             {
@@ -46,8 +46,7 @@ public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
                         txtLN.Text = dr["Teacher_LastName"].ToString();
                         txtDept.Text = dr["Department"].ToString();
                         txtPassword.Text = dr["Teacher_PW"].ToString();
-                        Image.Img1 = dr["Image"].ToString();
-
+                   
                     }
                 }
             }

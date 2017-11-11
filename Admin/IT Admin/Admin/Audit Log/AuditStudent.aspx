@@ -1,14 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/IT Admin/ITAdmin.master" AutoEventWireup="true" CodeFile="AuditStudent.aspx.cs" Inherits="Admin_IT_Admin_Admin_Audit_Log_AuditAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
-    Audit Logs
+    Audit Student Logs
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     <div class="container-fluid">
         <div class="row">
-            <div class="box">
-                <h3 class="box-title">Logs</h3>
-            </div>
+           
             <div class="box-body">
                 <table id="table" class="table table-hover table-bordered">
                     <thead>

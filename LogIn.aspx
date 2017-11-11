@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.master" AutoEventWireup="true" CodeFile="LogIn.aspx.cs" Inherits="Admin_LogIn" %>
 
-<%--<%@ Register Assembly="GoogleReCaptcha" Namespace="GoogleReCaptcha" TagPrefix="cc1" %>--%>
+<%@ Register Assembly="GoogleReCaptcha" Namespace="GoogleReCaptcha" TagPrefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -13,6 +13,14 @@
             <div class="slider-con">
                 <div class="slide">
                     <ul>
+                       <li><a href="#">
+                            <img src="Content/images/portfolio/1.jpg" alt="" height="153" width="153" /></a></li>
+                        <li><a href="#">
+                            <img src="Content/images/portfolio/5_2.jpg" alt="" height="153" width="153" /></a></li>
+                        <li><a href="#">
+                            <img src="Content/images/portfolio/5_3.jpg" alt="" height="153" width="153" /></a></li>
+                        <li><a href="#">
+                            <img src="Content/images/portfolio/5_4.png" alt="" height="153" width="153" /></a></li>
                         <li><a href="#">
                             <img src="Content/images/portfolio/5_5.jpg" alt="" height="153" width="153" /></a></li>
                         <li><a href="#">
@@ -26,29 +34,10 @@
                         <li><a href="#">
                             <img src="Content/images/portfolio/5_10.jpg" alt="" height="153" width="153" /></a></li>
                         <li><a href="#">
-                            <img src="Content/images/portfolio/5_5.jpg" alt="" height="153" width="153" /></a></li>
+                            <img src="Content/images/portfolio/5_11.jpg" alt="" height="153" width="153" /></a></li>
                         <li><a href="#">
-                            <img src="Content/images/portfolio/5_6.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_7.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_8.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_9.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_10.jpg" alt="" height="153" width="153" /></a></li>
-                          <li><a href="#">
-                            <img src="Content/images/portfolio/5_5.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_6.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_7.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_8.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_9.jpg" alt="" height="153" width="153" /></a></li>
-                        <li><a href="#">
-                            <img src="Content/images/portfolio/5_10.jpg" alt="" height="153" width="153" /></a></li>
+                            <img src="Content/images/portfolio/5_12.jpg" alt="" height="153" width="153" /></a></li>
+                         
                     </ul>
                 </div>
 
@@ -89,38 +78,31 @@
             </div>
         </div>
         <br />
-
-<%--    <div style="margin-right: 485px;" class="form-group" align="right">
+               <div style="margin-right: 485px;" class="form-group" align="right">
             <label class="control-label col-lg-4"></label>
             <div class="col-lg-4">
                 <cc1:GoogleReCaptcha ID="ctrlGoogleReCaptcha" runat="server" PublicKey="6LcypzcUAAAAAHZGU92TxL8W2P_MD5duaneqJ6F-" 
                     PrivateKey="6LcypzcUAAAAAK76cOcDqB_I4zZ57UndBJRt9X5U" />
             </div>
-        </div>--%>
-
-
-        <div class="form-group">
-            <div class="col-lg-offset-4 col-lg-4">
-                <br />
-                <asp:Button ID="btnLogin" runat="server" class="btn btn-right" Type="submit" Text="Login"
-                    OnClick="btnLogin_Click" />
-                <br />
-                <br />
-            </div>
         </div>
 
+            <div style="float:right; margin-right:700px;" class="form-group">
+                <div class="col-lg-offset-4 col-lg-8">
+                    <br />
+                    <asp:Button ID="btnLogin" runat="server" class="btn btn--right" Type="submit" Text="Login" 
+                        OnClick="btnLogin_Click"/>
+                         <br /><br />
+                </div>
+            </div>
+
         <br />
         <br />
         <br />
         <br />
-
-
-
-
-    </form>
-    
-   <%-- <div class="g-recaptcha" data-sitekey="6LcypzcUAAAAAHZGU92TxL8W2P_MD5duaneqJ6F-"></div>--%>
-
-
-
+        </form>
+ 
+        
+        <div class="g-recaptcha" data-sitekey="6LcypzcUAAAAAHZGU92TxL8W2P_MD5duaneqJ6F-"></div>
+          <br />
+        <br />
 </asp:Content>

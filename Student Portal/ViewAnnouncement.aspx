@@ -8,6 +8,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
 
+    <ol class="breadcrumb">
+        <li><a href="Homepage.aspx"><i class="fa fa-dashboard"></i> Homepage</a></li>
+        <li><a href="ViewSubject.aspx"><i class="fa fa-dashboard"></i> View Subject</a></li>
+        <li class="active"> Announcement List</li>
+      </ol>
+
+
     <form runat="server" class="form-horizontal">
 <%--        <asp:Button ID="btnRedirect" runat="server"
          PostBackUrl="AddAnnouncement.aspx" Text="Add" OnClick="btnRedirect_Click" />--%>
@@ -63,6 +70,7 @@
     </tbody>
     </table>
     </form>
+    <br />
 </asp:Content>
 
 

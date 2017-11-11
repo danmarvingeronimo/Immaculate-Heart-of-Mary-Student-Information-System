@@ -45,14 +45,14 @@
 				<div class="pic"><img width="121" src="Content/images/2.png" alt=""/></div>
 				<div class="info">
 					<h3>The best learning methods</h3>
-					<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo. </p>
+					<p>Immaculate Heart of Mary College - Parañaque provides the best learning methods to the students. We have experienced and excellent teacher to help for the learning of the students. </p>
 				</div>
 			</article>
 			<article>
 				<div class="pic"><img width="121" src="Content/images/3.png" alt=""/></div>
 				<div class="info">
 					<h3>Awesome results of our students</h3>
-					<p>Vero eos et accusamus et iusto odio dignissimos ducimus blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa.</p>
+					<p>The student gives positive feedback to the school mostly because the school has a genuine and religious community that encourage students in a supportive, safe and happy environment.   </p>
 				</div>
 			</article>
 		</div>
@@ -61,80 +61,54 @@
 
 	<section class="news">
 		<div class="container">
-			<h2>Latest news</h2>
+			<h2>PHILOSOPHY OF EDUCATION</h2>
 			<article>
-				<div class="pic"><img src="Content/images/1.png" alt=""/></div>
+					<div class="info"><p>
+Immaculate Heart of Mary College-Parañaque advances academic excellence and ensures learning that is sustained and backed-up with the formation of character, sound values, and Catholic principles of life. We are committed to the furtherance of education as a journey towards the search of God, for he who seeks knowledge seeks the truth, and he who seeks the truth finds God Himself who is “the WAY, the TRUTH, and the LIFE”.</p>
+			</div></article>
+			<article>
+				
 				<div class="info">
-					<h4>Omnis iste natus error sit voluptatem accusantium </h4>
-					<p class="date">14 APR 2014, Jason Bang</p>
-					<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores (...)</p>
-					<a class="more" href="#">Read more</a>
+					<p>In harmony with this belief, the Immaculate Heart of Mary College-Parañaque adopts the educative method of persuasion characterized by faith, reason, and charity – an educative system which teaches that “God is Love”. Faith illuminates reason, reason leads the mind to charity, and charity wins the heart of her/his brother, conquered through the affectionate Hearts of Jesus and Mary.</p>
+	
 				</div>
 			</article>
-			<article>
-				<div class="pic"><img src="Content/images/1_1.png" alt=""/></div>
-				<div class="info">
-					<h4>Omnis iste natus error sit voluptatem accusantium </h4>
-					<p class="date">14 APR 2014, Jason Bang</p>
-					<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores (...)</p>
-					<a class="more" href="#">Read more</a>
-				</div>
-			</article>
-			<div class="btn-holder">
-				<a class="btn" href="#">See archival news</a>
-			</div>
 		</div>
 		<!-- / container -->
 	</section>
 
 	<section class="events">
 		<div class="container">
-			<h2>Upcoming events</h2>
+			<h2>BUILDINGS</h2>
 			<article>
-				<div class="current-date">
-					<p>April</p>
-					<p class="date">15</p>
-				</div>
+		<center> <div class="pica"><img height="300" width="300" src="Content/images/portfolio/1.jpg" alt="" height="200" width="300"/></div></center>           
 				<div class="info">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-					<a class="more" href="#">Read more</a>
+                    <br />
+					<p>The Blessed Mother's Building, inaugurated 1985 by the late Cardinal Sin</p>
+				
 				</div>
 			</article>
 			<article>
-				<div class="current-date">
-					<p>April</p>
-					<p class="date">17</p>
-				</div>
-				<div class="info">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-					<a class="more" href="#">Read more</a>
-				</div>
-			</article>
-			<article>
-				<div class="current-date">
-					<p>April</p>
-					<p class="date">25</p>
-				</div>
-				<div class="info">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-					<a class="more" href="#">Read more</a>
+                <center>
+                    <div class="pica"><img height="300" width="300"  src="Content/images/portfolio/5_3.jpg" alt=""/></div>
+                </center>
+                
+				<div class="info"><br />
+					<p>The St. Francis of Assisi Building, housing the Junior High School, Learning Resource Center and some College Classrooms and Offices</p>
+			
 				</div>
 			</article>
 			<article>
-				<div class="current-date">
-					<p>April</p>
-					<p class="date">29</p>
+				<center>
+				<div class="pica"><img  height="300" width="300"  src="Content/images/portfolio/5_5.jpg" alt=""/></div>
+				</center>
+                    <div class="info"><br />
+					<p>The Father Simpliciano Building that replaced the Old Gymnasium and Home Economics Building, that currently houses the new Gymnasium and College Library and will be the future location of the Office of the President, College Department Office, Faculty Room and some Classrooms.</p>
+	
 				</div>
-				<div class="info">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad.</p>
-					<a class="more" href="#">Read more</a>
-				</div>
+               
 			</article>
-			<div class="btn-holder">
-				<a class="btn blue" href="#">See all upcoming events</a>
-			</div>
-		</div>
+            </div>
 		<!-- / container -->
 	</section>
 </asp:Content>
-

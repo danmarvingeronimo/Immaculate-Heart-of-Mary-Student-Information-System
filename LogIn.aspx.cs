@@ -85,8 +85,8 @@ public partial class Admin_LogIn : System.Web.UI.Page
                     }
 
                     else
-
-                        error.Visible = true;
+               
+                    error.Visible = true;
 
                 }
             }
@@ -152,14 +152,14 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
-                            Response.Redirect("~/Student Portal/Homepage.aspx");
+                            Response.Redirect("~/Student Portal/StudentProfile.aspx");
                         }
 
                     }
 
                     else
-
-                        error.Visible = true;
+                  
+                    error.Visible = true;
 
                 }
             }
@@ -225,11 +225,11 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         }
                         else if (Session["UserType_ID"].ToString() == "5")
                         {
-                            Response.Redirect("~/TeacherPortal/Homepage.aspx");
+                            Response.Redirect("~/TeacherPortal/Welcome.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "6")
                         {
-                            Response.Redirect("~/Student Portal/Homepage.aspx");
+                            Response.Redirect("~/Student Portal/StudentProfile.aspx");
                         }
 
 
@@ -237,7 +237,11 @@ public partial class Admin_LogIn : System.Web.UI.Page
                     }
 
                     else
-                        error.Visible = true;
+                    error.Visible = true;
+                
+
+
+
                 }
             }
         }
@@ -247,24 +251,24 @@ public partial class Admin_LogIn : System.Web.UI.Page
     protected void btnLogin_Click(object sender, EventArgs e)
     {
 
-        //if (ctrlGoogleReCaptcha.Validate())
-        //{
+        if (ctrlGoogleReCaptcha.Validate())
+        {
             LogInFaculty();
             LogInAdmin();
             LogInStudent();
 
         }
-        //else
-        //{
-        //    captcha.Visible = true;
-        //    error.Visible = false;
-        //    txtUserID.Text = string.Empty;
-        //    txtPassword.Text = string.Empty;
+        else
+        {
+            captcha.Visible = true;
+            error.Visible = false;
+            txtUserID.Text = string.Empty;
+            txtPassword.Text = string.Empty;
+           
 
 
+        }
 
-        //}
-        
-    
+    }
 
 }

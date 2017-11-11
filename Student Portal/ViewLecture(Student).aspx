@@ -5,6 +5,13 @@
     Lectures
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
+
+     <ol class="breadcrumb">
+        <li><a href="Homepage.aspx"><i class="fa fa-dashboard"></i> Homepage</a></li>
+        <li><a href="ViewSubject.aspx"><i class="fa fa-dashboard"></i> View Subject</a></li>
+        <li class="active"> Lecture List</li>
+      </ol>
+
     <form runat="server" class="form-horizontal">
         <table class="table table-hover">
             <thead>
@@ -33,13 +40,7 @@
                             
                         </td>
 
-                       <td>
-                       <a href='Details.aspx?ID=<%#Eval("UploadLecture_ID")%>'
-                                                        class="btn btn-xs btn-info" title="View Comments">
-                                                        <i class="fa fa-edit"></i>
-                                                    </a>
-
-                                                </td>
+                      
 
                     </tr>
                 </ItemTemplate>

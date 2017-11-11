@@ -7,6 +7,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" Runat="Server">
     
+    <ol class="breadcrumb">
+        <li><a href="CompleteStudentList.aspx"><i class="fa fa-dashboard"></i> Homepage</a></li>
+        <li class="active"> 1st Quarter Grades</li>
+      </ol>
 
 <%--    DAN MARVIN GERONIMO--%>
 
@@ -59,5 +63,6 @@
             
         </div>
     </form>
+    <br />
 </asp:Content>
 

@@ -10,16 +10,7 @@
     <section class="content">
         <div class="row">
             <div class="col-md-3">
-                <div class="box box-primary">
-                    <div class="box-body box-profile">
-                      <img id="Img1" class="profile-user-img img-responsive img-circle" src='<%#Eval("Image") %>' height="400" width="400" runat="server" alt="User profile picture" />
-                        <%-- <img id="Img2" runat="server" src='<%# string.Concat("../../img/faculty/", Eval("Image")) %>' class="img-responsive" width="100" height="200" />--%>
-                     <%--   <asp:Image ID="Img2" runat="server" src='<%# string.Concat("../../img/faculty/", Eval("Image")) %>'/>--%>
-                        <br /><br /> <h3>
-                            <asp:Literal ID="ltUID" runat="server" Visible="true" /></h3>
-                      
-                    </div>
-                </div>
+               
 
                 <div class="box box-primary">
                     <div class="box-header with-border">
@@ -46,6 +37,14 @@
                         <br />
                         <br />
                         <br />
+                          <br />
+                        <br />
+                        <br />
+                        <br />
+                         <br />
+                    <br />
+                    <br />
+                    <br />
                     </div>
                 </div>
             </div>
@@ -112,6 +111,7 @@
                     <br />
                     <br />
                     <br />
+                    
                 </div>
             </div>
         </div>

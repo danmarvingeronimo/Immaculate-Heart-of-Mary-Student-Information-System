@@ -20,8 +20,10 @@ public partial class Student_LogIn : System.Web.UI.Page
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
             Util audlog = new Util();
+            Cryptic DE = new Cryptic();
             con.Open();
-            string SQL = @"Select Student_ID,First_Name,Middle_Name,Last_Name FROM STUDENT_MAIN
+               
+            string SQL = @"Select Student_ID,First_Name,Middle_Name,Last_Name, UserType_ID FROM STUDENT_MAIN
                          WHERE User_ID=@User_ID AND Student_PW=@PWD";
 
             using(SqlCommand com = new SqlCommand(SQL, con))
@@ -38,6 +40,7 @@ public partial class Student_LogIn : System.Web.UI.Page
                             Session["first_name"] = data["First_Name"].ToString();
                             Session["middle_name"] = data["Middle_Name"].ToString();
                             Session["last_name"] = data["Last_Name"].ToString();
+                            Session["usertype_id"] = data["UserType_ID"].ToString();
                         }
                         audlog.AuditLogStudent("Log-In", int.Parse(Session["student_id"].ToString()), "Logged-In by " + Session["first_name"].ToString()
                             + " " + Session["middle_name"].ToString() + Session["last_name"].ToString());

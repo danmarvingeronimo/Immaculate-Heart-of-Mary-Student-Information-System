@@ -1,29 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student Portal/Student.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="Student_Portal_Profile_Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Student Portal/Profile/Profile.master" AutoEventWireup="true" CodeFile="Profile.aspx.cs" Inherits="Student_Portal_Profile_Profile" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">User Profile
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <section class="content-header">
-        <h1>User Profile </h1>
     </section>
     <section class="content">
         <div class="row">
             <div class="col-md-3">
                 <div class="box box-primary">
                     <div class="box body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="~/img/user2-160x160.jpg" runat="server" alt="User profile picture" />
-                        <h3>
-                            <asp:literal id="ltUID" runat="server" visible="true" />
+                         <h3 style="text-align:center;" class="box-title">
+                            <asp:label  runat="server" id="First_Name"><%#Eval("su.First_Name") %></asp:label>
+                            <asp:label  runat="server" id="Middle_Name"> <%#Eval("su.Last_Name") %></asp:label>
+                            <asp:label  runat="server" id="Last_Name"> <%#Eval("su.Last_Name") %></asp:label>
+
+                         </h3>
+                          <h3> <asp:literal id="ltUID" runat="server" visible="true" />
+                                
                         </h3>
-                        <p class="text-muted text-center">
-                            <asp:label runat="server" id="First_Name"><%#Eval("su.First_Name") %></asp:label>
-                        </p>
-                        <p class="text-muted text-center">
-                            <asp:label runat="server" id="Middle_Name"><%#Eval("su.Middle_Name")%> </asp:label>
-                        </p>
-                        <p class="text-muted text-center">
-                            <asp:label runat="server" id="Last_Name"> <%#Eval("su.Last_Name") %></asp:label>
-                        </p>
+                        <br />  
+                                
                     </div>
                 </div>
 
@@ -216,15 +213,17 @@
                             <hr />
                             <strong><i class="fa fa-pencil margin-r-5"></i>Mother's Nature of Business</strong>
                             <p>
+                        <br />
                                 <asp:label runat="server" id="Mother_NatBus"><%#Eval("su.Mother_Natbus") %></asp:label>
                             </p>
                         </div>
                     </div>
+                    </div>
 
-
+              
                     <div class="box box-primary">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Father's Info</h3>
+                            <h4 class="box-title">Father's Info</h4>
                         </div>
                         <div class="box-body">
                             <strong><i class="fa fa-pencil margin-r-5"></i>Father's Name</strong>
@@ -286,12 +285,10 @@
                             <p>
                                 <asp:label runat="server" id="Father_NatBus"><%#Eval("su.Father_NatBus") %></asp:label>
                             </p>
-                            <br /><br />  <br /><br /><br />
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                    </div>
+  </div>
     </section>
 </asp:Content>
 

@@ -18,7 +18,7 @@
 
                             <div>
                                 <br />
-                                <a href='AccViewSection.aspx'
+                                <a href='CompleteStudentList.aspx'
                                     class="btn btn-success" style="margin-bottom: 20px;"> Back to View </a>
                             </div>
 
