@@ -42,8 +42,8 @@ public partial class Student_LogIn : System.Web.UI.Page
                             Session["last_name"] = data["Last_Name"].ToString();
                             Session["usertype_id"] = data["UserType_ID"].ToString();
                         }
-                        audlog.AuditLogStudent("Log-In", int.Parse(Session["student_id"].ToString()), "Logged-In by " + Session["first_name"].ToString()
-                            + " " + Session["middle_name"].ToString() + Session["last_name"].ToString());
+                        audlog.AuditLogStudent(DE.Encrypt("Log-In"), int.Parse(Session["student_id"].ToString()), DE.Encrypt("Logged-In by " + Session["first_name"].ToString()
+                            + " " + Session["middle_name"].ToString() + Session["last_name"].ToString()));
                         Response.Redirect("CompleteStudentList.aspx");
                     }
                     else

@@ -37,6 +37,8 @@
                                         OnItemCommand="lvSection_ItemCommand">
                                         <ItemTemplate>
                                             <tr>
+                                                <asp:Literal ID="ltSectionID" runat="server"
+                            Text='<%# Eval("Section_ID") %>' Visible="false" />   
 
                                                 <td><%# Eval("Section_Name") %></td>
                                                 <td><%# Eval("Year_Level") %></td>
