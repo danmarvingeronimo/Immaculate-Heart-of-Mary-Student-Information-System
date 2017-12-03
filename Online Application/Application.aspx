@@ -126,7 +126,7 @@
                                         <asp:RangeValidator ID="RangeValidator1" runat="server"
                                             ControlToValidate="txtBirthDate" Display="Dynamic" ErrorMessage="Invalid Date!"
                                             ForeColor="Red"
-                                            MaximumValue="1/1/2010" MinimumValue="01/01/2005" SetFocusOnError="True"
+                                            MaximumValue="1/1/2010" MinimumValue="01/01/2005" SetFocusOnError="True" ValidationGroup="Date"
                                             Type="Date"></asp:RangeValidator>
 
                                     </div>
@@ -479,7 +479,7 @@
                                     <asp:Button ID="btnApply" runat="server"
                                         CssClass="btn btn-success"
                                         OnClick="btnApply_Click"
-                                        Text="Submit"></asp:Button>
+                                        Text="Submit" ValidationGroup="Date"></asp:Button>
 
                                 </div>
                             </div>
