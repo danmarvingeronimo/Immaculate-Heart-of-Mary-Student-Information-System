@@ -11,33 +11,80 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (!IsPostBack)
         {
+
             GetSections();
         }
+
+    }
+
+
+
+
+    public int HomeroomStatID(int ID)
+    {
+        int HomeroomStatID = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @"SELECT HomeroomStat_ID FROM TEACHER_MAIN WHERE Teacher_ID=@Teacher_ID";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+                WickedEye.Parameters.AddWithValue("@Teacher_ID", Request.QueryString["ID"].ToString());
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            HomeroomStatID = int.Parse(dr["HomeroomStat_ID"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return HomeroomStatID;
     }
 
     void GetSections()
     {
-        
+        int statID = HomeroomStatID(int.Parse(Request.QueryString["ID"].ToString()));
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
             Cryptic DE = new Cryptic();
-            string Takanashi = @"SELECT Section_ID, Section_Name + ' - ' + Year_Level AS 'Section Name' FROM SECTION";
-            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+
+            if (statID == 2)
             {
-                 
-                using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
+
+                string Takanashi = @"SELECT Section_ID, Section_Name + ' - ' + Year_Level AS 'Section Name' FROM SECTION WHERE HomeStat!=1";
+                using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
                 {
-                    ddlSection.DataSource = Chuu2;
-                    ddlSection.DataTextField = "Section Name";
-                    ddlSection.DataValueField = "Section_ID";
-                    ddlSection.DataBind();
 
-                    ddlSection.Items.Insert(0, new ListItem("Select a Section.", ""));
+                    using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
+                    {
+                        ddlSection.DataSource = Chuu2;
+                        ddlSection.DataTextField = "Section Name";
+                        ddlSection.DataValueField = "Section_ID";
+                        ddlSection.DataBind();
 
+                        ddlSection.Items.Insert(0, new ListItem("Select a Section.", ""));
+
+                    }
                 }
+
+             
+                
+                
+            }
+            else
+            {
+                ddlSection.Items.Insert(0, new ListItem("Cannot select a section.", ""));
             }
         }
     }
@@ -50,7 +97,9 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
             Cryptic DE = new Cryptic();
             Rikka.Open();
             string Takanashi = @"UPDATE TEACHER_MAIN SET Section_ID=@Section_ID, HomeroomStat_ID=@HID WHERE
-                                Teacher_ID=@Teacher_ID";
+                                Teacher_ID=@Teacher_ID
+
+                                UPDATE SECTION SET HomeStat=@HomeID WHERE Section_ID=@Sec_ID";
 
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
@@ -62,6 +111,10 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@HID", 1);
 
                 WickedEye.Parameters.AddWithValue("@Teacher_ID", Request.QueryString["ID"].ToString());
+
+                WickedEye.Parameters.AddWithValue("@HomeID", 1);
+                WickedEye.Parameters.AddWithValue("@Sec_ID", ddlSection.Text);
+
                 WickedEye.ExecuteNonQuery();
 
                 //Nathaniel Collins S. Ortiz

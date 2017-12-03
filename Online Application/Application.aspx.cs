@@ -18,6 +18,8 @@ public partial class Online_Application_Application : System.Web.UI.Page
 
     }
 
+   
+
 
     protected void btnApply_Click(object sender, EventArgs e)
     {
@@ -70,13 +72,13 @@ public partial class Online_Application_Application : System.Web.UI.Page
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
 
-                WickedEye.Parameters.AddWithValue("@Year_level", txtGradelvl.Text);
+                WickedEye.Parameters.AddWithValue("@Year_level", DropDownList7.SelectedItem.Value);
                 WickedEye.Parameters.AddWithValue("@Section_ID", 21);
 
                 WickedEye.Parameters.AddWithValue("@First_Name", txtFN.Text);
                 WickedEye.Parameters.AddWithValue("@Middle_Name", txtMN.Text);
                 WickedEye.Parameters.AddWithValue("@Last_Name", txtLN.Text);
-                WickedEye.Parameters.AddWithValue("@Gender", txtGender.Text);
+                WickedEye.Parameters.AddWithValue("@Gender", DropDownList1.SelectedItem.Value);
                 WickedEye.Parameters.AddWithValue("@Status_ID", 3);
 
 
@@ -93,7 +95,7 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Bapt_Date", txtBaptDate.Text);
 
                 WickedEye.Parameters.AddWithValue("@Bapt_Place", txtBaptPlace.Text);
-                WickedEye.Parameters.AddWithValue("@Nationality", txtNat.Text);
+                WickedEye.Parameters.AddWithValue("@Nationality", DropDownList4.SelectedItem.Value);
 
                 //Student Other Info
                 WickedEye.Parameters.AddWithValue("@Prev_School", txtStudPrevSchool.Text);
@@ -116,12 +118,12 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Mother_Age", txtMotherAge.Text);
                 WickedEye.Parameters.AddWithValue("@Mother_BirthPlace", txtMotherBP.Text);
 
-                WickedEye.Parameters.AddWithValue("@Mother_Natl", txtMotherNat.Text);
+                WickedEye.Parameters.AddWithValue("@Mother_Natl", DropDownList6.SelectedItem.Value);
                 WickedEye.Parameters.AddWithValue("@Mother_Religion", txtMotherReligion.Text);
                 WickedEye.Parameters.AddWithValue("@Mother_HomeAdd", txtMotherHomeAdd.Text);
 
                 WickedEye.Parameters.AddWithValue("@Mother_PhoneNo", txtMotherPhoneNo.Text);
-                WickedEye.Parameters.AddWithValue("@Mother_EduStat", txtMotherEduStat.Text);
+                WickedEye.Parameters.AddWithValue("@Mother_EduStat", DropDownList3.SelectedItem.Value);
                 WickedEye.Parameters.AddWithValue("@Mother_SchoolGrad", txtMotherSchoolGrad.Text);
 
                 WickedEye.Parameters.AddWithValue("@Mother_Employm", txtMotherEmployem.Text);
@@ -134,12 +136,12 @@ public partial class Online_Application_Application : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Father_Age", txtFatherAge.Text);
                 WickedEye.Parameters.AddWithValue("@Father_BirthPlace", txtFatheBirthplace.Text);
 
-                WickedEye.Parameters.AddWithValue("@Father_Natl", txtFatherNat.Text);
+                WickedEye.Parameters.AddWithValue("@Father_Natl", DropDownList5.SelectedItem.Value);
                 WickedEye.Parameters.AddWithValue("@Father_Religion", txtFatherReligion.Text);
                 WickedEye.Parameters.AddWithValue("@Father_HomeAdd", txtFatherHomeAdd.Text);
 
                 WickedEye.Parameters.AddWithValue("@Father_PhoneNo", txtxfatherPhoneNo.Text);
-                WickedEye.Parameters.AddWithValue("@Father_EduStat", txtFatheEduStat.Text);
+                WickedEye.Parameters.AddWithValue("@Father_EduStat", DropDownList2.SelectedItem.Value);
                 WickedEye.Parameters.AddWithValue("@Father_SchoolGrad", txtFatheSchoolGrad.Text);
 
                 WickedEye.Parameters.AddWithValue("@Father_Employm", txtFatherEmploy.Text);

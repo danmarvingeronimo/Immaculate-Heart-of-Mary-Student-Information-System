@@ -70,7 +70,8 @@ public partial class Admin_Admission_PaymentInfo : System.Web.UI.Page
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
             Rikka.Open();
-            string Takanashi = @"SELECT Paymentinfo_ID, Payment_Status, DateOfPayment, SY, Quarter FROM PAYMENTS_INFO WHERE Student_ID=@SID ORDER BY DateOfPayment ASC";
+            string Takanashi = @"SELECT Pay.Paymentinfo_ID, Paym.Description, Pay.DateOfPayment, Pay.SY, Pay.Quarter FROM PAYMENTS_INFO Pay
+                                INNER JOIN PAYMENT_STATUS_INFO Paym ON Pay.Payment_Status = Paym.Payment_Status WHERE Pay.Student_ID=@SID ORDER BY Pay.DateOfPayment ASC";
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))
             {

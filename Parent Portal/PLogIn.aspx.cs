@@ -23,13 +23,13 @@ public partial class Student_LogIn : System.Web.UI.Page
             Cryptic DE = new Cryptic();
             con.Open();
                
-            string SQL = @"Select Student_ID,First_Name,Middle_Name,Last_Name, UserType_ID FROM STUDENT_MAIN
-                         WHERE User_ID=@User_ID AND Student_PW=@PWD";
+            string SQL = @"Select Student_ID,First_Name,Middle_Name,Last_Name, UserType_ID, Parent_UserID, Parent_Password FROM STUDENT_MAIN
+                         WHERE Parent_UserID=@Parent_UserID AND Parent_Password=@Parent_Password";
 
             using(SqlCommand com = new SqlCommand(SQL, con))
             {
-                com.Parameters.AddWithValue("@User_ID", txtUID.Text);
-                com.Parameters.AddWithValue("@PWD", txtPWD.Text);
+                com.Parameters.AddWithValue("@Parent_UserID", txtUID.Text);
+                com.Parameters.AddWithValue("@Parent_Password", txtPWD.Text);
                 using (SqlDataReader data = com.ExecuteReader())
                 {
                     if(data.HasRows)

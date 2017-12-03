@@ -73,13 +73,15 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
         Cryptic DE = new Cryptic();
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Studnet_PW=@PW WHERE Student_ID=@SID";
+            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW, Parent_UserID=@PUID, Parent_Password=@PD WHERE Student_ID=@SID";
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
                 com.Parameters.AddWithValue("@UID", txtUID.Text);
                 com.Parameters.AddWithValue("@PW", txtPWD.Text);
+                com.Parameters.AddWithValue("@PUID", txtParent_UserID.Text);
+                com.Parameters.AddWithValue("@Pd", txtParent_Password.Text);
 
 
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
