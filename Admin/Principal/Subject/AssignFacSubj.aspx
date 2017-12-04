@@ -18,7 +18,7 @@
             </div>
 
          <div class="form-group">
-             <asp:Label ID="error" runat="server" Visible="false">
+             <asp:Label ID="error" class="col-lg-4" runat="server" Visible="false">
                  Teacher already assigned on 2 subjects
              </asp:Label>
          </div>

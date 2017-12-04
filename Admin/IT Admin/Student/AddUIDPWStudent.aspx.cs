@@ -73,15 +73,9 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
         Cryptic DE = new Cryptic();
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW WHERE Student_ID=@SID";
-=======
+
             string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW, Parent_UserID=@PUID, Parent_Password=@PD WHERE Student_ID=@SID";
->>>>>>> c6f069c6b2c4fa3199fb65e78bcf37b0fe1d47f6
-=======
-            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW, Parent_UserID=@PUID, Parent_Password=@PD WHERE Student_ID=@SID";
->>>>>>> c6f069c6b2c4fa3199fb65e78bcf37b0fe1d47f6
+
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))

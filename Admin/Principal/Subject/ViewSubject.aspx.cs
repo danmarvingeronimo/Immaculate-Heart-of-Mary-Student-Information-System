@@ -43,7 +43,23 @@ public partial class Subject_ViewSubject : System.Web.UI.Page
 
     protected void lvSubject_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+       Literal ltSubjectID = (Literal)e.Item.FindControl("ltSubjectID");
+    if(e.CommandName == "emtyfac")
+        {
+            using(SqlConnection mask = new SqlConnection(Util.GetConnection()))
+            {
+                mask.Open();
+                String Tiger = @"UPDATE SUBJECT_MAIN SET Teacher_ID=@TID WHERE Subject_ID=@SID";
 
+                using(SqlCommand Jungle = new SqlCommand(Tiger, mask))
+                {
+                    Jungle.Parameters.AddWithValue("@SID", ltSubjectID.Text);
+                    Jungle.Parameters.AddWithValue("@TID", 7);
+                    Jungle.ExecuteNonQuery();
+                }
+            }
+        }
+        ViewSubject();
     }
 
 

@@ -36,7 +36,8 @@
                                         <ItemTemplate>
                                             <tr>
 
-
+                                                <asp:Literal ID="ltSubjectID" runat="server"
+                                                    Text='<%# Eval("Subject_ID") %>' Visible="false" />
                                                 <td><%#Eval("Subject_Name") %></td>
                                                 <td><%#Eval("Subject_Desc") %></td>
                                                 <td><%#Eval("Teacher Name") %></td>
@@ -45,6 +46,11 @@
                                                         class="btn btn-xs btn-info" title="Assign Subject">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
+                                                    <asp:LinkButton ID="btnEmptyFaculty" runat="server"
+                                                        class="btn btn-xs btn-warning" CommandName="emtyfac">
+                                                        <i class="fa fa-exclamation"></i>
+                                                    </asp:LinkButton>
+                                                    
                                                 </td>
                                             </tr>
 
