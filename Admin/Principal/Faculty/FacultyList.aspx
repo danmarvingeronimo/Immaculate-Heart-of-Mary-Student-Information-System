@@ -2,14 +2,14 @@
 
 <%--JIONNE LIZARDO --%>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="title" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="title" runat="Server">
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="content" runat="Server">
     <div class="container-fluid" style="padding-bottom: 20px;">
 
-          <ol class="breadcrumb">
-            <li><a href="~/Admin/Principal/Principal_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i> Home</a></li>
+        <ol class="breadcrumb">
+            <li><a href="~/Admin/Principal/Principal_index.aspx" runat="server"><i class="fa fa fa-dashboard"></i>Home</a></li>
             <li class="active">View Faculty</li>
         </ol>
 
@@ -44,11 +44,16 @@
                                                 <asp:Literal ID="ltTeacherID" runat="server"
                                                     Text='<%# Eval("Teacher_ID") %>' Visible="false" />
 
-                                                <td><img id="Img1" runat="server" src='<%# string.Concat("~/img/faculty/", Eval("Image")) %>' class="img-responsive" width="100" /></td>
+                                                <td>
+                                                    <img id="Img1" runat="server" src='<%# string.Concat("~/img/faculty/", Eval("Image")) %>' class="img-responsive" width="100" /></td>
 
                                                 <td><%# Eval("Teacher_LastName") %></td>
                                                 <td><%# Eval("Teacher_FirstName") %></td>
                                                 <td><%# Eval("Teacher_MiddleName") %></td>
+
+                                                <asp:Literal ID="ltSectionID" runat="server"
+                                                    Text='<%# Eval("Section_ID") %>' Visible="false" />
+
                                                 <td><%# Eval("Section") %></td>
                                                 <td><%# Eval("Description") %></td>
                                                 <td>
@@ -60,6 +65,10 @@
                                                     <asp:LinkButton ID="btnDelete" runat="server"
                                                         class="btn btn-xs btn-danger" CommandName="delTeach">
                                          <i class="fa fa-remove"></i>
+                                                    </asp:LinkButton>
+                                                    <asp:LinkButton ID="btnRemoveAdviser" runat="server"
+                                                        class="btn btn-xs btn-warning" CommandName="delAdv">
+                                         <i class="fa fa-exclamation"></i>
                                                     </asp:LinkButton>
                                                 </td>
                                             </tr>

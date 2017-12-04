@@ -82,6 +82,19 @@
                                 </ul>
                             </li>
                             <li class="treeview">
+                                <a href="#"><i class="fa fa-circle-o"></i>Grades <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span></a>
+                                <ul class="treeview-menu">
+                                    <li>
+                                        <a href="Grades/EnableEncoding.aspx" runat="server"><i class="fa fa-circle-o"></i>Enable Grade Input</a>
+                                    </li>
+                                    <li>
+                                        <a href="Grades/SetQuarterSY.aspx" runat="server"><i class="fa fa-circle-o"></i>Set Quarter and S.Y</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="treeview">
                                 <a href="#"><i class="fa fa-circle-o"></i>Scheduling <span class="pull-right-container">
                                     <i class="fa fa-angle-left pull-right"></i>
                                 </span></a>
