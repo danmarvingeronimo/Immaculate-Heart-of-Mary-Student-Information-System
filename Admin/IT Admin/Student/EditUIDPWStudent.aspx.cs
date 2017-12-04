@@ -84,7 +84,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
 
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogAdmin(DE.Encrypt("Editing a Student's Password"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Edited by "
+                audlog.AuditLogAdmin(DE.Encrypt("Editing a Student's Password"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited by IT Admin "
                         + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
 
                 Response.Redirect("IDStudentList.aspx");

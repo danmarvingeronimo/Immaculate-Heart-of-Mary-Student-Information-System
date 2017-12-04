@@ -73,18 +73,24 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
         Cryptic DE = new Cryptic();
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Studnet_PW=@PW WHERE Student_ID=@SID";
+<<<<<<< HEAD
+            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW WHERE Student_ID=@SID";
+=======
+            string sql = @"UPDATE STUDENT_MAIN SET User_ID=@UID, Student_PW=@PW, Parent_UserID=@PUID, Parent_Password=@PD WHERE Student_ID=@SID";
+>>>>>>> c6f069c6b2c4fa3199fb65e78bcf37b0fe1d47f6
             con.Open();
 
             using (SqlCommand com = new SqlCommand(sql, con))
             {
                 com.Parameters.AddWithValue("@UID", txtUID.Text);
                 com.Parameters.AddWithValue("@PW", txtPWD.Text);
+                com.Parameters.AddWithValue("@PUID", txtParent_UserID.Text);
+                com.Parameters.AddWithValue("@Pd", txtParent_Password.Text);
 
 
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogAdmin(DE.Encrypt("Adding Student's Password"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Added by "
+                audlog.AuditLogAdmin(DE.Encrypt("Adding Student's Password"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Added by IT Admin "
                         + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
 
 

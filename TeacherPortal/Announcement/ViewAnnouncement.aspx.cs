@@ -111,7 +111,7 @@ public partial class TeacherPortal_ViewAnnouncement : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@Announcement_ID", ltAnnouncement_ID.Text);
                     Nero.ExecuteNonQuery();
-                    audlog.AuditLogTeacher(DE.Encrypt("Delete Announcements"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Delete by "
+                    audlog.AuditLogAdmin(DE.Encrypt("Delete Announcements"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Delete by Teacher "
                            + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 }
             }

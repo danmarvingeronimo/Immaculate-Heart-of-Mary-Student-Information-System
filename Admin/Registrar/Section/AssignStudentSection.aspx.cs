@@ -138,7 +138,7 @@ public partial class Faculty : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Section_ID", ddlSection.Text);
                 WickedEye.Parameters.AddWithValue("@Student_ID", Request.QueryString["ID"].ToString());
 
-                audlog.AuditLogAdmin(DE.Encrypt("Assigned Student Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Input assigned by "
+                audlog.AuditLogAdmin(DE.Encrypt("Assigned Student Section"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Input assigned by Registrar "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 WickedEye.ExecuteNonQuery();
                 Response.Redirect("StudentList.aspx");

@@ -79,7 +79,7 @@ public partial class TeacherPortal_Profile_Profile : System.Web.UI.Page
                 best.Parameters.AddWithValue("@TLN", txtLN.Text);
                 best.Parameters.AddWithValue("@Department", txtDept.Text);
 
-                audlog.AuditLogTeacher(DE.Encrypt("Edit Faculty Profile"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited by "
+                audlog.AuditLogAdmin(DE.Encrypt("Edit Faculty Profile"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited by Teacher "
                        + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 best.ExecuteNonQuery();
                 Response.Redirect("Profile.aspx");

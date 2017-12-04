@@ -93,7 +93,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         {
             Rikka.Open();
                 string Takanashi = @"SELECT G.Grade_ID, G.Grade_Value, S.Subject_Name FROM GRADE_INFO G INNER JOIN
-                                    SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 1";
+                                    SUBJECT_MAIN S ON G.Subject_ID = S.Subject_ID WHERE G.Student_ID = @SID AND G.Quarter = 2";
                 
 
             using (SqlCommand Chuu2Koi = new SqlCommand(Takanashi, Rikka))

@@ -60,7 +60,7 @@ public partial class Section_ViewSection : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@SecID", ltSectionID.Text);
                     Nero.ExecuteNonQuery();
-                    audlog.AuditLogAdmin(DE.Encrypt("Delete Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by "
+                    audlog.AuditLogAdmin(DE.Encrypt("Delete Section"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Deleted by "
                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 }
             }

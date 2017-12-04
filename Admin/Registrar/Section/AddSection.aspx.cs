@@ -35,7 +35,7 @@ public partial class Section_AddSection : System.Web.UI.Page
                 //bread.Parameters.AddWithValue("@Time_Stamp", DateTime.Now);
                 bread.Parameters.AddWithValue("@Year_level", int.Parse(txtYL.Text));
                 bread.ExecuteNonQuery();
-                audlog.AuditLogAdmin(DE.Encrypt("Adding a Section"), int.Parse(Session["admin_id"].ToString()),DE.Encrypt("Added by "
+                audlog.AuditLogAdmin(DE.Encrypt("Adding a Section"), int.Parse(Session["user_id"].ToString()),DE.Encrypt("Added by Registrar "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("ViewSection.aspx");
             }

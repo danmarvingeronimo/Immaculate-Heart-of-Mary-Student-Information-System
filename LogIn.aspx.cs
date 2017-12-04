@@ -29,7 +29,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
             Cryptic DE = new Cryptic();
             Rikka.Open();
 
-            string Takanashi = @"SELECT Student_ID, First_Name, Middle_Name, Last_Name, UserType_ID FROM STUDENT_MAIN
+            string Takanashi = @"SELECT Student_ID, First_Name, Middle_Name, Last_Name, UserType_ID,  User_ID FROM STUDENT_MAIN
                                  WHERE User_ID=@User_ID AND Student_PW=@Student_PW";
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
@@ -46,6 +46,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             Session["First_Name"] = Chuu2["First_Name"].ToString();
                             Session["Middle_Name"] = Chuu2["Middle_Name"].ToString();
                             Session["Last_Name"] = Chuu2["Last_Name"].ToString();
+                            Session["user_id"] = Chuu2["User_ID"].ToString();
                             Session["UserType_ID"] = Chuu2["UserType_ID"].ToString();
 
 
@@ -53,7 +54,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
                         //Audit Log of Session ID
                         //Nathaniel Collins S. Ortiz V
-                        audlog.AuditLogStudent(DE.Encrypt("Log-In"), int.Parse(Session["Student_ID"].ToString()), DE.Encrypt("Logged-In by "
+                        audlog.AuditLogAdmin(DE.Encrypt("Student Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In by Student "
                             + Session["First_Name"].ToString() + " " + Session["Middle_Name"].ToString() + " " + Session["Last_Name"].ToString()));
 
                         //dmg
@@ -102,7 +103,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
             Cryptic DE = new Cryptic();
             Rikka.Open();
 
-            string Takanashi = @"SELECT Teacher_ID, Teacher_FirstName, Teacher_MiddleName, Teacher_LastName, UserType_ID FROM TEACHER_MAIN
+            string Takanashi = @"SELECT Teacher_ID, Teacher_FirstName, Teacher_MiddleName, Teacher_LastName, UserType_ID, User_ID FROM TEACHER_MAIN
                                  WHERE User_ID=@User_ID AND Teacher_PW=@Teacher_PW";
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
@@ -119,6 +120,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                             Session["teacher_FirstName"] = Chuu2["Teacher_FirstName"].ToString();
                             Session["teacher_MiddleName"] = Chuu2["Teacher_MiddleName"].ToString();
                             Session["teacher_LastName"] = Chuu2["Teacher_LastName"].ToString();
+                            Session["user_id"] = Chuu2["User_ID"].ToString();
                             Session["UserType_ID"] = Chuu2["UserType_ID"].ToString();
 
 
@@ -126,7 +128,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
                         //Audit Log of Session ID
                         //Nathaniel Collins S. Ortiz V
-                        audlog.AuditLogTeacher(DE.Encrypt("Log-In"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Logged-In by "
+                        audlog.AuditLogAdmin(DE.Encrypt("Teacher Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In by Teacher "
                             + Session["teacher_FirstName"].ToString() + " " + Session["teacher_MiddleName"].ToString() + " " + Session["teacher_LastName"].ToString()));
 
                         //dmg
@@ -175,7 +177,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
             Cryptic DE = new Cryptic();
             Rikka.Open();
 
-            string Takanashi = @"SELECT Admin_ID,First_Name,Middle_Name,Last_Name, UserType_ID FROM ADMIN_MAIN 
+            string Takanashi = @"SELECT Admin_ID,First_Name,Middle_Name,Last_Name, UserType_ID, User_ID FROM ADMIN_MAIN 
                            WHERE User_ID=@User_ID AND Admin_PW=@Admin_PW";
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
@@ -190,6 +192,7 @@ public partial class Admin_LogIn : System.Web.UI.Page
                         while (Chuu2.Read())
                         {
                             Session["admin_id"] = Chuu2["Admin_ID"].ToString();
+                            Session["user_id"] = Chuu2["User_ID"].ToString();
                             Session["first_name"] = Chuu2["First_Name"].ToString();
                             Session["middle_name"] = Chuu2["Middle_Name"].ToString();
                             Session["last_name"] = Chuu2["Last_Name"].ToString();
@@ -201,26 +204,35 @@ public partial class Admin_LogIn : System.Web.UI.Page
 
                         //Audit Log of Session ID
                         //Nathaniel Collins S. Ortiz V
-                        audlog.AuditLogAdmin(DE.Encrypt("Log-In"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Logged-In by "
-                            + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
+                        //audlog.AuditLogAdmin(DE.Encrypt("Admin Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In Admin by "
+                          //  + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                         //audlog.AuditLogAdmin("Log-In", int.Parse(Session["admin_id"].ToString()), "Logged-In by "
                         //    + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
 
                         //dmg
                         if (Session["UserType_ID"].ToString() == "1")
                         {
+                            audlog.AuditLogAdmin(DE.Encrypt("Admin Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In IT Admin by "
+                           + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                             Response.Redirect("~/Admin/IT Admin/ITAdmin_index.aspx");
+                           
                         }
                         else if (Session["UserType_ID"].ToString() == "2")
                         {
+                            audlog.AuditLogAdmin(DE.Encrypt("Admin Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In Registrar by "
+                           + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                             Response.Redirect("~/Admin/Registrar/Registrar_index.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "3")
                         {
+                            audlog.AuditLogAdmin(DE.Encrypt("Admin Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In Accounting by "
+                           + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                             Response.Redirect("~/Admin/Accounting/Accounting_index.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "4")
                         {
+                            audlog.AuditLogAdmin(DE.Encrypt("Admin Log-In"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Logged-In Principal by "
+                           + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                             Response.Redirect("~/Admin/Principal/Principal_index.aspx");
                         }
                         else if (Session["UserType_ID"].ToString() == "5")

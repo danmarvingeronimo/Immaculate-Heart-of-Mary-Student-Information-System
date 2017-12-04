@@ -74,7 +74,7 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
 
             Rikka.Open();
             string Takanashi = @"Select S.ScheduleID, S.Day_Schedule, S.Timeslot , S.Year_level + ' - ' + Sec.Section_Name AS 'Grade Section', Subj.Subject_Name ,
-	                            Teach.Teacher_LastName + ', ' + Teach.Teacher_FirstName + ' ' + Teach.Teacher_MiddleName AS 'Teacher'
+	                            Teach.Teacher_FirstName + ', ' + Teach.Teacher_LastName + ' ' + Teach.Teacher_MiddleName AS 'Teacher'
 								from SCHEDULE S
                                 INNER JOIN SECTION Sec ON S.Section_ID = Sec.Section_ID
                                 INNER JOIN SUBJECT_MAIN Subj ON S.Subject_ID = Subj.Subject_ID
@@ -119,7 +119,7 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@SchedID", ltSchedID.Text);
                     Nero.ExecuteNonQuery();
-                    audlog.AuditLogAdmin("Delete Schedule", int.Parse(Session["admin_id"].ToString()), "Schedule has been Deleted by "
+                    audlog.AuditLogAdmin("Delete Schedule", int.Parse(Session["user_id"].ToString()), "Schedule has been Deleted by Principal "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
                 }
             }

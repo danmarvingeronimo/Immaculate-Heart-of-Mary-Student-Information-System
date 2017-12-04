@@ -37,7 +37,7 @@
                                                 <td><%#Eval("DateOfPayment") %></td>
                                                 <td><%#Eval("SY") %></td>
                                                 <td><%#Eval("Quarter") %></td>
-                                                <td><%#Eval("Payment_Status") %></td>
+                                                <td><%#Eval("Description") %></td>
 
 
                                             </tr>

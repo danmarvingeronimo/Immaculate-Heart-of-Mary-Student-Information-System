@@ -54,7 +54,7 @@ public partial class Faculty : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@TID", ltTeacherID.Text);
                     Nero.ExecuteNonQuery();
-                    audlog.AuditLogAdmin(DE.Encrypt("Deleting a Faculty"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by "
+                    audlog.AuditLogAdmin(DE.Encrypt("Deleting a Faculty"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by IT Admin "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 }
             }

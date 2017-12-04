@@ -84,6 +84,7 @@ public partial class Faculty : System.Web.UI.Page
                     ddlTeacher.DataBind();
 
                     ddlTeacher.Items.Insert(0, new ListItem("Select a Teacher.", ""));
+                   
 
                 }
             }
@@ -98,22 +99,40 @@ public partial class Faculty : System.Web.UI.Page
             Rikka.Open();
             string Takanashi = @"UPDATE SUBJECT_MAIN SET Teacher_ID=@Teacher_ID WHERE
                                 Subject_ID=@Subject_ID";
-
+            
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
+                
+                
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
                 //Subject
                 WickedEye.Parameters.AddWithValue("@Teacher_ID", ddlTeacher.Text);
                 WickedEye.Parameters.AddWithValue("@Subject_ID", Request.QueryString["ID"].ToString());
-
+                SqlDataReader dr = WickedEye.ExecuteReader();
+                int count=0;
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {   
+                        count++;
+                       
+                    }
+                }
+                else
+                {
+                    error.Visible = true;
+                }
 
                 WickedEye.ExecuteNonQuery();
-                //Nathaniel Collins S. Ortiz
-                audlog.AuditLogAdmin(DE.Encrypt("Assigning Faculty with Subject"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Faculty assigned by "
-                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
-
+                Rikka.Close();
+                audlog.AuditLogAdmin(DE.Encrypt("Assigning Faculty with Subject"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Faculty assigned by Principal "
+                + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("ViewSubject.aspx");
+
+                //Nathaniel Collins S. Ortiz
+
+
 
             }
         }

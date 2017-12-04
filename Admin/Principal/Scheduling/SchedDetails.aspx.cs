@@ -150,7 +150,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
 
                 WickedEye.ExecuteNonQuery();
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLogAdmin(DE.Encrypt("Edit Schedule"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Schedule has been Edited by "
+                audlog.AuditLogAdmin(DE.Encrypt("Edit Schedule"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Schedule has been Edited by Principal "
                          + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("Schedule.aspx");
 

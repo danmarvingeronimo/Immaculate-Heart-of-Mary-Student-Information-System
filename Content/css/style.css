@@ -918,7 +918,6 @@ a.btn,
     padding: 57px 0 100px 0;
 }
 
-<<<<<<< HEAD
     .events article {
         width: 33%;
         float: left;
@@ -931,20 +930,8 @@ a.btn,
     width: 800px;
     height: 300px;
     align-content: center;
-=======
-.events article {
-	width: 33%;
-	float: left;
-	padding: 0 15px;
-	font-size: 14px;
-	line-height: 20px;
->>>>>>> 4af53a52b79ebfdcce0535b9e788d7c8bc8f4c12
 }
-.pica {
-    width: 500px;
-    height: 300px;
-    align-content: center;
-}
+
 .current-date {
     width: 70px;
     float: left;
@@ -1503,7 +1490,6 @@ a.btn,
 
 @media screen and (max-width: 1220px) {
 
-<<<<<<< HEAD
     .container {
         width: 100%;
     }
@@ -1711,216 +1697,6 @@ a.btn,
     #sidebar .sidemenu a {
         font-size: 20px;
     }
-=======
-	.container {
-		width: 100%;
-	}
-
-	#header {
-		overflow: hidden;
-		padding-bottom: 60px;
-		margin-bottom: -40px;
-	}
-	
-	#menu {
-		margin: 0 -80px;
-	}
-	
-	#menu li {
-		padding: 0 10px;
-	}
-	
-	.slider {
-		height: 400px;
-		margin-bottom: 50px;
-	}
-	
-	.slider .bxslider li {
-		height: 400px;
-	}
-	
-	.slider .info {
-		float: right;
-		padding: 50px 15px 0 0;
-	}
-	
-	.slider .info h2 {
-		font-size: 60px;
-		line-height: 70px;
-		padding-bottom: 50px;
-	}
-	
-	.slider .info h2 span {
-		font-size: 70px;
-		line-height: 80px;
-		display: inline-block;
-	}
-
-	.mac .slider .info h2 span {
-		line-height: 61px;
-	}
-	
-	.slider .info a {
-		font-size: 36px;
-		line-height: 40px;
-	}
-	
-	.posts {
-		padding-bottom: 50px;
-	}
-	
-	.posts article {
-		padding: 0 15px;
-	}
-	
-	.posts .pic {
-		margin-right: 15px;
-		width: 100px;
-	}
-	
-	.posts .pic img {
-		width: 100%;
-	}
-	
-	.posts .info {
-		padding-right: 0;
-		font-size: 16px;
-		line-height: 22px;
-	}
-	
-	.posts .info h3 {
-		font-size: 26px;
-		line-height: 30px;
-		padding-bottom: 7px;
-	}
-	
-	.news {
-		padding: 40px 0 50px 0;
-	}
-	
-	h1,
-	h2 {
-		font-size: 50px;
-		line-height: 60px;
-		padding-bottom: 40px;
-	}
-	
-	.news article {
-		width: 50%;
-		float: left;
-		padding: 0 15px;
-	}
-	
-	.news .pic {
-		margin-right: 15px;
-		width: 80px;
-	}
-	
-	.news .pic img {
-		width: 100%;
-	}
-	
-	.btn-holder {
-		padding: 50px 0 0 0;
-	}
-	
-	.events {
-		padding: 40px 0 50px 0;
-	}
-	
-	.events article {
-		width: 70%;
-		padding-bottom: 30px;
-	}
-		
-	.events article:nth-child(2n+2) {
-		clear: left;
-	}
-		
-	.events .info p {
-		min-height: 0;
-	}
-	
-	.info-request {
-		height: auto;
-		padding: 0;
-		margin-bottom: 70px;
-	}
-	
-	.info-request .holder {
-		width: 100%;
-		padding-bottom: 20px;
-		padding-left: 138px;
-	}
-	
-	.info-request .arrow {
-		width: 100%;
-		height: 80px;
-	}
-	
-	.info-request .title {
-		font-size: 50px;
-		line-height: 60px;
-	}
-		
-	#footer {
-		padding: 50px 0 0 0;
-	}
-	
-	#footer article {
-		width: 50%;
-		padding-bottom: 20px;
-	}
-	
-	#footer article:nth-child(2n+1) {
-		clear: left;
-	}
-	
-	#footer h3 {
-		font-size: 40px;
-		line-height: 44px;
-		padding-bottom: 30px;
-	}
-		
-	#footer .copy {
-		padding: 20px 15px 15px 15px;
-	}
-	
-	#fancy .right,
-	#fancy .left {
-		width: 100%;
-	}
-	
-	#fancy fieldset {
-		width: 100%;
-	}
-	
-	#sidebar {
-		width: 40%;
-	}
-
-	.posts-con .current-date {
-		margin-right: 15px;
-	}
-
-	.posts-con article {
-		font-size: 14px;
-		line-height: 22px;
-	}
-
-	.slider-con .slide li {
-		width: 33.33%;
-	}
-	
-	.slider-con .slide li img {
-		width: 100%;
-	}
-	
-	#sidebar .sidemenu a {
-		font-size: 20px;
-	}
-	
->>>>>>> 4af53a52b79ebfdcce0535b9e788d7c8bc8f4c12
 }
 
 @media screen and (min-width: 701px) {

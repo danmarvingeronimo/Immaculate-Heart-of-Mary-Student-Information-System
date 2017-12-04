@@ -46,7 +46,7 @@ public partial class Section_AddSection : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Teacher_PW", txtPass.Text);
 
                 WickedEye.ExecuteNonQuery();
-                audlog.AuditLogAdmin(DE.Encrypt("Adding a Faculty"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Added by "
+                audlog.AuditLogAdmin(DE.Encrypt("Adding a Faculty"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Added by Principal "
                              + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("FacultyList.aspx");
             }

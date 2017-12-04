@@ -82,7 +82,7 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
                 com.ExecuteNonQuery();
 
                 //Nathaniel Collins S. Ortiz
-                audlog.AuditLogAdmin(DE.Encrypt("Editing a Faculty's Password"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Edited by "
+                audlog.AuditLogAdmin(DE.Encrypt("Editing a Faculty's Password"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited by IT Admin"
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("FacultyList.aspx");
             }

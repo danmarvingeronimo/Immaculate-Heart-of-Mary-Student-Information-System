@@ -99,7 +99,7 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
                 cmd.Parameters.AddWithValue("@GV", txtGrade.Text);
 
                 cmd.ExecuteNonQuery();
-                audlog.AuditLogTeacher(DE.Encrypt("Edit Grade"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited by "
+                audlog.AuditLogAdmin(DE.Encrypt("Edit Grade"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited by Teacher "
                         + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 Response.Redirect("ViewGrade.aspx");
 

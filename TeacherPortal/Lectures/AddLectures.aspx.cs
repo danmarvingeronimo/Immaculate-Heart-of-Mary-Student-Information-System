@@ -76,7 +76,7 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
                 cmd.ExecuteNonQuery();
 
-                audlog.AuditLogTeacher(DE.Encrypt("Added Lectures"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Added by "
+                audlog.AuditLogAdmin(DE.Encrypt("Added Lectures"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Added by Teacher "
                         + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 //audlog.AuditLogTeacher("Add Lectures", int.Parse(Session["teacher_id"].ToString()), "Added Lectures by "
                 //            + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());

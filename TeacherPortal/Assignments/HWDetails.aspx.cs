@@ -81,7 +81,7 @@ public partial class TeacherPortal_Class : System.Web.UI.Page
                 com.Parameters.AddWithValue("@Description", txtDescription.Text);
                 com.Parameters.AddWithValue("@ID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogTeacher(DE.Encrypt("Homework Details"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Edited Homework by "
+                audlog.AuditLogAdmin(DE.Encrypt("Homework Details"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited Homework by Teacher "
                            + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 //audlog.AuditLogTeacher("Homework Details", int.Parse(Session["teacher_id"].ToString()), "Edited by "
                 //           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString());

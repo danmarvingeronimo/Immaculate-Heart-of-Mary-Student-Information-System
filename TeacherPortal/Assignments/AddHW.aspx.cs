@@ -77,7 +77,7 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
 
                 cmd.ExecuteNonQuery();
-                audlog.AuditLogTeacher(DE.Encrypt("Add Homework"), int.Parse(Session["teacher_id"].ToString()),DE.Encrypt("Added Homework by "
+                audlog.AuditLogAdmin(DE.Encrypt("Add Homework"), int.Parse(Session["user_id"].ToString()),DE.Encrypt("Added Homework by Teacher "
                            + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                 Response.Redirect("ViewHW.aspx");
 

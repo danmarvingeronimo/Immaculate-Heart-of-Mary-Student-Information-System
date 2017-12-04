@@ -44,6 +44,23 @@
 
 
             <div class="form-group">
+                <label class="control-label col-lg-4">Parent User ID</label>
+                <div class="col-lg-8">
+                    <asp:textbox id="txtParent_UserID" runat="server"
+                        class="form-control" maxlength="40" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-lg-4">Password</label>
+                <div class="col-lg-8">
+                    <asp:textbox id="txtParent_Password" runat="server"
+                        class="form-control" type="password" maxlength="20" required />
+                </div>
+            </div>
+
+
+            <div class="form-group">
                 <div class="col-lg-offset-4 col-lg-8">
                     <asp:button id="btnUpdate" runat="server"
                         class="btn btn-success" text="Update" onclick="btnUpdate_Click" />

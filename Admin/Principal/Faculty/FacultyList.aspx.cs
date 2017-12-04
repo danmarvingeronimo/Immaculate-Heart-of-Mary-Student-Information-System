@@ -24,7 +24,7 @@ public partial class Faculty : System.Web.UI.Page
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {
                 con.Open();
-            String SQL = @"SELECT teach.Teacher_ID, teach.Teacher_FirstName , teach.Teacher_LastName , teach.Teacher_MiddleName, SEC.Year_level + ' - ' + Section_Name AS 'Section', H.Description, teach.Image FROM TEACHER_MAIN teach
+            String SQL = @"SELECT teach.Teacher_ID, teach.Teacher_FirstName , teach.Teacher_LastName , teach.Teacher_MiddleName, SEC.Section_ID, SEC.Year_level + ' - ' + Section_Name AS 'Section', H.Description, teach.Image FROM TEACHER_MAIN teach
                           INNER JOIN SECTION SEC ON teach.Section_ID = SEC.Section_ID
 						  INNER JOIN HOMEROOM_STAT H ON H.HomeroomStat_ID = teach.HomeroomStat_ID WHERE Teacher_ID !=7 ";
                           
@@ -45,6 +45,8 @@ public partial class Faculty : System.Web.UI.Page
      protected void lvFaculty_ItemCommand(object sender, ListViewCommandEventArgs e)
      {
         Literal ltTeacherID = (Literal)e.Item.FindControl("ltTeacherID");
+        Literal ltSectionID = (Literal)e.Item.FindControl("ltSectionID");
+
 
         Cryptic DE = new Cryptic();
         Util audlog = new Util();
@@ -59,14 +61,35 @@ public partial class Faculty : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@TID", ltTeacherID.Text);
                     Nero.ExecuteNonQuery();
-                    audlog.AuditLogAdmin(DE.Encrypt("Deleting a Faculty"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by "
+                    audlog.AuditLogAdmin(DE.Encrypt("Deleting a Faculty"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Deleted by Principal "
                       + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 }
             }
         }
-        else if (e.CommandName == "updateTeach")
+        else if (e.CommandName == "delAdv")
         {
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                con.Open();
+                string UPDATE = @"UPDATE SECTION SET HomeStat=@HomeID WHERE Section_ID=@Sec_ID
+                                  
+                                UPDATE TEACHER_MAIN SET Section_ID=@Section_ID, HomeroomStat_ID=@HID WHERE
+                                Teacher_ID=@TID";
 
+                using (SqlCommand Nero = new SqlCommand(UPDATE, con))
+                {
+                    Nero.Parameters.AddWithValue("@TID", ltTeacherID.Text);
+                    Nero.Parameters.AddWithValue("@HomeID", 2);
+
+                    Nero.Parameters.AddWithValue("@Sec_ID", ltSectionID.Text);
+                    Nero.Parameters.AddWithValue("@Section_ID", 21);
+                    Nero.Parameters.AddWithValue("@HID", 2);
+
+                    Nero.ExecuteNonQuery();
+                    audlog.AuditLogAdmin(DE.Encrypt("Removed adviser status"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Removed by "
+                      + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
+                }
+            }
         }
         GetFaculty();
     }

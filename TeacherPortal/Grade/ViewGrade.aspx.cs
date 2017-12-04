@@ -113,7 +113,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
                 {
                     Nero.Parameters.AddWithValue("@Grade_ID", ltGradeID.Text);
                     Nero.ExecuteNonQuery();
-                    audlog.AuditLogTeacher(DE.Encrypt("Deleted Grade"), int.Parse(Session["teacher_id"].ToString()), DE.Encrypt("Deleted by "
+                    audlog.AuditLogAdmin(DE.Encrypt("Deleted Grade"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Deleted by Teacher "
                         + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
                     Response.Redirect("StudentList.aspx");
                 }

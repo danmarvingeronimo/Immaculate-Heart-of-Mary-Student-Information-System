@@ -80,7 +80,7 @@ public partial class Faculty_Section_SectionDetails : System.Web.UI.Page
                 com.Parameters.AddWithValue("@YL", txtYL.Text);
                 com.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
                 com.ExecuteNonQuery();
-                audlog.AuditLogAdmin(DE.Encrypt("Editing Details for Section"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Edited Section by "
+                audlog.AuditLogAdmin(DE.Encrypt("Editing Details for Section"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited Section by Registrar "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("ViewSection.aspx");
             }

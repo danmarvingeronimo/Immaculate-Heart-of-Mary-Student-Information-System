@@ -114,7 +114,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Request.QueryString["ID"].ToString());
                 WickedEye.ExecuteNonQuery();
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLogAdmin(DE.Encrypt("Editing an Admin"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Edited by "
+                audlog.AuditLogAdmin(DE.Encrypt("Editing an Admin"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Edited by IT Admin"
                           + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("ViewAdmin.aspx");
 

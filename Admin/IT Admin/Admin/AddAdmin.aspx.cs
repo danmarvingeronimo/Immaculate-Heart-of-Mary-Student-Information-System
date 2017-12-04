@@ -64,7 +64,7 @@ public partial class Section_AddSection : System.Web.UI.Page
                 WickedEye.ExecuteNonQuery();
 
                 //Nathaniel Collins S. Ortiz V
-                audlog.AuditLogAdmin(cs.Encrypt( "Adding an Admin"), int.Parse(Session["admin_id"].ToString()),cs.Encrypt( "Added by "
+                audlog.AuditLogAdmin(cs.Encrypt( "Adding an Admin"), int.Parse(Session["user_id"].ToString()),cs.Encrypt( "Added by IT Admin "
                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
                 Response.Redirect("ViewAdmin.aspx");
             }
