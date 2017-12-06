@@ -55,7 +55,6 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
 
 
 
-
     void GetID(int ID)
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
@@ -85,7 +84,7 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
         }
     }
 
-    
+
 
     void GetGrade(int ID)
     {

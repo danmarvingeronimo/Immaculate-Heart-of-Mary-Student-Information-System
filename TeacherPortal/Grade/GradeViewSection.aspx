@@ -30,7 +30,7 @@
             <ItemTemplate>
                 <tr>
 
-                    
+       
                     <td><%# Eval("Section_Name") %></td>
                     <td><%# Eval("Year_Level") %></td>
                     <td>
@@ -43,6 +43,7 @@
                             <i class="fa fa-edit"></i>
                         </a>
                         
+
                     </td>
                 
                 </tr>

@@ -64,8 +64,8 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
             Util audlog = new Util();
             Cryptic DE = new Cryptic();
             Rikka.Open();
-            string Takanashi = @"UPDATE TEACHER_MAIN SET Section_ID=@Section_ID, HomeroomStat_ID=@HID WHERE
-                                Teacher_ID=@Teacher_ID";
+            string Takanashi = @"UPDATE ENCODING_STATUS SET Grade_StatusID=@GID WHERE
+                                EncodingStat_ID=1";
 
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
@@ -73,21 +73,28 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
 
                 //Subject
-                WickedEye.Parameters.AddWithValue("@Section_ID", ddlStatus.Text);
-                WickedEye.Parameters.AddWithValue("@HID", 1);
+                WickedEye.Parameters.AddWithValue("@GID", ddlStatus.Text);
+                
 
-                WickedEye.Parameters.AddWithValue("@Teacher_ID", Request.QueryString["ID"].ToString());
 
-                WickedEye.Parameters.AddWithValue("@HomeID", 1);
-                WickedEye.Parameters.AddWithValue("@Sec_ID", ddlStatus.Text);
+               
 
                 WickedEye.ExecuteNonQuery();
 
                 //Nathaniel Collins S. Ortiz
-                audlog.AuditLogAdmin(DE.Encrypt("Assigning Faculty with Homeroom Adviser"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Faculty assigned by "
+                audlog.AuditLogAdmin(DE.Encrypt("Updated Encoding Status"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Encoding Status updated by "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
-                Response.Redirect("FacultyList.aspx");
 
+                if (ddlStatus.Text == "1")
+                {
+                    Response.Redirect("SetQuarterSY.aspx");
+
+                }
+                else
+                {
+                    error.Visible = true;
+
+                }
             }
         }
     }

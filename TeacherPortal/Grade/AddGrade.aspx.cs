@@ -28,7 +28,7 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
                 {
                     GetID(secid);
                     GetSubj();
-                    
+
 
                 }
             }
@@ -131,38 +131,139 @@ public partial class TeacherPortal_Upload : System.Web.UI.Page
 
 
 
-    protected void btnUpload_Click(object sender, EventArgs e)
+    public static int GradeStatus()
     {
-        using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+        int GradeStatus = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
         {
-            Util audlog = new Util();
-            Cryptic DE = new Cryptic();
-            con.Open();
-            string SQL = @"INSERT INTO GRADE_INFO(Student_ID, Teacher_ID, Grade_Value, SY, Quarter, Subject_ID) 
-                            VALUES (@SID, @TID, @Grade_Value, @SY, @Quarter, @Subject_ID)";
-
-            using (SqlCommand cmd = new SqlCommand(SQL, con))
+            string Takanashi = @" SELECT Grade_StatusID FROM ENCODING_STATUS WHERE EncodingStat_ID=1";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {
-                cmd.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
 
-                cmd.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            GradeStatus = int.Parse(dr["Grade_StatusID"].ToString());
+                        }
+                    }
 
-                cmd.Parameters.AddWithValue("@Grade_Value", txtGrade.Text);
-
-
-                cmd.Parameters.AddWithValue("@SY", txtSchoolYear.Text);
-
-                cmd.Parameters.AddWithValue("@Quarter", txtQuarter.Text);
-                cmd.Parameters.AddWithValue("@Subject_ID", ddlSubject.Text);
-
-
-                cmd.ExecuteNonQuery();
-                audlog.AuditLogAdmin(DE.Encrypt("Add Grade"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Added by Teacher "
-                           + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
-                Response.Redirect("StudentList.aspx");
-
+                }
             }
+
         }
 
+        return GradeStatus;
+    }
+
+    public static int SY()
+    {
+        int SY = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT SY_ID FROM ENCODING_STATUS WHERE EncodingStat_ID=1";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            SY = int.Parse(dr["SY_ID"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return SY;
+    }
+
+    public static int Quarter()
+    {
+        int Quarter = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT Quarter_ID FROM ENCODING_STATUS WHERE EncodingStat_ID=1";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            Quarter = int.Parse(dr["Quarter_ID"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return Quarter;
+    }
+
+
+
+
+
+
+    protected void btnUpload_Click(object sender, EventArgs e)
+    {
+        int gradeStatus = GradeStatus();
+        int sy = SY();
+        int quarter = Quarter();
+        if (gradeStatus == 1)
+        {
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                Util audlog = new Util();
+                Cryptic DE = new Cryptic();
+                con.Open();
+                string SQL = @"INSERT INTO GRADE_INFO(Student_ID, Teacher_ID, Grade_Value, SY, Quarter, Subject_ID) 
+                            VALUES (@SID, @TID, @Grade_Value, @SY, @Quarter, @Subject_ID)";
+
+                using (SqlCommand cmd = new SqlCommand(SQL, con))
+                {
+                    cmd.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
+
+                    cmd.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+
+                    cmd.Parameters.AddWithValue("@Grade_Value", txtGrade.Text);
+
+
+                    cmd.Parameters.AddWithValue("@SY", sy);
+
+                    cmd.Parameters.AddWithValue("@Quarter", quarter);
+                    cmd.Parameters.AddWithValue("@Subject_ID", ddlSubject.Text);
+
+
+                    cmd.ExecuteNonQuery();
+                    audlog.AuditLogAdmin(DE.Encrypt("Add Grade"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Added by Teacher "
+                               + Session["teacher_firstname"].ToString() + " " + Session["teacher_middlename"].ToString() + Session["teacher_lastname"].ToString()));
+                    Response.Redirect("StudentList.aspx");
+
+                }
+
+            }
+
+        }
+
+        else
+        {
+            error.Visible = true;
+        }
     }
 }

@@ -110,4 +110,8 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
 
 
     }
+    protected void btnUpload_Click(object sender, EventArgs e)
+    {
+
+    }
 }

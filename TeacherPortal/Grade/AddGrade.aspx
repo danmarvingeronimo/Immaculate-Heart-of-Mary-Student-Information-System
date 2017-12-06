@@ -8,24 +8,10 @@
     <form runat="server" class="form form-horizontal">
          <div class="col-lg-6">
 
-             <div class="form-group">
-                 <label class="control-label col-lg-4">School Year</label>
-                 <div class="col-lg-8">
-                     <asp:textbox id="txtSchoolYear" runat="server" class="form-control" type="text" required />
-                 </div>
-             </div>
-
-            <div class="form-group">
-                 <label class="control-label col-lg-4">Quarter</label>
-                 <div class="col-lg-8">
-                     <asp:textbox id="txtQuarter" runat="server" class="form-control" type="text" required />
-                 </div>
-             </div>
-
             <div class="form-group">
                  <label class="control-label col-lg-4">Grade</label>
                  <div class="col-lg-8">
-                     <asp:textbox id="txtGrade" runat="server" class="form-control" type="  " required />
+                     <asp:textbox id="txtGrade" runat="server" class="form-control" type="text" required />
                  </div>
              </div>
              <div class="form-group">
@@ -36,7 +22,13 @@
                  </div>
              </div>
 
-             
+              <div class="form-group">
+            <div class="col-lg-offset-4 col-lg-8">
+                <asp:Label ID="error" ForeColor="Red" runat="server" Visible="false">
+                 <strong>Alert!</strong> Encoding is not yet enabled!!
+                </asp:Label>
+            </div>
+        </div>
 
             <div class="form-group">
                 <div class="col-lg-offset-4 col-lg-8">

@@ -16,6 +16,14 @@
                         class="form-control" required />
                 </div>
             </div>
+
+        <div class="form-group">
+            <div class="col-lg-offset-4 col-lg-8">
+                <asp:Label ID="error" ForeColor="Blue" runat="server" Visible="false">
+                 <strong></strong> Encoding Status: Disabled!
+                </asp:Label>
+            </div>
+        </div>
                
           <div class="form-group">
                <div class="col-lg-offset-4 col-lg-8">

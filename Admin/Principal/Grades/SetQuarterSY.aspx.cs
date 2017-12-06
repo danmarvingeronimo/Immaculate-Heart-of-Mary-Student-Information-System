@@ -14,8 +14,8 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
 
         if (!IsPostBack)
         {
-
-            GetStatus();
+            GetSY();
+            GetQuarter();
         }
 
     }
@@ -25,7 +25,7 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
 
    
 
-    void GetStatus()
+    void GetSY()
     {
         
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
@@ -35,18 +35,18 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
 
             
 
-                string Takanashi = @"SELECT Grade_StatusID, Description FROM GRADE_INPUT_STAT ";
+                string Takanashi = @"SELECT SY_ID, School_Year FROM SY";
                 using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
                 {
 
                     using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
                     {
-                        ddlStatus.DataSource = Chuu2;
-                        ddlStatus.DataTextField = "Description";
-                        ddlStatus.DataValueField = "Grade_StatusID";
-                        ddlStatus.DataBind();
+                        ddlSY.DataSource = Chuu2;
+                        ddlSY.DataTextField = "School_Year";
+                        ddlSY.DataValueField = "SY_ID";
+                        ddlSY.DataBind();
 
-                        ddlStatus.Items.Insert(0, new ListItem("Enable or Disable Grade Encoding.", ""));
+                        ddlSY.Items.Insert(0, new ListItem("Enter the School Year.", ""));
 
                     }
                 }
@@ -59,6 +59,40 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
         }
     }
 
+    void GetQuarter()
+    {
+
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            Rikka.Open();
+            Cryptic DE = new Cryptic();
+
+
+
+            string Takanashi = @"SELECT Quarter_ID, Quarter FROM QUARTER ";
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+
+                using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
+                {
+                    ddlQT.DataSource = Chuu2;
+                    ddlQT.DataTextField = "Quarter";
+                    ddlQT.DataValueField = "Quarter_ID";
+                    ddlQT.DataBind();
+
+                    ddlQT.Items.Insert(0, new ListItem("Enter the Quarter.", ""));
+
+                }
+            }
+
+
+
+
+
+
+        }
+    }
+
     protected void btnUpdate_Click(object sender, EventArgs e)
     {
         using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
@@ -66,8 +100,8 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
             Util audlog = new Util();
             Cryptic DE = new Cryptic();
             Rikka.Open();
-            string Takanashi = @"UPDATE TEACHER_MAIN SET Section_ID=@Section_ID, HomeroomStat_ID=@HID WHERE
-                                Teacher_ID=@Teacher_ID";
+            string Takanashi = @"UPDATE ENCODING_STATUS SET Quarter_ID=@QID, SY_ID=@SY WHERE
+                                EncodingStat_ID=1";
 
 
             using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
@@ -75,20 +109,19 @@ public partial class Admin_Principal_Faculty_AssignFacSec : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
 
                 //Subject
-                WickedEye.Parameters.AddWithValue("@Section_ID", ddlStatus.Text);
-                WickedEye.Parameters.AddWithValue("@HID", 1);
+                WickedEye.Parameters.AddWithValue("@QID", ddlQT.Text);
+                WickedEye.Parameters.AddWithValue("@SY", ddlSY.Text);
 
-                WickedEye.Parameters.AddWithValue("@Teacher_ID", Request.QueryString["ID"].ToString());
-
-                WickedEye.Parameters.AddWithValue("@HomeID", 1);
-                WickedEye.Parameters.AddWithValue("@Sec_ID", ddlStatus.Text);
 
                 WickedEye.ExecuteNonQuery();
+                
 
                 //Nathaniel Collins S. Ortiz
-                audlog.AuditLogAdmin(DE.Encrypt("Assigning Faculty with Homeroom Adviser"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Faculty assigned by "
+                audlog.AuditLogAdmin(DE.Encrypt("Assigned SY and Quarter"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("School Year and Quarter assigned by "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
-                Response.Redirect("FacultyList.aspx");
+
+                Response.Redirect("EnableEncoding.aspx");
+                
 
             }
         }
