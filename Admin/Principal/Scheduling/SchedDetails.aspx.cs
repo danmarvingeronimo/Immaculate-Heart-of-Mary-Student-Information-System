@@ -39,8 +39,8 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
 
     }
 
- 
-        
+
+
 
     void GetID(int ID)
     {
@@ -91,7 +91,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                             Yearlevel = int.Parse(dr["Year_level"].ToString());
                         }
                     }
-                    
+
                 }
             }
 
@@ -115,7 +115,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
                 {
                     ddlSubject.DataSource = Chuu2;
-                    ddlSubject.DataTextField = "Subject_Name";      
+                    ddlSubject.DataTextField = "Subject_Name";
                     ddlSubject.DataValueField = "Subject_ID";
                     ddlSubject.DataBind();
 
@@ -137,9 +137,12 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
             Rikka.Open();
             string Takanashi = @"UPDATE SCHEDULE SET Subject_ID=@Subject_ID WHERE
                                 ScheduleID=@ScheduleID";
-                               
 
-            using(SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            string validate = @"SELECT COUNT (Timeslot) FROM SCHEDULE WHERE Subject_ID = '" + ddlSubject.Text + "' ";
+            SqlCommand con = new SqlCommand(validate, Rikka);
+            int count = Convert.ToInt32(con.ExecuteScalar().ToString());
+
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
             {   //Nathaniel Collins S. Ortiz
                 WickedEye.Parameters.AddWithValue("@Admin_ID", Session["Admin_ID"].ToString());
 
@@ -147,12 +150,26 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 WickedEye.Parameters.AddWithValue("@Subject_ID", ddlSubject.Text);
                 WickedEye.Parameters.AddWithValue("@ScheduleID", Request.QueryString["ID"].ToString());
 
+                if (count == 2)
+                {
+                    error.Visible = true;
 
-                WickedEye.ExecuteNonQuery();
-                //Nathaniel Collins S. Ortiz V
-                audlog.AuditLogAdmin(DE.Encrypt("Edit Schedule"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Schedule has been Edited by Principal "
-                         + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
-                Response.Redirect("Schedule.aspx");
+                }
+                else
+                {
+
+                    WickedEye.ExecuteNonQuery();
+                    //Nathaniel Collins S. Ortiz V
+                    audlog.AuditLogAdmin(DE.Encrypt("Edit Schedule"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Schedule has been Edited by "
+                             + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
+
+                    Session["addsub"] = error.Text;
+                    Response.Redirect("Schedule.aspx");
+
+                }
+
+
+
 
             }
         }

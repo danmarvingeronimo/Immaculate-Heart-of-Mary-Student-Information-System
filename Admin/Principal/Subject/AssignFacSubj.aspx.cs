@@ -143,6 +143,8 @@ public partial class Faculty : System.Web.UI.Page
                     Rikka.Close();
                     audlog.AuditLogAdmin(DE.Encrypt("Assigning Faculty with Subject"), int.Parse(Session["user_id"].ToString()), DE.Encrypt("Faculty assigned by Principal "
                     + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
+
+                    Session["add"] = add.Text;
                     Response.Redirect("ViewSubject.aspx");
                 }
                 //SqlDataReader dr = WickedEye.ExecuteReader();

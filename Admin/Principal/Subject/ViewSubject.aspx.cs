@@ -17,6 +17,18 @@ public partial class Subject_ViewSubject : System.Web.UI.Page
         {
             ViewSubject();
         }
+
+        if (Session["add"] != null)
+        {
+            success.Visible = true;
+            Session["add"] = null;
+        }
+        else if (Session["empty"] != null)
+        {
+            empty.Visible = true;
+            Session["empty"] = null;
+        }
+
     }
 
     void ViewSubject()
@@ -56,10 +68,14 @@ public partial class Subject_ViewSubject : System.Web.UI.Page
                     Jungle.Parameters.AddWithValue("@SID", ltSubjectID.Text);
                     Jungle.Parameters.AddWithValue("@TID", 7);
                     Jungle.ExecuteNonQuery();
+
+                    Session["empty"] = empty.Text;
+                    empty.Visible = true;
                 }
             }
         }
         ViewSubject();
+        
     }
 
 

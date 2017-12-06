@@ -73,7 +73,30 @@
                 </div>
             </div>
         </div>
+
+         <div class="form-group text-center">
+            <div class=" col-lg-12">
+                <asp:label ID="empty" CssClass="alert alert-warning alert-dismissible" Font-Size="Large" runat="server" Visible="false">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>Note!</strong> Teacher unassigned
+                </asp:label>
+            </div>
+        </div>
+
+         
+        <div class="form-group text-center">
+            <div class=" col-lg-12">
+                <asp:Panel ID="success" CssClass="alert alert-success alert-dismissible" Font-Size="Large" runat="server" Visible="false">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <strong>Success! </strong>Teacher assigned
+                </asp:Panel>
+            </div>
+        </div>
+
+
+
     </div>
+
 </asp:Content>
 
 

@@ -15,6 +15,19 @@ public partial class Section_ViewSection : System.Web.UI.Page
         {
             ViewSection();
         }
+
+        if (Session["emptysub"] != null)
+        {
+            success.Visible = true;
+            Session["emptysub"] = null;
+        }
+
+        else if (Session["addsub"] != null)
+        {
+            add.Visible = true;
+            Session["addsub"] = null;
+        }
+
     }
     void ViewSection()
     {

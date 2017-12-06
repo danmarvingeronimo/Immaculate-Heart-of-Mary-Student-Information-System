@@ -106,27 +106,26 @@ public partial class Faculty_Scheduling_Schedule : System.Web.UI.Page
 
     protected void lvSched_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        Literal ltSchedID = (Literal)e.Item.FindControl("ltSchedID");
+        Literal ltSubjectID = (Literal)e.Item.FindControl("ltSubjectID");
         Util audlog = new Util();
         Cryptic DE = new Cryptic();
-        if (e.CommandName == "delsched")
+        if (e.CommandName == "emptysub")
         {
             using (SqlConnection con = new SqlConnection(Util.GetConnection()))
             {   
                 con.Open();
-                string DELETE = @"DELETE FROM SCHEDULE WHERE ScheduleID=@SchedID";
+                string DELETE = @"UPDATE SCHEDULE SET Subject_ID=@SID  WHERE ScheduleID=@IED";
                 using (SqlCommand Nero = new SqlCommand(DELETE, con))
                 {
-                    Nero.Parameters.AddWithValue("@SchedID", ltSchedID.Text);
+                    Nero.Parameters.AddWithValue("@IED", ltSubjectID.Text);
+                    Nero.Parameters.AddWithValue("@SID", 81);
                     Nero.ExecuteNonQuery();
                     audlog.AuditLogAdmin("Delete Schedule", int.Parse(Session["user_id"].ToString()), "Schedule has been Deleted by Principal "
                        + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString());
+                    Session["emptysub"] = success.Text;
+                    Response.Redirect("Schedule.aspx");
                 }
             }
-        }
-        else if (e.CommandName == "updatesec")
-        {
-
         }
     }
 }

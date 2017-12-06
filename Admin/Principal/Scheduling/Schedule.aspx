@@ -35,7 +35,8 @@
                                         onitemcommand="lvSched_ItemCommand">
                         <ItemTemplate>
                             <tr>
-                                
+                                <asp:Literal ID="ltSubjectID" runat="server"
+                                    Text='<%#Eval("ScheduleID") %>' Visible="false" />
                        
                                 <td><%#Eval("Day_Schedule") %></td>
                                 <td><%#Eval("Timeslot") %></td>
@@ -50,6 +51,10 @@
                                       class="btn btn-xs btn-info" title="Add Subject">
                                          <i class="fa fa-edit"></i>
                                  </a>
+                                    <asp:LinkButton ID="btnEmptySubject" runat="server"
+                                        class="btn btn-xs btn-danger" CommandName="emptysub">
+                                        <i class="fa fa-exclamation"></i>
+                                    </asp:LinkButton>
 
                                 
                                 
@@ -72,6 +77,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-4 col-lg-4">
+            <asp:Label ID="success" class="col-lg-4" ForeColor="Green" runat="server" Visible="false">
+                <strong>Success!</strong> Subject unassigned
+            </asp:Label>
         </div>
     </div>
 
