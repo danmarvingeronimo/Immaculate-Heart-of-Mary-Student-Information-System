@@ -11,6 +11,16 @@
     <form runat="server" class=" form-horizontal">
 
         <div class="form-group">
+            <label class="control-label col-lg-4">Timeslot</label>
+            <div class="col-lg-4">
+                <asp:DropDownList ID="ddlTime" runat="server"
+                    class="form-control" required />
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
             <label class="control-label col-lg-4">Subject</label>
             <div class="col-lg-4">
                 <asp:DropDownList ID="ddlSubject" runat="server"
@@ -30,7 +40,7 @@
         <div class="form-group">
             <div class="col-lg-offset-4 col-lg-8">
                 <asp:Label ID="error" class="col-lg-4" ForeColor="Red" runat="server" Visible="false">
-                             <strong>Note!: </strong>Subject already assigned on timeslot schedule 
+                             <strong>Note!: </strong> a subject is already assigned on timeslot schedule 
                 </asp:Label>
             </div>
         </div>

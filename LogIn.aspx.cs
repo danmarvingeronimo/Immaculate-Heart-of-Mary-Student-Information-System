@@ -263,19 +263,19 @@ public partial class Admin_LogIn : System.Web.UI.Page
     protected void btnLogin_Click(object sender, EventArgs e)
     {
 
-        if (ctrlGoogleReCaptcha.Validate())
-        {
+       // if (ctrlGoogleReCaptcha.Validate())
+       // {
             LogInFaculty();
             LogInAdmin();
             LogInStudent();
 
-        }
-        else
+        // }
+       //   else
         {
-            captcha.Visible = true;
-            error.Visible = false;
-            txtUserID.Text = string.Empty;
-            txtPassword.Text = string.Empty;
+           // captcha.Visible = true;
+           // error.Visible = false;
+          //  txtUserID.Text = string.Empty;
+            //txtPassword.Text = string.Empty;
            
 
 

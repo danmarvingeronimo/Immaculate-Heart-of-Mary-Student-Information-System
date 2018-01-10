@@ -37,7 +37,7 @@
                <div class="col-lg-offset-4 col-lg-8">
                    <asp:Button ID="btnUpdate" runat="server"
                        class="btn btn-success" Text="Update" OnClick="btnUpdate_Click" />
-                   <a href="FacultyList.aspx" class ="btn btn-default">
+                   <a href="../Principal_index.aspx" class ="btn btn-default">
                        Back to View
                    </a>
                </div>

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="Site.master" AutoEventWireup="true" CodeFile="LogIn.aspx.cs" Inherits="Admin_LogIn" %>
 
-<%@ Register Assembly="GoogleReCaptcha" Namespace="GoogleReCaptcha" TagPrefix="cc1" %>
+   <%@ Register Assembly="GoogleReCaptcha" Namespace="GoogleReCaptcha" TagPrefix="cc1" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
@@ -78,13 +78,13 @@
             </div>
         </div>
         <br />
-               <div style="margin-right: 485px;" class="form-group" align="right">
+              <!-- <div style="margin-right: 485px;" class="form-group" align="right">
             <label class="control-label col-lg-4"></label>
             <div class="col-lg-4">
                 <cc1:GoogleReCaptcha ID="ctrlGoogleReCaptcha" runat="server" PublicKey="6LcypzcUAAAAAHZGU92TxL8W2P_MD5duaneqJ6F-" 
                     PrivateKey="6LcypzcUAAAAAK76cOcDqB_I4zZ57UndBJRt9X5U" />
-            </div>
-        </div>
+            </div> 
+        </div> -->
         <br />
         <br />
             <div style="float:right; margin-right:700px;" class="form-group">
@@ -103,7 +103,7 @@
         </form>
  
         
-        <div class="g-recaptcha" data-sitekey="6LcypzcUAAAAAHZGU92TxL8W2P_MD5duaneqJ6F-"></div>
+      <!--  <div class="g-recaptcha" data-sitekey="6LcypzcUAAAAAHZGU92TxL8W2P_MD5duaneqJ6F-"></div> -->
           <br />
         <br />
 </asp:Content>

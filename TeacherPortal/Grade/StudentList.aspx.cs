@@ -39,6 +39,33 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
 
     }
 
+    public static int Yearlevel(int ID)
+    {
+        int Yearlevel = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT Year_level FROM STUDENT_MAIN WHERE Student_ID=@SID";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+                WickedEye.Parameters.AddWithValue("@SID", ID);
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            Yearlevel = int.Parse(dr["Year_level"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return Yearlevel;
+    }
 
 
 
@@ -96,6 +123,97 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     }
 
 
+
+    public static int GradeStatus()
+    {
+        int GradeStatus = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT Grade_StatusID FROM ENCODING_STATUS WHERE EncodingStat_ID=1";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            GradeStatus = int.Parse(dr["Grade_StatusID"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return GradeStatus;
+    }
+
+
+ 
+    public static int SY()
+    {
+        int SY = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT SY_ID FROM ENCODING_STATUS WHERE EncodingStat_ID=1";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            SY = int.Parse(dr["SY_ID"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return SY;
+    }
+
+    public static int Quarter()
+    {
+        int Quarter = 0;
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            string Takanashi = @" SELECT Quarter_ID FROM ENCODING_STATUS WHERE EncodingStat_ID=1";
+            Rikka.Open();
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+
+                using (SqlDataReader dr = WickedEye.ExecuteReader())
+                {
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            Quarter = int.Parse(dr["Quarter_ID"].ToString());
+                        }
+                    }
+
+                }
+            }
+
+        }
+
+        return Quarter;
+    }
+
+
+
+
+
     protected void lvStudents_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
     {
         dpStudents.SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
@@ -114,4 +232,74 @@ public partial class Admin_Admission_StudentList : System.Web.UI.Page
     {
 
     }
+    protected void lvStudents_ItemCommand(object sender, ListViewCommandEventArgs e)
+
+    {
+
+        int gradeStatus = GradeStatus();
+        int sy = SY();
+        int quarter = Quarter();
+        if (gradeStatus == 1) 
+        {
+            int yearlvl = Yearlevel(int.Parse(Request.QueryString["ID"].ToString()));
+
+            TextBox txtGrade = (TextBox)e.Item.FindControl("txtGrade");
+
+            DropDownList ddlSubject = (DropDownList)e.Item.FindControl("ddlSubject");
+
+            using (SqlConnection con = new SqlConnection(Util.GetConnection()))
+            {
+                Util audlog = new Util();
+                Cryptic DE = new Cryptic();
+                con.Open();
+                string SQL = @"INSERT INTO GRADE_INFO(Student_ID, Teacher_ID, Grade_Value, SY, Quarter) 
+                            VALUES (@SID, @TID, @Grade_Value, @SY, @Quarter)";
+
+                string Takanashi = @"SELECT Subject_ID, Subject_Name FROM SUBJECT_MAIN WHERE Teacher_ID=@TID AND Year_level = @YL";
+
+                using (SqlCommand WickedEye = new SqlCommand(Takanashi, con))
+                {
+                    WickedEye.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+                    WickedEye.Parameters.AddWithValue("@YL", yearlvl);
+
+
+
+                    using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
+                    {
+                        ddlSubject.DataSource = Chuu2;
+                        ddlSubject.DataTextField = "Subject_Name";
+                        ddlSubject.DataValueField = "Subject_ID";
+                        ddlSubject.DataBind();
+
+                        ddlSubject.Items.Insert(0, new ListItem("Select a subject.", ""));
+
+                    }
+                }
+
+
+                using (SqlCommand cmd = new SqlCommand(SQL, con))
+                {
+                    cmd.Parameters.AddWithValue("@SID", Request.QueryString["ID"].ToString());
+
+                    cmd.Parameters.AddWithValue("@TID", Session["Teacher_ID"].ToString());
+
+
+                    cmd.Parameters.AddWithValue("@SY", sy);
+
+                    cmd.Parameters.AddWithValue("@Quarter", quarter);
+                    cmd.Parameters.AddWithValue("@Grade_Value", txtGrade.Text);
+
+
+                    cmd.ExecuteNonQuery();
+
+                    Response.Redirect("StudentList.aspx");
+
+                }
+
+            }
+
+        }
+
+    }
 }
+

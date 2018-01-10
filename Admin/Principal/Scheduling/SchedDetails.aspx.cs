@@ -28,6 +28,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 {
                     GetID(secid);
                     GetSubj();
+                    GetTime();
 
                 }
             }
@@ -46,7 +47,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
     {
         using (SqlConnection con = new SqlConnection(Util.GetConnection()))
         {
-            string SQL = @"SELECT Sec.Year_level + ' - ' + Sec.Section_Name + ' /' + S.Day_Schedule + ' - '  + S.Timeslot AS 'Section' FROM SECTION Sec 
+            string SQL = @"SELECT Sec.Year_level + ' - ' + Sec.Section_Name + ' /' + S.Day_Schedule + ' - ' AS 'Section' FROM SECTION Sec 
                            JOIN SCHEDULE S ON Sec.Section_ID=S.Section_ID WHERE S.ScheduleID=@SID ";
             con.Open();
             using (SqlCommand com = new SqlCommand(SQL, con))
@@ -126,6 +127,30 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
         }
     }
 
+    void GetTime()
+    {
+        int time = Yearlevel(int.Parse(Request.QueryString["ID"].ToString()));
+        using (SqlConnection Rikka = new SqlConnection(Dekomori.GetConnection()))
+        {
+            Rikka.Open();
+            string Takanashi = @"SELECT Timeslot_ID, Timeslot FROM TIMESLOT_MAIN ";
+            using (SqlCommand WickedEye = new SqlCommand(Takanashi, Rikka))
+            {
+                WickedEye.Parameters.AddWithValue("@YL", time);
+                using (SqlDataReader Chuu2 = WickedEye.ExecuteReader())
+                {
+                    ddlTime.DataSource = Chuu2;
+                    ddlTime.DataTextField = "Timeslot";
+                    ddlTime.DataValueField = "Timeslot_ID";
+                    ddlTime.DataBind();
+
+                    ddlTime.Items.Insert(0, new ListItem("Select time.", ""));
+
+                }
+            }
+        }
+    }
+
 
 
     protected void btnUpdate_Click(object sender, EventArgs e)
@@ -138,7 +163,10 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
             string Takanashi = @"UPDATE SCHEDULE SET Subject_ID=@Subject_ID WHERE
                                 ScheduleID=@ScheduleID";
 
-            string validate = @"SELECT COUNT (Timeslot) FROM SCHEDULE WHERE Subject_ID = '" + ddlSubject.Text + "' ";
+            string time = @"UPDATE SCHEDULE SET Timeslot_ID=@Timeslot_ID WHERE
+                                 ScheduleID=@ScheduleID";
+
+            string validate = @"SELECT COUNT (Section_ID) FROM SCHEDULE WHERE Timeslot_ID = '" + ddlTime.Text + "' ";
             SqlCommand con = new SqlCommand(validate, Rikka);
             int count = Convert.ToInt32(con.ExecuteScalar().ToString());
 
@@ -149,8 +177,16 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 //Subject
                 WickedEye.Parameters.AddWithValue("@Subject_ID", ddlSubject.Text);
                 WickedEye.Parameters.AddWithValue("@ScheduleID", Request.QueryString["ID"].ToString());
+                WickedEye.ExecuteNonQuery();
 
-                if (count == 2)
+            }
+            using (SqlCommand cmd = new SqlCommand(time, Rikka))
+            {   
+                //Time
+                cmd.Parameters.AddWithValue("@Timeslot_ID", ddlTime.Text);
+                cmd.Parameters.AddWithValue("@ScheduleID", Request.QueryString["ID"].ToString());
+
+                if (count == 1)
                 {
                     error.Visible = true;
 
@@ -158,7 +194,7 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                 else
                 {
 
-                    WickedEye.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                     //Nathaniel Collins S. Ortiz V
                     audlog.AuditLogAdmin(DE.Encrypt("Edit Schedule"), int.Parse(Session["admin_id"].ToString()), DE.Encrypt("Schedule has been Edited by "
                              + Session["first_name"].ToString() + " " + Session["middle_name"].ToString() + " " + Session["last_name"].ToString()));
@@ -167,10 +203,6 @@ public partial class Admin_IT_Admin_AdminDetails : System.Web.UI.Page
                     Response.Redirect("Schedule.aspx");
 
                 }
-
-
-
-
             }
         }
     }
